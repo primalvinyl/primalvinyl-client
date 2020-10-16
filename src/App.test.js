@@ -1,9 +1,18 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { shallow } from 'enzyme';
+import rootReducer from './reducers';
+import App from './App'; 
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+    it('renders', () => {
+        const store = createStore(rootReducer, {});
+        const myWrapper = shallow(
+            <Provider store={store}>
+                <App />
+            </Provider>
+        );
+        expect(myWrapper.exists());
+    });
 });
