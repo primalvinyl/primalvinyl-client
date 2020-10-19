@@ -7,6 +7,8 @@
         "build": "cd client-app && npm run build",
         "server": "nodemon --inspect ./bin/www ",
         "test": "cd client-app && npm run test",
+        "test:coverage": "cd client-app && npm run test:coverage",
+        "test:snapshot": "cd client-app && npm run test:snapshot",
         "dev": "cd client-app && npm run start",
         "start": "node ./bin/www"
     },
