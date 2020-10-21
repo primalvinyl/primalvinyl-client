@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AboutUs matches snapshot 1`] = `
+exports[`MasterTemplate matches snapshot 1`] = `
 <div
   className="master-template"
 >
@@ -96,17 +96,7 @@ exports[`AboutUs matches snapshot 1`] = `
       </div>
     </header>
     <main>
-      <div
-        className="about-us"
-      >
-        <div
-          className="wrapper"
-        >
-          <h2>
-            About Us
-          </h2>
-        </div>
-      </div>
+      Test
     </main>
   </div>
   <footer>

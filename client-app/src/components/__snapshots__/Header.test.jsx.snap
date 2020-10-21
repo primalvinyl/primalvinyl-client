@@ -5,9 +5,90 @@ exports[`Header matches snapshot 1`] = `
   <div
     className="wrapper"
   >
-    <h1>
-      Header
-    </h1>
+    <a
+      className="logotype"
+      href="https://www.dingo.com"
+    >
+      <hgroup>
+        <h1>
+          My Site
+        </h1>
+        <h2>
+          My Site
+        </h2>
+      </hgroup>
+    </a>
+    <nav
+      className="navigation"
+    >
+      <ul>
+        <li>
+          <a
+            aria-current="page"
+            className="active"
+            href="/"
+            onClick={[Function]}
+            style={Object {}}
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/about-us"
+            onClick={[Function]}
+          >
+            About Us
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/ding"
+            onClick={[Function]}
+          >
+            Nav Item 1
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/dong"
+            onClick={[Function]}
+          >
+            Nav Item 2
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/dingle"
+            onClick={[Function]}
+          >
+            Nav Item 3
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/ring"
+            onClick={[Function]}
+          >
+            Nav Item 4
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current={null}
+            href="/sing"
+            onClick={[Function]}
+          >
+            Nav Item 5
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </header>
 `;

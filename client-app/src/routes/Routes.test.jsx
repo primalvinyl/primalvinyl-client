@@ -1,15 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Renderer from 'react-test-renderer';
-import Navigation from './Navigation';
+import { MemoryRouter } from 'react-router-dom';
+import Routes from './Routes';
 
-describe('Navigation', () => {
+describe('Routes', () => {
     it('renders', () => {
-        const myWrapper = shallow(<Navigation />);
+        const myWrapper = shallow(<MemoryRouter><Routes /></MemoryRouter>);
         expect(myWrapper.exists());
     });
     it('matches snapshot', () => {
-        const component = Renderer.create(<Navigation />);
+        const component = Renderer.create(<MemoryRouter><Routes /></MemoryRouter>);
         expect(component.toJSON()).toMatchSnapshot();
     });
 });

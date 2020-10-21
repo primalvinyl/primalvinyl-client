@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AboutUs matches snapshot 1`] = `
+exports[`Routes matches snapshot 1`] = `
 <div
   className="master-template"
 >
@@ -97,13 +97,13 @@ exports[`AboutUs matches snapshot 1`] = `
     </header>
     <main>
       <div
-        className="about-us"
+        className="home-page"
       >
         <div
           className="wrapper"
         >
           <h2>
-            About Us
+            Home Page
           </h2>
         </div>
       </div>
