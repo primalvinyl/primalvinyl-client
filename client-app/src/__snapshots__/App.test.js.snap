@@ -2,31 +2,38 @@
 
 exports[`App matches snapshot 1`] = `
 <div
-  className="App"
+  className="app"
 >
-  <header
-    className="App-header"
-  >
-    <img
-      alt="logo"
-      className="App-logo"
-      src="logo.svg"
-    />
-    <p>
-      Edit 
-      <code>
-        src/App.js
-      </code>
-       and save to reload.
-    </p>
-    <a
-      className="App-link"
-      href="https://reactjs.org"
-      rel="noopener noreferrer"
-      target="_blank"
+  <div>
+    <header>
+      <div
+        className="wrapper"
+      >
+        <h1>
+          Header
+        </h1>
+      </div>
+    </header>
+    <main>
+      <div
+        className="home-page"
+      >
+        <div
+          className="wrapper"
+        >
+          <h2>
+            Home Page
+          </h2>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer>
+    <div
+      className="wrapper"
     >
-      Learn React
-    </a>
-  </header>
+      Footer
+    </div>
+  </footer>
 </div>
 `;

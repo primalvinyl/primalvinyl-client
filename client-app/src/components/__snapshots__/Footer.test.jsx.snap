@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer matches snapshot 1`] = `
+<footer>
+  <div
+    className="wrapper"
+  >
+    Footer
+  </div>
+</footer>
+`;

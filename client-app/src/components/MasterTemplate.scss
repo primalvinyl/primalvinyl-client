@@ -1,0 +1,9 @@
+@import './styles/partials/breakpoints';
+@import './styles/partials/variables';
+
+.master-template {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

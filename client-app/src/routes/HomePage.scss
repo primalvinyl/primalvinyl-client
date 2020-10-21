@@ -1,0 +1,19 @@
+@import '../styles/partials/breakpoints';
+@import '../styles/partials/variables';
+
+.home-page {
+    padding: 2em;
+
+    .wrapper {
+        margin: 0 auto;
+
+        @include breakpoint(lg-up){
+            width: 1200px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+@import '../styles/partials/breakpoints';
+@import '../styles/partials/variables';
+
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: $text-color;
+    background: $body-bg;
+
+    .wrapper {
+        margin: 0 auto;
+        padding: 3em;
+
+        h1 {
+            font-size: 15em;
+            font-weight: bold;
+        }
+    }
+}

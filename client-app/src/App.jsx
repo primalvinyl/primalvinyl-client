@@ -1,18 +1,16 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { BreakpointProvider } from './utilities/BreakpointProvider';
-import logo from './images/logo.svg';
-import './App.scss';
+import Routes from './routes/Routes';
 
-function App() {
-    return (
-        <div className="App">
-            <BreakpointProvider>
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                </header>
-            </BreakpointProvider>
-        </div>
-    );
-}
+const App = () => (
+    <BrowserRouter>
+        <BreakpointProvider>
+            <div className="app">
+                <Routes />
+            </div>
+        </BreakpointProvider>
+    </BrowserRouter>
+);
 
 export default App;

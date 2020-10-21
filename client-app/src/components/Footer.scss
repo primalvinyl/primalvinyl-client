@@ -1,0 +1,59 @@
+@import '../styles/partials/breakpoints';
+@import '../styles/partials/variables';
+
+footer {
+    padding: 3em;
+    color: $gray-500;
+    font-size: .8em;
+
+    .wrapper {
+        margin: 0 auto;
+        padding: 3em 0 0 0;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        border-top: 1px solid $gray-300;
+
+        @include breakpoint(lg-up){
+            width: 1200px;
+        }
+
+        .logotype {
+            margin: 0 .5em 0 0;
+
+            h2 {
+                text-indent: -9999px;
+                width: 30px;
+                height: 30px;
+                background-image: url(../images/logo.svg);
+                background-position: center;
+                background-size: cover;
+            }
+
+        }
+
+        .copyright {
+            margin: 0 5em 0 0;
+        }
+
+        .navigation {
+            a {
+                color: $gray-700;
+                text-decoration: none;
+
+                &:hover {
+                    border-bottom: 1px solid $gray-500;
+                }
+            }
+
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+
+                li {
+                    margin: 0 2.5em 0 0;
+                }
+            }
+        }
+    }
+}
