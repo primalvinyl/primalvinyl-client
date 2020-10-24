@@ -15,11 +15,13 @@ const Footer = () => {
     return (
         <footer>
             <div className="wrapper">
-                <a href="https://www.dingo.com" className="logotype">
-                    <h2>My Site</h2>
-                </a>
-                <div className="copyright">
-                    {'© '}{new Date().getFullYear()}{ ' ' }My Site
+                <div className="logotype">
+                    <a href="/">
+                        <h2>My Site</h2>
+                    </a>
+                    <div className="copyright">
+                        {'© '}{new Date().getFullYear()}{ ' ' }My Site
+                    </div>
                 </div>
                 <div className="navigation">
                     <nav>

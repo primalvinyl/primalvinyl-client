@@ -2,18 +2,19 @@
 @import '../styles/partials/variables';
 
 .about-us {
-    padding: 2em;
-
     .wrapper {
         margin: 0 auto;
-
-        @include breakpoint(lg-up){
-            width: 1200px;
-        }
+        width: 1200px;
 
         h2 {
             font-size: 20px;
             font-weight: bold;
+        }
+    }
+
+    @include breakpoint(lg-down){
+        .wrapper {
+            width: 100%;
         }
     }
 }

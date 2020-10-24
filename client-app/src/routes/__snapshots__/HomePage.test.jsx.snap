@@ -11,7 +11,7 @@ exports[`HomePage matches snapshot 1`] = `
       >
         <a
           className="logotype"
-          href="https://www.dingo.com"
+          href="/"
         >
           <hgroup>
             <h1>
@@ -22,77 +22,6 @@ exports[`HomePage matches snapshot 1`] = `
             </h2>
           </hgroup>
         </a>
-        <nav
-          className="navigation"
-        >
-          <ul>
-            <li>
-              <a
-                aria-current="page"
-                className="active"
-                href="/"
-                onClick={[Function]}
-                style={Object {}}
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/about-us"
-                onClick={[Function]}
-              >
-                About Us
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/ding"
-                onClick={[Function]}
-              >
-                Nav Item 1
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/dong"
-                onClick={[Function]}
-              >
-                Nav Item 2
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/dingle"
-                onClick={[Function]}
-              >
-                Nav Item 3
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/ring"
-                onClick={[Function]}
-              >
-                Nav Item 4
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/sing"
-                onClick={[Function]}
-              >
-                Nav Item 5
-              </a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </header>
     <main>
@@ -113,21 +42,24 @@ exports[`HomePage matches snapshot 1`] = `
     <div
       className="wrapper"
     >
-      <a
-        className="logotype"
-        href="https://www.dingo.com"
-      >
-        <h2>
-          My Site
-        </h2>
-      </a>
       <div
-        className="copyright"
+        className="logotype"
       >
-        © 
-        2020
-         
-        My Site
+        <a
+          href="/"
+        >
+          <h2>
+            My Site
+          </h2>
+        </a>
+        <div
+          className="copyright"
+        >
+          © 
+          2020
+           
+          My Site
+        </div>
       </div>
       <div
         className="navigation"
