@@ -8,6 +8,7 @@ exports[`Header matches snapshot 1`] = `
     <a
       className="logotype"
       href="/"
+      onClick={[Function]}
     >
       <hgroup>
         <h1>

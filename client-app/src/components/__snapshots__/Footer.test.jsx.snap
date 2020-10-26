@@ -10,6 +10,7 @@ exports[`Footer matches snapshot 1`] = `
     >
       <a
         href="/"
+        onClick={[Function]}
       >
         <h2>
           My Site

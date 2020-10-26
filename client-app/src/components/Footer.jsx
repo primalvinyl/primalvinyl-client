@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { navList } from '../__types__';
 import './Footer.scss';
 
@@ -16,9 +16,9 @@ const Footer = () => {
         <footer>
             <div className="wrapper">
                 <div className="logotype">
-                    <a href="/">
+                    <Link to="/">
                         <h2>My Site</h2>
-                    </a>
+                    </Link>
                     <div className="copyright">
                         {'© '}{new Date().getFullYear()}{ ' ' }My Site
                     </div>

@@ -15,6 +15,7 @@ exports[`App matches snapshot 1`] = `
           <a
             className="logotype"
             href="/"
+            onClick={[Function]}
           >
             <hgroup>
               <h1>
@@ -53,6 +54,7 @@ exports[`App matches snapshot 1`] = `
         >
           <a
             href="/"
+            onClick={[Function]}
           >
             <h2>
               My Site

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { navList } from '../__types__';
 import { useBreakpoint } from '../utilities/BreakpointProvider';
@@ -16,7 +16,7 @@ const Header = () => {
             <NavLink exact to={link.path} key={link.path}>
                 {link.value}
             </NavLink>
-        </li>
+        </li> 
     ));
 
     // detects mouse clicks outside the nav
@@ -43,12 +43,12 @@ const Header = () => {
                         <FontAwesomeIcon icon={faBars} />
                     </button>
                 }
-                <a href="/" className="logotype">
+                <Link to="/" className="logotype">
                     <hgroup>
                         <h1>My Site</h1>
                         <h2>My Site</h2>
                     </hgroup>
-                </a>
+                </Link>
                 <CSSTransition in={toggleNav} timeout={300} classNames="nav-group">
                     <nav className="navigation">
                         {(toggleNav || breakpoint.lgUp) &&

@@ -12,6 +12,7 @@ exports[`Routes matches snapshot 1`] = `
         <a
           className="logotype"
           href="/"
+          onClick={[Function]}
         >
           <hgroup>
             <h1>
@@ -50,6 +51,7 @@ exports[`Routes matches snapshot 1`] = `
       >
         <a
           href="/"
+          onClick={[Function]}
         >
           <h2>
             My Site
