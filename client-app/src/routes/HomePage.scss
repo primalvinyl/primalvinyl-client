@@ -1,5 +1,5 @@
-@import '../styles/partials/breakpoints';
-@import '../styles/partials/variables';
+@import "../styles/partials/breakpoints";
+@import "../styles/partials/variables";
 
 .home-page {
     .wrapper {
@@ -12,7 +12,7 @@
         }
     }
 
-    @include breakpoint(lg-down){
+    @include breakpoint(lg-down) {
         .wrapper {
             width: 100%;
         }
