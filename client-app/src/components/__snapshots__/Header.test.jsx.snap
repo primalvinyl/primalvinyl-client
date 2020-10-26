@@ -18,6 +18,9 @@ exports[`Header matches snapshot 1`] = `
         </h2>
       </hgroup>
     </a>
+    <nav
+      className="navigation"
+    />
   </div>
 </header>
 `;
