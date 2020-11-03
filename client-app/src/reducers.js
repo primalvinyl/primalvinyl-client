@@ -23,4 +23,4 @@ export const artists = (state = artistsDefault, action) => {
 export default combineReducers({
     artist,
     artists
-}); 
+});

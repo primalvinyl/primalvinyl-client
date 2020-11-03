@@ -1,11 +1,16 @@
 import axios from 'axios';
-import { discogsGetRequest } from '../utilities/services';
+import { getRequest } from '../utilities/services';
 import { mockArtistApiObject } from '../__mocks__/mockObjects';
 
-describe('discogsGetRequest', () => {
-    it('gets data', async () => {
+describe('getRequest', () => {
+    it('gets artist data', async () => {
         axios.get.mockResolvedValueOnce({ data: mockArtistApiObject });
-        const result = await discogsGetRequest({});
-        expect(result).toStrictEqual(mockArtistApiObject);
+        const response = await getRequest('/artists', '278763');
+        expect(response).toStrictEqual(mockArtistApiObject);
+    });
+    it('gets artists data list', async () => {
+        axios.get.mockResolvedValueOnce({ data: mockArtistApiObject });
+        const response = await getRequest('/artists/search', 'bling');
+        expect(response).toStrictEqual(mockArtistApiObject);
     });
 });

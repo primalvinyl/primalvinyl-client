@@ -1,13 +1,24 @@
-import { artist } from '../reducers';
-import { putArtist, artistDefault } from '../actions';
+import { artist, artists } from '../reducers';
+import { putArtist, putArtists, artistDefault, artistsDefault } from '../actions';
 
 describe('artist', () => {
     it('should return the initial state', () => {
-        const actualResult = artist(undefined, putArtist());
-        expect(actualResult).toEqual(artistDefault);
+        const response = artist(undefined, putArtist());
+        expect(response).toEqual(artistDefault);
     })
     it('should put a new artist', () => {
-        const actualResult = artist(undefined, putArtist(artistDefault));
-        expect(actualResult).toEqual(artistDefault);
+        const response = artist(undefined, putArtist(artistDefault));
+        expect(response).toEqual(artistDefault);
+    });
+});
+
+describe('artists', () => {
+    it('should return the initial state', () => {
+        const response = artists(undefined, putArtists());
+        expect(response).toEqual(artistsDefault);
+    })
+    it('should put new artists list', () => {
+        const response = artists(undefined, putArtists(artistsDefault));
+        expect(response).toEqual(artistsDefault);
     });
 });

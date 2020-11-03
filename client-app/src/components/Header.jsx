@@ -45,8 +45,8 @@ const Header = () => {
                 }
                 <Link to="/" className="logotype">
                     <hgroup>
-                        <h1>My Site</h1>
-                        <h2>My Site</h2>
+                        <h1>Primal Vinyl</h1>
+                        <h2>Primal Vinyl</h2>
                     </hgroup>
                 </Link>
                 <CSSTransition in={toggleNav} timeout={300} classNames="nav-group">
