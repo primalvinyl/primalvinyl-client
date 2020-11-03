@@ -1,16 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Renderer from 'react-test-renderer';
-import { MemoryRouter } from 'react-router-dom';
-import HomePage from './HomePage';
+import ErrorPage from '../routes/ErrorPage';
 
-describe('HomePage', () => {
+describe('ErrorPage', () => {
     it('renders', () => {
-        const myWrapper = shallow(<MemoryRouter><HomePage /></MemoryRouter>);
+        const myWrapper = shallow(<ErrorPage />);
         expect(myWrapper.exists());
     });
     it('matches snapshot', () => {
-        const component = Renderer.create(<MemoryRouter><HomePage /></MemoryRouter>);
+        const component = Renderer.create(<ErrorPage />);
         expect(component.toJSON()).toMatchSnapshot();
     });
 });

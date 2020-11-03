@@ -8,12 +8,12 @@
     justify-content: space-between;
 
     main {
-        margin: 2em 0;
+        padding: 1em 0;
     }
 
     @include breakpoint(lg-down) {
         main {
-            margin: 1em;
+            padding: 1em;
         }
     }
 }

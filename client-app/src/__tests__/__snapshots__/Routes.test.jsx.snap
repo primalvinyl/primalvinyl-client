@@ -29,7 +29,7 @@ exports[`Routes matches snapshot 1`] = `
       </div>
     </header>
     <main>
-      <div
+      <article
         className="home-page"
       >
         <div
@@ -38,8 +38,18 @@ exports[`Routes matches snapshot 1`] = `
           <h2>
             Home Page
           </h2>
+          <div>
+            <input
+              type="text"
+            />
+            <button
+              onClick={[Function]}
+            >
+              Search
+            </button>
+          </div>
         </div>
-      </div>
+      </article>
     </main>
   </div>
   <footer>

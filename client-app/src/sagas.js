@@ -1,66 +1,66 @@
 import { take, put, call, fork, all } from 'redux-saga/effects';
-import { actionTypes, putUser, putUsers } from './actions';
-import { apiMethod } from './utilities';
+import { actionTypes, putArtist, putArtists } from './actions';
+import { discogsGetRequest, discogsPostRequest } from './utilities/services';
 
 /******************************** Workers *************************************/
-export function* getUserWorker(id) {
+export function* getArtistWorker(data) {
     try {
-        yield put(putUser({ request_status: 'pending' }));
-        const response = yield call(apiMethod, 'user', id);
-        yield put(putUser({ ...response, request_status: 'resolved' }));
+        yield put(putArtist({ request_status: 'pending' }));
+        const response = yield call(discogsGetRequest, '/artist', data);
+        yield put(putArtist({ ...response, request_status: 'resolved' }));
     } catch (error) {
-        yield put(putUser({ request_status: 'resolved', error: true }));
+        yield put(putArtist({ request_status: 'resolved', error: true, error_message: 'no data' }));
     }
 }
 
-export function* saveUserWorker(user) {
-    try {
-        const data = JSON.stringify(user);
-        yield put(putUser({ request_status: 'pending' }));
-        yield call(apiMethod, 'user', data);
-        yield put(putUser({ ...user, request_status: 'resolved' }));
+export function* patchArtistWorker(data) {
+    try { 
+        const stringData = JSON.stringify(data);
+        yield put(putArtist({ request_status: 'pending' }));
+        yield call(discogsPostRequest, '/artist', stringData);
+        yield put(putArtist({ ...stringData, request_status: 'resolved' }));
     } catch (error) {
-        yield put(putUser({ error: true, request_status: 'resolved' }));
+        yield put(putArtist({ error: true, request_status: 'resolved' }));
     }
 }
 
-export function* getUsersWorker(name) {
+export function* findArtistWorker(data) {
     try {
-        yield put(putUsers({ request_status: 'pending' }));
-        const response = yield call(apiMethod, 'users', name);
-        yield put(putUsers({ ...response, request_status: 'resolved' }));
+        yield put(putArtists({ request_status: 'pending' }));
+        const response = yield call(discogsGetRequest, '/discogs/artist/search', data);
+        yield put(putArtists({ ...response, request_status: 'resolved' }));
     } catch (error) {
-        yield put(putUsers({ error: true, request_status: 'resolved' }));
+        yield put(putArtists({ error: true, request_status: 'resolved' }));
     }
 }
 
 /******************************* Watchers *************************************/
-export function* getUserWatcher() {
+export function* getArtistWatcher() {
     while (true) {
-        const { id } = yield take(actionTypes.GET_USER);
-        yield call(getUserWorker, id)
+        const { data } = yield take(actionTypes.GET_ARTIST);
+        yield call(getArtistWorker, data)
     }
 }
 
-export function* saveUserWatcher() {
+export function* patchArtistWatcher() {
     while (true) {
-        const { user } = yield take(actionTypes.SAVE_USER);
-        yield call(saveUserWorker, user)
+        const { data } = yield take(actionTypes.PATCH_ARTIST);
+        yield call(patchArtistWorker, data)
     }
 }
 
-export function* getUsersWatcher() {
+export function* findArtistWatcher() {
     while (true) {
-        const { name } = yield take(actionTypes.GET_USERS);
-        yield call(getUsersWorker, name)
+        const { data } = yield take(actionTypes.GET_ARTISTS);
+        yield call(findArtistWorker, data)
     }
 }
 
 /******************************* Root Saga ************************************/
 export default function* rootSaga() {
     yield all([
-        fork(getUserWatcher),
-        fork(saveUserWatcher),
-        fork(getUsersWatcher)
+        fork(getArtistWatcher),
+        fork(patchArtistWatcher),
+        fork(findArtistWatcher)
     ]);
 } 

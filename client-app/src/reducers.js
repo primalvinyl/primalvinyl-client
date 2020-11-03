@@ -1,32 +1,26 @@
 import { combineReducers } from 'redux';
-import { actionTypes, userDefault, usersDefault } from './actions';
+import { actionTypes, artistDefault, artistsDefault } from './actions';
 
-export const user = (state = userDefault, action) => {
+export const artist = (state = artistDefault, action) => {
     switch(action.type){
-        case actionTypes.PUT_USER:
-            return {
-                ...state,
-                ...action.user
-            }
+        case actionTypes.PUT_ARTIST:
+            return { ...state, ...action.data }
         default:
             return state
     }
 }
 
-export const users = (state = usersDefault, action) => {
+export const artists = (state = artistsDefault, action) => {
     switch(action.type){
-        case actionTypes.PUT_USERS:
-            return [
-                ...state,
-                ...action.users
-            ]
+        case actionTypes.PUT_ARTISTS:
+            return { ...state, ...action.data }
         default:
             return state
     }
-} 
+}
 
 //root reducer
 export default combineReducers({
-    users,
-    user
+    artist,
+    artists
 }); 

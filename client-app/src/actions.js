@@ -1,65 +1,76 @@
 /************************* Action Types & Default Objects *****************************/
 export const actionTypes = {
-    SAVE_USER: 'SAVE_USER',
-    GET_USER: 'GET_USER',
-    GET_USERS: 'GET_USERS',
-    PUT_USER: 'PUT_USER',
-    PUT_USERS: 'PUT_USERS'
+    PATCH_ARTIST: 'PATCH_ARTIST',
+    GET_ARTIST: 'GET_ARTIST',
+    GET_ARTISTS: 'GET_ARTISTS',
+    PUT_ARTIST: 'PUT_ARTIST',
+    PUT_ARTISTS: 'PUT_ARTISTS'
 };
 
-export const userDefault = {
-    id: '',
+export const artistDefault = {
     name: '',
-    email: '',
+    realname: '',
+    image_url: '',
     error: false,
     error_message: '',
     request_status: 'idle'
 };
 
-export const usersDefault = {
+export const artistsDefault = {
+    pagination: {},
+    results: [],
     error: false,
     error_message: '',
-    request_status: 'idle',
-    results: []
+    request_status: 'idle'
 };
+
+export const navList = [
+    { path: '/', value: 'Home'},
+    { path: '/about-us', value: 'About Us'},
+    { path: '/ding', value: 'Nav Item 1'},
+    { path: '/dong', value: 'Nav Item 2'},
+    { path: '/dingle', value: 'Nav Item 3'},
+    { path: '/ring', value: 'Nav Item 4'},
+    { path: '/sing', value: 'Nav Item 5'},
+];
 
 
 
 /******************************* Reducer Actions *************************************/
-export const putUser = (user = userDefault) => { 
+export const putArtist = (data = artistDefault) => { 
     return {
-        type: actionTypes.PUT_USER,
-        user
+        type: actionTypes.PUT_ARTIST,
+        data
     };
 };
 
-export const putUsers = (users = usersDefault) => { 
+export const putArtists = (data = artistsDefault) => { 
     return {
-        type: actionTypes.PUT_USERS,
-        users
+        type: actionTypes.PUT_ARTISTS,
+        data
     };
 };
 
 
 
 /******************************* Saga Actions *************************************/
-export const saveUser = (user = userDefault) => {
+export const getArtist = (data = {}) => {
     return {
-        type: actionTypes.SAVE_USER,
-        user
-    };
-};
-
-export const getUser = (data = {}) => {
-    return {
-        type: actionTypes.GET_USER,
+        type: actionTypes.GET_ARTIST,
         data
     };
 };
 
-export const getUsers = (data = {}) => {
+export const patchArtist = (data = {}) => {
     return {
-        type: actionTypes.GET_USERS,
+        type: actionTypes.PATCH_ARTIST,
+        data
+    };
+};
+
+export const getArtists = (data = {}) => {
+    return {
+        type: actionTypes.GET_ARTISTS,
         data
     };
 }; 

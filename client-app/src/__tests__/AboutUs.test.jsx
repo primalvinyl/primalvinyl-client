@@ -2,15 +2,15 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
-import Header from './Header';
+import AboutUs from '../routes/AboutUs';
 
-describe('Header', () => {
+describe('AboutUs', () => {
     it('renders', () => {
-        const myWrapper = shallow(<MemoryRouter><Header /></MemoryRouter>);
+        const myWrapper = shallow(<MemoryRouter><AboutUs /></MemoryRouter>);
         expect(myWrapper.exists());
     });
     it('matches snapshot', () => {
-        const component = Renderer.create(<MemoryRouter><Header /></MemoryRouter>);
+        const component = Renderer.create(<MemoryRouter><AboutUs /></MemoryRouter>);
         expect(component.toJSON()).toMatchSnapshot();
     });
 });

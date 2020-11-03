@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
-import MasterTemplate from './MasterTemplate';
+import MasterTemplate from '../components/MasterTemplate';
 
 describe('MasterTemplate', () => {
     it('renders', () => {
