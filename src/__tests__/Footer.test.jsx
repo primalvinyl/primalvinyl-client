@@ -6,11 +6,19 @@ import Footer from '../components/Footer';
 
 describe('Footer', () => {
     it('renders', () => {
-        const myWrapper = shallow(<MemoryRouter><Footer /></MemoryRouter>);
+        const myWrapper = shallow(
+            <MemoryRouter>
+                <Footer />
+            </MemoryRouter>
+        );
         expect(myWrapper.exists());
     });
     it('matches snapshot', () => {
-        const component = Renderer.create(<MemoryRouter><Footer /></MemoryRouter>);
+        const component = Renderer.create(
+            <MemoryRouter>
+                <Footer />
+            </MemoryRouter>
+        );
         expect(component.toJSON()).toMatchSnapshot();
     });
 });

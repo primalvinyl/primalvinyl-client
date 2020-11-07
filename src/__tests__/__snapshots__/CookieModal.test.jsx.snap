@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CookieModal matches snapshot without props 1`] = `
+<div
+  className="root"
+>
+  <div
+    className=""
+    style={
+      Object {
+        "backgroundColor": "rgba(0,0,0,0.3)",
+        "height": "100%",
+        "left": 0,
+        "position": "fixed",
+        "top": 0,
+        "width": "100%",
+        "zIndex": "999",
+      }
+    }
+  >
+    <div
+      className="cookieConsent"
+      style={
+        Object {
+          "alignItems": "baseline",
+          "background": "#353535",
+          "bottom": "0",
+          "color": "white",
+          "display": "flex",
+          "flexWrap": "wrap",
+          "justifyContent": "space-between",
+          "left": "0",
+          "position": "fixed",
+          "width": "100%",
+          "zIndex": "999",
+        }
+      }
+    >
+      <div
+        className="contentWrapper"
+        style={
+          Object {
+            "flex": "1 0 300px",
+            "margin": "15px",
+          }
+        }
+      >
+        <h3>
+          We Use Cookies
+        </h3>
+        <p>
+          By clicking the Accept button, you agree to our and our parter's use of cookies and other technologies to process your data to personalise your experience and deliver tailored advertising to you, on and off our site.
+        </p>
+        <p>
+          To find out more, please read our 
+          <a
+            href="/terms-of-service"
+            onClick={[Function]}
+          >
+            privacy policy
+          </a>
+          .
+        </p>
+      </div>
+      <div
+        className="buttonWrapper"
+      >
+        <button
+          aria-label="Accept cookies"
+          className=""
+          id="rcc-confirm-button"
+          onClick={[Function]}
+          style={
+            Object {
+              "background": "#ffd42d",
+              "border": "0",
+              "borderRadius": "0px",
+              "boxShadow": "none",
+              "color": "black",
+              "cursor": "pointer",
+              "flex": "0 0 auto",
+              "margin": "15px",
+              "padding": "5px 10px",
+            }
+          }
+        >
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

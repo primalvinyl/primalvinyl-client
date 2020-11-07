@@ -6,11 +6,19 @@ import Header from '../components/Header';
 
 describe('Header', () => {
     it('renders', () => {
-        const myWrapper = shallow(<MemoryRouter><Header /></MemoryRouter>);
+        const myWrapper = shallow(
+            <MemoryRouter>
+                <Header />
+            </MemoryRouter>
+        );
         expect(myWrapper.exists());
     });
     it('matches snapshot', () => {
-        const component = Renderer.create(<MemoryRouter><Header /></MemoryRouter>);
+        const component = Renderer.create(
+            <MemoryRouter>
+                <Header />
+            </MemoryRouter>
+        );
         expect(component.toJSON()).toMatchSnapshot();
     });
 });

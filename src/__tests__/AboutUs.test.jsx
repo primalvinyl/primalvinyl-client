@@ -6,11 +6,19 @@ import AboutUs from '../routes/AboutUs';
 
 describe('AboutUs', () => {
     it('renders', () => {
-        const myWrapper = shallow(<MemoryRouter><AboutUs /></MemoryRouter>);
+        const myWrapper = shallow(
+            <MemoryRouter>
+                <AboutUs />
+            </MemoryRouter>
+        );
         expect(myWrapper.exists());
     });
     it('matches snapshot', () => {
-        const component = Renderer.create(<MemoryRouter><AboutUs /></MemoryRouter>);
+        const component = Renderer.create(
+            <MemoryRouter>
+                <AboutUs />
+            </MemoryRouter>
+        );
         expect(component.toJSON()).toMatchSnapshot();
     });
 });

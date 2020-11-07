@@ -24,7 +24,7 @@ export function* patchArtistWorker(data) {
     }
 }
 
-export function* findArtistWorker(data) {
+export function* getArtistsWorker(data) {
     try {
         yield put(putArtists({ request_status: 'pending' }));
         const response = yield call(getRequest, '/artists/search', data);
@@ -49,10 +49,10 @@ export function* patchArtistWatcher() {
     }
 }
 
-export function* findArtistWatcher() {
+export function* getArtistsWatcher() {
     while (true) {
         const { data } = yield take(actionTypes.GET_ARTISTS);
-        yield call(findArtistWorker, data)
+        yield call(getArtistsWorker, data)
     }
 }
 
@@ -61,6 +61,6 @@ export default function* rootSaga() {
     yield all([
         fork(getArtistWatcher),
         fork(patchArtistWatcher),
-        fork(findArtistWatcher)
+        fork(getArtistsWatcher)
     ]);
 } 
