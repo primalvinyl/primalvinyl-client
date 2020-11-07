@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { BreakpointProvider } from './utilities/BreakpointProvider';
 import Routes from './routes/Routes';
 
-const App = () => (
+const App = (): JSX.Element => (
     <BrowserRouter>
         <BreakpointProvider>
             <div className="app">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { getArtist } from '../actions';
+import { getArtists } from '../actions';
 import MasterTemplate from '../components/MasterTemplate';
 import './HomePage.scss';
 
@@ -8,7 +8,7 @@ const HomePage = () => {
     const dispatch = useDispatch();
 
     const handleSubmit = event => {
-        dispatch(getArtist('278763'));
+        dispatch(getArtists('278763'));
     };
     return (
         <MasterTemplate>

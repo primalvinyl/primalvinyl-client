@@ -5,7 +5,7 @@ import HomePage from './HomePage';
 import AboutUs from './AboutUs';
 import ErrorPage from './ErrorPage';
 
-const Routes = () => (
+const Routes = (): JSX.Element => (
     <ErrorBoundary>
         <Switch>
             <Route
