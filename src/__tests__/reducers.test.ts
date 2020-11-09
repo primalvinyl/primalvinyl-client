@@ -1,5 +1,6 @@
 import { artist, artists } from '../reducers';
-import { putArtist, putArtists, artistDefault, artistsDefault } from '../actions';
+import { putArtist, putArtists } from '../actions';
+import { artistDefault, artistsDefault } from '../__types__';
 
 describe('artist', () => {
     it('should return the initial state', () => {

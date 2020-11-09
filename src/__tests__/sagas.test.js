@@ -3,44 +3,58 @@ import { expectSaga } from 'redux-saga-test-plan';
 import {
     getArtist,
     getArtists,
-    putArtist,
-    putArtists } from '../actions';
+    putArtist
+} from '../actions';
 import {
     artist,
-    artists } from '../reducers';
+    artists
+} from '../reducers';
 import {
     getArtistWatcher,
     getArtistWorker,
     getArtistsWatcher,
-    getArtistsWorker } from '../sagas';
+    getArtistsWorker
+} from '../sagas';
 import {
-    mockArtistApiObject,
-    mockArtistReduxObject,
-    mockArtistsApiObject,
-    mockArtistsReduxObject } from '../__mocks__/mockObjects';
+    mockApiArtistObject,
+    mockReduxArtistObject,
+    mockApiArtistsObject
+} from '../__mocks__/mockObjects';
 
-describe('getArtist', () => {
-    it('listens for action and gets and puts data', () => {
-        axios.get.mockResolvedValueOnce({ data: mockArtistApiObject });
-        expectSaga(getArtistWatcher)
-            .dispatch(getArtist())
-            .call(getArtistWorker)
-            .put(putArtist(mockArtistReduxObject))
+describe('getArtistWorker', () => {
+    it('gets and puts data', () => {
+        axios.get.mockResolvedValueOnce({ data: mockApiArtistObject });
+        return expectSaga(getArtistWorker)
+            .put(putArtist(mockReduxArtistObject))
             .withReducer(artist)
-            .hasFinalState(mockArtistReduxObject)
+            .hasFinalState(mockReduxArtistObject)
             .run();
     });
 });
 
-describe('getArtists', () => {
-    it('listens for action and gets and puts data', () => {
-        axios.get.mockResolvedValueOnce({ data: mockArtistsApiObject });
-        expectSaga(getArtistsWatcher)
-            .dispatch(getArtists())
-            .call(getArtistsWorker)
-            .put(putArtists(mockArtistsReduxObject))
+describe('getArtistsWorker', () => {
+    it('gets and puts data', () => {
+        axios.get.mockResolvedValueOnce({ data: mockApiArtistsObject });
+        return expectSaga(getArtistsWorker)
             .withReducer(artists)
-            .hasFinalState(mockArtistsReduxObject)
             .run();
+    });
+});
+
+describe('getArtistWatcher', () => {
+    it('listens for action', () => {
+        axios.get.mockResolvedValueOnce({ data: mockApiArtistObject });
+        return expectSaga(getArtistWatcher)
+            .dispatch(getArtist('1234'))
+            .silentRun();
+    });
+});
+
+describe('getArtistsWatcher', () => {
+    it('listens for action', () => {
+        axios.get.mockResolvedValueOnce({ data: mockApiArtistsObject });
+        return expectSaga(getArtistsWatcher)
+            .dispatch(getArtists('bling'))
+            .silentRun();
     });
 });

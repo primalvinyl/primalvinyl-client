@@ -4,6 +4,7 @@
     "license": "ISC",
     "description": "A React application that finds recording artist lyrics and info.",
     "keywords": [
+        "lyrics",
         "react",
         "redux",
         "saga"
