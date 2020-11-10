@@ -2,13 +2,13 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 import { navList } from '../__types__';
-import { useBreakpoint } from '../utilities/BreakpointProvider';
+import { useBreakpoint } from './BreakpointProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './Header.scss';
 
-const Header = () => {
-    const headerRef = React.useRef();
+const Header = (): React.ReactElement => {
+    const headerRef = React.useRef<HTMLElement>(null);
     const breakpoint = useBreakpoint();
     const [toggleNav, setToggleNav] = React.useState(false);
     const NavList = navList.map(link => (
@@ -24,13 +24,13 @@ const Header = () => {
         document.addEventListener('mousedown', clickHandler);
         return () => document.removeEventListener('mousedown', clickHandler);
     }, []);
-
-    const clickHandler = event => {
-        if (headerRef.current.contains(event.target)) return;
+ 
+    const clickHandler = (event: MouseEvent): void => {
+        if (headerRef.current && headerRef.current.contains(event.target as Node)) return;
         else setToggleNav(false);
     };
 
-    const toggleNavHandler = event => {
+    const toggleNavHandler = (event: React.MouseEvent): void => {
         event.stopPropagation();
         setToggleNav(!toggleNav);
     };

@@ -12,7 +12,7 @@ const BreakpointContext = React.createContext({
     'xlDown': false
 });
 
-const BreakpointProvider = ({ children }) => {
+export const BreakpointProvider = ({ children }) => {
     const [queryMatch, setQueryMatch] = React.useState({});
 
     const getMediaQuery = React.useCallback(() => {
@@ -78,9 +78,7 @@ const BreakpointProvider = ({ children }) => {
     )
 }
 
-function useBreakpoint() {
+export function useBreakpoint() {
     const context = React.useContext(BreakpointContext);
     return context;
 }
-
-export { useBreakpoint, BreakpointProvider };

@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { navList } from '../__types__';
 import './Footer.scss';
 
-const Footer = () => {
+const Footer = (): React.ReactElement => {
     const NavList = navList.map(link => (
         <li key={link.path}>
             <NavLink exact to={link.path} key={link.path}>

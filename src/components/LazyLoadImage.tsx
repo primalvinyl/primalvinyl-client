@@ -1,7 +1,6 @@
 import React from 'react';
 import { Transition } from 'react-transition-group';
 import LazyLoad from 'react-lazyload';
-import PropTypes from 'prop-types';
 
 const LazyLoadImage = ({
     src,
@@ -9,7 +8,7 @@ const LazyLoadImage = ({
     className,
     offset,
     duration
-}) => {
+}: LazyLoadType): React.ReactElement => {
 
     const [hasLoaded, setHasLoaded] = React.useState(false);
     const containerStyle = {
@@ -26,6 +25,7 @@ const LazyLoadImage = ({
         entered: { opacity: 1 },
         exiting: { opacity: 0 },
         exited: { opacity: 0 },
+        unmounted: { opacity: 0 }
     };
 
     return (
@@ -51,15 +51,16 @@ const LazyLoadImage = ({
     );
 };
 
-LazyLoadImage.protoTypes = {
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string,
-    className: PropTypes.string,
-    offset: PropTypes.number,
-    duration: PropTypes.number
+type LazyLoadType = {
+    readonly src: string;
+    readonly alt: string;
+    readonly className: string;
+    readonly offset: number,
+    readonly duration: number
 };
 
 LazyLoadImage.defaultProps = {
+    src: '',
     alt: '',
     className: undefined,
     offset: 150,

@@ -4,7 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import './MasterTemplate.scss';
 
-function MasterTemplate({ children }) {
+const MasterTemplate = ({ children }: MasterTemplateProps): React.ReactElement => {
     return (
         <div className="master-template">
             <div>
@@ -19,5 +19,9 @@ function MasterTemplate({ children }) {
         </div>
     );
 }
+
+type MasterTemplateProps = {
+    children: React.ReactElement;
+};
 
 export default MasterTemplate;

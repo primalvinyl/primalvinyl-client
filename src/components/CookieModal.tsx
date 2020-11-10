@@ -3,7 +3,7 @@ import CookieConsent from 'react-cookie-consent';
 import { Link } from 'react-router-dom';
 import './CookieModal.scss';
 
-const CookieConsentModal = () => {
+const CookieConsentModal = (): React.ReactElement => {
     return (
         <div className="root">
             <CookieConsent

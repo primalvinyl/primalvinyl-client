@@ -1,7 +1,7 @@
 import React from 'react';
 import './ErrorPage.scss';
 
-const ErrorPage = () => {
+const ErrorPage = (): React.ReactElement => {
     return (
         <div className="error-page">
             <div className="wrapper">

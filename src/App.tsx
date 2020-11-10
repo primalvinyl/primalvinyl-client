@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { BreakpointProvider } from './utilities/BreakpointProvider';
+import { BreakpointProvider } from './components/BreakpointProvider';
 import Routes from './routes/Routes';
 
-const App = (): JSX.Element => (
+const App = (): React.ReactElement => (
     <BrowserRouter>
         <BreakpointProvider>
             <div className="app">
