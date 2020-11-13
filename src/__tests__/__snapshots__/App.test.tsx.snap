@@ -43,6 +43,7 @@ exports[`App matches snapshot 1`] = `
             </h2>
             <div>
               <input
+                name="name"
                 type="text"
               />
               <button

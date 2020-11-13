@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input matches snapshot 1`] = `
+<div
+  className="form-group"
+>
+  
+  <input
+    className="form-control"
+    id=""
+    onBlur={[Function]}
+    onChange={[Function]}
+    required={false}
+    type="text"
+    value=""
+  />
+</div>
+`;

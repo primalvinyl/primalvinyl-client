@@ -8,15 +8,17 @@ const HomePage = () => {
     const dispatch = useDispatch();
 
     const handleSubmit = event => {
+        event.preventDefault();
         dispatch(getArtists('278763'));
     };
+
     return (
         <MasterTemplate>
             <article className="home-page">
                 <div className="wrapper">
                     <h2>Home Page</h2>
                     <div>
-                        <input type="text" />
+                        <input type="text" name="name" />
                         <button onClick={handleSubmit}>
                             Search
                         </button>

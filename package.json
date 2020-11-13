@@ -29,6 +29,7 @@
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.5",
         "enzyme-to-json": "^3.6.1",
+        "formik": "^2.2.5",
         "node-sass": "^4.14.1",
         "react": "^16.14.0",
         "react-cookie-consent": "^6.0.0",
