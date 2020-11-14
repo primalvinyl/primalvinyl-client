@@ -42,10 +42,20 @@ exports[`App matches snapshot 1`] = `
               Home Page
             </h2>
             <div>
-              <input
-                name="name"
-                type="text"
-              />
+              <div
+                className="form-group"
+              >
+                
+                <input
+                  className="form-control"
+                  id=""
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={false}
+                  type="text"
+                  value=""
+                />
+              </div>
               <button
                 onClick={[Function]}
               >

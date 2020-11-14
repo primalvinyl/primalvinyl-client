@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { getArtists } from '../actions';
 import MasterTemplate from '../components/MasterTemplate';
+import Input from '../components/Input';
 import './HomePage.scss';
 
 const HomePage = () => {
     const dispatch = useDispatch();
+    const searchRef = useRef(null);
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch(getArtists('278763'));
+        dispatch(getArtists(searchRef.current.value));
     };
 
     return (
@@ -18,7 +20,7 @@ const HomePage = () => {
                 <div className="wrapper">
                     <h2>Home Page</h2>
                     <div>
-                        <input type="text" name="name" />
+                        <Input type="text" name="search" ref={searchRef} />
                         <button onClick={handleSubmit}>
                             Search
                         </button>

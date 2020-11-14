@@ -1,16 +1,20 @@
 import React from 'react';
 
-const Input = ({
-    label,
-    type,
-    id,
-    value,
-    required,
-    errors,
-    touched,
-    handleChange,
-    handleBlur
-}: InputType): React.ReactElement => {
+const Input = React.forwardRef<HTMLInputElement, InputType>(
+    (props, ref): React.ReactElement => {
+    
+    const {
+        label,
+        type,
+        id,
+        value,
+        required,
+        errors,
+        touched,
+        handleChange,
+        handleBlur
+    } = props;
+
     return (
         <div className="form-group">
             {label && (<label htmlFor={id}>{label}</label>)}
@@ -19,6 +23,7 @@ const Input = ({
                 className="form-control"
                 id={id}
                 value={value}
+                ref={ref}
                 required={required}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -31,13 +36,7 @@ const Input = ({
             }
         </div>
     );
-}
-type MyObjectType = {
-    dingo: string;
-    bling: string;
-};
-const myString: keyof MyObjectType = 'bling';
-console.log(myString);
+});
 
 type InputType = {
     readonly id: string;

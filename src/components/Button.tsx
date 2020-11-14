@@ -1,24 +1,30 @@
 import React from 'react';
 
-const Button = ({
-    id,
-    value,
-    type,
-    isSubmitting,
-    handleClick
-}: ButtonType): React.ReactElement => (
-    <div className="form-group">
-        <button
-            className="form-control"
-            id={id}
-            type={type}
-            onClick={handleClick}
-            disabled={isSubmitting}
-        >
-            {value}
-        </button>
-    </div>
-);
+const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
+    (props, ref): React.ReactElement => {
+    const {
+        id,
+        value,
+        type,
+        isSubmitting,
+        handleClick
+    } = props;
+
+    return (
+        <div className="form-group">
+            <button
+                className="form-control"
+                id={id}
+                type={type}
+                ref={ref}
+                onClick={handleClick}
+                disabled={isSubmitting}
+            >
+                {value}
+            </button>
+        </div>
+    );
+});
 
 type ButtonType = {
     readonly id: string;

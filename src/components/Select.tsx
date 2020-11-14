@@ -1,16 +1,20 @@
 import React from 'react';
 
-const Select = ({
-    label,
-    id,
-    value,
-    values,
-    errors,
-    touched,
-    required,
-    handleChange,
-    handleBlur
-}: SelectType): React.ReactElement => {
+const Select = React.forwardRef<HTMLSelectElement, SelectType>(
+    (props, ref): React.ReactElement => {
+
+    const {
+        label,
+        id,
+        value,
+        values,
+        errors,
+        touched,
+        required,
+        handleChange,
+        handleBlur
+    } = props;
+
     const elements = values.map(element => {
         return (
             <option
@@ -21,6 +25,7 @@ const Select = ({
             </option>
         );
     });
+
     return (
         <div className="form-group">
             {label && (<label htmlFor={id}>{label}</label>)}
@@ -29,6 +34,7 @@ const Select = ({
                 name={id}
                 id={id}
                 value={value}
+                ref={ref}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 required={required}
@@ -40,7 +46,7 @@ const Select = ({
             )}
         </div>
     );
-};
+});
 
 type SelectType = {
     readonly id: string;
