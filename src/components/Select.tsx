@@ -15,16 +15,19 @@ const Select = React.forwardRef<HTMLSelectElement, SelectType>(
         handleBlur
     } = props;
 
-    const elements = values.map(element => {
-        return (
-            <option
-                key={element.value}
-                value={element.value}
-            >
-                {element.displayValue}
-            </option>
-        );
-    });
+    let elements: any = [];
+    if (values) {
+        elements = values.map(element => {
+            return (
+                <option
+                    key={element.value}
+                    value={element.value}
+                >
+                    {element.displayValue}
+                </option>
+            );
+        });
+    }
 
     return (
         <div className="form-group">
@@ -41,35 +44,37 @@ const Select = React.forwardRef<HTMLSelectElement, SelectType>(
             >
                 {elements}
             </select>
-            {errors[id] && touched[id] && (
-                <div className="form-field-error">{errors[id]}</div>
+            {(errors && touched && id) && (errors[id] && touched[id]) && (
+                <div className="form-field-error">
+                    {errors[id]}
+                </div>
             )}
         </div>
     );
 });
 
 type SelectType = {
-    readonly id: string;
-    readonly handleChange: (event: React.ChangeEvent) => void;
-    readonly handleBlur: (event: React.FocusEvent) => void;
-    readonly values: {value: string; displayValue: string}[];
-    readonly label: string;
-    readonly value: string;
-    readonly required: boolean;
-    readonly errors: { [key: string]: string };
-    readonly touched: { [key: string]: string };
+    readonly id?: string;
+    readonly values?: {value: string; displayValue: string}[];
+    readonly label?: string;
+    readonly value?: string;
+    readonly required?: boolean;
+    readonly errors?: { [key: string]: string };
+    readonly touched?: { [key: string]: string };
+    readonly handleChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    readonly handleBlur?: (event: React.FocusEvent<HTMLSelectElement>) => void;
 };
 
 Select.defaultProps = {
     id: '',
-    handleChange: (): void => {},
-    handleBlur: (): void => {},
     label: '',
     value: '',
     values: [],
     required: false,
     errors: {},
-    touched: {}
+    touched: {},
+    handleChange: (): void => {},
+    handleBlur: (): void => {},
 }
 
 export default Select;

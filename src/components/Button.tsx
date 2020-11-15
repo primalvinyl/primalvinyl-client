@@ -2,6 +2,7 @@ import React from 'react';
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
     (props, ref): React.ReactElement => {
+
     const {
         id,
         value,
@@ -27,11 +28,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
 });
 
 type ButtonType = {
-    readonly id: string;
-    readonly value: string;
-    readonly type: 'submit' | 'button' | 'reset';
-    readonly isSubmitting: boolean;
-    readonly handleClick: (event: React.MouseEvent) => void;
+    readonly id?: string;
+    readonly value?: string;
+    readonly type?: 'submit' | 'button' | 'reset';
+    readonly isSubmitting?: boolean;
+    readonly handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 Button.defaultProps = {
