@@ -36,7 +36,7 @@ type ButtonType = {
 };
 
 Button.defaultProps = {
-    id: '',
+    id: undefined,
     value: '',
     type: 'submit',
     isSubmitting: false,

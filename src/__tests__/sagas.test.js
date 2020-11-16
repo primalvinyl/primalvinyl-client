@@ -4,17 +4,17 @@ import {
     getArtist,
     getArtists,
     putArtist
-} from '../actions';
+} from '../store/actions';
 import {
     artist,
     artists
-} from '../reducers';
+} from '../store/reducers';
 import {
     getArtistWatcher,
     getArtistWorker,
     getArtistsWatcher,
     getArtistsWorker
-} from '../sagas';
+} from '../store/sagas';
 import {
     mockApiArtistObject,
     mockReduxArtistObject,

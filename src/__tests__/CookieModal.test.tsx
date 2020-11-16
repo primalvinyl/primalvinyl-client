@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
-import CookieModal from '../components/CookieModal';
+import CookieModal from '../components/utility/CookieModal';
 
 describe('CookieModal', () => {
     it('renders', () => {

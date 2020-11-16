@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm matches snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="form-group"
+  >
+    <input
+      className="form-control"
+      onBlur={[Function]}
+      onChange={[Function]}
+      required={false}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="form-group"
+  >
+    <button
+      className="form-control"
+      disabled={false}
+      onClick={[Function]}
+      type="submit"
+    >
+      Search
+    </button>
+  </div>
+</form>
+`;

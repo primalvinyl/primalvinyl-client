@@ -29,7 +29,9 @@ exports[`MasterTemplate matches snapshot 1`] = `
       </div>
     </header>
     <main>
-      Test
+      <div>
+        Test
+      </div>
     </main>
   </div>
   <footer>

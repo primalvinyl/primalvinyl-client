@@ -1,5 +1,5 @@
-import { artist, artists } from '../reducers';
-import { putArtist, putArtists } from '../actions';
+import { artist, artists } from '../store/reducers';
+import { putArtist, putArtists } from '../store/actions';
 import { artistDefault, artistsDefault } from '../__types__';
 
 describe('artist', () => {

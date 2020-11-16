@@ -66,8 +66,8 @@ type SelectType = {
 };
 
 Select.defaultProps = {
-    id: '',
-    label: '',
+    id: undefined,
+    label: undefined,
     value: '',
     values: [],
     required: false,

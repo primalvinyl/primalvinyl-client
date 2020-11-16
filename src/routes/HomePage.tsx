@@ -1,9 +1,9 @@
 import React from 'react';
-import MasterTemplate from '../components/MasterTemplate';
-import SearchForm from '../components/SearchForm';
+import MasterTemplate from '../components/_MasterTemplate';
+import SearchForm from '../components/presentation/SearchForm';
 import './HomePage.scss';
 
-const HomePage = () => {
+const HomePage = (): React.ReactElement => {
     return (
         <MasterTemplate>
             <article className="home-page">

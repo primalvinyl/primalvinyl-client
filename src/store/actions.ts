@@ -3,7 +3,7 @@ import {
     ReduxArtistsType,
     artistDefault,
     artistsDefault
-} from './__types__';
+} from '../__types__';
 
 
 

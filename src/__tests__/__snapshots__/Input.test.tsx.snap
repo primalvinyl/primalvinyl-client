@@ -4,10 +4,8 @@ exports[`Input matches snapshot 1`] = `
 <div
   className="form-group"
 >
-  
   <input
     className="form-control"
-    id=""
     onBlur={[Function]}
     onChange={[Function]}
     required={false}

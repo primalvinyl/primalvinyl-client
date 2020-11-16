@@ -1,7 +1,7 @@
 import { take, put, call, fork, all } from 'redux-saga/effects';
 import { actionTypes, putArtist, putArtists } from './actions';
-import { getRequest } from './utilities/services';
-import { artistDefault, artistsDefault } from './__types__';
+import { getRequest } from '../utilities/services';
+import { artistDefault, artistsDefault } from '../__types__';
 
 /******************************** Workers *************************************/
 export function* getArtistWorker(payload: string) {

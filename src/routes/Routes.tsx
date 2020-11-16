@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import ErrorBoundary from '../components/ErrorBoundary';
+import ErrorBoundary from '../components/utility/ErrorBoundary';
 import HomePage from './HomePage';
 import AboutUs from './AboutUs';
 import ErrorPage from './ErrorPage';

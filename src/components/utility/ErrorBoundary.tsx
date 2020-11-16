@@ -1,5 +1,5 @@
 import React from 'react';
-import ErrorPage from '../routes/ErrorPage';
+import ErrorPage from '../../routes/ErrorPage';
 
 type ErrorBoundaryProps = {
     readonly children: JSX.Element;

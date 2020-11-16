@@ -1,8 +1,8 @@
 import React from 'react';
-import ErrorBoundary from './ErrorBoundary';
+import ErrorBoundary from './utility/ErrorBoundary';
 import Header from './Header';
 import Footer from './Footer';
-import './MasterTemplate.scss';
+import './_MasterTemplate.scss';
 
 const MasterTemplate = ({ children }: MasterTemplateProps): React.ReactElement => {
     return (

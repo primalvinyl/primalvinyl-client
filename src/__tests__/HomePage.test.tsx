@@ -1,18 +1,21 @@
 import React from 'react';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
 import { shallow } from 'enzyme';
 import Renderer from 'react-test-renderer';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 import rootReducer from '../store/reducers';
-import App from '../App'; 
+import HomePage from '../routes/HomePage';
 
-describe('App', () => {
+describe('HomePage', () => {
     const store = createStore(rootReducer, {});
 
     it('renders', () => {
         const myWrapper = shallow(
             <Provider store={store}>
-                <App />
+                <MemoryRouter>
+                    <HomePage />
+                </MemoryRouter>
             </Provider>
         );
         expect(myWrapper.exists());
@@ -20,7 +23,9 @@ describe('App', () => {
     it('matches snapshot', () => {
         const component = Renderer.create(
             <Provider store={store}>
-                <App />
+                <MemoryRouter>
+                    <HomePage />
+                </MemoryRouter>
             </Provider>
         );
         expect(component.toJSON()).toMatchSnapshot();

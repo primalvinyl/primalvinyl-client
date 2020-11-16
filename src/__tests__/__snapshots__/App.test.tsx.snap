@@ -41,14 +41,14 @@ exports[`App matches snapshot 1`] = `
             <h2>
               Home Page
             </h2>
-            <div>
+            <form
+              onSubmit={[Function]}
+            >
               <div
                 className="form-group"
               >
-                
                 <input
                   className="form-control"
-                  id=""
                   onBlur={[Function]}
                   onChange={[Function]}
                   required={false}
@@ -56,12 +56,19 @@ exports[`App matches snapshot 1`] = `
                   value=""
                 />
               </div>
-              <button
-                onClick={[Function]}
+              <div
+                className="form-group"
               >
-                Search
-              </button>
-            </div>
+                <button
+                  className="form-control"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="submit"
+                >
+                  Search
+                </button>
+              </div>
+            </form>
           </div>
         </article>
       </main>

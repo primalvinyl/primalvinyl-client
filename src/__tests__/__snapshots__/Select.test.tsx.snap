@@ -4,11 +4,8 @@ exports[`Select matches snapshot 1`] = `
 <div
   className="form-group"
 >
-  
   <select
     className="form-control"
-    id=""
-    name=""
     onBlur={[Function]}
     onChange={[Function]}
     required={false}

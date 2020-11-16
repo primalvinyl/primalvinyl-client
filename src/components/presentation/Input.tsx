@@ -5,8 +5,10 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
     
     const {
         label,
+        placeholder,
         type,
         id,
+        name,
         value,
         required,
         errors,
@@ -22,8 +24,10 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
                 type={type}
                 className="form-control"
                 id={id}
+                name={name}
                 value={value}
                 ref={ref}
+                placeholder={placeholder}
                 required={required}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -39,7 +43,9 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
 
 type InputType = {
     readonly id?: string;
+    readonly name?: string;
     readonly label?: string;
+    readonly placeholder?: string;
     readonly type?: string;
     readonly value?: string;
     readonly required?: boolean;
@@ -50,8 +56,10 @@ type InputType = {
 };
 
 Input.defaultProps = {
-    id: '',
-    label: '',
+    id: undefined,
+    name: undefined,
+    label: undefined,
+    placeholder: undefined,
     type: 'text',
     value: '',
     required: false,

@@ -7,7 +7,6 @@ exports[`Button matches snapshot 1`] = `
   <button
     className="form-control"
     disabled={false}
-    id=""
     onClick={[Function]}
     type="submit"
   >

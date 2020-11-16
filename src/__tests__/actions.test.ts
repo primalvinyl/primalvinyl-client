@@ -1,4 +1,4 @@
-import { actionTypes, putArtist, putArtists, getArtist, getArtists } from '../actions';
+import { actionTypes, putArtist, putArtists, getArtist, getArtists } from '../store/actions';
 import { artistDefault, artistsDefault } from '../__types__';
 
 describe('putArtist', () => {

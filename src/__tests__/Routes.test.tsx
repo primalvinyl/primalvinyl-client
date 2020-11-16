@@ -4,7 +4,7 @@ import Renderer from 'react-test-renderer';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
-import rootReducer from '../reducers';
+import rootReducer from '../store/reducers';
 import Routes from '../routes/Routes';
 
 describe('Routes', () => {

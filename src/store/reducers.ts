@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { actionTypes, PutArtistActionType, PutArtistsActionType } from './actions';
-import { ReduxArtistType, ReduxArtistsType, artistDefault, artistsDefault } from './__types__';
+import { ReduxArtistType, ReduxArtistsType, artistDefault, artistsDefault } from '../__types__';
 
 
 
