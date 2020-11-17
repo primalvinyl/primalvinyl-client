@@ -1,10 +1,10 @@
 import React from 'react';
-import './ErrorPage.scss';
+import styles from './ErrorPage.module.scss';
 
 const ErrorPage = (): React.ReactElement => {
     return (
-        <div className="error-page">
-            <div className="wrapper">
+        <div className={styles.root}>
+            <div className={styles.wrapper}>
                 <h1>404</h1>
             </div>
         </div>

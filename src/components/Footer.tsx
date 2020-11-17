@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { navList } from '../__types__';
-import './Footer.scss';
+import styles from './Footer.module.scss';
 
 const Footer = (): React.ReactElement => {
     const NavList = navList.map(link => (
@@ -13,17 +13,17 @@ const Footer = (): React.ReactElement => {
     ));
 
     return (
-        <footer>
-            <div className="wrapper">
-                <div className="logotype">
+        <footer className={styles.root}>
+            <div className={styles.wrapper}>
+                <div className={styles.logotype}>
                     <Link to="/">
-                        <h2>My Site</h2>
+                        <h2>Primal Vinyl</h2>
                     </Link>
-                    <div className="copyright">
-                        {'© '}{new Date().getFullYear()}{ ' ' }My Site
+                    <div className={styles.copyright}>
+                        {'© '}{new Date().getFullYear()}{ ' ' }Primal Vinyl
                     </div>
                 </div>
-                <div className="navigation">
+                <div className={styles.navigation}>
                     <nav>
                         <ul>{ NavList }</ul>
                     </nav>

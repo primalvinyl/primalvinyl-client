@@ -1,7 +1,7 @@
 @import '../styles/partials/breakpoints';
 @import '../styles/partials/variables';
 
-header {
+.root {
     padding: 2em;
     background: $gray-800;
     color: $gray-500;
@@ -70,7 +70,7 @@ header {
             flex-direction: column;
             width: 100%;
 
-            .nav-toggle {
+            .navToggle {
                 align-self: flex-end;
                 margin: .5em;
                 color: $gray-500;
@@ -90,15 +90,14 @@ header {
                 position: absolute;
                 top: -1000px;
                 transition: all ease-in-out 300ms;
-                &.nav-group-enter {
+                &.enter {
                     opacity: 1;
                     top: 0;
                 }
-                &.nav-group-enter-done {
+                &.enterDone {
                     opacity: 1;
                     top: 0;
                 }
-                
                 ul {
                     flex-direction: column;
 

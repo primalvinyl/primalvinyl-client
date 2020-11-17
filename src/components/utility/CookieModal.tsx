@@ -1,18 +1,18 @@
 import React from 'react';
 import CookieConsent from 'react-cookie-consent';
 import { Link } from 'react-router-dom';
-import './CookieModal.scss';
+import styles from './CookieModal.module.scss';
 
-const CookieConsentModal = (): React.ReactElement => {
+const CookieModal = (): React.ReactElement => {
     return (
-        <div className="root">
+        <div className={styles.root}>
             <CookieConsent
-                containerClasses="cookieConsent"
-                contentClasses="contentWrapper"
-                buttonWrapperClasses="buttonWrapper"
+                containerClasses={styles.cookieConsent}
+                contentClasses={styles.contentWrapper}
+                buttonWrapperClasses={styles.buttonWrapper}
                 location="bottom"
                 buttonText="Accept"
-                cookieName="botterppotterconsent"
+                cookieName="trackingconsent"
                 overlay={true}
                 expires={150}>
                 <h3>
@@ -29,4 +29,4 @@ const CookieConsentModal = (): React.ReactElement => {
     );
 };
 
-export default CookieConsentModal;
+export default CookieModal;

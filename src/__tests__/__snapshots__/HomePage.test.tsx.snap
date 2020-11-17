@@ -38,34 +38,34 @@ exports[`HomePage matches snapshot 1`] = `
           <h2>
             Home Page
           </h2>
-          <form
-            onSubmit={[Function]}
+          <div
+            className="root"
           >
-            <div
-              className="form-group"
+            <form
+              onSubmit={[Function]}
             >
-              <input
-                className="form-control"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={false}
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              className="form-group"
-            >
+              <div
+                className="root"
+              >
+                <input
+                  className="form-control"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={false}
+                  type="text"
+                  value=""
+                />
+              </div>
               <button
-                className="form-control"
+                className="root"
                 disabled={false}
                 onClick={[Function]}
                 type="submit"
               >
                 Search
               </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </article>
     </main>

@@ -2,11 +2,11 @@ import React from 'react';
 import ErrorBoundary from './utility/ErrorBoundary';
 import Header from './Header';
 import Footer from './Footer';
-import './_MasterTemplate.scss';
+import styles from './_MasterTemplate.module.scss';
 
 const MasterTemplate = ({ children }: MasterTemplateProps): React.ReactElement => {
     return (
-        <div className="master-template">
+        <div className={styles.root}>
             <div>
                 <Header />
                 <main>

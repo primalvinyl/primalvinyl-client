@@ -1,16 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button matches snapshot 1`] = `
-<div
-  className="form-group"
+<button
+  className="root"
+  disabled={false}
+  onClick={[Function]}
+  type="submit"
 >
-  <button
-    className="form-control"
-    disabled={false}
-    onClick={[Function]}
-    type="submit"
-  >
-    
-  </button>
-</div>
+  
+</button>
 `;

@@ -2,7 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { getArtists, clearArtists } from '../../store/actions';
 import Input from './Input';
-import Button from '../Button';
+import Button from './Button';
+import styles from './SearchForm.module.scss';
 
 const SearchForm = (): React.ReactElement => {
     const dispatch = useDispatch();
@@ -20,13 +21,16 @@ const SearchForm = (): React.ReactElement => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <Input
-                value={searchState}
-                handleChange={handleChange}
-                ref={searchRef} />
-            <Button value="Search" />
-        </form>
+        <div className={styles.root}>
+            <form onSubmit={handleSubmit}>
+                <Input
+                    type="search"
+                    value={searchState}
+                    handleChange={handleChange}
+                    ref={searchRef} />
+                <Button value="Search" />
+            </form>
+        </div>
     );
 };
 

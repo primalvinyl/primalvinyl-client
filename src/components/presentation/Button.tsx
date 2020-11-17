@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Button.module.scss';
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
     (props, ref): React.ReactElement => {
@@ -7,19 +8,19 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
         id,
         value,
         type,
-        isSubmitting,
+        disabled,
         handleClick
     } = props;
 
     return (
-        <div className="form-group">
+        <div className={styles.root}>
             <button
-                className="form-control"
+                className={styles.formControl}
                 id={id}
                 type={type}
+                disabled={disabled}
                 ref={ref}
                 onClick={handleClick}
-                disabled={isSubmitting}
             >
                 {value}
             </button>
@@ -31,7 +32,7 @@ type ButtonType = {
     readonly id?: string;
     readonly value?: string;
     readonly type?: 'submit' | 'button' | 'reset';
-    readonly isSubmitting?: boolean;
+    readonly disabled?: boolean;
     readonly handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
@@ -39,7 +40,7 @@ Button.defaultProps = {
     id: undefined,
     value: '',
     type: 'submit',
-    isSubmitting: false,
+    disabled: false,
     handleClick: (): void => {},
 }
 

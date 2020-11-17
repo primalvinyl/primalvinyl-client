@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Select.module.scss';
 
 const Select = React.forwardRef<HTMLSelectElement, SelectType>(
     (props, ref): React.ReactElement => {
@@ -30,10 +31,10 @@ const Select = React.forwardRef<HTMLSelectElement, SelectType>(
     }
 
     return (
-        <div className="form-group">
-            {label && (<label htmlFor={id}>{label}</label>)}
+        <div className={styles.root}>
+            {label && (<label htmlFor={id} className={styles.formLabel}>{label}</label>)}
             <select
-                className="form-control"
+                className={styles.formControl}
                 name={id}
                 id={id}
                 value={value}
@@ -45,7 +46,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectType>(
                 {elements}
             </select>
             {(errors && touched && id) && (errors[id] && touched[id]) && (
-                <div className="form-field-error">
+                <div className={styles.formFieldError}>
                     {errors[id]}
                 </div>
             )}

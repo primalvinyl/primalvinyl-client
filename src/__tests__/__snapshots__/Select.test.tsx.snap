@@ -2,7 +2,7 @@
 
 exports[`Select matches snapshot 1`] = `
 <div
-  className="form-group"
+  className="root"
 >
   <select
     className="form-control"
