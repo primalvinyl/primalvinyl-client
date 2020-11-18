@@ -2,10 +2,12 @@
 
 exports[`Routes matches snapshot 1`] = `
 <div
-  className="master-template"
+  className="root"
 >
   <div>
-    <header>
+    <header
+      className="root"
+    >
       <div
         className="wrapper"
       >
@@ -30,47 +32,57 @@ exports[`Routes matches snapshot 1`] = `
     </header>
     <main>
       <article
-        className="home-page"
+        className="root"
       >
         <div
           className="wrapper"
         >
-          <h2>
-            Home Page
-          </h2>
           <div
             className="root"
           >
             <form
+              action="#"
+              onReset={[Function]}
               onSubmit={[Function]}
             >
               <div
                 className="root"
               >
-                <input
-                  className="form-control"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  required={false}
-                  type="text"
-                  value=""
-                />
+                <div
+                  className="formControlWrapper"
+                >
+                  <input
+                    disabled={false}
+                    id="searchField"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    required={false}
+                    type="search"
+                    value=""
+                  />
+                </div>
               </div>
-              <button
+              <div
                 className="root"
-                disabled={false}
-                onClick={[Function]}
-                type="submit"
               >
-                Search
-              </button>
+                <button
+                  disabled={false}
+                  id="searchButton"
+                  onClick={[Function]}
+                  type="submit"
+                >
+                  Search
+                </button>
+              </div>
             </form>
           </div>
         </div>
       </article>
     </main>
   </div>
-  <footer>
+  <footer
+    className="root"
+  >
     <div
       className="wrapper"
     >
@@ -82,7 +94,7 @@ exports[`Routes matches snapshot 1`] = `
           onClick={[Function]}
         >
           <h2>
-            My Site
+            Primal Vinyl
           </h2>
         </a>
         <div
@@ -91,7 +103,7 @@ exports[`Routes matches snapshot 1`] = `
           © 
           2020
            
-          My Site
+          Primal Vinyl
         </div>
       </div>
       <div

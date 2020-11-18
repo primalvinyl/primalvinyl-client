@@ -6,19 +6,23 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
 
     const {
         id,
+        className,
+        name,
         value,
         type,
         disabled,
+        isSubmitting,
         handleClick
     } = props;
 
     return (
         <div className={styles.root}>
             <button
-                className={styles.formControl}
+                className={className}
                 id={id}
+                name={name}
                 type={type}
-                disabled={disabled}
+                disabled={isSubmitting || disabled}
                 ref={ref}
                 onClick={handleClick}
             >
@@ -29,18 +33,23 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
 });
 
 type ButtonType = {
-    readonly id?: string;
+    readonly id: string;
+    readonly className?: string;
+    readonly name?: string;
     readonly value?: string;
     readonly type?: 'submit' | 'button' | 'reset';
     readonly disabled?: boolean;
+    readonly isSubmitting?: boolean;
     readonly handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 Button.defaultProps = {
-    id: undefined,
+    className: undefined,
+    name: undefined,
     value: '',
     type: 'submit',
     disabled: false,
+    isSubmitting: false,
     handleClick: (): void => {},
 }
 

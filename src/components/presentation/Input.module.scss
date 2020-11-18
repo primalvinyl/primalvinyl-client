@@ -11,6 +11,12 @@
         margin-bottom: .3em;
     }
 
+    .formFieldError {
+        margin-top: .2em;
+        color: $error;
+        font-size: .9em;
+    }
+
     input {
         width: 100%;
         padding: .5em;

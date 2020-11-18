@@ -4,12 +4,15 @@ exports[`Select matches snapshot 1`] = `
 <div
   className="root"
 >
-  <select
-    className="form-control"
-    onBlur={[Function]}
-    onChange={[Function]}
-    required={false}
-    value=""
-  />
+  <div
+    className="formControlWrapper"
+  >
+    <select
+      disabled={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      required={false}
+    />
+  </div>
 </div>
 `;

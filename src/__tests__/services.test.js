@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getRequest } from '../utilities/services';
+import { getRequest } from '../store/services';
 import { mockApiArtistObject } from '../__mocks__/mockObjects';
 
 describe('getRequest', () => {

@@ -2,10 +2,12 @@
 
 exports[`MasterTemplate matches snapshot 1`] = `
 <div
-  className="master-template"
+  className="root"
 >
   <div>
-    <header>
+    <header
+      className="root"
+    >
       <div
         className="wrapper"
       >
@@ -34,7 +36,9 @@ exports[`MasterTemplate matches snapshot 1`] = `
       </div>
     </main>
   </div>
-  <footer>
+  <footer
+    className="root"
+  >
     <div
       className="wrapper"
     >
@@ -46,7 +50,7 @@ exports[`MasterTemplate matches snapshot 1`] = `
           onClick={[Function]}
         >
           <h2>
-            My Site
+            Primal Vinyl
           </h2>
         </a>
         <div
@@ -55,7 +59,7 @@ exports[`MasterTemplate matches snapshot 1`] = `
           © 
           2020
            
-          My Site
+          Primal Vinyl
         </div>
       </div>
       <div

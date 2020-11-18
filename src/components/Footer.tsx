@@ -25,7 +25,7 @@ const Footer = (): React.ReactElement => {
                 </div>
                 <div className={styles.navigation}>
                     <nav>
-                        <ul>{ NavList }</ul>
+                        <ul>{NavList}</ul>
                     </nav>
                 </div>
             </div>

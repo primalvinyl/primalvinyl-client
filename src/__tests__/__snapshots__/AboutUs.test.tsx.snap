@@ -2,10 +2,12 @@
 
 exports[`AboutUs matches snapshot 1`] = `
 <div
-  className="master-template"
+  className="root"
 >
   <div>
-    <header>
+    <header
+      className="root"
+    >
       <div
         className="wrapper"
       >
@@ -30,7 +32,7 @@ exports[`AboutUs matches snapshot 1`] = `
     </header>
     <main>
       <div
-        className="about-us"
+        className="root"
       >
         <div
           className="wrapper"
@@ -42,7 +44,9 @@ exports[`AboutUs matches snapshot 1`] = `
       </div>
     </main>
   </div>
-  <footer>
+  <footer
+    className="root"
+  >
     <div
       className="wrapper"
     >
@@ -54,7 +58,7 @@ exports[`AboutUs matches snapshot 1`] = `
           onClick={[Function]}
         >
           <h2>
-            My Site
+            Primal Vinyl
           </h2>
         </a>
         <div
@@ -63,7 +67,7 @@ exports[`AboutUs matches snapshot 1`] = `
           © 
           2020
            
-          My Site
+          Primal Vinyl
         </div>
       </div>
       <div

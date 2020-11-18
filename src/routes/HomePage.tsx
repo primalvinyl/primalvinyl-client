@@ -8,7 +8,6 @@ const HomePage = (): React.ReactElement => {
         <MasterTemplate>
             <article className={styles.root}>
                 <div className={styles.wrapper}>
-                    <h2>Home Page</h2>
                     <SearchForm />
                 </div>
             </article>

@@ -5,12 +5,13 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
     (props, ref) => {
     
     const {
+        id,
+        value,
+        className,
+        name,
         label,
         placeholder,
         type,
-        id,
-        name,
-        value,
         required,
         disabled,
         errors, 
@@ -27,7 +28,7 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
             <div className={styles.formControlWrapper}>
                 <input
                     type={type}
-                    className={styles.formControl}
+                    className={className}
                     id={id}
                     name={name}
                     value={value}
@@ -38,7 +39,7 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
                     onChange={handleChange}
                     onBlur={handleBlur}
                 />
-                {(errors && touched && id) && (errors[id] && touched[id]) && (
+                {(errors && touched) && (errors[id] && touched[id]) && (
                     <div className={styles.formFieldError}>
                         {errors[id]}
                     </div>
@@ -49,12 +50,13 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
 });
 
 type InputType = {
-    readonly id?: string;
+    readonly id: string;
+    readonly value: string;
+    readonly className?: string;
     readonly name?: string;
     readonly label?: string;
     readonly placeholder?: string;
     readonly type?: string;
-    readonly value?: string;
     readonly required?: boolean;
     readonly disabled?: boolean;
     readonly errors?: { [key: string]: string };
@@ -64,12 +66,11 @@ type InputType = {
 };
 
 Input.defaultProps = {
-    id: undefined,
+    className: undefined,
     name: undefined,
     label: undefined,
     placeholder: undefined,
     type: 'text',
-    value: '',
     required: false,
     disabled: false,
     errors: {},

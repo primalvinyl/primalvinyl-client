@@ -1,12 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button matches snapshot 1`] = `
-<button
+<div
   className="root"
-  disabled={false}
-  onClick={[Function]}
-  type="submit"
 >
-  
-</button>
+  <button
+    disabled={false}
+    onClick={[Function]}
+    type="submit"
+  >
+    
+  </button>
+</div>
 `;

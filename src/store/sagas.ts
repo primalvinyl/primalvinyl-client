@@ -1,6 +1,6 @@
 import { take, put, call, fork, all } from 'redux-saga/effects';
 import { actionTypes, putArtist, putArtists } from './actions';
-import { getRequest } from '../utilities/services';
+import { getRequest } from './services';
 import { artistDefault, artistsDefault } from '../__types__';
 
 /******************************** Workers *************************************/

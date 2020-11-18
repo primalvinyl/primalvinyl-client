@@ -7,59 +7,58 @@ const Select = React.forwardRef<HTMLSelectElement, SelectType>(
     const {
         label,
         id,
+        name,
+        className,
         value,
-        values,
+        options,
         errors,
         touched,
         required,
+        disabled,
         handleChange,
         handleBlur
     } = props;
 
-    let elements: any = [];
-    if (values) {
-        elements = values.map(element => {
-            return (
-                <option
-                    key={element.value}
-                    value={element.value}
-                >
-                    {element.displayValue}
-                </option>
-            );
-        });
-    }
-
     return (
         <div className={styles.root}>
             {label && (<label htmlFor={id} className={styles.formLabel}>{label}</label>)}
-            <select
-                className={styles.formControl}
-                name={id}
-                id={id}
-                value={value}
-                ref={ref}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                required={required}
-            >
-                {elements}
-            </select>
-            {(errors && touched && id) && (errors[id] && touched[id]) && (
-                <div className={styles.formFieldError}>
-                    {errors[id]}
-                </div>
-            )}
+            <div className={styles.formControlWrapper}>
+                <select
+                    className={className}
+                    name={name}
+                    id={id}
+                    value={value}
+                    ref={ref}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    required={required}
+                    disabled={disabled}
+                >
+                    {() => options.map(option => (
+                        <option key={option.value} value={option.value}>
+                            {option.display}
+                        </option>
+                    ))}
+                </select>
+                {(errors && touched) && (errors[id] && touched[id]) && (
+                    <div className={styles.formFieldError}>
+                        {errors[id]}
+                    </div>
+                )}
+            </div>
         </div>
     );
 });
 
 type SelectType = {
-    readonly id?: string;
-    readonly values?: {value: string; displayValue: string}[];
+    readonly id: string;
+    readonly value: string;
+    readonly options: {value: string; display: string}[];
+    readonly className?: string;
+    readonly name?: string;
     readonly label?: string;
-    readonly value?: string;
     readonly required?: boolean;
+    readonly disabled?: boolean;
     readonly errors?: { [key: string]: string };
     readonly touched?: { [key: string]: string };
     readonly handleChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -67,11 +66,11 @@ type SelectType = {
 };
 
 Select.defaultProps = {
-    id: undefined,
+    className: undefined,
+    name: undefined,
     label: undefined,
-    value: '',
-    values: [],
     required: false,
+    disabled: false,
     errors: {},
     touched: {},
     handleChange: (): void => {},

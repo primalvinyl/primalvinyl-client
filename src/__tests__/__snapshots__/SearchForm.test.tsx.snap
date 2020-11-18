@@ -5,28 +5,39 @@ exports[`SearchForm matches snapshot 1`] = `
   className="root"
 >
   <form
+    action="#"
+    onReset={[Function]}
     onSubmit={[Function]}
   >
     <div
       className="root"
     >
-      <input
-        className="form-control"
-        onBlur={[Function]}
-        onChange={[Function]}
-        required={false}
-        type="text"
-        value=""
-      />
+      <div
+        className="formControlWrapper"
+      >
+        <input
+          disabled={false}
+          id="searchField"
+          onBlur={[Function]}
+          onChange={[Function]}
+          required={false}
+          type="search"
+          value=""
+        />
+      </div>
     </div>
-    <button
+    <div
       className="root"
-      disabled={false}
-      onClick={[Function]}
-      type="submit"
     >
-      Search
-    </button>
+      <button
+        disabled={false}
+        id="searchButton"
+        onClick={[Function]}
+        type="submit"
+      >
+        Search
+      </button>
+    </div>
   </form>
 </div>
 `;

@@ -2,7 +2,7 @@
 
 exports[`ErrorPage matches snapshot 1`] = `
 <div
-  className="error-page"
+  className="root"
 >
   <div
     className="wrapper"

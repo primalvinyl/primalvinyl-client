@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer matches snapshot 1`] = `
-<footer>
+<footer
+  className="root"
+>
   <div
     className="wrapper"
   >
@@ -13,7 +15,7 @@ exports[`Footer matches snapshot 1`] = `
         onClick={[Function]}
       >
         <h2>
-          My Site
+          Primal Vinyl
         </h2>
       </a>
       <div
@@ -22,7 +24,7 @@ exports[`Footer matches snapshot 1`] = `
         © 
         2020
          
-        My Site
+        Primal Vinyl
       </div>
     </div>
     <div
