@@ -1,6 +1,7 @@
 import React from 'react';
 import MasterTemplate from '../components/_MasterTemplate';
-import SearchForm from '../components/presentation/SearchForm';
+import SearchForm from '../components/SearchForm';
+import SearchResults from '../components/SearchResults';
 import styles from './HomePage.module.scss';
 
 const HomePage = (): React.ReactElement => {
@@ -9,6 +10,7 @@ const HomePage = (): React.ReactElement => {
             <article className={styles.root}>
                 <div className={styles.wrapper}>
                     <SearchForm />
+                    <SearchResults />
                 </div>
             </article>
         </MasterTemplate>

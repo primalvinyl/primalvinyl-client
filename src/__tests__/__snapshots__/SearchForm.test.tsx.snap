@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchForm matches snapshot 1`] = `
-<div
+<section
   className="root"
 >
   <form
@@ -39,5 +39,5 @@ exports[`SearchForm matches snapshot 1`] = `
       </button>
     </div>
   </form>
-</div>
+</section>
 `;

@@ -40,7 +40,7 @@ exports[`App matches snapshot 1`] = `
           <div
             className="wrapper"
           >
-            <div
+            <section
               className="root"
             >
               <form
@@ -78,7 +78,12 @@ exports[`App matches snapshot 1`] = `
                   </button>
                 </div>
               </form>
-            </div>
+            </section>
+            <section
+              className="root"
+            >
+              Search Results
+            </section>
           </div>
         </article>
       </main>

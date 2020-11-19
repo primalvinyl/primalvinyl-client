@@ -2,14 +2,14 @@ import React from 'react';
 import { Formik, Form, FormikValues } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { getArtists, clearArtists } from '../../store/actions';
-import Input from './Input';
-import Button from './Button';
+import { getArtists, clearArtists } from '../store/actions';
+import Input from './presentation/Input';
+import Button from './presentation/Button';
 import styles from './SearchForm.module.scss';
 
 const SearchForm = (): React.ReactElement => {
     const dispatch = useDispatch();
-    const initialValues: formValuesType = {
+    const initialValues: searchFormValuesType = {
         searchField: ''
     };
     const submitHandler = (values: FormikValues, actions: FormikValues) => {
@@ -19,10 +19,11 @@ const SearchForm = (): React.ReactElement => {
     };
 
     return (
-        <div className={styles.root}>
+        <section className={styles.root}>
             <Formik
                 initialValues={initialValues}
                 onSubmit={submitHandler}
+                validateOnBlur={false}
                 validationSchema={yup.object().shape({
                     searchField: yup.string().required('This field is required.')
                 })}
@@ -52,11 +53,11 @@ const SearchForm = (): React.ReactElement => {
                     </Form>
                 )}
             </Formik>
-        </div>
+        </section>
     );
 };
 
-interface formValuesType {
+interface searchFormValuesType {
     searchField: string;
 }
 

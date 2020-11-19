@@ -4,7 +4,7 @@ import Renderer from 'react-test-renderer';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from '../store/reducers';
-import SearchForm from '../components/presentation/SearchForm';
+import SearchForm from '../components/SearchForm';
 
 describe('SearchForm', () => {
     const store = createStore(rootReducer, {});
