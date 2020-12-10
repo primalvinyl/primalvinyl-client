@@ -1,10 +1,22 @@
 import { combineReducers } from 'redux';
-import { actionTypes, PutArtistActionType, PutArtistsActionType } from './actions';
+import { actionTypes, PutQueryActionType, PutArtistActionType, PutArtistsActionType } from './actions';
 import { ReduxArtistType, ReduxArtistsType, artistDefault, artistsDefault } from '../__types__';
 
 
 
 /******************************** Reducers ***************************************/
+export const query = (
+    state = '', 
+    action: PutQueryActionType
+) => {
+    switch(action.type) {
+        case actionTypes.PUT_QUERY:
+            return action.payload
+        default: 
+            return state
+    }
+};
+
 export const artist = (
     state: ReduxArtistType = artistDefault, 
     action: PutArtistActionType
@@ -37,6 +49,13 @@ export const artists = (
 
 /****************************** Root Reducer *************************************/
 export default combineReducers({
+    query,
     artist,
     artists
 });
+
+export interface RootState {
+    query: string;
+    artist: ReduxArtistType;
+    artists: ReduxArtistsType;
+}

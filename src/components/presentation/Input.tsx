@@ -7,6 +7,7 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
     const {
         id,
         value,
+        defaultValue,
         className,
         name,
         label,
@@ -16,6 +17,8 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
         disabled,
         errors, 
         touched,
+        onChange,
+        onBlur,
         handleChange,
         handleBlur
     } = props;
@@ -32,12 +35,19 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
                     id={id}
                     name={name}
                     value={value}
+                    defaultValue={defaultValue}
                     ref={ref}
                     placeholder={placeholder}
                     required={required}
                     disabled={disabled}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
+                    onChange={event => {
+                        handleChange && handleChange(event);
+                        onChange && onChange(event);
+                    }}
+                    onBlur={event => {
+                        handleBlur && handleBlur(event);
+                        onBlur && onBlur(event);
+                    }}
                 />
                 {(errors && touched) && (errors[id] && touched[id]) && (
                     <div className={styles.formFieldError}>
@@ -51,7 +61,8 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
 
 type InputType = {
     readonly id: string;
-    readonly value: string;
+    readonly value?: string;
+    readonly defaultValue?: string;
     readonly className?: string;
     readonly name?: string;
     readonly label?: string;
@@ -61,11 +72,15 @@ type InputType = {
     readonly disabled?: boolean;
     readonly errors?: { [key: string]: string };
     readonly touched?: { [key: string]: string };
+    readonly onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    readonly onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     readonly handleChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     readonly handleBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 };
 
 Input.defaultProps = {
+    value: undefined,
+    defaultValue: undefined,
     className: undefined,
     name: undefined,
     label: undefined,
@@ -75,6 +90,8 @@ Input.defaultProps = {
     disabled: false,
     errors: {},
     touched: {},
+    onChange: (): void => {},
+    onBlur: (): void => {},
     handleChange: (): void => {},
     handleBlur: (): void => {}
 }

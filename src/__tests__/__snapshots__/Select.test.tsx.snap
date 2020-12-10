@@ -9,9 +9,11 @@ exports[`Select matches snapshot 1`] = `
   >
     <select
       disabled={false}
+      id="test"
       onBlur={[Function]}
       onChange={[Function]}
       required={false}
+      value="test"
     />
   </div>
 </div>

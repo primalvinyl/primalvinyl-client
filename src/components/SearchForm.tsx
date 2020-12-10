@@ -14,7 +14,7 @@ const SearchForm = (): React.ReactElement => {
     };
     const submitHandler = (values: FormikValues, actions: FormikValues) => {
         dispatch(clearArtists());
-        dispatch(getArtists(values.searchField));
+        dispatch(getArtists({ query: values.searchField }));
         actions.setSubmitting(false);
     };
 

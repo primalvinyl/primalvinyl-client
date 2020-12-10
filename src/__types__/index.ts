@@ -6,7 +6,7 @@ interface ReduxPaginationType {
     items: number;
 }
 
-interface ReduxArtistListType {
+export interface ReduxArtistListType {
     id: number;
     name: string;
     thumbnail_url: string;
@@ -30,10 +30,23 @@ export interface ReduxArtistsType {
     request_status: string;
 }
 
+export interface SagaGetRequest {
+    query: string;
+    page?: number;
+    per_page?: number;
+}
+
 
 
 
 /*************************** Default Values ********************************/
+export const paginationDefault: ReduxPaginationType = {
+    page: 0,
+    pages: 1,
+    per_page: 15,
+    items: 0
+};
+
 export const artistDefault: ReduxArtistType = {
     name: '',
     realname: '',
@@ -44,11 +57,17 @@ export const artistDefault: ReduxArtistType = {
 };
 
 export const artistsDefault: ReduxArtistsType = {
-    pagination: {} as ReduxPaginationType,
+    pagination: paginationDefault as ReduxPaginationType,
     results: [],
     error: false,
     error_message: '',
     request_status: 'idle'
+};
+
+export const sagaGetRequestDefault: SagaGetRequest = {
+    query: '',
+    page: 0,
+    per_page: 15
 };
 
 export const navList = [

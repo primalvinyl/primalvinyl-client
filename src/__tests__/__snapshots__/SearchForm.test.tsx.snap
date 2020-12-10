@@ -33,6 +33,11 @@ exports[`SearchForm matches snapshot 1`] = `
         disabled={false}
         id="searchButton"
         onClick={[Function]}
+        style={
+          Object {
+            "background": "gray800",
+          }
+        }
         type="submit"
       >
         Search

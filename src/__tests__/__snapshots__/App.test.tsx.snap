@@ -72,6 +72,11 @@ exports[`App matches snapshot 1`] = `
                     disabled={false}
                     id="searchButton"
                     onClick={[Function]}
+                    style={
+                      Object {
+                        "background": "gray800",
+                      }
+                    }
                     type="submit"
                   >
                     Search
@@ -79,11 +84,178 @@ exports[`App matches snapshot 1`] = `
                 </div>
               </form>
             </section>
-            <section
+            <div
               className="root"
             >
-              Search Results
-            </section>
+              <table
+                role="table"
+              >
+                <thead>
+                  <tr
+                    role="row"
+                  >
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      
+                    </th>
+                    <th
+                      colSpan={1}
+                      role="columnheader"
+                    >
+                      Name
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  role="rowgroup"
+                />
+              </table>
+              <div
+                className="pagination"
+              >
+                <div
+                  className="buttonGroup"
+                >
+                  <div
+                    className="root"
+                  >
+                    <button
+                      className="button"
+                      disabled={true}
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "background": "gray800",
+                        }
+                      }
+                      type="submit"
+                    >
+                      Start
+                    </button>
+                  </div>
+                  <div
+                    className="root"
+                  >
+                    <button
+                      className="button"
+                      disabled={true}
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "background": "gray800",
+                        }
+                      }
+                      type="submit"
+                    >
+                      Previous
+                    </button>
+                  </div>
+                  <div
+                    className="root"
+                  >
+                    <button
+                      className="button"
+                      disabled={true}
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "background": "gray800",
+                        }
+                      }
+                      type="submit"
+                    >
+                      Next
+                    </button>
+                  </div>
+                  <div
+                    className="root"
+                  >
+                    <button
+                      className="button"
+                      disabled={true}
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "background": "gray800",
+                        }
+                      }
+                      type="submit"
+                    >
+                      End
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="gotoPage"
+                >
+                  <div
+                    className="root"
+                  >
+                    <div
+                      className="formControlWrapper"
+                    >
+                      <input
+                        defaultValue={1}
+                        disabled={false}
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        required={false}
+                        type="number"
+                      />
+                    </div>
+                  </div>
+                  go to
+                </div>
+                <div
+                  className="perPage"
+                >
+                  <div
+                    className="root"
+                  >
+                    <div
+                      className="formControlWrapper"
+                    >
+                      <select
+                        disabled={false}
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        required={false}
+                        value={15}
+                      >
+                        <option
+                          value={15}
+                        >
+                          15
+                        </option>
+                        <option
+                          value={25}
+                        >
+                          25
+                        </option>
+                        <option
+                          value={50}
+                        >
+                          50
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  per page
+                </div>
+                <div
+                  className="currentPage"
+                >
+                  Page 
+                  <strong>
+                    1
+                     of 
+                    1
+                  </strong>
+                </div>
+              </div>
+            </div>
           </div>
         </article>
       </main>

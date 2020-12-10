@@ -2,7 +2,9 @@ import {
     ReduxArtistType,
     ReduxArtistsType,
     artistDefault,
-    artistsDefault
+    artistsDefault,
+    SagaGetRequest,
+    sagaGetRequestDefault
 } from '../__types__';
 
 
@@ -11,6 +13,7 @@ import {
 export const actionTypes = {
     GET_ARTIST: 'GET_ARTIST',
     GET_ARTISTS: 'GET_ARTISTS',
+    PUT_QUERY: 'PUT_QUERY',
     PUT_ARTIST: 'PUT_ARTIST',
     PUT_ARTISTS: 'PUT_ARTISTS',
     CLEAR_ARTIST: 'CLEAR_ARTIST',
@@ -21,6 +24,18 @@ export const actionTypes = {
 
 
 /******************************* Reducer Actions *************************************/
+export interface PutQueryActionType {
+    type: typeof actionTypes.PUT_QUERY;
+    payload: string
+}
+export const putQuery = (payload: string = ''): PutQueryActionType => {
+    return {
+        type: actionTypes.PUT_QUERY,
+        payload
+    }
+};
+
+
 export interface PutArtistActionType {
     type: typeof actionTypes.PUT_ARTIST;
     payload: ReduxArtistType;
@@ -70,23 +85,23 @@ export const clearArtists = (): ClearArtistsActionType => {
 /******************************** Saga Actions **************************************/
 export interface GetArtistActionType {
     type: typeof actionTypes.GET_ARTIST;
-    payload: string;
+    payload: SagaGetRequest;
 }
-export const getArtist = (payload: string): GetArtistActionType => {
+export const getArtist = (payload: SagaGetRequest = sagaGetRequestDefault): GetArtistActionType => {
     return {
         type: actionTypes.GET_ARTIST,
-        payload
+        payload: { ...sagaGetRequestDefault, ...payload }
     };
 };
 
 
 export interface GetArtistsActionType {
     type: typeof actionTypes.GET_ARTISTS;
-    payload: string;
+    payload: SagaGetRequest;
 }
-export const getArtists = (payload: string): GetArtistsActionType => {
+export const getArtists = (payload: SagaGetRequest = sagaGetRequestDefault): GetArtistsActionType => {
     return {
         type: actionTypes.GET_ARTISTS,
-        payload
+        payload: { ...sagaGetRequestDefault, ...payload }
     };
 }; 

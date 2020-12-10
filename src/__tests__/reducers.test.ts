@@ -1,6 +1,17 @@
-import { artist, artists } from '../store/reducers';
-import { putArtist, putArtists } from '../store/actions';
+import { query, artist, artists } from '../store/reducers';
+import { putQuery, putArtist, putArtists } from '../store/actions';
 import { artistDefault, artistsDefault } from '../__types__';
+
+describe('query', () => {
+    it('should return the initial state', () => {
+        const response = query(undefined, putQuery());
+        expect(response).toEqual('');
+    })
+    it('should put a new query', () => {
+        const response = query(undefined, putQuery('test'));
+        expect(response).toEqual('test');
+    });
+});
 
 describe('artist', () => {
     it('should return the initial state', () => {

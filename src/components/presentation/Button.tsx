@@ -12,19 +12,25 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
         type,
         disabled,
         isSubmitting,
-        handleClick
+        color,
+        url,
+        onClick
     } = props;
 
     return (
         <div className={styles.root}>
             <button
                 className={className}
-                id={id}
+                id={id} 
                 name={name}
                 type={type}
                 disabled={isSubmitting || disabled}
                 ref={ref}
-                onClick={handleClick}
+                style={{ background: color ? color : styles.gray800 }}
+                onClick={(event) => {
+                    url && window.open(url, 'article', 'noopener,noreferrer');
+                    onClick && onClick(event);
+                }}
             >
                 {value}
             </button>
@@ -40,7 +46,9 @@ type ButtonType = {
     readonly type?: 'submit' | 'button' | 'reset';
     readonly disabled?: boolean;
     readonly isSubmitting?: boolean;
-    readonly handleClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    readonly color?: string;
+    readonly url?: string;
+    readonly onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 Button.defaultProps = {
@@ -50,7 +58,9 @@ Button.defaultProps = {
     type: 'submit',
     disabled: false,
     isSubmitting: false,
-    handleClick: (): void => {},
+    color: '',
+    url: undefined,
+    onClick: (): void => {}
 }
 
 export default Button;
