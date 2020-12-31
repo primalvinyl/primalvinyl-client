@@ -1,5 +1,5 @@
-@import './styles/partials/breakpoints';
-@import './styles/partials/variables';
+
+@import '../styles/partials/variables';
 
 .root {
     padding: 0;
@@ -11,9 +11,5 @@
         column-gap: .5em;
     }
 
-    @include breakpoint(lg-down) {
-        form {
-            grid-template-columns: 70% 30%;
-        }
-    }
+
 }
