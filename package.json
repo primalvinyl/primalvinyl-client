@@ -26,13 +26,14 @@
         "@types/react-transition-group": "^4.4.0",
         "@types/testing-library__dom": "^7.5.0",
         "@types/yup": "^0.29.9",
-        "axios": "^0.21.0",
+        "axios": "^0.21.1",
         "concurrently": "^5.3.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.5",
         "enzyme-to-json": "^3.6.1",
         "formik": "^2.2.5",
         "node-sass": "^4.14.1",
+        "pre-commit": "^1.2.2",
         "react": "^16.14.0",
         "react-cookie-consent": "^6.0.0",
         "react-dom": "^16.14.0",
@@ -58,11 +59,14 @@
         "build:client": "react-scripts build",
         "build:server": "cd ./server && npm run build",
         "build": "concurrently \"npm run build:client\" \"npm run build:server\"",
-        "test": "react-scripts test",
+        "test:client": "react-scripts test --watchAll=false",
+        "test:server": "cd ./server && npm run test",
         "test:coverage": "npm test -- --coverage",
         "test:snapshot": "npm test -- --updateSnapshot",
+        "test": "concurrently \"npm run test:client\" \"npm run test:server\"",
         "eject": "react-scripts eject",
-        "postinstall": "cd ./server && npm install"
+        "postinstall": "cd ./server && npm install",
+        "message-pre-commit": "echo 'Pre-commit tests are running...' && exit 0"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -82,6 +86,12 @@
     "jest": {
         "snapshotSerializers": [
             "enzyme-to-json/serializer"
+        ]
+    },
+    "pre-commit": {
+        "run": [
+            "message-pre-commit",
+            "test"
         ]
     }
 }
