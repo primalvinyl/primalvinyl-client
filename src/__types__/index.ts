@@ -1,4 +1,4 @@
-/******************************* Types *************************************/
+/**************************** Redux Types ***********************************/
 interface ReduxPaginationType {
     page: number;
     pages: number;
@@ -6,12 +6,43 @@ interface ReduxPaginationType {
     items: number;
 }
 
-export interface ReduxArtistListType {
+
+
+
+
+interface ReduxLyricsSearchItemType {
     id: number;
     name: string;
     thumbnail_url: string;
     image_url: string;
 }
+export interface ReduxLyricsSearchType {
+    results: ReduxLyricsSearchItemType[];
+    error: boolean;
+    error_message: string;
+    request_status: string;
+}
+
+
+
+
+
+interface ReduxArtistSearchItemType {
+    id: number;
+    name: string;
+    thumbnail_url: string;
+    image_url: string;
+}
+export interface ReduxArtistSearchType {
+    pagination: ReduxPaginationType,
+    results: ReduxArtistSearchItemType[];
+    error: boolean;
+    error_message: string;
+    request_status: string;
+}
+
+
+
 
 export interface ReduxArtistType {
     name: string;
@@ -22,29 +53,40 @@ export interface ReduxArtistType {
     request_status: string;
 }
 
-export interface ReduxArtistsType {
-    pagination: ReduxPaginationType,
-    results: ReduxArtistListType[];
-    error: boolean;
-    error_message: string;
-    request_status: string;
-}
 
-export interface SagaGetRequest {
+
+
+/**************************** Saga Reqeust Type ********************************/
+export interface SagaRequestType {
     query: string;
     page?: number;
-    per_page?: number;
+    per_page?: number; 
 }
 
 
 
 
 /*************************** Default Values ********************************/
-export const paginationDefault: ReduxPaginationType = {
+export const lyricsSearchDefault: ReduxLyricsSearchType = {
+    results: [],
+    error: false,
+    error_message: '',
+    request_status: 'idle'
+};
+
+export const discogsPaginationDefault: ReduxPaginationType = {
     page: 0,
     pages: 1,
     per_page: 15,
     items: 0
+};
+
+export const artistSearchDefault: ReduxArtistSearchType = {
+    pagination: discogsPaginationDefault as ReduxPaginationType,
+    results: [],
+    error: false,
+    error_message: '',
+    request_status: 'idle'
 };
 
 export const artistDefault: ReduxArtistType = {
@@ -56,15 +98,11 @@ export const artistDefault: ReduxArtistType = {
     request_status: 'idle'
 };
 
-export const artistsDefault: ReduxArtistsType = {
-    pagination: paginationDefault as ReduxPaginationType,
-    results: [],
-    error: false,
-    error_message: '',
-    request_status: 'idle'
+export const lyricsGetRequestDefault: SagaRequestType = {
+    query: ''
 };
 
-export const sagaGetRequestDefault: SagaGetRequest = {
+export const artistGetRequestDefault: SagaRequestType = {
     query: '',
     page: 0,
     per_page: 15

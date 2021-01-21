@@ -1,14 +1,14 @@
 const fetch = require('node-fetch').default;
 const urljoin = require('url-join');
 const { errorHandler, hasMissingValue, discogsHeaders } = require('../utilities');
-const { defaultArtistObject } = require('../../__types__/defaultObjects');
+const { defaultDiscogsArtistObject } = require('../../__types__/defaultObjects');
 
 module.exports = async id => {
     // abandon if missing parameter
     if (hasMissingValue(id)) return errorHandler('Missing artist id');
 
     const endpoint = urljoin(
-        process.env.api_endpoint,
+        process.env.discogs_api_endpoint,
         `artists/${id}`
     );
     const requestOptions = {
@@ -27,7 +27,7 @@ module.exports = async id => {
                 image_url = images[0].resource_url;
             }
 
-            return { ...defaultArtistObject, name, realname, image_url, profile };
+            return { ...defaultDiscogsArtistObject, name, realname, image_url, profile };
         })
         .catch (error => errorHandler('Failed getting artist details from Discogs API', error));
 };

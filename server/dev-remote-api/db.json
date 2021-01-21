@@ -1,4 +1,391 @@
 {
+    "genius-search": {
+        "meta": {
+            "status": 200
+        },
+        "response": {
+            "hits": [
+                {
+                    "highlights": [],
+                    "index": "song",
+                    "type": "song",
+                    "result": {
+                        "annotation_count": 13,
+                        "api_path": "/songs/162955",
+                        "full_title": "Shape of My Heart by Sting",
+                        "header_image_thumbnail_url": "https://images.genius.com/0974b45496e159a317022674024c3864.300x150x1.jpg",
+                        "header_image_url": "https://images.genius.com/0974b45496e159a317022674024c3864.1000x500x1.jpg",
+                        "id": 162955,
+                        "lyrics_owner_id": 205320,
+                        "lyrics_state": "complete",
+                        "path": "/Sting-shape-of-my-heart-lyrics",
+                        "pyongs_count": 42,
+                        "song_art_image_thumbnail_url": "https://images.genius.com/86bca22d668b42b5aff7c49499502935.300x300x1.jpg",
+                        "song_art_image_url": "https://images.genius.com/86bca22d668b42b5aff7c49499502935.600x600x1.jpg",
+                        "stats": {
+                            "unreviewed_annotations": 2,
+                            "hot": false,
+                            "pageviews": 285157
+                        },
+                        "title": "Shape of My Heart",
+                        "title_with_featured": "Shape of My Heart",
+                        "url": "https://genius.com/Sting-shape-of-my-heart-lyrics",
+                        "primary_artist": {
+                            "api_path": "/artists/679",
+                            "header_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+                            "id": 679,
+                            "image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+                            "is_meme_verified": false,
+                            "is_verified": true,
+                            "name": "Sting",
+                            "url": "https://genius.com/artists/Sting",
+                            "iq": 260
+                        }
+                    }
+                },
+                {
+                    "highlights": [],
+                    "index": "song",
+                    "type": "song",
+                    "result": {
+                        "annotation_count": 12,
+                        "api_path": "/songs/211287",
+                        "full_title": "Englishman in New York by Sting (Ft. Branford Marsalis, Manu Katché & Mino Cinelu)",
+                        "header_image_thumbnail_url": "https://images.genius.com/1fed4b53f74749ed824b80a0b3ca3ecc.300x300x1.png",
+                        "header_image_url": "https://images.genius.com/1fed4b53f74749ed824b80a0b3ca3ecc.440x440x1.png",
+                        "id": 211287,
+                        "lyrics_owner_id": 156412,
+                        "lyrics_state": "complete",
+                        "path": "/Sting-englishman-in-new-york-lyrics",
+                        "pyongs_count": 21,
+                        "song_art_image_thumbnail_url": "https://images.genius.com/1fed4b53f74749ed824b80a0b3ca3ecc.300x300x1.png",
+                        "song_art_image_url": "https://images.genius.com/1fed4b53f74749ed824b80a0b3ca3ecc.440x440x1.png",
+                        "stats": {
+                            "unreviewed_annotations": 1,
+                            "hot": false,
+                            "pageviews": 179032
+                        },
+                        "title": "Englishman in New York",
+                        "title_with_featured": "Englishman in New York (Ft. Branford Marsalis, Manu Katché & Mino Cinelu)",
+                        "url": "https://genius.com/Sting-englishman-in-new-york-lyrics",
+                        "primary_artist": {
+                            "api_path": "/artists/679",
+                            "header_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+                            "id": 679,
+                            "image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+                            "is_meme_verified": false,
+                            "is_verified": true,
+                            "name": "Sting",
+                            "url": "https://genius.com/artists/Sting",
+                            "iq": 260
+                        }
+                    }
+                },
+                {
+                    "highlights": [],
+                    "index": "song",
+                    "type": "song",
+                    "result": {
+                        "annotation_count": 11,
+                        "api_path": "/songs/189782",
+                        "full_title": "Glycerine by Bush",
+                        "header_image_thumbnail_url": "https://images.genius.com/d82a59507f349f5946c82677fcec5b46.300x300x1.jpg",
+                        "header_image_url": "https://images.genius.com/d82a59507f349f5946c82677fcec5b46.999x999x1.jpg",
+                        "id": 189782,
+                        "lyrics_owner_id": 253354,
+                        "lyrics_state": "complete",
+                        "path": "/Bush-glycerine-lyrics",
+                        "pyongs_count": 20,
+                        "song_art_image_thumbnail_url": "https://images.genius.com/d82a59507f349f5946c82677fcec5b46.300x300x1.jpg",
+                        "song_art_image_url": "https://images.genius.com/d82a59507f349f5946c82677fcec5b46.999x999x1.jpg",
+                        "stats": {
+                            "unreviewed_annotations": 8,
+                            "concurrents": 2,
+                            "hot": false,
+                            "pageviews": 120184
+                        },
+                        "title": "Glycerine",
+                        "title_with_featured": "Glycerine",
+                        "url": "https://genius.com/Bush-glycerine-lyrics",
+                        "primary_artist": {
+                            "api_path": "/artists/20009",
+                            "header_image_url": "https://images.genius.com/97fc5295f742e3665ec5186bff2fa6f5.500x403x1.jpg",
+                            "id": 20009,
+                            "image_url": "https://images.genius.com/97fc5295f742e3665ec5186bff2fa6f5.500x403x1.jpg",
+                            "is_meme_verified": false,
+                            "is_verified": false,
+                            "name": "Bush",
+                            "url": "https://genius.com/artists/Bush"
+                        }
+                    }
+                },
+                {
+                    "highlights": [],
+                    "index": "song",
+                    "type": "song",
+                    "result": {
+                        "annotation_count": 6,
+                        "api_path": "/songs/113141",
+                        "full_title": "Fields Of Gold by Sting",
+                        "header_image_thumbnail_url": "https://images.genius.com/5655f98e7f192c59633d90180a4d8b5b.300x300x1.jpg",
+                        "header_image_url": "https://images.genius.com/5655f98e7f192c59633d90180a4d8b5b.1000x1000x1.jpg",
+                        "id": 113141,
+                        "lyrics_owner_id": 171,
+                        "lyrics_state": "complete",
+                        "path": "/Sting-fields-of-gold-lyrics",
+                        "pyongs_count": 8,
+                        "song_art_image_thumbnail_url": "https://images.genius.com/5655f98e7f192c59633d90180a4d8b5b.300x300x1.jpg",
+                        "song_art_image_url": "https://images.genius.com/5655f98e7f192c59633d90180a4d8b5b.1000x1000x1.jpg",
+                        "stats": {
+                            "unreviewed_annotations": 0,
+                            "concurrents": 2,
+                            "hot": false,
+                            "pageviews": 86915
+                        },
+                        "title": "Fields Of Gold",
+                        "title_with_featured": "Fields Of Gold",
+                        "url": "https://genius.com/Sting-fields-of-gold-lyrics",
+                        "primary_artist": {
+                            "api_path": "/artists/679",
+                            "header_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+                            "id": 679,
+                            "image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+                            "is_meme_verified": false,
+                            "is_verified": true,
+                            "name": "Sting",
+                            "url": "https://genius.com/artists/Sting",
+                            "iq": 260
+                        }
+                    }
+                },
+                {
+                    "highlights": [],
+                    "index": "song",
+                    "type": "song",
+                    "result": {
+                        "annotation_count": 13,
+                        "api_path": "/songs/166696",
+                        "full_title": "Desert Rose by Sting (Ft. Cheb Mami)",
+                        "header_image_thumbnail_url": "https://images.genius.com/c906640ceae89f7541442ed76c508621.300x300x1.jpg",
+                        "header_image_url": "https://images.genius.com/c906640ceae89f7541442ed76c508621.1000x1000x1.jpg",
+                        "id": 166696,
+                        "lyrics_owner_id": 5307,
+                        "lyrics_state": "complete",
+                        "path": "/Sting-desert-rose-lyrics",
+                        "pyongs_count": 9,
+                        "song_art_image_thumbnail_url": "https://images.genius.com/c906640ceae89f7541442ed76c508621.300x300x1.jpg",
+                        "song_art_image_url": "https://images.genius.com/c906640ceae89f7541442ed76c508621.1000x1000x1.jpg",
+                        "stats": {
+                            "unreviewed_annotations": 1,
+                            "hot": false,
+                            "pageviews": 107229
+                        },
+                        "title": "Desert Rose",
+                        "title_with_featured": "Desert Rose (Ft. Cheb Mami)",
+                        "url": "https://genius.com/Sting-desert-rose-lyrics",
+                        "primary_artist": {
+                            "api_path": "/artists/679",
+                            "header_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+                            "id": 679,
+                            "image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+                            "is_meme_verified": false,
+                            "is_verified": true,
+                            "name": "Sting",
+                            "url": "https://genius.com/artists/Sting",
+                            "iq": 260
+                        }
+                    }
+                },
+                {
+                    "highlights": [],
+                    "index": "song",
+                    "type": "song",
+                    "result": {
+                        "annotation_count": 3,
+                        "api_path": "/songs/389122",
+                        "full_title": "Fragile by Sting",
+                        "header_image_thumbnail_url": "https://images.genius.com/2f241efc89d9eb62cd8ab47f3ad66582.300x300x1.jpg",
+                        "header_image_url": "https://images.genius.com/2f241efc89d9eb62cd8ab47f3ad66582.1000x1000x1.jpg",
+                        "id": 389122,
+                        "lyrics_owner_id": 359620,
+                        "lyrics_state": "complete",
+                        "path": "/Sting-fragile-lyrics",
+                        "pyongs_count": 7,
+                        "song_art_image_thumbnail_url": "https://images.genius.com/2f241efc89d9eb62cd8ab47f3ad66582.300x300x1.jpg",
+                        "song_art_image_url": "https://images.genius.com/2f241efc89d9eb62cd8ab47f3ad66582.1000x1000x1.jpg",
+                        "stats": {
+                            "unreviewed_annotations": 0,
+                            "hot": false,
+                            "pageviews": 44137
+                        },
+                        "title": "Fragile",
+                        "title_with_featured": "Fragile",
+                        "url": "https://genius.com/Sting-fragile-lyrics",
+                        "primary_artist": {
+                            "api_path": "/artists/679",
+                            "header_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+                            "id": 679,
+                            "image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+                            "is_meme_verified": false,
+                            "is_verified": true,
+                            "name": "Sting",
+                            "url": "https://genius.com/artists/Sting",
+                            "iq": 260
+                        }
+                    }
+                },
+                {
+                    "highlights": [],
+                    "index": "song",
+                    "type": "song",
+                    "result": {
+                        "annotation_count": 10,
+                        "api_path": "/songs/173900",
+                        "full_title": "Russians by Sting",
+                        "header_image_thumbnail_url": "https://images.genius.com/39b39976d889ae781a8347669e64ca12.300x300x1.png",
+                        "header_image_url": "https://images.genius.com/39b39976d889ae781a8347669e64ca12.708x708x1.png",
+                        "id": 173900,
+                        "lyrics_owner_id": 233025,
+                        "lyrics_state": "complete",
+                        "path": "/Sting-russians-lyrics",
+                        "pyongs_count": 13,
+                        "song_art_image_thumbnail_url": "https://images.genius.com/39b39976d889ae781a8347669e64ca12.300x300x1.png",
+                        "song_art_image_url": "https://images.genius.com/39b39976d889ae781a8347669e64ca12.708x708x1.png",
+                        "stats": {
+                            "unreviewed_annotations": 0,
+                            "hot": false,
+                            "pageviews": 32933
+                        },
+                        "title": "Russians",
+                        "title_with_featured": "Russians",
+                        "url": "https://genius.com/Sting-russians-lyrics",
+                        "primary_artist": {
+                            "api_path": "/artists/679",
+                            "header_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+                            "id": 679,
+                            "image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+                            "is_meme_verified": false,
+                            "is_verified": true,
+                            "name": "Sting",
+                            "url": "https://genius.com/artists/Sting",
+                            "iq": 260
+                        }
+                    }
+                },
+                {
+                    "highlights": [],
+                    "index": "song",
+                    "type": "song",
+                    "result": {
+                        "annotation_count": 3,
+                        "api_path": "/songs/3465935",
+                        "full_title": "Don't Make Me Wait by Sting & Shaggy",
+                        "header_image_thumbnail_url": "https://images.genius.com/941e69a1697c651103569d7a77053074.300x169x1.jpg",
+                        "header_image_url": "https://images.genius.com/941e69a1697c651103569d7a77053074.800x450x1.jpg",
+                        "id": 3465935,
+                        "lyrics_owner_id": 4848848,
+                        "lyrics_state": "complete",
+                        "path": "/Sting-and-shaggy-dont-make-me-wait-lyrics",
+                        "pyongs_count": 5,
+                        "song_art_image_thumbnail_url": "https://images.genius.com/1d27275d36cc3cb55311831fff858518.300x300x1.jpg",
+                        "song_art_image_url": "https://images.genius.com/1d27275d36cc3cb55311831fff858518.1000x1000x1.jpg",
+                        "stats": {
+                            "unreviewed_annotations": 2,
+                            "hot": false,
+                            "pageviews": 25844
+                        },
+                        "title": "Don’t Make Me Wait",
+                        "title_with_featured": "Don't Make Me Wait",
+                        "url": "https://genius.com/Sting-and-shaggy-dont-make-me-wait-lyrics",
+                        "primary_artist": {
+                            "api_path": "/artists/1338547",
+                            "header_image_url": "https://images.genius.com/6eac3bae627f900bddce8e983333faa1.220x220x1.jpg",
+                            "id": 1338547,
+                            "image_url": "https://images.genius.com/60013c3f2ee28444bb48eaaeca97f554.640x640x1.jpg",
+                            "is_meme_verified": false,
+                            "is_verified": false,
+                            "name": "Sting & Shaggy",
+                            "url": "https://genius.com/artists/Sting-and-shaggy"
+                        }
+                    }
+                },
+                {
+                    "highlights": [],
+                    "index": "song",
+                    "type": "song",
+                    "result": {
+                        "annotation_count": 6,
+                        "api_path": "/songs/251692",
+                        "full_title": "Machinehead by Bush",
+                        "header_image_thumbnail_url": "https://images.rapgenius.com/1d92e93b72e71ba63ed78c7e479e5fd2.300x300x1.jpg",
+                        "header_image_url": "https://images.rapgenius.com/1d92e93b72e71ba63ed78c7e479e5fd2.500x500x1.jpg",
+                        "id": 251692,
+                        "lyrics_owner_id": 311391,
+                        "lyrics_state": "complete",
+                        "path": "/Bush-machinehead-lyrics",
+                        "pyongs_count": 2,
+                        "song_art_image_thumbnail_url": "https://images.genius.com/2730053d21b4ed88e06943ae2c9e62f9.300x261x1.jpg",
+                        "song_art_image_url": "https://images.genius.com/2730053d21b4ed88e06943ae2c9e62f9.300x261x1.jpg",
+                        "stats": {
+                            "unreviewed_annotations": 1,
+                            "hot": false,
+                            "pageviews": 25761
+                        },
+                        "title": "Machinehead",
+                        "title_with_featured": "Machinehead",
+                        "url": "https://genius.com/Bush-machinehead-lyrics",
+                        "primary_artist": {
+                            "api_path": "/artists/20009",
+                            "header_image_url": "https://images.genius.com/97fc5295f742e3665ec5186bff2fa6f5.500x403x1.jpg",
+                            "id": 20009,
+                            "image_url": "https://images.genius.com/97fc5295f742e3665ec5186bff2fa6f5.500x403x1.jpg",
+                            "is_meme_verified": false,
+                            "is_verified": false,
+                            "name": "Bush",
+                            "url": "https://genius.com/artists/Bush"
+                        }
+                    }
+                },
+                {
+                    "highlights": [],
+                    "index": "song",
+                    "type": "song",
+                    "result": {
+                        "annotation_count": 0,
+                        "api_path": "/songs/5597541",
+                        "full_title": "Stingy by Hotboii",
+                        "header_image_thumbnail_url": "https://images.genius.com/aa1a89f86b7fa9c8bce2bb98bd3f899a.300x300x1.png",
+                        "header_image_url": "https://images.genius.com/aa1a89f86b7fa9c8bce2bb98bd3f899a.1000x1000x1.png",
+                        "id": 5597541,
+                        "lyrics_owner_id": 10782325,
+                        "lyrics_state": "complete",
+                        "path": "/Hotboii-stingy-lyrics",
+                        "pyongs_count": null,
+                        "song_art_image_thumbnail_url": "https://images.genius.com/aa1a89f86b7fa9c8bce2bb98bd3f899a.300x300x1.png",
+                        "song_art_image_url": "https://images.genius.com/aa1a89f86b7fa9c8bce2bb98bd3f899a.1000x1000x1.png",
+                        "stats": {
+                            "unreviewed_annotations": 0,
+                            "hot": false,
+                            "pageviews": 23697
+                        },
+                        "title": "Stingy",
+                        "title_with_featured": "Stingy",
+                        "url": "https://genius.com/Hotboii-stingy-lyrics",
+                        "primary_artist": {
+                            "api_path": "/artists/1666901",
+                            "header_image_url": "https://images.genius.com/e15e0e3e5ec82362a510dd13f3cbe34b.500x500x1.jpg",
+                            "id": 1666901,
+                            "image_url": "https://images.genius.com/e15e0e3e5ec82362a510dd13f3cbe34b.500x500x1.jpg",
+                            "is_meme_verified": false,
+                            "is_verified": false,
+                            "name": "Hotboii",
+                            "url": "https://genius.com/artists/Hotboii"
+                        }
+                    }
+                }
+            ]
+        }
+    },
     "discogs-artist-search": {
         "pagination": {
             "page": 1,
