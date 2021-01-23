@@ -1,15 +1,21 @@
-exports.defaultArtistObject = {
-    name: '',
-    realname: '',
-    image_url: '',
-    profile: '',
+exports.defaultGeniusSearchObject = {
+    results: [],
     error: false,
     error_message: ''
 };
 
-exports.defaultArtistsObject = {
+exports.defaultDiscogsArtistSearchObject = {
     pagination: {},
     results: [],
+    error: false,
+    error_message: ''
+};
+
+exports.defaultDiscogsArtistObject = {
+    name: '',
+    realname: '',
+    image_url: '',
+    profile: '',
     error: false,
     error_message: ''
 };

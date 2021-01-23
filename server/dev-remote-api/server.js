@@ -8,8 +8,10 @@ server.use(middlewares);
 
 //routing
 server.use(jsonServer.rewriter({
-    "/database/search?q=:artists&type=artist&page=:page&per_page=:perpage": "/discogs-artist-search",
-    "/artists/:id": "/discogs-artist"
+    "/discogs/database/search?q=:artists&type=artist&page=:page&per_page=:perpage":
+        "/discogs-artist-search",
+    "/discogs/artists/:id": "/discogs-artist",
+    "/genius/search?q=:query": "/genius-search"
 }));
 
 //endpoint

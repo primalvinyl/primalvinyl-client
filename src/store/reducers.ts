@@ -1,6 +1,17 @@
 import { combineReducers } from 'redux';
-import { actionTypes, PutQueryActionType, PutArtistActionType, PutArtistsActionType } from './actions';
-import { ReduxArtistType, ReduxArtistsType, artistDefault, artistsDefault } from '../__types__';
+import {
+    actionTypes,
+    PutQueryActionType,
+    PutLyricsSearchActionType,
+    PutArtistSearchActionType,
+    PutArtistActionType } from './actions';
+import {
+    ReduxLyricsSearchType,
+    ReduxArtistSearchType,
+    ReduxArtistType,
+    lyricsSearchDefault,
+    artistSearchDefault,
+    artistDefault } from '../__types__';
 
 
 
@@ -9,7 +20,7 @@ export const query = (
     state = '', 
     action: PutQueryActionType
 ) => {
-    switch(action.type) {
+    switch(action.type) { 
         case actionTypes.PUT_QUERY:
             return action.payload
         default: 
@@ -17,8 +28,22 @@ export const query = (
     }
 };
 
+export const search = (
+    state: ReduxLyricsSearchType = lyricsSearchDefault,
+    action: PutLyricsSearchActionType
+): ReduxLyricsSearchType => {
+    switch(action.type){
+        case actionTypes.PUT_LYRICS_SEARCH:
+            return { ...state, ...action.payload }
+        case actionTypes.CLEAR_LYRICS_SEARCH:
+            return {} as ReduxLyricsSearchType
+        default:
+            return state
+    }
+}
+
 export const artist = (
-    state: ReduxArtistType = artistDefault, 
+    state: ReduxArtistType = artistDefault,
     action: PutArtistActionType
 ): ReduxArtistType => {
     switch(action.type){
@@ -32,14 +57,14 @@ export const artist = (
 }
 
 export const artists = (
-    state: ReduxArtistsType = artistsDefault,
-    action: PutArtistsActionType
-): ReduxArtistsType => {
+    state: ReduxArtistSearchType = artistSearchDefault,
+    action: PutArtistSearchActionType
+): ReduxArtistSearchType => {
     switch(action.type){
-        case actionTypes.PUT_ARTISTS:
+        case actionTypes.PUT_ARTIST_SEARCH:
             return { ...state, ...action.payload }
         case actionTypes.CLEAR_ARTIST:
-            return {} as ReduxArtistsType
+            return {} as ReduxArtistSearchType
         default:
             return state
     }
@@ -50,6 +75,7 @@ export const artists = (
 /****************************** Root Reducer *************************************/
 export default combineReducers({
     query,
+    search,
     artist,
     artists
 });
@@ -57,5 +83,5 @@ export default combineReducers({
 export interface RootState {
     query: string;
     artist: ReduxArtistType;
-    artists: ReduxArtistsType;
+    artists: ReduxArtistSearchType;
 }

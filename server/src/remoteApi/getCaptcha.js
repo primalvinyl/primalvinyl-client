@@ -3,7 +3,7 @@ const { errorHandler, hasMissingValue } = require('../utilities');
 
 module.exports = async token => {
     // request by server or development environment is always ok
-    if (token === process.env.server_token || process.env.node_env === 'development') return true;
+    if (token === process.env.captcha_server_token || process.env.node_env === 'development') return true;
 
     // abandon if missing parameter
     if (hasMissingValue(token)) {

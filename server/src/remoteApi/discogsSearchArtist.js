@@ -1,14 +1,14 @@
 const fetch = require('node-fetch').default;
 const urljoin = require('url-join');
 const { errorHandler, hasMissingValue, discogsHeaders } = require('../utilities');
-const { defaultArtistsObject } = require('../../__types__/defaultObjects');
+const { defaultDiscogsArtistSearchObject } = require('../../__types__/defaultObjects');
 
 module.exports = async (artist, page = 1) => {
     // abandon if missing parameter
     if (hasMissingValue(artist)) return errorHandler('Missing artist name');
 
     const endpoint = urljoin(
-        process.env.api_endpoint,
+        process.env.discogs_api_endpoint,
         `database/search?q=${artist}&type=artist&page=${page}&per_page=25`
     );
     const requestOptions = {
@@ -18,6 +18,7 @@ module.exports = async (artist, page = 1) => {
 
     return fetch(endpoint, requestOptions)
         .then(response => response.json())
+
         // transform response
         .then(response => {
 
@@ -33,7 +34,7 @@ module.exports = async (artist, page = 1) => {
                     items
             }))(response.pagination);
 
-            //client app is zero indexed. API is 1 indexed.
+            //client pagination is zero indexed. API is 1 indexed.
             --pagination.page;
 
             const results = response.results.map(element => {
@@ -49,7 +50,8 @@ module.exports = async (artist, page = 1) => {
                     image_url
                 }))(element);
             });
-            return { ...defaultArtistsObject, pagination, results };
+            return { ...defaultDiscogsArtistSearchObject, pagination, results };
         })
+
         .catch (error => errorHandler('Failed search for artist on Discogs API', error));
 };

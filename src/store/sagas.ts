@@ -1,10 +1,54 @@
 import { take, put, call, fork, all } from 'redux-saga/effects';
-import { actionTypes, putQuery, putArtist, putArtists } from './actions';
 import { getRequest } from './services';
-import { artistDefault, artistsDefault, sagaGetRequestDefault, SagaGetRequest } from '../__types__';
+import {
+    actionTypes,
+    putQuery,
+    putLyricsSearch,
+    putArtistSearch,
+    putArtist } from './actions';
+import {
+    lyricsSearchDefault,
+    artistSearchDefault,
+    artistDefault,
+    lyricsGetRequestDefault,
+    artistGetRequestDefault,
+    SagaRequestType } from '../__types__';
+
+
+
 
 /******************************** Workers *************************************/
-export function* getArtistWorker(payload: SagaGetRequest = sagaGetRequestDefault) {
+export function* getLyricsSearchWorker(payload: SagaRequestType = lyricsGetRequestDefault) {
+    const { query } = payload;
+    try {
+        yield put(putQuery(query));
+        yield put(putLyricsSearch({ ...lyricsSearchDefault, request_status: 'pending' }));
+        const response = yield call(
+            getRequest,
+            `/search/${query}`
+        );
+        yield put(putLyricsSearch({ ...response, request_status: 'resolved' }));
+    } catch (error) {
+        yield put(putLyricsSearch({ ...lyricsSearchDefault, request_status: 'resolved', error: true }));
+    }
+}
+
+export function* getArtistSearchWorker(payload: SagaRequestType = artistGetRequestDefault) {
+    const { query, page, per_page } = payload;
+    try {
+        yield put(putQuery(query));
+        yield put(putArtistSearch({ ...artistSearchDefault, request_status: 'pending' }));
+        const response = yield call(
+            getRequest, 
+            `/artists/search/${query}?page=${page}&per_page=${per_page}`
+        );
+        yield put(putArtistSearch({ ...response, request_status: 'resolved' }));
+    } catch (error) {
+        yield put(putArtistSearch({ ...artistSearchDefault, request_status: 'resolved', error: true }));
+    }
+}
+
+export function* getArtistWorker(payload: SagaRequestType = artistGetRequestDefault) {
     const { query } = payload;
     try {
         yield put(putQuery(query));
@@ -19,22 +63,26 @@ export function* getArtistWorker(payload: SagaGetRequest = sagaGetRequestDefault
     }
 }
 
-export function* getArtistsWorker(payload: SagaGetRequest = sagaGetRequestDefault) {
-    const { query, page, per_page } = payload;
-    try {
-        yield put(putQuery(query));
-        yield put(putArtists({ ...artistsDefault, request_status: 'pending' }));
-        const response = yield call(
-            getRequest, 
-            `/artists/search/${query}?page=${page}&per_page=${per_page}`
-        );
-        yield put(putArtists({ ...response, request_status: 'resolved' }));
-    } catch (error) {
-        yield put(putArtists({ ...artistsDefault, request_status: 'resolved', error: true }));
+
+
+
+/******************************* Watchers *************************************/
+export function* getLyricsSearchWatcher() {
+    while (true) {
+        const { payload } = yield take(actionTypes.GET_LYRICS_SEARCH);
+        yield call(getLyricsSearchWorker, payload)
     }
 }
 
-/******************************* Watchers *************************************/
+
+export function* getArtistSearchWatcher() {
+    while (true) {
+        const { payload } = yield take(actionTypes.GET_ARTIST_SEARCH);
+        yield call(getArtistSearchWorker, payload)
+    }
+}
+
+
 export function* getArtistWatcher() {
     while (true) {
         const { payload } = yield take(actionTypes.GET_ARTIST);
@@ -42,17 +90,14 @@ export function* getArtistWatcher() {
     }
 }
 
-export function* getArtistsWatcher() {
-    while (true) {
-        const { payload } = yield take(actionTypes.GET_ARTISTS);
-        yield call(getArtistsWorker, payload)
-    }
-}
+
+
 
 /******************************* Root Saga ************************************/
 export default function* rootSaga() {
     yield all([
+        fork(getLyricsSearchWatcher),
         fork(getArtistWatcher),
-        fork(getArtistsWatcher)
+        fork(getArtistSearchWatcher)
     ]);
 } 

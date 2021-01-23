@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { useTable, usePagination } from 'react-table';
 import { Link } from 'react-router-dom';
-import { getArtists } from '../store/actions';
+import { getDiscogsArtists } from '../store/actions';
 import Input from '../components/presentation/Input';
 import Select from '../components/presentation/Select';
 import Button from '../components/presentation/Button';
@@ -48,7 +48,7 @@ const SearchResults = () => {
         pageCount: pagination.pages
     }, usePagination);
 
-    const pageHandler = () => dispatch(getArtists({ query, page: pageIndex, per_page: pageSize }));
+    const pageHandler = () => dispatch(getDiscogsArtists({ query, page: pageIndex, per_page: pageSize }));
 
     return (
         <div className={styles.root}>

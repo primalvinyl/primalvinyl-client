@@ -1,24 +1,23 @@
-import {
-    ReduxArtistType,
-    ReduxArtistsType,
-    artistDefault,
-    artistsDefault,
-    SagaGetRequest,
-    sagaGetRequestDefault
-} from '../__types__';
+import * as types from '../__types__';
+
+
 
 
 
 /********************************* Action Types *************************************/
 export const actionTypes = {
-    GET_ARTIST: 'GET_ARTIST',
-    GET_ARTISTS: 'GET_ARTISTS',
     PUT_QUERY: 'PUT_QUERY',
+    PUT_LYRICS_SEARCH: 'PUT_LYRICS_SEARCH',
+    PUT_ARTIST_SEARCH: 'PUT_ARTIST_SEARCH',
     PUT_ARTIST: 'PUT_ARTIST',
-    PUT_ARTISTS: 'PUT_ARTISTS',
+    CLEAR_LYRICS_SEARCH: 'CLEAR_LYRICS_SEARCH',
+    CLEAR_ARTIST_SEARCH: 'CLEAR_ARTIST_SEARCH',
     CLEAR_ARTIST: 'CLEAR_ARTIST',
-    CLEAR_ARTISTS: 'CLEAR_ARTISTS',
+    GET_LYRICS_SEARCH: 'GET_LYRICS_SEARCH',
+    GET_ARTIST: 'GET_ARTIST',
+    GET_ARTIST_SEARCH: 'GET_ARTIST_SEARCH'
 };
+
 
 
 
@@ -36,72 +35,114 @@ export const putQuery = (payload: string = ''): PutQueryActionType => {
 };
 
 
+
+
+export interface PutLyricsSearchActionType {
+    type: typeof actionTypes.PUT_LYRICS_SEARCH;
+    payload: types.ReduxLyricsSearchType;
+}
+export const putLyricsSearch = (payload: types.ReduxLyricsSearchType = types.lyricsSearchDefault): PutLyricsSearchActionType => { 
+    return {
+        type: actionTypes.PUT_LYRICS_SEARCH,
+        payload
+    };
+};
+
+export interface ClearLyricsSearchActionType {
+    type: typeof actionTypes.CLEAR_LYRICS_SEARCH;
+}
+export const clearGeniusSearch = (): ClearLyricsSearchActionType => { 
+    return {
+        type: actionTypes.CLEAR_LYRICS_SEARCH
+    };
+};
+
+
+
+
+export interface PutArtistSearchActionType {
+    type: typeof actionTypes.PUT_ARTIST_SEARCH;
+    payload: types.ReduxArtistSearchType;
+}
+export const putArtistSearch = (payload: types.ReduxArtistSearchType = types.artistSearchDefault): PutArtistSearchActionType => { 
+    return {
+        type: actionTypes.PUT_ARTIST_SEARCH,
+        payload
+    };
+};
+
+export interface ClearArtistSearchActionType {
+    type: typeof actionTypes.CLEAR_ARTIST_SEARCH;
+}
+export const clearArtistSearch = (): ClearArtistSearchActionType => { 
+    return {
+        type: actionTypes.CLEAR_ARTIST_SEARCH
+    };
+};
+
+
+
+
 export interface PutArtistActionType {
     type: typeof actionTypes.PUT_ARTIST;
-    payload: ReduxArtistType;
+    payload: types.ReduxArtistType;
 }
-export const putArtist = (payload: ReduxArtistType = artistDefault): PutArtistActionType => { 
+export const putArtist = (payload: types.ReduxArtistType = types.artistDefault): PutArtistActionType => { 
     return {
         type: actionTypes.PUT_ARTIST,
         payload
     };
 };
 
-
 export interface ClearArtistActionType {
     type: typeof actionTypes.CLEAR_ARTIST;
 }
-export const clearArtist = (): ClearArtistActionType => { 
+export const clearDiscogsArtist = (): ClearArtistActionType => { 
     return {
         type: actionTypes.CLEAR_ARTIST
     };
 };
 
 
-export interface PutArtistsActionType {
-    type: typeof actionTypes.PUT_ARTISTS;
-    payload: ReduxArtistsType;
-}
-export const putArtists = (payload: ReduxArtistsType = artistsDefault): PutArtistsActionType => { 
-    return {
-        type: actionTypes.PUT_ARTISTS,
-        payload
-    };
-};
-
-
-export interface ClearArtistsActionType {
-    type: typeof actionTypes.CLEAR_ARTISTS;
-}
-export const clearArtists = (): ClearArtistsActionType => { 
-    return {
-        type: actionTypes.CLEAR_ARTISTS
-    };
-};
-
 
 
 
 /******************************** Saga Actions **************************************/
-export interface GetArtistActionType {
-    type: typeof actionTypes.GET_ARTIST;
-    payload: SagaGetRequest;
+export interface GetLyricsSearchActionType {
+    type: typeof actionTypes.GET_LYRICS_SEARCH;
+    payload: types.SagaRequestType;
 }
-export const getArtist = (payload: SagaGetRequest = sagaGetRequestDefault): GetArtistActionType => {
+export const getGeniusSearch = (payload: types.SagaRequestType = types.lyricsGetRequestDefault): GetLyricsSearchActionType => {
     return {
-        type: actionTypes.GET_ARTIST,
-        payload: { ...sagaGetRequestDefault, ...payload }
+        type: actionTypes.GET_LYRICS_SEARCH,
+        payload: { ...types.lyricsGetRequestDefault, ...payload }
     };
 };
 
 
-export interface GetArtistsActionType {
-    type: typeof actionTypes.GET_ARTISTS;
-    payload: SagaGetRequest;
+
+
+export interface GetArtistSearchActionType {
+    type: typeof actionTypes.GET_ARTIST_SEARCH;
+    payload: types.SagaRequestType;
 }
-export const getArtists = (payload: SagaGetRequest = sagaGetRequestDefault): GetArtistsActionType => {
+export const getDiscogsArtists = (payload: types.SagaRequestType = types.artistGetRequestDefault): GetArtistSearchActionType => {
     return {
-        type: actionTypes.GET_ARTISTS,
-        payload: { ...sagaGetRequestDefault, ...payload }
+        type: actionTypes.GET_ARTIST_SEARCH,
+        payload: { ...types.artistGetRequestDefault, ...payload }
     };
 }; 
+
+
+
+
+export interface GetDiscogsArtistActionType {
+    type: typeof actionTypes.GET_ARTIST;
+    payload: types.SagaRequestType;
+}
+export const getDiscogsArtist = (payload: types.SagaRequestType = types.artistGetRequestDefault): GetDiscogsArtistActionType => {
+    return {
+        type: actionTypes.GET_ARTIST,
+        payload: { ...types.artistGetRequestDefault, ...payload }
+    };
+};
