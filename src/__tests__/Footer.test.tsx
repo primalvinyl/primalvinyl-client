@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
-import Footer from '../components/Footer';
+import Footer from '../components/presentation/Footer';
 
 describe('Footer', () => {
     it('renders', () => {

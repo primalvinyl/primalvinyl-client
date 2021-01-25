@@ -1,18 +1,29 @@
-import { query, search, artist, artists } from '../store/reducers';
+import {
+    query,
+    lyricsSearchResults,
+    artistSearchResults,
+    artist
+} from '../store/reducers';
 import {
     putQuery,
     putLyricsSearch,
+    putArtistSearch,
     putArtist,
-    putArtistSearch } from '../store/actions';
+    clearQuery,
+    clearLyricsSearch,
+    clearArtistSearch,
+    clearArtist
+} from '../store/actions';
 import {
-    lyricsSearchDefault,
-    artistDefault,
-    artistSearchDefault } from '../__types__';
+    lyricsSearchResultsDefault,
+    artistResultDefault,
+    artistSearchResultsDefault
+} from '../store/types';
 
 
     
 describe('query', () => {
-    it('should return the initial state', () => {
+    it('should put default state if no payload', () => {
         const response = query(undefined, putQuery());
         expect(response).toEqual('');
     })
@@ -20,43 +31,59 @@ describe('query', () => {
         const response = query(undefined, putQuery('test'));
         expect(response).toEqual('test');
     });
+    it('should put default state when cleared', () => {
+        const response = query(undefined, clearQuery());
+        expect(response).toEqual('');
+    }); 
 });
 
 
 
-describe('genius search', () => {
-    it('should return the initial state', () => {
-        const response = search(undefined, putLyricsSearch());
-        expect(response).toEqual(lyricsSearchDefault);
+describe('lyrics search', () => {
+    it('should put default state if no payload', () => {
+        const response = lyricsSearchResults(undefined, putLyricsSearch());
+        expect(response).toEqual(lyricsSearchResultsDefault);
     })
-    it('should put a new artist', () => {
-        const response = search(undefined, putLyricsSearch(lyricsSearchDefault));
-        expect(response).toEqual(lyricsSearchDefault);
+    it('should put a new lyrics search list', () => {
+        const response = lyricsSearchResults(undefined, putLyricsSearch(lyricsSearchResultsDefault));
+        expect(response).toEqual(lyricsSearchResultsDefault);
     });
+    it('should put default state when cleared', () => {
+        const response = lyricsSearchResults(undefined, clearLyricsSearch());
+        expect(response).toEqual(lyricsSearchResultsDefault);
+    }); 
 });
 
 
 
-describe('discogs artist', () => {
-    it('should return the initial state', () => {
+describe('artist search', () => {
+    it('should put default state if no payload', () => {
+        const response = artistSearchResults(undefined, putArtistSearch());
+        expect(response).toEqual(artistSearchResultsDefault);
+    })
+    it('should put new artist search list', () => {
+        const response = artistSearchResults(undefined, putArtistSearch(artistSearchResultsDefault));
+        expect(response).toEqual(artistSearchResultsDefault);
+    });
+    it('should put default state when cleared', () => {
+        const response = artistSearchResults(undefined, clearArtistSearch());
+        expect(response).toEqual(artistSearchResultsDefault);
+    }); 
+});
+
+
+
+describe('artist', () => {
+    it('should put default state if no payload', () => {
         const response = artist(undefined, putArtist());
-        expect(response).toEqual(artistDefault);
+        expect(response).toEqual(artistResultDefault);
     })
     it('should put a new artist', () => {
-        const response = artist(undefined, putArtist(artistDefault));
-        expect(response).toEqual(artistDefault);
+        const response = artist(undefined, putArtist(artistResultDefault));
+        expect(response).toEqual(artistResultDefault);
     });
-});
-
-
-
-describe('discogs artists search', () => {
-    it('should return the initial state', () => {
-        const response = artists(undefined, putArtistSearch());
-        expect(response).toEqual(artistSearchDefault);
-    })
-    it('should put new artists list', () => {
-        const response = artists(undefined, putArtistSearch(artistSearchDefault));
-        expect(response).toEqual(artistSearchDefault);
+    it('should put default state when cleared', () => {
+        const response = artist(undefined, clearArtist());
+        expect(response).toEqual(artistResultDefault);
     });
 });

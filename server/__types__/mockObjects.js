@@ -3,53 +3,83 @@ exports.mockSearchObject = {
     "results": [
         {
             "id": 162955,
-            "title": "Shape of My Heart",
-            "type": "song"
+            "song_title": "Shape of My Heart",
+            "song_thumbnail_url": "https://images.genius.com/86bca22d668b42b5aff7c49499502935.300x300x1.jpg",
+            "song_image_url": "https://images.genius.com/86bca22d668b42b5aff7c49499502935.600x600x1.jpg",
+            "artist_name": "Sting",
+            "artist_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg"
         },
         {
             "id": 211287,
-            "title": "Englishman in New York",
-            "type": "song"
+            "song_title": "Englishman in New York",
+            "song_thumbnail_url": "https://images.genius.com/1fed4b53f74749ed824b80a0b3ca3ecc.300x300x1.png",
+            "song_image_url": "https://images.genius.com/1fed4b53f74749ed824b80a0b3ca3ecc.440x440x1.png",
+            "artist_name": "Sting",
+            "artist_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg"
         },
         {
             "id": 189782,
-            "title": "Glycerine",
-            "type": "song"
+            "song_title": "Glycerine",
+            "song_thumbnail_url": "https://images.genius.com/d82a59507f349f5946c82677fcec5b46.300x300x1.jpg",
+            "song_image_url": "https://images.genius.com/d82a59507f349f5946c82677fcec5b46.999x999x1.jpg",
+            "artist_name": "Bush",
+            "artist_image_url": "https://images.genius.com/97fc5295f742e3665ec5186bff2fa6f5.500x403x1.jpg"
         },
         {
             "id": 113141,
-            "title": "Fields Of Gold",
-            "type": "song"
+            "song_title": "Fields Of Gold",
+            "song_thumbnail_url": "https://images.genius.com/5655f98e7f192c59633d90180a4d8b5b.300x300x1.jpg",
+            "song_image_url": "https://images.genius.com/5655f98e7f192c59633d90180a4d8b5b.1000x1000x1.jpg",
+            "artist_name": "Sting",
+            "artist_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg"
         },
         {
             "id": 166696,
-            "title": "Desert Rose",
-            "type": "song"
+            "song_title": "Desert Rose",
+            "song_thumbnail_url": "https://images.genius.com/c906640ceae89f7541442ed76c508621.300x300x1.jpg",
+            "song_image_url": "https://images.genius.com/c906640ceae89f7541442ed76c508621.1000x1000x1.jpg",
+            "artist_name": "Sting",
+            "artist_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg"
         },
         {
             "id": 389122,
-            "title": "Fragile",
-            "type": "song"
+            "song_title": "Fragile",
+            "song_thumbnail_url": "https://images.genius.com/2f241efc89d9eb62cd8ab47f3ad66582.300x300x1.jpg",
+            "song_image_url": "https://images.genius.com/2f241efc89d9eb62cd8ab47f3ad66582.1000x1000x1.jpg",
+            "artist_name": "Sting",
+            "artist_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg"
         },
         {
             "id": 173900,
-            "title": "Russians",
-            "type": "song"
+            "song_title": "Russians",
+            "song_thumbnail_url": "https://images.genius.com/39b39976d889ae781a8347669e64ca12.300x300x1.png",
+            "song_image_url": "https://images.genius.com/39b39976d889ae781a8347669e64ca12.708x708x1.png",
+            "artist_name": "Sting",
+            "artist_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg"
         },
         {
             "id": 3465935,
-            "title": "Don’t Make Me Wait",
-            "type": "song"
+            "song_title": "Don’t Make Me Wait",
+            "song_thumbnail_url": "https://images.genius.com/1d27275d36cc3cb55311831fff858518.300x300x1.jpg",
+            "song_image_url": "https://images.genius.com/1d27275d36cc3cb55311831fff858518.1000x1000x1.jpg",
+            "artist_name": "Sting & Shaggy",
+            "artist_image_url": "https://images.genius.com/60013c3f2ee28444bb48eaaeca97f554.640x640x1.jpg"
         },
         {
             "id": 251692,
-            "title": "Machinehead",
-            "type": "song"
+            "song_title": "Machinehead",
+            "song_thumbnail_url": "https://images.genius.com/2730053d21b4ed88e06943ae2c9e62f9.300x261x1.jpg",
+            "song_image_url": "https://images.genius.com/2730053d21b4ed88e06943ae2c9e62f9.300x261x1.jpg",
+            "artist_name": "Bush",
+            "artist_image_url": "https://images.genius.com/97fc5295f742e3665ec5186bff2fa6f5.500x403x1.jpg"
         },
         {
             "id": 5597541,
-            "title": "Stingy",
-            "type": "song"
+            "song_title": "Stingy",
+            "song_thumbnail_url": "https://images.genius.com/aa1a89f86b7fa9c8bce2bb98bd3f899a.300x300x1.png",
+            "song_image_url": "https://images.genius.com/aa1a89f86b7fa9c8bce2bb98bd3f899a.1000x1000x1.png",
+            "artist_name": "Hotboii",
+            "artist_image_url": "https://images.genius.com/e15e0e3e5ec82362a510dd13f3cbe34b.500x500x1.jpg"
         }
     ],
     "error": false,

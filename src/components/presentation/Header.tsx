@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import { navList } from '../__types__';
-import { useBreakpoint } from './utility/BreakpointProvider';
+import { navList } from './types';
+import { useBreakpoint } from '../utility/BreakpointProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import styles from './Header.module.scss';

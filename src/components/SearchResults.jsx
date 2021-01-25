@@ -1,11 +1,7 @@
 import React from 'react';
-import { useSelector, useDispatch, shallowEqual } from 'react-redux';
-import { useTable, usePagination } from 'react-table';
+import { useSelector, shallowEqual } from 'react-redux';
+import { useTable } from 'react-table';
 import { Link } from 'react-router-dom';
-import { getDiscogsArtists } from '../store/actions';
-import Input from '../components/presentation/Input';
-import Select from '../components/presentation/Select';
-import Button from '../components/presentation/Button';
 import styles from './SearchResults.module.scss';
 
 const SearchResults = () => {
@@ -13,42 +9,31 @@ const SearchResults = () => {
         {
             Header: '',
             Cell: table => <img src={table.value} alt="" />,
-            accessor: 'image_url',
+            accessor: 'song_image_url',
         },
         {
-            Header: 'Name',
-            Cell: table => <Link to={`/artists/${table.row.original.id}`}>{table.value}</Link>,
-            accessor: 'name',
+            Header: 'Song',
+            Cell: table => <Link to={`/songs/${table.row.original.id}`}>{table.value}</Link>,
+            accessor: 'song_title',
+        },
+        {
+            Header: 'Artist',
+            accessor: 'artist_name',
         },
     ], []);
-    const dispatch = useDispatch();
-    const { pagination, results } = useSelector(state => state.artists, shallowEqual);
-    const query = useSelector(state => state.query);
+
+    const { results } = useSelector(state => state.lyricsSearchResults, shallowEqual);
+    
     const { 
         getTableProps,
         getTableBodyProps,
         headerGroups,
-        page,
         prepareRow,
-        canPreviousPage,
-        canNextPage,
-        pageCount,
-        pageIndex,
-        pageSize,
-        gotoPage,
-        nextPage,
-        previousPage,
-        setPageSize,
+        rows
     } = useTable({
         columns: tableColumns,
-        data: results,
-        manualPagination: true,
-        pageSize: pagination.per_page,
-        pageIndex: pagination.page,
-        pageCount: pagination.pages
-    }, usePagination);
-
-    const pageHandler = () => dispatch(getDiscogsArtists({ query, page: pageIndex, per_page: pageSize }));
+        data: results
+    });
 
     return (
         <div className={styles.root}>
@@ -65,7 +50,7 @@ const SearchResults = () => {
                     ))}
                 </thead>
                 <tbody {...getTableBodyProps()}>
-                    {page.map(row => {
+                    {rows.map(row => {
                         prepareRow(row)
                         return (
                             <tr {...row.getRowProps()}> 
@@ -79,63 +64,6 @@ const SearchResults = () => {
                     })}
                 </tbody>
             </table>
-
-            <div className={styles.pagination}>
-                <div className={styles.buttonGroup}>
-                    <Button className={styles.button} disabled={!canPreviousPage} value="Start"
-                        onClick={() => {
-                            gotoPage(0);
-                            pageHandler();
-                        }} />
-                    <Button className={styles.button} disabled={!canPreviousPage} value="Previous"
-                        onClick={() => {
-                            previousPage();
-                            pageHandler();
-                        }} />
-                    <Button className={styles.button} disabled={!canNextPage} value="Next"
-                        onClick={() => {
-                            nextPage();
-                            console.log(pageIndex);
-                            pageHandler();
-                        }} />
-                    <Button className={styles.button} disabled={!canNextPage} value="End"
-                        onClick={() => {
-                            gotoPage(pageCount - 1);
-                            pageHandler();
-                        }}/>
-                </div>
-                <div className={styles.gotoPage}>
-                    <Input
-                        type="number"
-                        defaultValue={1}
-                        onChange={event => {
-                            const value = event.target.value;
-                            const page = value ? Number(value) - 1 : 0;
-                            gotoPage(page);
-                            pageHandler();
-                        }}
-                    />
-                    go to
-                </div>
-                <div className={styles.perPage}>
-                    <Select
-                        value={pageSize}
-                        options={[
-                            {value: 15, display: 15},
-                            {value: 25, display: 25},
-                            {value: 50, display: 50}]}
-                        onChange={event => {
-                            setPageSize(Number(event.target.value));
-                            console.log(event.target.value);
-                            console.log(pageSize);
-                            pageHandler();
-                        }} />
-                    per page
-                </div>
-                <div className={styles.currentPage}>
-                    Page <strong>{pageIndex + 1} of {pageCount}</strong>
-                </div>
-            </div>
         </div>
     )
 };

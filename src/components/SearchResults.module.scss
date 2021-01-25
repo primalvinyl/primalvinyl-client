@@ -31,30 +31,4 @@
             }
         }
     }
-
-    .pagination {
-        display: flex;
-        align-items: flex-start;
-
-        .buttonGroup {
-            margin: 0 1em 0 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            column-gap: .3em;
-        }
-
-        .currentPage {
-            margin: 0 1em 0 0;
-        }
-
-        .gotoPage {
-            margin: 0 1em 0 0;
-            width: 5em;
-        }
-
-        .perPage {
-            margin: 0 1em 0 0;
-            width: 5em;
-        }
-    }
 }

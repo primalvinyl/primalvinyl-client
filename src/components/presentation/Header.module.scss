@@ -1,5 +1,5 @@
-@import '../styles/partials/breakpoints';
-@import '../styles/partials/variables';
+@import '../../styles/partials/breakpoints';
+@import '../../styles/partials/variables';
 
 .root {
     padding: 2em;
@@ -24,7 +24,7 @@
                     text-indent: -9999px;
                     width: 75px;
                     height: 75px;
-                    background-image: url(../images/logo.svg);
+                    background-image: url(../../images/logo.svg);
                     background-position: center;
                     background-size: cover;
                     margin: 0 .5em 0 0;
