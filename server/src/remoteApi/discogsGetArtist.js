@@ -18,6 +18,7 @@ module.exports = async id => {
 
     return fetch(endpoint, requestOptions)
         .then(response => response.json())
+
         // transform response
         .then(response => {
             const { name, realname, images, profile } = response;
@@ -26,8 +27,8 @@ module.exports = async id => {
             if(Array.isArray(images) && images[0].hasOwnProperty('resource_url')){
                 image_url = images[0].resource_url;
             }
-
             return { ...defaultDiscogsArtistObject, name, realname, image_url, profile };
         })
+
         .catch (error => errorHandler('Failed getting artist details from Discogs API', error));
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import MasterTemplate from '../components/_MasterTemplate';
+import MasterTemplate from '../components/presentation/_MasterTemplate';
 import styles from './AboutUs.module.scss';
 
 const AboutUs = (): React.ReactElement => {

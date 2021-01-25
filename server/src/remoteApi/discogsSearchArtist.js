@@ -19,38 +19,34 @@ module.exports = async (artist, page = 1) => {
     return fetch(endpoint, requestOptions)
         .then(response => response.json())
 
-        // transform response
         .then(response => {
 
-            let pagination = (({
-                    page,
-                    pages,
-                    per_page,
-                    items
-                }) => ({ 
-                    page,
-                    pages,
-                    per_page,
-                    items
-            }))(response.pagination);
+            // transform pagination
+            const { pagination } = response;
+            const transformedPagination = {
+                page: pagination.page,
+                pages: pagination.pages,
+                per_page: pagination.per_page,
+                items: pagination.items
+            }
+            // client pagination is zero indexed. API is 1 indexed.
+            --transformedPagination.page;
 
-            //client pagination is zero indexed. API is 1 indexed.
-            --pagination.page;
-
-            const results = response.results.map(element => {
-                return (({
-                    id,
-                    title: name,
-                    thumb: thumbnail_url,
-                    cover_image: image_url
-                }) => ({ 
-                    id,
-                    name,
-                    thumbnail_url,
-                    image_url
-                }))(element);
+            // transform results
+            const transformedResults = response.results.map(element => {
+                return {
+                    id: element.id,
+                    name: element.title,
+                    thumbnail_url: element.thumb,
+                    image_url: element.cover_image
+                };
             });
-            return { ...defaultDiscogsArtistSearchObject, pagination, results };
+
+            return {
+                ...defaultDiscogsArtistSearchObject,
+                pagination: transformedPagination,
+                results: transformedResults
+            };
         })
 
         .catch (error => errorHandler('Failed search for artist on Discogs API', error));

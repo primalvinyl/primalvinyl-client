@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, FormikValues } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { getDiscogsArtists, clearArtistSearch } from '../store/actions';
+import { getLyricsSearch } from '../store/actions';
 import Input from './presentation/Input';
 import Button from './presentation/Button';
 import styles from './SearchForm.module.scss';
@@ -13,8 +13,7 @@ const SearchForm = (): React.ReactElement => {
         searchField: ''
     };
     const submitHandler = (values: FormikValues, actions: FormikValues) => {
-        dispatch(clearArtistSearch());
-        dispatch(getDiscogsArtists({ query: values.searchField }));
+        dispatch(getLyricsSearch({ query: values.searchField }));
         actions.setSubmitting(false);
     };
 
@@ -25,7 +24,7 @@ const SearchForm = (): React.ReactElement => {
                 onSubmit={submitHandler}
                 validateOnBlur={false}
                 validationSchema={yup.object().shape({
-                    searchField: yup.string().required('This field is required.')
+                    searchField: yup.string()
                 })}
             >
                 {({

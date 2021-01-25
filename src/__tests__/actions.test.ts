@@ -1,25 +1,19 @@
 import {
-    actionTypes,
     putQuery,
     putLyricsSearch,
     putArtist,
     putArtistSearch,
-    getGeniusSearch,
-    getDiscogsArtist,
-    getDiscogsArtists } from '../store/actions';
-import {
-    lyricsSearchDefault,
-    artistDefault,
-    artistSearchDefault,
-    lyricsGetRequestDefault,
-    artistGetRequestDefault } from '../__types__';
+    getLyricsSearch,
+    getArtist,
+    getArtistSearch } from '../store/actions';
+import * as types from '../store/types';
 
 
 /******************************* Reducer Actions *************************************/
 describe('putQuery', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actionTypes.PUT_QUERY,
+            type: types.PUT_QUERY,
             payload: 'test'
         };
         const actualResult = putQuery('test');
@@ -30,10 +24,10 @@ describe('putQuery', () => {
 describe('putLyricsSearch', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actionTypes.PUT_LYRICS_SEARCH,
-            payload: lyricsSearchDefault
+            type: types.PUT_LYRICS_SEARCH,
+            payload: types.lyricsSearchResultsDefault
         };
-        const actualResult = putLyricsSearch(lyricsSearchDefault);
+        const actualResult = putLyricsSearch(types.lyricsSearchResultsDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })
@@ -41,10 +35,10 @@ describe('putLyricsSearch', () => {
 describe('putArtist', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actionTypes.PUT_ARTIST,
-            payload: artistDefault
+            type: types.PUT_ARTIST,
+            payload: types.artistResultDefault
         };
-        const actualResult = putArtist(artistDefault);
+        const actualResult = putArtist(types.artistResultDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })
@@ -52,55 +46,55 @@ describe('putArtist', () => {
 describe('putArtistSearch', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actionTypes.PUT_ARTIST_SEARCH,
-            payload: artistSearchDefault
+            type: types.PUT_ARTIST_SEARCH,
+            payload: types.artistSearchResultsDefault
         };
-        const actualResult = putArtistSearch(artistSearchDefault);
+        const actualResult = putArtistSearch(types.artistSearchResultsDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })
 
 
 /******************************** Saga Actions **************************************/
-describe('getGeniusSearch', () => {
+describe('getLyricsSearch', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actionTypes.GET_LYRICS_SEARCH,
+            type: types.GET_LYRICS_SEARCH,
             payload: {
                 query: '',
             }
         };
-        const actualResult = getGeniusSearch(lyricsGetRequestDefault);
+        const actualResult = getLyricsSearch(types.getRequestDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })
 
-describe('getDiscogsArtist', () => {
+describe('getArtist', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actionTypes.GET_ARTIST,
+            type: types.GET_ARTIST,
             payload: {
                 query: '',
                 page: 0,
                 per_page: 15
             }
         };
-        const actualResult = getDiscogsArtist(artistGetRequestDefault);
+        const actualResult = getArtist(types.getRequestPaginationDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })
 
-describe('getDiscogsArtists', () => {
+describe('getArtistSearch', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actionTypes.GET_ARTIST_SEARCH,
+            type: types.GET_ARTIST_SEARCH,
             payload: {
                 query: '',
                 page: 0,
                 per_page: 15
             }
         };
-        const actualResult = getDiscogsArtists(artistGetRequestDefault);
+        const actualResult = getArtistSearch(types.getRequestPaginationDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })

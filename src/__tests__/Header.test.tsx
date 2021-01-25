@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
-import Header from '../components/Header';
+import Header from '../components/presentation/Header';
 
 describe('Header', () => {
     it('renders', () => {

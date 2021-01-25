@@ -1,70 +1,72 @@
 import { combineReducers } from 'redux';
-import {
-    actionTypes,
-    PutQueryActionType,
-    PutLyricsSearchActionType,
-    PutArtistSearchActionType,
-    PutArtistActionType } from './actions';
-import {
-    ReduxLyricsSearchType,
-    ReduxArtistSearchType,
-    ReduxArtistType,
-    lyricsSearchDefault,
-    artistSearchDefault,
-    artistDefault } from '../__types__';
+import * as types from './types';
 
 
 
 /******************************** Reducers ***************************************/
 export const query = (
-    state = '', 
-    action: PutQueryActionType
+    state = '',
+    action: any
 ) => {
-    switch(action.type) { 
-        case actionTypes.PUT_QUERY:
+    switch (action.type) {
+        case types.PUT_QUERY:
             return action.payload
-        default: 
+        case types.CLEAR_QUERY:
+            return state
+        default:
             return state
     }
 };
 
-export const search = (
-    state: ReduxLyricsSearchType = lyricsSearchDefault,
-    action: PutLyricsSearchActionType
-): ReduxLyricsSearchType => {
-    switch(action.type){
-        case actionTypes.PUT_LYRICS_SEARCH:
-            return { ...state, ...action.payload }
-        case actionTypes.CLEAR_LYRICS_SEARCH:
-            return {} as ReduxLyricsSearchType
+
+export const lyricsSearchResults = (
+    state = types.lyricsSearchResultsDefault,
+    action: any
+): types.LyricsSearchResultsType => {
+    switch (action.type) {
+        case types.PUT_LYRICS_SEARCH:
+            return {
+                ...state,
+                ...action.payload
+            }
+        case types.CLEAR_LYRICS_SEARCH:
+            return types.lyricsSearchResultsDefault
         default:
             return state
     }
 }
+
+
+export const artistSearchResults = (
+    state = types.artistSearchResultsDefault,
+    action: any
+): types.ArtistSearchResultsType => {
+    switch (action.type) {
+        case types.PUT_ARTIST_SEARCH:
+            return {
+                ...state,
+                ...action.payload
+            }
+        case types.CLEAR_ARTIST_SEARCH:
+            return types.artistSearchResultsDefault
+        default:
+            return state
+    }
+}
+
 
 export const artist = (
-    state: ReduxArtistType = artistDefault,
-    action: PutArtistActionType
-): ReduxArtistType => {
-    switch(action.type){
-        case actionTypes.PUT_ARTIST:
-            return { ...state, ...action.payload }
-        case actionTypes.CLEAR_ARTIST:
-            return {} as ReduxArtistType
-        default:
-            return state
-    }
-}
-
-export const artists = (
-    state: ReduxArtistSearchType = artistSearchDefault,
-    action: PutArtistSearchActionType
-): ReduxArtistSearchType => {
-    switch(action.type){
-        case actionTypes.PUT_ARTIST_SEARCH:
-            return { ...state, ...action.payload }
-        case actionTypes.CLEAR_ARTIST:
-            return {} as ReduxArtistSearchType
+    state = types.artistResultDefault,
+    action: any
+): types.ArtistResultType => {
+    switch (action.type) {
+        case types.PUT_ARTIST:
+            return {
+                ...state,
+                ...action.payload
+            }
+        case types.CLEAR_ARTIST:
+            return types.artistResultDefault
         default:
             return state
     }
@@ -75,13 +77,14 @@ export const artists = (
 /****************************** Root Reducer *************************************/
 export default combineReducers({
     query,
-    search,
-    artist,
-    artists
+    lyricsSearchResults,
+    artistSearchResults,
+    artist
 });
 
 export interface RootState {
     query: string;
-    artist: ReduxArtistType;
-    artists: ReduxArtistSearchType;
+    lyricsSearchResults: types.LyricsSearchResultsType;
+    artistSearchResults: types.ArtistSearchResultsType;
+    artist: types.ArtistResultType;
 }

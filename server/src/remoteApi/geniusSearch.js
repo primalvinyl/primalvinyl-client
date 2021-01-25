@@ -21,14 +21,19 @@ module.exports = async (query) => {
 
         // transform response
         .then(response => {
-            const results = response.response.hits.map(element => {
+            const transformedResults = response.response.hits.map(element => {
+                const { result } = element;
+                const { primary_artist } = result;
                 return {
-                    id: element.result.id,
-                    title: element.result.title,
-                    type: element.type
-                }
+                    id: result.id,
+                    song_title: result.title,
+                    song_thumbnail_url: result.song_art_image_thumbnail_url,
+                    song_image_url: result.song_art_image_url,
+                    artist_name: primary_artist.name,
+                    artist_image_url: primary_artist.image_url,
+                };
             });
-            return { ...defaultGeniusSearchObject, results };
+            return { ...defaultGeniusSearchObject, results: transformedResults };
         })
 
         .catch (error => errorHandler('Failed search on Genius API', error));

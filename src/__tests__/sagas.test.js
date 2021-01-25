@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { expectSaga } from 'redux-saga-test-plan';
 import {
-    getGeniusSearch,
-    getDiscogsArtist,
-    getDiscogsArtists,
+    getLyricsSearch,
+    getArtistSearch,
+    getArtist,
     putArtist
 } from '../store/actions';
 import {
-    search,
-    artist,
-    artists
+    lyricsSearchResults,
+    artistSearchResults,
+    artist
 } from '../store/reducers';
 import {
     getLyricsSearchWatcher,
@@ -33,7 +33,7 @@ describe('getLyricsSearchWorker', () => {
     it('gets and puts data', () => {
         axios.get.mockResolvedValueOnce({ data: mockApiSearchObject });
         return expectSaga(getLyricsSearchWorker)
-            .withReducer(search)
+            .withReducer(lyricsSearchResults)
             .run();
     });
 });
@@ -42,7 +42,7 @@ describe('getDiscogsArtistSearchWorker', () => {
     it('gets and puts data', () => {
         axios.get.mockResolvedValueOnce({ data: mockApiArtistSearchObject });
         return expectSaga(getArtistSearchWorker)
-            .withReducer(artists)
+            .withReducer(artistSearchResults)
             .run();
     });
 });
@@ -65,7 +65,7 @@ describe('getLyricsSearchWatcher', () => {
     it('listens for action', () => {
         axios.get.mockResolvedValueOnce({ data: mockApiSearchObject });
         return expectSaga(getLyricsSearchWatcher)
-            .dispatch(getGeniusSearch('test'))
+            .dispatch(getLyricsSearch('test'))
             .silentRun();
     });
 });
@@ -74,7 +74,7 @@ describe('getDiscogsArtistSearchWatcher', () => {
     it('listens for action', () => {
         axios.get.mockResolvedValueOnce({ data: mockApiArtistSearchObject });
         return expectSaga(getArtistSearchWatcher)
-            .dispatch(getDiscogsArtists('test'))
+            .dispatch(getArtistSearch('test'))
             .silentRun();
     });
 });
@@ -83,7 +83,7 @@ describe('getArtistWatcher', () => {
     it('listens for action', () => {
         axios.get.mockResolvedValueOnce({ data: mockApiArtistObject });
         return expectSaga(getArtistWatcher)
-            .dispatch(getDiscogsArtist('1234'))
+            .dispatch(getArtist('1234'))
             .silentRun();
     });
 });

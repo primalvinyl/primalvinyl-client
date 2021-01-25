@@ -1,7 +1,7 @@
 const express = require('express');
 const { errorHandler } = require('../utilities');
 const searchArtist = require('../remoteApi/discogsSearchArtist');
-const getDiscogsArtist = require('../remoteApi/discogsGetArtist');
+const getArtist = require('../remoteApi/discogsGetArtist');
 
 const router = express.Router();
 
@@ -14,7 +14,7 @@ router.get('/search/:name', (req, res) => {
 
 router.get('/:id', (req, res) => {
     const artistId = req.params.id;
-    getDiscogsArtist(artistId)
+    getArtist(artistId)
         .then(response => res.json(response))
         .catch(error => res.status(404).json(errorHandler('Artist not found', error)).end());
 });
