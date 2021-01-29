@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
-import search from '../src/remoteApi/geniusSearch.js';
-import { mockGeniusSearchObject, mockSearchObject } from '../__types__/mockObjects';
+import search from '../src/remoteApi/geniusSearchSong.js';
+import { mockGeniusSearchObject, mockSongSearchObject } from '../__types__/mockObjects';
 
 describe('search', () => {
     fetch.mockResolvedValueOnce({ json: () => Promise.resolve(mockGeniusSearchObject) });
@@ -8,7 +8,7 @@ describe('search', () => {
     it('should get and transform data', async () => {
         const response = await search('test');
         expect(fetch).toHaveBeenCalledTimes(1);
-        expect(response).toStrictEqual(mockSearchObject);
+        expect(response).toStrictEqual(mockSongSearchObject);
     })
 
     it('if token missing, it should return an error', async () => {

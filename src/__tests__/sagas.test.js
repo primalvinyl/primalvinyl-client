@@ -1,19 +1,19 @@
 import axios from 'axios';
 import { expectSaga } from 'redux-saga-test-plan';
 import {
-    getLyricsSearch,
+    getSongSearch,
     getArtistSearch,
     getArtist,
     putArtist
 } from '../store/actions';
 import {
-    lyricsSearchResults,
+    songSearchResults,
     artistSearchResults,
     artist
 } from '../store/reducers';
 import {
-    getLyricsSearchWatcher,
-    getLyricsSearchWorker,
+    getSongSearchWatcher,
+    getSongSearchWorker,
     getArtistSearchWatcher,
     getArtistSearchWorker,
     getArtistWatcher,
@@ -29,11 +29,11 @@ import {
 
 
 /******************************** Workers *************************************/
-describe('getLyricsSearchWorker', () => {
+describe('getSongSearchWorker', () => {
     it('gets and puts data', () => {
         axios.get.mockResolvedValueOnce({ data: mockApiSearchObject });
-        return expectSaga(getLyricsSearchWorker)
-            .withReducer(lyricsSearchResults)
+        return expectSaga(getSongSearchWorker)
+            .withReducer(songSearchResults)
             .run();
     });
 });
@@ -61,11 +61,11 @@ describe('getArtistWorker', () => {
 
 
 /******************************* Watchers *************************************/
-describe('getLyricsSearchWatcher', () => {
+describe('getSongSearchWatcher', () => {
     it('listens for action', () => {
         axios.get.mockResolvedValueOnce({ data: mockApiSearchObject });
-        return expectSaga(getLyricsSearchWatcher)
-            .dispatch(getLyricsSearch('test'))
+        return expectSaga(getSongSearchWatcher)
+            .dispatch(getSongSearch('test'))
             .silentRun();
     });
 });

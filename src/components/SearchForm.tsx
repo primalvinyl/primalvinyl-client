@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, FormikValues } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { getLyricsSearch } from '../store/actions';
+import { getSongSearch } from '../store/actions';
 import Input from './presentation/Input';
 import Button from './presentation/Button';
 import styles from './SearchForm.module.scss';
@@ -13,7 +13,7 @@ const SearchForm = (): React.ReactElement => {
         searchField: ''
     };
     const submitHandler = (values: FormikValues, actions: FormikValues) => {
-        dispatch(getLyricsSearch({ query: values.searchField }));
+        dispatch(getSongSearch({ query: values.searchField }));
         actions.setSubmitting(false);
     };
 

@@ -1,0 +1,7 @@
+{
+    "/discogs/database/search?q=:artists&type=artist&page=:page&per_page=:perpage":
+        "/discogs-artist-search",
+    "/discogs/artists/:id": "/discogs-artist",
+    "/genius/search?q=:query": "/genius-song-search",
+    "/genius/songs/:song": "/genius-song"
+}
