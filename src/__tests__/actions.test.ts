@@ -1,9 +1,9 @@
 import {
     putQuery,
-    putLyricsSearch,
+    putSongSearch,
     putArtist,
     putArtistSearch,
-    getLyricsSearch,
+    getSongSearch,
     getArtist,
     getArtistSearch } from '../store/actions';
 import * as types from '../store/types';
@@ -21,13 +21,13 @@ describe('putQuery', () => {
     })
 })
 
-describe('putLyricsSearch', () => {
+describe('putSongSearch', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: types.PUT_LYRICS_SEARCH,
-            payload: types.lyricsSearchResultsDefault
+            type: types.PUT_SONG_SEARCH,
+            payload: types.songSearchResultsDefault
         };
-        const actualResult = putLyricsSearch(types.lyricsSearchResultsDefault);
+        const actualResult = putSongSearch(types.songSearchResultsDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })
@@ -56,15 +56,15 @@ describe('putArtistSearch', () => {
 
 
 /******************************** Saga Actions **************************************/
-describe('getLyricsSearch', () => {
+describe('getSongSearch', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: types.GET_LYRICS_SEARCH,
+            type: types.GET_SONG_SEARCH,
             payload: {
                 query: '',
             }
         };
-        const actualResult = getLyricsSearch(types.getRequestDefault);
+        const actualResult = getSongSearch(types.getRequestDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })

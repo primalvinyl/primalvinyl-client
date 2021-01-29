@@ -52,26 +52,26 @@ export type QueryActionTypes = PutQueryActionType | ClearQueryActionType;
 /**************************** Lyrics Search ***********************************/
 /******************************************************************************/
 //action types
-export const GET_LYRICS_SEARCH = 'GET_LYRICS_SEARCH';
-export const PUT_LYRICS_SEARCH = 'PUT_LYRICS_SEARCH';
-export const CLEAR_LYRICS_SEARCH = 'CLEAR_LYRICS_SEARCH';
+export const GET_SONG_SEARCH = 'GET_SONG_SEARCH';
+export const PUT_SONG_SEARCH = 'PUT_SONG_SEARCH';
+export const CLEAR_SONG_SEARCH = 'CLEAR_SONG_SEARCH';
 
 //action object types
-export interface GetLyricsSearchActionType {
-    type: typeof GET_LYRICS_SEARCH;
+export interface GetSongSearchActionType {
+    type: typeof GET_SONG_SEARCH;
     payload: RequestType;
 }
 
 interface PutLyricsSearchActionType {
-    type: typeof PUT_LYRICS_SEARCH;
-    payload: LyricsSearchResultsType;
+    type: typeof PUT_SONG_SEARCH;
+    payload: SongSearchResultsType;
 }
 
 interface ClearLyricsSearchActionType {
-    type: typeof CLEAR_LYRICS_SEARCH;
+    type: typeof CLEAR_SONG_SEARCH;
 }
 
-export type LyricsSearchActionTypes = PutLyricsSearchActionType | ClearLyricsSearchActionType;
+export type SongSearchActionTypes = PutLyricsSearchActionType | ClearLyricsSearchActionType;
 
 //redux store type
 interface LyricsSearchItemType {
@@ -83,7 +83,7 @@ interface LyricsSearchItemType {
     artist_image_url: string;
 }
 
-export interface LyricsSearchResultsType {
+export interface SongSearchResultsType {
     results: LyricsSearchItemType[];
     error: boolean;
     error_message: string;
@@ -91,7 +91,7 @@ export interface LyricsSearchResultsType {
 }
 
 //redux store initial value
-export const lyricsSearchResultsDefault: LyricsSearchResultsType = {
+export const songSearchResultsDefault: SongSearchResultsType = {
     results: [],
     error: false,
     error_message: '',

@@ -19,27 +19,27 @@ export const clearQuery = (): types.QueryActionTypes => {
 
 
 
-export const getLyricsSearch = (
+export const getSongSearch = (
     payload: types.RequestType = types.getRequestDefault
-): types.GetLyricsSearchActionType => {
+): types.GetSongSearchActionType => {
     return {
-        type: types.GET_LYRICS_SEARCH,
+        type: types.GET_SONG_SEARCH,
         payload: { ...types.getRequestDefault, ...payload }
     };
 };
 
-export const putLyricsSearch = (
-    payload: types.LyricsSearchResultsType = types.lyricsSearchResultsDefault
-): types.LyricsSearchActionTypes => {
+export const putSongSearch = (
+    payload: types.SongSearchResultsType = types.songSearchResultsDefault
+): types.SongSearchActionTypes => {
     return {
-        type: types.PUT_LYRICS_SEARCH,
+        type: types.PUT_SONG_SEARCH,
         payload
     };
 };
 
-export const clearLyricsSearch = (): types.LyricsSearchActionTypes => {
+export const clearSongSearch = (): types.SongSearchActionTypes => {
     return {
-        type: types.CLEAR_LYRICS_SEARCH
+        type: types.CLEAR_SONG_SEARCH
     };
 };
 

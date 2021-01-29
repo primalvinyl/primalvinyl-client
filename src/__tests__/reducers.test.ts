@@ -1,21 +1,21 @@
 import {
     query,
-    lyricsSearchResults,
+    songSearchResults,
     artistSearchResults,
     artist
 } from '../store/reducers';
 import {
     putQuery,
-    putLyricsSearch,
+    putSongSearch,
     putArtistSearch,
     putArtist,
     clearQuery,
-    clearLyricsSearch,
+    clearSongSearch,
     clearArtistSearch,
     clearArtist
 } from '../store/actions';
 import {
-    lyricsSearchResultsDefault,
+    songSearchResultsDefault,
     artistResultDefault,
     artistSearchResultsDefault
 } from '../store/types';
@@ -41,16 +41,16 @@ describe('query', () => {
 
 describe('lyrics search', () => {
     it('should put default state if no payload', () => {
-        const response = lyricsSearchResults(undefined, putLyricsSearch());
-        expect(response).toEqual(lyricsSearchResultsDefault);
+        const response = songSearchResults(undefined, putSongSearch());
+        expect(response).toEqual(songSearchResultsDefault);
     })
     it('should put a new lyrics search list', () => {
-        const response = lyricsSearchResults(undefined, putLyricsSearch(lyricsSearchResultsDefault));
-        expect(response).toEqual(lyricsSearchResultsDefault);
+        const response = songSearchResults(undefined, putSongSearch(songSearchResultsDefault));
+        expect(response).toEqual(songSearchResultsDefault);
     });
     it('should put default state when cleared', () => {
-        const response = lyricsSearchResults(undefined, clearLyricsSearch());
-        expect(response).toEqual(lyricsSearchResultsDefault);
+        const response = songSearchResults(undefined, clearSongSearch());
+        expect(response).toEqual(songSearchResultsDefault);
     }); 
 });
 

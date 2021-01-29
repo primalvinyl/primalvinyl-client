@@ -1,12 +1,11 @@
 const fetch = require('node-fetch').default;
 const urljoin = require('url-join');
 const { errorHandler, hasMissingValue, geniusHeaders } = require('../utilities');
-const { defaultGeniusSearchObject } = require('../../__types__/defaultObjects');
+const { defaultSongSearchObject } = require('../../__types__/defaultObjects');
 
 module.exports = async (query) => {
     // abandon if missing parameter
     if (hasMissingValue(query)) return errorHandler('Missing query parameter');
-
     const endpoint = urljoin(
         process.env.genius_api_endpoint,
         `/search?q=${query}`
@@ -15,12 +14,10 @@ module.exports = async (query) => {
         method: 'GET', 
         headers: geniusHeaders
     };
-
     return fetch(endpoint, requestOptions)
         .then(response => response.json())
-
-        // transform response
         .then(response => {
+            // transform response
             const transformedResults = response.response.hits.map(element => {
                 const { result } = element;
                 const { primary_artist } = result;
@@ -33,8 +30,7 @@ module.exports = async (query) => {
                     artist_image_url: primary_artist.image_url,
                 };
             });
-            return { ...defaultGeniusSearchObject, results: transformedResults };
+            return { ...defaultSongSearchObject, results: transformedResults };
         })
-
         .catch (error => errorHandler('Failed search on Genius API', error));
 };

@@ -2,7 +2,7 @@ import { take, put, call, fork, all } from 'redux-saga/effects';
 import { getRequest } from './services';
 import {
     putQuery,
-    putLyricsSearch,
+    putSongSearch,
     putArtistSearch,
     putArtist } from './actions';
 import * as types from './types';
@@ -11,18 +11,18 @@ import * as types from './types';
 
 
 /******************************** Workers *************************************/
-export function* getLyricsSearchWorker(payload: types.RequestType = types.getRequestDefault) {
+export function* getSongSearchWorker(payload: types.RequestType = types.getRequestDefault) {
     const { query } = payload;
     try {
         yield put(putQuery(query));
-        yield put(putLyricsSearch({ ...types.lyricsSearchResultsDefault, request_status: 'pending' }));
+        yield put(putSongSearch({ ...types.songSearchResultsDefault, request_status: 'pending' }));
         const response = yield call(
             getRequest,
-            `/search/${query}`
+            `/songs/search/${query}`
         );
-        yield put(putLyricsSearch({ ...response, request_status: 'resolved' }));
+        yield put(putSongSearch({ ...response, request_status: 'resolved' }));
     } catch (error) {
-        yield put(putLyricsSearch({ ...types.lyricsSearchResultsDefault, request_status: 'resolved', error: true }));
+        yield put(putSongSearch({ ...types.songSearchResultsDefault, request_status: 'resolved', error: true }));
     }
 }
 
@@ -60,10 +60,10 @@ export function* getArtistWorker(payload: types.RequestType = types.getRequestPa
 
 
 /******************************* Watchers *************************************/
-export function* getLyricsSearchWatcher() {
+export function* getSongSearchWatcher() {
     while (true) {
-        const { payload } = yield take(types.GET_LYRICS_SEARCH);
-        yield call(getLyricsSearchWorker, payload)
+        const { payload } = yield take(types.GET_SONG_SEARCH);
+        yield call(getSongSearchWorker, payload)
     }
 }
 
@@ -89,7 +89,7 @@ export function* getArtistWatcher() {
 /******************************* Root Saga ************************************/
 export default function* rootSaga() {
     yield all([
-        fork(getLyricsSearchWatcher),
+        fork(getSongSearchWatcher),
         fork(getArtistWatcher),
         fork(getArtistSearchWatcher)
     ]);

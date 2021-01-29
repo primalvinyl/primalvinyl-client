@@ -1,24 +1,21 @@
 const path = require('path');
 const jsonServer = require('json-server');
-const server = jsonServer.create();
-const router = jsonServer.router(path.join(__dirname, 'db.json'));
-const middlewares = jsonServer.defaults();
+const routes = require('./routes');
 
-server.use(middlewares);
+//create server
+const server = jsonServer.create();
+
+//middleware
+server.use(jsonServer.defaults({
+    static: path.join(__dirname, 'public'),
+    noCors: true
+}));
+server.use(jsonServer.rewriter(routes));
 
 //routing
-server.use(jsonServer.rewriter({
-    "/discogs/database/search?q=:artists&type=artist&page=:page&per_page=:perpage":
-        "/discogs-artist-search",
-    "/discogs/artists/:id": "/discogs-artist",
-    "/genius/search?q=:query": "/genius-search"
-}));
-
-//endpoint
-server.use('/', router);
+server.get('/test-lyrics', (req, res) => res.sendFile(path.join(__dirname, 'public', 'test-lyrics.html')));
+server.use('/', jsonServer.router(path.join(__dirname, 'db.json')));
 
 //start server
 const port = process.env.PORT || 8080;
-server.listen(port, () => {
-    console.log('JSON server is running on port %s', port)
-});
+server.listen(port, () => console.log('JSON Server API is running on port %s', port));

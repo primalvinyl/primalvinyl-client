@@ -3,7 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const corsCheck = require('./logic/corsCheck');
-const searchRouter = require('./routes/search');
+const songsRouter = require('./routes/songs');
 const artistsRouter = require('./routes/artists');
 const defaultRouter = require('./routes');
 
@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(corsCheck());
 
 // api routes
-app.use('/api/search', searchRouter);
+app.use('/api/songs', songsRouter);
 app.use('/api/artists', artistsRouter);
 app.use('/api/*', defaultRouter);
 

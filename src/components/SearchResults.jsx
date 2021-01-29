@@ -22,7 +22,7 @@ const SearchResults = () => {
         },
     ], []);
 
-    const { results } = useSelector(state => state.lyricsSearchResults, shallowEqual);
+    const { results } = useSelector(state => state.songSearchResults, shallowEqual);
     
     const { 
         getTableProps,

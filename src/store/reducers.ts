@@ -19,18 +19,18 @@ export const query = (
 };
 
 
-export const lyricsSearchResults = (
-    state = types.lyricsSearchResultsDefault,
+export const songSearchResults = (
+    state = types.songSearchResultsDefault,
     action: any
-): types.LyricsSearchResultsType => {
+): types.SongSearchResultsType => {
     switch (action.type) {
-        case types.PUT_LYRICS_SEARCH:
+        case types.PUT_SONG_SEARCH:
             return {
                 ...state,
                 ...action.payload
             }
-        case types.CLEAR_LYRICS_SEARCH:
-            return types.lyricsSearchResultsDefault
+        case types.CLEAR_SONG_SEARCH:
+            return types.songSearchResultsDefault
         default:
             return state
     }
@@ -77,14 +77,14 @@ export const artist = (
 /****************************** Root Reducer *************************************/
 export default combineReducers({
     query,
-    lyricsSearchResults,
+    songSearchResults,
     artistSearchResults,
     artist
 });
 
 export interface RootState {
     query: string;
-    lyricsSearchResults: types.LyricsSearchResultsType;
+    songSearchResults: types.SongSearchResultsType;
     artistSearchResults: types.ArtistSearchResultsType;
     artist: types.ArtistResultType;
 }
