@@ -1,59 +1,49 @@
 import axios from 'axios';
 import { expectSaga } from 'redux-saga-test-plan';
-import {
-    getSongSearch,
-    getArtistSearch,
-    getArtist,
-    putArtist
-} from '../store/actions';
-import {
-    songSearchResults,
-    artistSearchResults,
-    artist
-} from '../store/reducers';
-import {
-    getSongSearchWatcher,
-    getSongSearchWorker,
-    getArtistSearchWatcher,
-    getArtistSearchWorker,
-    getArtistWatcher,
-    getArtistWorker,
-} from '../store/sagas';
-import {
-    mockApiSearchObject,
-    mockApiArtistObject,
-    mockReduxArtistObject,
-    mockApiArtistSearchObject
-} from '../__mocks__/mockObjects';
+import * as actions from '../store/actions';
+import * as reducers from '../store/reducers';
+import * as sagas from '../store/sagas';
+import * as mocks from '../__mocks__/mockObjects';
 
 
 
 /******************************** Workers *************************************/
 describe('getSongSearchWorker', () => {
     it('gets and puts data', () => {
-        axios.get.mockResolvedValueOnce({ data: mockApiSearchObject });
-        return expectSaga(getSongSearchWorker)
-            .withReducer(songSearchResults)
+        axios.get.mockResolvedValueOnce({ data: mocks.mockApiSongSearchResults });
+        return expectSaga(sagas.getSongSearchWorker)
+            .withReducer(reducers.songSearchResults)
             .run();
     });
 });
 
-describe('getDiscogsArtistSearchWorker', () => {
+describe('getSongWorker', () => {
     it('gets and puts data', () => {
-        axios.get.mockResolvedValueOnce({ data: mockApiArtistSearchObject });
-        return expectSaga(getArtistSearchWorker)
-            .withReducer(artistSearchResults)
+        axios.get.mockResolvedValueOnce({ data: mocks.mockApiSongResults });
+        return expectSaga(sagas.getSongWorker)
+            .put(actions.putSong(mocks.mockReduxSong))
+            .withReducer(reducers.song)
+            .hasFinalState(mocks.mockReduxSong)
+            .run();
+    });
+});
+
+describe('getArtistSearchWorker', () => {
+    it('gets and puts data', () => {
+        axios.get.mockResolvedValueOnce({ data: mocks.mockApiArtistSearchResults });
+        return expectSaga(sagas.getArtistSearchWorker)
+            .withReducer(reducers.artistSearchResults)
             .run();
     });
 });
 
 describe('getArtistWorker', () => {
     it('gets and puts data', () => {
-        axios.get.mockResolvedValueOnce({ data: mockApiArtistObject });
-        return expectSaga(getArtistWorker)
-            .put(putArtist(mockReduxArtistObject))
-            .withReducer(artist)
-            .hasFinalState(mockReduxArtistObject)
+        axios.get.mockResolvedValueOnce({ data: mocks.mockApiArtistResults });
+        return expectSaga(sagas.getArtistWorker)
+            .put(actions.putArtist(mocks.mockReduxArtist))
+            .withReducer(reducers.artist)
+            .hasFinalState(mocks.mockReduxArtist)
             .run();
     });
 });
@@ -63,27 +53,36 @@ describe('getArtistWorker', () => {
 /******************************* Watchers *************************************/
 describe('getSongSearchWatcher', () => {
     it('listens for action', () => {
-        axios.get.mockResolvedValueOnce({ data: mockApiSearchObject });
-        return expectSaga(getSongSearchWatcher)
-            .dispatch(getSongSearch('test'))
+        axios.get.mockResolvedValueOnce({ data: mocks.mockApiSongSearchResults });
+        return expectSaga(sagas.getSongSearchWatcher)
+            .dispatch(actions.getSongSearch('test'))
             .silentRun();
     });
 });
 
-describe('getDiscogsArtistSearchWatcher', () => {
+describe('getSongWatcher', () => {
     it('listens for action', () => {
-        axios.get.mockResolvedValueOnce({ data: mockApiArtistSearchObject });
-        return expectSaga(getArtistSearchWatcher)
-            .dispatch(getArtistSearch('test'))
+        axios.get.mockResolvedValueOnce({ data: mocks.mockApiSongResults });
+        return expectSaga(sagas.getSongWatcher)
+            .dispatch(actions.getSong('1234'))
+            .silentRun();
+    });
+});
+
+describe('getArtistSearchWatcher', () => {
+    it('listens for action', () => {
+        axios.get.mockResolvedValueOnce({ data: mocks.mockApiArtistSearchResults });
+        return expectSaga(sagas.getArtistSearchWatcher)
+            .dispatch(actions.getArtistSearch('test'))
             .silentRun();
     });
 });
 
 describe('getArtistWatcher', () => {
     it('listens for action', () => {
-        axios.get.mockResolvedValueOnce({ data: mockApiArtistObject });
-        return expectSaga(getArtistWatcher)
-            .dispatch(getArtist('1234'))
+        axios.get.mockResolvedValueOnce({ data: mocks.mockApiArtistResults });
+        return expectSaga(sagas.getArtistWatcher)
+            .dispatch(actions.getArtist('1234'))
             .silentRun();
     });
 });

@@ -37,6 +37,24 @@ export const songSearchResults = (
 }
 
 
+export const song = (
+    state = types.songResultDefault,
+    action: any
+): types.SongResultType => {
+    switch (action.type) {
+        case types.PUT_SONG:
+            return {
+                ...state,
+                ...action.payload
+            }
+        case types.CLEAR_ARTIST:
+            return types.songResultDefault
+        default:
+            return state
+    }
+}
+
+
 export const artistSearchResults = (
     state = types.artistSearchResultsDefault,
     action: any
@@ -78,6 +96,7 @@ export const artist = (
 export default combineReducers({
     query,
     songSearchResults,
+    song,
     artistSearchResults,
     artist
 });
@@ -85,6 +104,7 @@ export default combineReducers({
 export interface RootState {
     query: string;
     songSearchResults: types.SongSearchResultsType;
+    song: types.SongResultType;
     artistSearchResults: types.ArtistSearchResultsType;
     artist: types.ArtistResultType;
 }
