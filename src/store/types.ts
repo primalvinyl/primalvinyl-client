@@ -23,9 +23,8 @@ export const getRequestPaginationDefault: RequestType = {
 
 
 
-
 /******************************************************************************/
-/*************************** Current Search Query *****************************/
+/******************************** Search Query ********************************/
 /******************************************************************************/
 //action types
 export const PUT_QUERY = 'PUT_QUERY';
@@ -47,9 +46,8 @@ export type QueryActionTypes = PutQueryActionType | ClearQueryActionType;
 
 
 
-
 /******************************************************************************/
-/**************************** Lyrics Search ***********************************/
+/****************************** Song Search ***********************************/
 /******************************************************************************/
 //action types
 export const GET_SONG_SEARCH = 'GET_SONG_SEARCH';
@@ -62,19 +60,19 @@ export interface GetSongSearchActionType {
     payload: RequestType;
 }
 
-interface PutLyricsSearchActionType {
+interface PutSongSearchActionType {
     type: typeof PUT_SONG_SEARCH;
     payload: SongSearchResultsType;
 }
 
-interface ClearLyricsSearchActionType {
+interface ClearSongSearchActionType {
     type: typeof CLEAR_SONG_SEARCH;
 }
 
-export type SongSearchActionTypes = PutLyricsSearchActionType | ClearLyricsSearchActionType;
+export type SongSearchActionTypes = PutSongSearchActionType | ClearSongSearchActionType;
 
 //redux store type
-interface LyricsSearchItemType {
+interface SongSearchItemType {
     id: number;
     song_title: string;
     song_thumbnail_url: string;
@@ -84,7 +82,7 @@ interface LyricsSearchItemType {
 }
 
 export interface SongSearchResultsType {
-    results: LyricsSearchItemType[];
+    results: SongSearchItemType[];
     error: boolean;
     error_message: string;
     request_status: string;
@@ -93,6 +91,69 @@ export interface SongSearchResultsType {
 //redux store initial value
 export const songSearchResultsDefault: SongSearchResultsType = {
     results: [],
+    error: false,
+    error_message: '',
+    request_status: 'idle'
+};
+
+
+
+
+
+/******************************************************************************/
+/*********************************** Song *************************************/
+/******************************************************************************/
+//action types
+export const GET_SONG = 'GET_SONG';
+export const PUT_SONG = 'PUT_SONG';
+export const CLEAR_SONG = 'CLEAR_SONG';
+
+//action object types
+export interface GetSongActionType {
+    type: typeof GET_SONG;
+    payload: RequestType;
+}
+
+interface PutSongActionType {
+    type: typeof PUT_SONG;
+    payload: SongResultType;
+}
+
+interface ClearSongActionType {
+    type: typeof CLEAR_SONG;
+}
+
+export type SongActionTypes = PutSongActionType | ClearSongActionType;
+
+//redux store type
+export interface SongResultType {
+    id: number;
+    song_title: string;
+    song_writers: string[];
+    song_thumbnail_url: string;
+    song_image_url: string;
+    artist_name: string;
+    artist_image_url: string;
+    album_name: string;
+    album_image_url: string;
+    lyrics: string;
+    error: boolean;
+    error_message: string;
+    request_status: string;
+}
+
+//redux store initial value
+export const songResultDefault: SongResultType = {
+    id: 0,
+    song_title: '',
+    song_writers: [],
+    song_thumbnail_url: '',
+    song_image_url: '',
+    artist_name: '',
+    artist_image_url: '',
+    album_name: '',
+    album_image_url: '',
+    lyrics: '',
     error: false,
     error_message: '',
     request_status: 'idle'

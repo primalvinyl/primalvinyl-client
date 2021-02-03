@@ -46,6 +46,33 @@ export const clearSongSearch = (): types.SongSearchActionTypes => {
 
 
 
+export const getSong = (
+    payload: types.RequestType = types.getRequestDefault
+): types.GetSongActionType => {
+    return {
+        type: types.GET_SONG,
+        payload: { ...types.getRequestDefault, ...payload }
+    };
+};
+
+export const putSong = (
+    payload: types.SongResultType = types.songResultDefault
+): types.SongActionTypes => {
+    return {
+        type: types.PUT_SONG,
+        payload
+    };
+};
+
+export const clearSong = (): types.SongActionTypes => {
+    return {
+        type: types.CLEAR_SONG
+    };
+};
+
+
+
+
 export const getArtistSearch = (
     payload: types.RequestType = types.getRequestPaginationDefault
 ): types.GetArtistSearchActionType => {
@@ -74,11 +101,11 @@ export const clearArtistSearch = (): types.ArtistSearchActionTypes => {
 
 
 export const getArtist = (
-    payload: types.RequestType = types.getRequestPaginationDefault
+    payload: types.RequestType = types.getRequestDefault
 ): types.GetArtistActionType => {
     return {
         type: types.GET_ARTIST,
-        payload: { ...types.getRequestPaginationDefault, ...payload }
+        payload: { ...types.getRequestDefault, ...payload }
     };
 };
 

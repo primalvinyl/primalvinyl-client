@@ -1,16 +1,16 @@
 import axios from 'axios';
 import { getRequest } from '../store/services';
-import { mockApiArtistObject } from '../__mocks__/mockObjects';
+import { mockApiArtistResults } from '../__mocks__/mockObjects';
 
 describe('getRequest', () => {
     it('gets artist data', async () => {
-        axios.get.mockResolvedValueOnce({ data: mockApiArtistObject });
+        axios.get.mockResolvedValueOnce({ data: mockApiArtistResults });
         const response = await getRequest('/artists', '278763');
-        expect(response).toStrictEqual(mockApiArtistObject);
+        expect(response).toStrictEqual(mockApiArtistResults);
     });
     it('gets artists data list', async () => {
-        axios.get.mockResolvedValueOnce({ data: mockApiArtistObject });
+        axios.get.mockResolvedValueOnce({ data: mockApiArtistResults });
         const response = await getRequest('/artists/search', 'bling');
-        expect(response).toStrictEqual(mockApiArtistObject);
+        expect(response).toStrictEqual(mockApiArtistResults);
     });
 });

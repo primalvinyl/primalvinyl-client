@@ -1,73 +1,72 @@
-import {
-    query,
-    songSearchResults,
-    artistSearchResults,
-    artist
-} from '../store/reducers';
-import {
-    putQuery,
-    putSongSearch,
-    putArtistSearch,
-    putArtist,
-    clearQuery,
-    clearSongSearch,
-    clearArtistSearch,
-    clearArtist
-} from '../store/actions';
-import {
-    songSearchResultsDefault,
-    artistResultDefault,
-    artistSearchResultsDefault
-} from '../store/types';
+import * as reducers from '../store/reducers';
+import * as actions from '../store/actions';
+import * as types from '../store/types';
 
 
     
 describe('query', () => {
     it('should put default state if no payload', () => {
-        const response = query(undefined, putQuery());
+        const response = reducers.query(undefined, actions.putQuery());
         expect(response).toEqual('');
     })
     it('should put a new query', () => {
-        const response = query(undefined, putQuery('test'));
+        const response = reducers.query(undefined, actions.putQuery('test'));
         expect(response).toEqual('test');
     });
     it('should put default state when cleared', () => {
-        const response = query(undefined, clearQuery());
+        const response = reducers.query(undefined, actions.clearQuery());
         expect(response).toEqual('');
     }); 
 });
 
 
 
-describe('lyrics search', () => {
+describe('song search', () => {
     it('should put default state if no payload', () => {
-        const response = songSearchResults(undefined, putSongSearch());
-        expect(response).toEqual(songSearchResultsDefault);
+        const response = reducers.songSearchResults(undefined, actions.putSongSearch());
+        expect(response).toEqual(types.songSearchResultsDefault);
     })
-    it('should put a new lyrics search list', () => {
-        const response = songSearchResults(undefined, putSongSearch(songSearchResultsDefault));
-        expect(response).toEqual(songSearchResultsDefault);
+    it('should put a new song search list', () => {
+        const response = reducers.songSearchResults(undefined, actions.putSongSearch(types.songSearchResultsDefault));
+        expect(response).toEqual(types.songSearchResultsDefault);
     });
     it('should put default state when cleared', () => {
-        const response = songSearchResults(undefined, clearSongSearch());
-        expect(response).toEqual(songSearchResultsDefault);
+        const response = reducers.songSearchResults(undefined, actions.clearSongSearch());
+        expect(response).toEqual(types.songSearchResultsDefault);
     }); 
+});
+
+
+
+describe('song', () => {
+    it('should put default state if no payload', () => {
+        const response = reducers.song(undefined, actions.putSong());
+        expect(response).toEqual(types.songResultDefault);
+    })
+    it('should put a new song', () => {
+        const response = reducers.song(undefined, actions.putSong(types.songResultDefault));
+        expect(response).toEqual(types.songResultDefault);
+    });
+    it('should put default state when cleared', () => {
+        const response = reducers.song(undefined, actions.clearSong());
+        expect(response).toEqual(types.songResultDefault);
+    });
 });
 
 
 
 describe('artist search', () => {
     it('should put default state if no payload', () => {
-        const response = artistSearchResults(undefined, putArtistSearch());
-        expect(response).toEqual(artistSearchResultsDefault);
+        const response = reducers.artistSearchResults(undefined, actions.putArtistSearch());
+        expect(response).toEqual(types.artistSearchResultsDefault);
     })
     it('should put new artist search list', () => {
-        const response = artistSearchResults(undefined, putArtistSearch(artistSearchResultsDefault));
-        expect(response).toEqual(artistSearchResultsDefault);
+        const response = reducers.artistSearchResults(undefined, actions.putArtistSearch(types.artistSearchResultsDefault));
+        expect(response).toEqual(types.artistSearchResultsDefault);
     });
     it('should put default state when cleared', () => {
-        const response = artistSearchResults(undefined, clearArtistSearch());
-        expect(response).toEqual(artistSearchResultsDefault);
+        const response = reducers.artistSearchResults(undefined, actions.clearArtistSearch());
+        expect(response).toEqual(types.artistSearchResultsDefault);
     }); 
 });
 
@@ -75,15 +74,15 @@ describe('artist search', () => {
 
 describe('artist', () => {
     it('should put default state if no payload', () => {
-        const response = artist(undefined, putArtist());
-        expect(response).toEqual(artistResultDefault);
+        const response = reducers.artist(undefined, actions.putArtist());
+        expect(response).toEqual(types.artistResultDefault);
     })
     it('should put a new artist', () => {
-        const response = artist(undefined, putArtist(artistResultDefault));
-        expect(response).toEqual(artistResultDefault);
+        const response = reducers.artist(undefined, actions.putArtist(types.artistResultDefault));
+        expect(response).toEqual(types.artistResultDefault);
     });
     it('should put default state when cleared', () => {
-        const response = artist(undefined, clearArtist());
-        expect(response).toEqual(artistResultDefault);
+        const response = reducers.artist(undefined, actions.clearArtist());
+        expect(response).toEqual(types.artistResultDefault);
     });
 });

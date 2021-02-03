@@ -1,22 +1,45 @@
 /* ********************************** Mock REDUX Objects ************************************ */
-// mock redux artist search object
-export const mockReduxSearchObject = {
+// mock redux song search object
+export const mockReduxSongSearch = {
     results: [
         {
-            "id": 2043228,
-            "name": "Marty Stinger",
-            "thumbnail_url": "",
-            "image_url": "https://img.discogs.com"
+            "id": 162955,
+            "song_title": "Shape of My Heart",
+            "song_thumbnail_url": "https://images.genius.com",
+            "song_image_url": "https://images.genius.com",
+            "artist_name": "Sting",
+            "artist_image_url": "https://images.genius.com"
         }
     ],
     error: false,
-    error_message: '',
-    request_status: 'resolved'
+    error_message: "",
+    request_status: "resolved"
 }
 
 
+// mock redux song object
+export const mockReduxSong = {
+    "id": 162955,
+    "song_title": "Shape of My Heart",
+    "song_writers": [
+        "Dominic Miller",
+        "Sting"
+    ],
+    "song_thumbnail_url": "https://images.genius.com",
+    "song_image_url": "https://images.genius.com",
+    "artist_name": "Sting",
+    "artist_image_url": "https://images.genius.com",
+    "album_name": "Ten Summoner’s Tales",
+    "album_image_url": "https://images.genius.com",
+    "lyrics": "test",
+    "error": false,
+    "error_message": "",
+    "request_status": "resolved"
+};
+
+
 // mock redux artist search object
-export const mockReduxArtistSearchObject = {
+export const mockReduxArtistSearch = {
     pagination: {
         "page": 1,
         "pages": 26,
@@ -38,7 +61,7 @@ export const mockReduxArtistSearchObject = {
 
 
 // mock redux artist object
-export const mockReduxArtistObject = {
+export const mockReduxArtist = {
     name: "Jack White",
     realname: "John Anthony Gillis",
     image_url: "https://img.discogs.com",
@@ -51,7 +74,7 @@ export const mockReduxArtistObject = {
 
 /* ********************************** Mock API Objects ************************************ */
 // mock artist search api object
-export const mockApiSearchObject = {
+export const mockApiSongSearchResults = {
     "results": [
         {
             "id": 2043228,
@@ -69,8 +92,27 @@ export const mockApiSearchObject = {
     error_message: ''
 };
 
+// mock artist api object
+export const mockApiSongResults = {
+    "id": 162955,
+    "song_title": "Shape of My Heart",
+    "song_writers": [
+        "Dominic Miller",
+        "Sting"
+    ],
+    "song_thumbnail_url": "https://images.genius.com",
+    "song_image_url": "https://images.genius.com",
+    "artist_name": "Sting",
+    "artist_image_url": "https://images.genius.com",
+    "album_name": "Ten Summoner’s Tales",
+    "album_image_url": "https://images.genius.com",
+    "lyrics": "test",
+    "error": false,
+    "error_message": ""
+};
+
 // mock artist search api object
-export const mockApiArtistSearchObject = {
+export const mockApiArtistSearchResults = {
     "pagination": {
         "page": 1,
         "pages": 26,
@@ -98,9 +140,8 @@ export const mockApiArtistSearchObject = {
     error_message: ''
 };
 
-
 // mock artist api object
-export const mockApiArtistObject = {
+export const mockApiArtistResults = {
     name: "Jack White",
     realname: "John Anthony Gillis",
     image_url: "https://img.discogs.com",
