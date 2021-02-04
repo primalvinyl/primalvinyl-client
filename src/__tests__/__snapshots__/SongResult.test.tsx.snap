@@ -74,13 +74,19 @@ exports[`HomePage matches snapshot 1`] = `
               </p>
             </div>
           </div>
-          <div>
+          <div
+            className="contentLyrics"
+          >
             <h3>
               Lyrics
             </h3>
-            <p>
-              
-            </p>
+            <p
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "",
+                }
+              }
+            />
           </div>
         </div>
       </div>
