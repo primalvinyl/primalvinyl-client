@@ -1,34 +1,31 @@
 const fetch = require('node-fetch').default;
 const urljoin = require('url-join');
+const cheerio = require('cheerio');
 const { errorHandler, hasMissingValue, geniusHeaders } = require('../utilities');
-const lyricsScrape = require('../logic/lyricsScrape');
 const { defaultSongObject } = require('../../__types__/defaultObjects');
 
+
+
 const getSongData = id => {
-    const endpoint = urljoin(
-        process.env.genius_api_endpoint,
-        `/songs/${id}`
-    );
-    const requestOptions = {
-        method: 'GET', 
-        headers: geniusHeaders
-    };
-    return fetch(endpoint, requestOptions)
+    return fetch(
+        urljoin(process.env.genius_api_endpoint, `/songs/${id}`), 
+        { method: 'GET', headers: geniusHeaders }
+    )
         .then(response => response.json())
         .then(response => response)
         .catch (error => errorHandler('Failed to get song from Genius API', error));
 };
 
+
+
 const getSongLyrics = path => {
-    const endpoint = urljoin(
-        process.env.genius_endpoint,
-        path
-    );
-    return fetch(endpoint)
+    return fetch(urljoin(process.env.genius_endpoint, path))
         .then(response => response.text())
         .then(response => response)
         .catch (error => errorHandler('Failed to get lyrics from Genius', error));
 };
+
+
 
 module.exports = async (id) => {
     // abandon if missing parameter
@@ -52,9 +49,14 @@ module.exports = async (id) => {
         album_image_url: album.cover_art_url,
     };
 
-    // get and transform song lyrics
+    // get and transform song lyrics 
     const lyricsResult = await getSongLyrics(lyricsPath);
-    const transformedLyricsResult = lyricsScrape(lyricsResult);
+    const $ = cheerio.load(lyricsResult, null, false);
+    const lyrics = $('.lyrics')
+        .html()
+        .replace(/\n/g, ' ')
+        .replace(/(\t)|(<a\b[^>]*>)|(<\/a>)|(<!--\b[^>]*-->)|(<!--\/\b[^>]*-->)/g, '');
+    const transformedLyricsResult = { lyrics: lyrics };
 
     // return data
     return {

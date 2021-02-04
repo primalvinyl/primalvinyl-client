@@ -32,9 +32,9 @@ const SongResults = ({ match }: SongResultsProps): React.ReactElement => {
                             <p>Album: <strong>{song.album_name}</strong></p>
                         </div>
                     </div>
-                    <div>
+                    <div className={styles.contentLyrics}>
                         <h3>Lyrics</h3>
-                        <p>{song.lyrics}</p>
+                        <p dangerouslySetInnerHTML={ {__html: song.lyrics} }></p>
                     </div>
                 </div>
             </div>
