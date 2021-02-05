@@ -55,7 +55,7 @@ module.exports = async (id) => {
     const lyrics = $('.lyrics')
         .html()
         .replace(/\n/g, ' ')
-        .replace(/(\t)|(<a\b[^>]*>)|(<\/a>)|(<!--\b[^>]*-->)|(<!--\/\b[^>]*-->)/g, '');
+        .replace(/(\t)|(<a\b[^>]*>)|(<\/a>)|(<!--\b[^>]*-->)|(<!--\/\b[^>]*-->)|(\[.*?\]<br>)/g, '');
     const transformedLyricsResult = { lyrics: lyrics };
 
     // return data

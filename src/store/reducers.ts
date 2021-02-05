@@ -47,7 +47,7 @@ export const song = (
                 ...state,
                 ...action.payload
             }
-        case types.CLEAR_ARTIST:
+        case types.CLEAR_SONG:
             return types.songResultDefault
         default:
             return state

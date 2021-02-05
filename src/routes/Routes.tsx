@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ErrorBoundary from '../components/utility/ErrorBoundary';
-import HomePage from './HomePage';
-import SongResult from './SongResult';
+import SearchPage from './SearchPage';
 import AboutUs from './AboutUs';
 import ErrorPage from './ErrorPage';
 
@@ -12,7 +11,7 @@ const Routes = (): React.ReactElement => (
             <Route
                 exact
                 path={'/'}
-                component={HomePage}
+                component={SearchPage}
             />
             <Route
                 exact
@@ -21,8 +20,13 @@ const Routes = (): React.ReactElement => (
             />
             <Route
                 exact
+                path={'/search/:query'}
+                component={SearchPage}
+            />
+            <Route
+                exact
                 path={'/songs/:id'}
-                component={SongResult}
+                component={SearchPage}
             />
             <Route
                 component={ErrorPage}
