@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchItem matches snapshot 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="wrapper"
+  >
+    <div
+      className="contentHeader"
+    >
+      <div
+        className="contentImage"
+      >
+        <img
+          alt=""
+          src=""
+        />
+      </div>
+      <div
+        className="contentMain"
+      >
+        <h2>
+          
+        </h2>
+        <p>
+          Written by: 
+          <strong>
+            
+          </strong>
+        </p>
+        <p>
+          Performed by: 
+          <strong>
+            
+          </strong>
+        </p>
+        <p>
+          Album: 
+          <strong>
+            
+          </strong>
+        </p>
+      </div>
+    </div>
+    <div
+      className="contentLyrics"
+    >
+      <h3>
+        Lyrics
+      </h3>
+      <p
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

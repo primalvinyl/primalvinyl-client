@@ -6,9 +6,16 @@
     margin: 0;
 
     form {
-        display: grid;
-        grid-template-columns: 60% 10%;
-        column-gap: .5em;
+        display: flex;
+
+        .searchInput {
+            margin: 0 .5em 0 0;
+            width: 80%;
+        }
+
+        .searchSubmit {
+            width: 20%;
+        }
     }
 
 

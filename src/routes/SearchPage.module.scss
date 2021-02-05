@@ -6,15 +6,19 @@
         margin: 0 auto;
         width: 1200px;
 
-        h2 {
-            font-size: 20px;
-            font-weight: bold;
+        .searchForm {
+            margin: 0 0 2em 0;
+            width: 70%;
         }
     }
 
     @include breakpoint(lg-down) {
         .wrapper {
             width: 100%;
+
+            .searchForm {
+                width: 100%;
+            }
         }
     }
 }

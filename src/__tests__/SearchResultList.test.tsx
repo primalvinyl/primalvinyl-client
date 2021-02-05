@@ -5,26 +5,28 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import rootReducer from '../store/reducers';
-import HomePage from '../routes/HomePage';
+import SearchResultList from '../components/SearchResultList';
 
-describe('HomePage', () => {
+describe('SearchResultList', () => {
     const store = createStore(rootReducer, {});
+    const searchList = [1, 2, 3];
 
     it('renders', () => {
         const myWrapper = shallow(
             <Provider store={store}>
                 <MemoryRouter>
-                    <HomePage />
+                    <SearchResultList list={searchList} />
                 </MemoryRouter>
             </Provider>
         );
         expect(myWrapper.exists());
     });
+    
     it('matches snapshot', () => {
         const component = Renderer.create(
             <Provider store={store}>
                 <MemoryRouter>
-                    <HomePage />
+                    <SearchResultList list={searchList} />
                 </MemoryRouter>
             </Provider>
         );
