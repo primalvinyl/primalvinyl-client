@@ -50,18 +50,25 @@ const SearchResultList = ({ list }: SearchResultsProps): React.ReactElement => {
     const columns = React.useMemo(() => [
         {
             Header: '',
-            Cell: (table: any) => <img src={table.value} alt="" />,
+            Cell: (table: any) => {
+                return (
+                    <Link to={`/songs/${table.row.original.id}`} className={styles.itemRoot}>
+                        <div className={styles.itemImage}>
+                            <img src={table.row.original.song_image_url} alt="" />
+                        </div>
+                        <div>
+                            <h2>
+                                {table.row.original.song_title }
+                            </h2>
+                            <p>
+                                Performed by {table.row.original.artist_name}
+                            </p>
+                        </div>
+                    </Link>
+                );
+            },
             accessor: 'song_image_url',
-        },
-        {
-            Header: 'Song',
-            Cell: (table: any) => <Link to={`/songs/${table.row.original.id}`}>{table.value}</Link>,
-            accessor: 'song_title',
-        },
-        {
-            Header: 'Artist',
-            accessor: 'artist_name',
-        },
+        } 
     ], []);
 
     return (

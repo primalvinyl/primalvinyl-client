@@ -40,143 +40,61 @@ exports[`App matches snapshot 1`] = `
           <div
             className="wrapper"
           >
-            <section
-              className="root"
-            >
-              <form
-                action="#"
-                onReset={[Function]}
-                onSubmit={[Function]}
-              >
-                <div
-                  className="root"
-                >
-                  <div
-                    className="formControlWrapper"
-                  >
-                    <input
-                      disabled={false}
-                      id="searchField"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      required={false}
-                      type="search"
-                      value=""
-                    />
-                  </div>
-                </div>
-                <div
-                  className="root"
-                >
-                  <button
-                    disabled={false}
-                    id="searchButton"
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "background": "gray800",
-                      }
-                    }
-                    type="submit"
-                  >
-                    Search
-                  </button>
-                </div>
-              </form>
-            </section>
             <div
-              className="root"
+              className="searchForm"
             >
-              <table
-                role="table"
+              <section
+                className="root"
               >
-                <thead>
-                  <tr
-                    role="row"
-                  >
-                    <th
-                      colSpan={1}
-                      role="columnheader"
-                    >
-                      
-                    </th>
-                    <th
-                      colSpan={1}
-                      role="columnheader"
-                    >
-                      Song
-                    </th>
-                    <th
-                      colSpan={1}
-                      role="columnheader"
-                    >
-                      Artist
-                    </th>
-                  </tr>
-                </thead>
-                <tbody
-                  role="rowgroup"
-                />
-              </table>
-            </div>
-            <div
-              className="root"
-            >
-              <div
-                className="wrapper"
-              >
-                <div
-                  className="contentHeader"
+                <form
+                  action="#"
+                  onReset={[Function]}
+                  onSubmit={[Function]}
                 >
                   <div
-                    className="contentImage"
+                    className="searchInput"
                   >
-                    <img
-                      alt=""
-                      src=""
-                    />
+                    <div
+                      className="root"
+                    >
+                      <div
+                        className="formControlWrapper"
+                      >
+                        <input
+                          disabled={false}
+                          id="searchField"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          required={false}
+                          type="search"
+                          value=""
+                        />
+                      </div>
+                    </div>
                   </div>
                   <div
-                    className="contentMain"
+                    className="searchSubmit"
                   >
-                    <h2>
-                      
-                    </h2>
-                    <p>
-                      Written by: 
-                      <strong>
-                        
-                      </strong>
-                    </p>
-                    <p>
-                      Performed by: 
-                      <strong>
-                        
-                      </strong>
-                    </p>
-                    <p>
-                      Album: 
-                      <strong>
-                        
-                      </strong>
-                    </p>
+                    <div
+                      className="root"
+                    >
+                      <button
+                        disabled={false}
+                        id="searchButton"
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "background": "gray800",
+                          }
+                        }
+                        type="submit"
+                      >
+                        Search
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div
-                  className="contentLyrics"
-                >
-                  <h3>
-                    Lyrics
-                  </h3>
-                  <p
-                    dangerouslySetInnerHTML={
-                      Object {
-                        "__html": "",
-                      }
-                    }
-                  />
-                </div>
-              </div>
+                </form>
+              </section>
             </div>
           </div>
         </article>
