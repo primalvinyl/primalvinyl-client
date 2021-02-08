@@ -2,38 +2,27 @@
 @import '../styles/partials/variables';
 
 .root {
-    .wrapper {
-        margin: 0 auto;
-        width: 1200px;
+    .contentHeader {
+        display: flex;
+        align-items: center;
+        margin: 0 0 2em 0;
 
-        .contentHeader {
-            display: flex;
-            align-items: center;
-            margin: 0 0 2em 0;
-
-            img {
-                width: 150px;
-                margin: 0 1.5em 0 0;
-            }
-
-            h2 {
-                font-size: 2em;
-                font-weight: bold;
-                margin: -0.3em 0 0 0;
-            }
+        img {
+            width: 150px;
+            margin: 0 1.5em 0 0;
         }
 
-        .contentLyrics {
-            h3 {
-                margin-top: 1em;
-                font-size: 1.5em;
-            }
+        h2 {
+            font-size: 2em;
+            font-weight: bold;
+            margin: -0.3em 0 0 0;
         }
     }
 
-    @include breakpoint(lg-down){
-        .wrapper {
-            width: 100%;
+    .contentLyrics {
+        h3 {
+            margin-top: 1em;
+            font-size: 1.5em;
         }
     }
 }
