@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
     getSongSearch,
@@ -9,6 +9,7 @@ import {
 } from '../store/actions';
 import { RootState } from '../store/reducers';
 import MasterTemplate from '../components/presentation/_MasterTemplate';
+import ProgressBar from '../components/presentation/ProgressBar';
 import SearchForm from '../components/SearchForm';
 import SearchResultList from '../components/SearchResultList';
 import SearchItem from '../components/SearchItem';
@@ -20,15 +21,14 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
     const songIdParameter = match && match.params && match.params.id;
 
     const dispatch = useDispatch();
-    const song = useSelector((state: RootState) => state.song);
     const searchQuery = useSelector((state: RootState) => state.query);
-    const { results: searchResults } = useSelector(
-        (state: RootState) => state.songSearchResults,
-        shallowEqual
-    );
+    const songResult = useSelector((state: RootState) => state.song);
+    const searchResults = useSelector((state: RootState) => state.songSearchResults);
 
-    const renderResultList = searchQueryParameter && searchResults.length > 0;
-    const renderSearchItem = songIdParameter && song.id > 0;
+    const renderResultList = searchQueryParameter && searchResults.results.length > 0;
+    const renderSearchItem = songIdParameter && songResult.id > 0;
+    const renderProgress = songResult.request_status === 'pending' ||
+        searchResults.request_status === 'pending';
 
     React.useEffect(() => {
         if (songIdParameter) dispatch(getSong({ query: songIdParameter }));
@@ -48,9 +48,14 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
                     <section className={styles.searchForm}>
                         <SearchForm searchHandler={searchHandler} />
                     </section>
+                    {renderProgress &&
+                        <section className={styles.progressIndicator}>
+                            <ProgressBar color="#adb5bd" />
+                        </section>
+                    }
                     {renderResultList &&
                         <section className={styles.searchList}>
-                            <SearchResultList list={searchResults} />
+                            <SearchResultList list={searchResults.results} />
                         </section>
                     }
                     {renderSearchItem &&
@@ -59,10 +64,10 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
                                 <Link to={`/search/${searchQuery}`}>
                                     Search Results
                                 </Link>
-                                    &nbsp;&nbsp;&gt;&nbsp;&nbsp;{song.song_title}
+                                &nbsp;&nbsp;&gt;&nbsp;&nbsp;{songResult.song_title}
                             </nav>
                             <section className={styles.searchItem}>
-                                <SearchItem item={song} />
+                                <SearchItem item={songResult} />
                             </section>
                         </div>
                     }
