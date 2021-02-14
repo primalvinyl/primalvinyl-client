@@ -30,7 +30,6 @@ export function* getSongSearchWorker(payload: types.RequestType = types.getReque
 export function* getSongWorker(payload: types.RequestType = types.getRequestDefault) {
     const { query } = payload;
     try {
-        yield put(actions.putQuery(query));
         yield put(actions.putSong({ ...types.songResultDefault, request_status: 'pending' }));
         // make request
         const response = yield call(

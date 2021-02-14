@@ -25,8 +25,12 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
     const songResult = useSelector((state: RootState) => state.song);
     const searchResults = useSelector((state: RootState) => state.songSearchResults);
 
-    const renderSearchList = searchQueryParameter;
-    const renderSearchItem = songIdParameter;
+    const renderSearchList =
+        searchQueryParameter &&
+        (searchResults.request_status === 'resolved');
+    const renderSearchItem =
+        songIdParameter &&
+        (songResult.request_status === 'resolved');
     const renderProgressBar =
         songResult.request_status === 'pending' ||
         searchResults.request_status === 'pending';

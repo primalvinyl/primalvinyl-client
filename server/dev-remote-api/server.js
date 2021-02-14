@@ -12,10 +12,16 @@ server.use(jsonServer.defaults({
 }));
 server.use(jsonServer.rewriter(routes));
 
-//routing
-server.get('/test-lyrics', (req, res) => res.sendFile(
-    path.join(__dirname, 'public', 'test-lyrics.html'
-)));
+//slow down api to simulate production
+server.use((req, res, next) => setTimeout(next, 1500));
+
+//route calls to static assets
+server.get(
+    '/test-lyrics',
+    (req, res) => res.sendFile(path.join(__dirname, 'public', 'test-lyrics.html'))
+);
+
+//route api calls to json server
 server.use('/', jsonServer.router(path.join(__dirname, 'db.json')));
 
 //start server
