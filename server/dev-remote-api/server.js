@@ -13,7 +13,9 @@ server.use(jsonServer.defaults({
 server.use(jsonServer.rewriter(routes));
 
 //routing
-server.get('/test-lyrics', (req, res) => res.sendFile(path.join(__dirname, 'public', 'test-lyrics.html')));
+server.get('/test-lyrics', (req, res) => res.sendFile(
+    path.join(__dirname, 'public', 'test-lyrics.html'
+)));
 server.use('/', jsonServer.router(path.join(__dirname, 'db.json')));
 
 //start server

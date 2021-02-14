@@ -17,8 +17,13 @@ module.exports = async (query) => {
     return fetch(endpoint, requestOptions)
         .then(response => response.json())
         .then(response => {
+            const { hits } = response.response;
+
+            // the api returns a 200 success and empty set if nothing is found
+            if (hits.length < 1) throw new Error();
+
             // transform response
-            const transformedResults = response.response.hits.map(element => {
+            const transformedResults = hits.map(element => {
                 const { result } = element;
                 const { primary_artist } = result;
                 return {
@@ -30,7 +35,8 @@ module.exports = async (query) => {
                     artist_image_url: primary_artist.image_url,
                 };
             });
+
             return { ...defaultSongSearchObject, results: transformedResults };
-        })
-        .catch (error => errorHandler('Failed search on Genius API', error));
+        });
+        // let route handle error and server response
 };

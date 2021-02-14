@@ -42,5 +42,5 @@ module.exports = async (artist, page = 1) => {
                 results: transformedResults
             };
         })
-        .catch (error => errorHandler('Failed search for artist on Discogs API', error));
+        .catch (error => errorHandler('Failed artist search on API', error));
 };

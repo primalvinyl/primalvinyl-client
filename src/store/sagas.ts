@@ -12,6 +12,7 @@ export function* getSongSearchWorker(payload: types.RequestType = types.getReque
     try {
         yield put(actions.putQuery(query));
         yield put(actions.putSongSearch({ ...types.songSearchResultsDefault, request_status: 'pending' }));
+        // make request
         const response = yield call(
             getRequest,
             `/songs/search/${query}`
@@ -31,6 +32,7 @@ export function* getSongWorker(payload: types.RequestType = types.getRequestDefa
     try {
         yield put(actions.putQuery(query));
         yield put(actions.putSong({ ...types.songResultDefault, request_status: 'pending' }));
+        // make request
         const response = yield call(
             getRequest,
             `/songs/${query}`
@@ -52,6 +54,7 @@ export function* getArtistSearchWorker(
     try {
         yield put(actions.putQuery(query));
         yield put(actions.putArtistSearch({ ...types.artistSearchResultsDefault, request_status: 'pending' }));
+        // make request
         const response = yield call(
             getRequest, 
             `/artists/search/${query}?page=${page}&per_page=${per_page}`
@@ -71,6 +74,7 @@ export function* getArtistWorker(payload: types.RequestType = types.getRequestDe
     try {
         yield put(actions.putQuery(query));
         yield put(actions.putArtist({ ...types.artistResultDefault, request_status: 'pending' }));
+        // make request
         const response = yield call(
             getRequest,
             `/artists/${query}`

@@ -71,8 +71,14 @@ const SearchResultList = ({ list }: SearchResultsProps): React.ReactElement => {
         } 
     ], []);
 
+    const resultCount = list.length;
+
     return (
         <div className={styles.root}>
+            <header>
+                <h1>Search Results</h1>
+                <p>Your search returned {resultCount} items</p>
+            </header>
             <Table columns={columns} data={list} />
         </div>
     )

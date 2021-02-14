@@ -4,6 +4,16 @@ exports[`SearchResultList matches snapshot 1`] = `
 <div
   className="root"
 >
+  <header>
+    <h1>
+      Search Results
+    </h1>
+    <p>
+      Your search returned 
+      3
+       items
+    </p>
+  </header>
   <table
     role="table"
   >
