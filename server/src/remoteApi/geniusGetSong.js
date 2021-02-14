@@ -12,8 +12,8 @@ const getSongData = id => {
         { method: 'GET', headers: geniusHeaders }
     )
         .then(response => response.json())
-        .then(response => response)
-        .catch (error => errorHandler('Failed to get song from Genius API', error));
+        .then(response => response);
+        // let route handle error and server response
 };
 
 
@@ -21,8 +21,8 @@ const getSongData = id => {
 const getSongLyrics = path => {
     return fetch(urljoin(process.env.genius_endpoint, path))
         .then(response => response.text())
-        .then(response => response)
-        .catch (error => errorHandler('Failed to get lyrics from Genius', error));
+        .then(response => response);
+        // let route handle error and server response
 };
 
 
@@ -33,7 +33,7 @@ module.exports = async (id) => {
 
     // get and transform song data
     const songResult = await getSongData(id);
-    const { response: { song } } = songResult;
+    const { response: { song } } = songResult; 
     const { primary_artist, writer_artists, album } = song;
     const song_writers = writer_artists.map(el => el.name);
     const lyricsPath = song.path;

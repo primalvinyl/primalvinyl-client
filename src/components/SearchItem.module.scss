@@ -2,6 +2,11 @@
 @import '../styles/partials/variables';
 
 .root {
+    h2 {
+        font-size: 2em;
+        font-weight: bold;
+    }
+
     .contentHeader {
         display: flex;
         align-items: center;

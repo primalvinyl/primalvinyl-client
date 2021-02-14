@@ -2,11 +2,24 @@
 @import '../styles/partials/variables.scss';
 
 .root {
+    header {
+        h1 {
+            font-size: 2em;
+            font-weight: bold;
+            line-height: 1.2em;
+        }
+
+        p {
+            margin: 0 0 .5em 0;
+            color: $gray-600;
+        }
+    }
+
     table {
         width: 100%;
         border-spacing: 0;
         border: none;
-        margin: 1em 0;
+        margin: 0;
 
         th, td {
             margin: 0;

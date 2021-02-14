@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import {
     getSongSearch,
     clearSongSearch,
@@ -10,6 +9,7 @@ import {
 import { RootState } from '../store/reducers';
 import MasterTemplate from '../components/presentation/_MasterTemplate';
 import ProgressBar from '../components/presentation/ProgressBar';
+import BreadCrumbs from '../components/presentation/BreadCrumbs';
 import SearchForm from '../components/SearchForm';
 import SearchResultList from '../components/SearchResultList';
 import SearchItem from '../components/SearchItem';
@@ -25,12 +25,13 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
     const songResult = useSelector((state: RootState) => state.song);
     const searchResults = useSelector((state: RootState) => state.songSearchResults);
 
-    const renderResultList = searchQueryParameter && searchResults.results.length > 0;
-    const renderSearchItem = songIdParameter && songResult.id > 0;
-    const renderProgress = songResult.request_status === 'pending' ||
+    const renderSearchList = searchQueryParameter;
+    const renderSearchItem = songIdParameter;
+    const renderProgressBar =
+        songResult.request_status === 'pending' ||
         searchResults.request_status === 'pending';
 
-    React.useEffect(() => {
+    React.useEffect(() => { 
         if (songIdParameter) dispatch(getSong({ query: songIdParameter }));
     }, [dispatch, songIdParameter]);
 
@@ -47,25 +48,27 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
                 <div className={styles.wrapper}>
                     <section className={styles.searchForm}>
                         <SearchForm searchHandler={searchHandler} />
-                    </section>
-                    {renderProgress &&
+                    </section> 
+                    {renderProgressBar &&
                         <section className={styles.progressIndicator}>
                             <ProgressBar color="#adb5bd" />
                         </section>
                     }
-                    {renderResultList &&
+                    {renderSearchList &&
                         <section className={styles.searchList}>
                             <SearchResultList list={searchResults.results} />
                         </section>
                     }
                     {renderSearchItem &&
                         <div>
-                            <nav className={styles.breadcrumb}>
-                                <Link to={`/search/${searchQuery}`}>
-                                    Search Results
-                                </Link>
-                                &nbsp;&nbsp;&gt;&nbsp;&nbsp;{songResult.song_title}
-                            </nav>
+                            <section className={styles.breadcrumb}>
+                                <BreadCrumbs
+                                    currentPage={songResult.song_title}
+                                    previousPages={[{
+                                        title: 'Search List',
+                                        link: `/search/${searchQuery}`
+                                    }]} />
+                            </section>
                             <section className={styles.searchItem}>
                                 <SearchItem item={songResult} />
                             </section>

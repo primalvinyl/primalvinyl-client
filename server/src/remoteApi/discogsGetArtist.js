@@ -26,5 +26,5 @@ module.exports = async id => {
             }
             return { ...defaultArtistObject, name, realname, image_url, profile };
         })
-        .catch (error => errorHandler('Failed getting artist details from Discogs API', error));
+        .catch (error => errorHandler('Failed getting artist from API', error));
 };

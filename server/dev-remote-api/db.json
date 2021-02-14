@@ -386,6 +386,14 @@
             ]
         }
     },
+    "genius-song-search-not-found": {
+        "meta": {
+            "status": 200
+        },
+        "response": {
+            "hits": []
+        }
+    },
     "genius-song": {
         "meta": {
             "status": 200
@@ -2890,6 +2898,12 @@
                     }
                 ]
             }
+        }
+    },
+    "genius-song-not-found": {
+        "meta": {
+            "status": 404,
+            "message": "404 Not Found"
         }
     },
     "discogs-artist-search": {

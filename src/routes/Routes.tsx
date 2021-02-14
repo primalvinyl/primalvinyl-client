@@ -19,8 +19,11 @@ const Routes = (): React.ReactElement => (
                 component={AboutUs}
             />
             <Route
-                exact
                 path={'/search/:query'}
+                component={SearchPage}
+            />
+            <Route
+                path={'/search'}
                 component={SearchPage}
             />
             <Route
