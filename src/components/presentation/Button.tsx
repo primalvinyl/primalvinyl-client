@@ -1,5 +1,29 @@
 import React from 'react';
-import styles from './Button.module.scss';
+import styled from 'styled-components';
+import styles from '../../styles/partials/_variables.module.scss';
+
+const Wrapper = styled.div`
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    button {
+        color: ${styles.gray100};
+        background: ${styles.gray700};
+        font-size: .9em;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 100%;
+        padding: .7em;
+        border: none;
+        border-radius: 5px;
+
+        &[disabled] {
+            color: ${styles.gray300};
+            background: ${styles.gray500};
+        }
+    }
+`;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
     (props, ref): React.ReactElement => {
@@ -12,13 +36,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
         type,
         disabled,
         isSubmitting,
-        color,
         url,
         onClick
     } = props;
 
     return (
-        <div className={styles.root}>
+        <Wrapper>
             <button
                 className={className}
                 id={id} 
@@ -26,7 +49,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
                 type={type}
                 disabled={isSubmitting || disabled}
                 ref={ref}
-                style={{ background: color ? color : styles.gray800 }}
                 onClick={(event) => {
                     url && window.open(url, 'article', 'noopener,noreferrer');
                     onClick && onClick(event);
@@ -34,7 +56,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
             >
                 {value}
             </button>
-        </div>
+        </Wrapper>
     );
 });
 
@@ -46,7 +68,6 @@ type ButtonType = {
     readonly type?: 'submit' | 'button' | 'reset';
     readonly disabled?: boolean;
     readonly isSubmitting?: boolean;
-    readonly color?: string;
     readonly url?: string;
     readonly onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
@@ -58,7 +79,6 @@ Button.defaultProps = {
     type: 'submit',
     disabled: false,
     isSubmitting: false,
-    color: '',
     url: undefined,
     onClick: (): void => {}
 }

@@ -1,5 +1,43 @@
 import React from 'react';
-import styles from './Select.module.scss';
+import styled from 'styled-components';
+import styles from '../../styles/partials/_variables.module.scss';
+
+const Wrapper = styled.div`
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    label {
+        display: inline-block;
+        margin-bottom: .3em;
+    }
+
+    .formFieldError {
+        margin-top: .2em;
+        color: ${styles.error};
+        font-size: .9em;
+    }
+
+    select {
+        width: 100%;
+        padding: .5em;
+        border: 1px solid ${styles.gray500};
+        border-radius: 5px;
+        color: ${styles.gray900};
+        background: ${styles.gray100};
+        box-sizing: border-box;
+
+        &:focus {
+            border-color: ${styles.gray500};
+            background: ${styles.white};
+        }
+
+        &[disabled] {
+            color: ${styles.gray600};
+            background: ${styles.gray300};
+        }
+    }
+`;
 
 const Select = React.forwardRef<HTMLSelectElement, SelectType>(
     (props, ref): React.ReactElement => {
@@ -23,7 +61,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectType>(
     } = props;
 
     return (
-        <div className={styles.root}>
+        <Wrapper>
             {label && (<label htmlFor={id} className={styles.formLabel}>{label}</label>)}
             <div className={styles.formControlWrapper}>
                 <select
@@ -56,7 +94,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectType>(
                     </div>
                 )}
             </div>
-        </div>
+        </Wrapper>
     );
 });
 

@@ -75,10 +75,10 @@ const SearchResultList = ({ list }: SearchResultsProps): React.ReactElement => {
 
     return (
         <div className={styles.root}>
-            <header>
+            <hgroup>
                 <h1>Search Results</h1>
                 <p>Your search returned {resultCount} items</p>
-            </header>
+            </hgroup>
             <Table columns={columns} data={list} />
         </div>
     )

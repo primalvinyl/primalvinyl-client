@@ -25,9 +25,6 @@ exports[`MasterTemplate matches snapshot 1`] = `
             </h2>
           </hgroup>
         </a>
-        <nav
-          className="navigation"
-        />
       </div>
     </header>
     <main>
@@ -61,79 +58,6 @@ exports[`MasterTemplate matches snapshot 1`] = `
            
           Primal Vinyl
         </div>
-      </div>
-      <div
-        className="navigation"
-      >
-        <nav>
-          <ul>
-            <li>
-              <a
-                aria-current="page"
-                className="active"
-                href="/"
-                onClick={[Function]}
-                style={Object {}}
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/about-us"
-                onClick={[Function]}
-              >
-                About Us
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/ding"
-                onClick={[Function]}
-              >
-                Nav Item 1
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/dong"
-                onClick={[Function]}
-              >
-                Nav Item 2
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/dingle"
-                onClick={[Function]}
-              >
-                Nav Item 3
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/ring"
-                onClick={[Function]}
-              >
-                Nav Item 4
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/sing"
-                onClick={[Function]}
-              >
-                Nav Item 5
-              </a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </div>
   </footer>
