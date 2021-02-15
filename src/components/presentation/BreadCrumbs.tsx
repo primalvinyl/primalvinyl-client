@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styles from '../../styles/partials/_variables.module.scss';
 
 const Wrapper = styled.nav`
     margin: 0;
     padding: .5em 1em;
-    color: #6c757d;
-    background: #f8f9fa;
+    color: ${styles.gray600};
+    background: ${styles.gray100};
     border-radius: 5px;
 
     a {
-        color: #6c757d;
+        color: ${styles.gray600};
         text-decoration: none;
 
         &:hover {

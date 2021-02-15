@@ -19,6 +19,7 @@ import styles from './SearchPage.module.scss';
 const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => {
     const searchQueryParameter = match && match.params && match.params.query;
     const songIdParameter = match && match.params && match.params.id;
+    const searchField = searchQueryParameter;
 
     const dispatch = useDispatch();
     const searchQuery = useSelector((state: RootState) => state.query);
@@ -35,9 +36,11 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
         songResult.request_status === 'pending' ||
         searchResults.request_status === 'pending';
 
+    //get data on page load when appropriate
     React.useEffect(() => { 
         if (songIdParameter) dispatch(getSong({ query: songIdParameter }));
-    }, [dispatch, songIdParameter]);
+        if (searchQueryParameter) dispatch(getSongSearch({ query: searchQueryParameter }));
+    }, [dispatch, songIdParameter, searchQueryParameter]);
 
     const searchHandler = (query: string) => {
         history.push(`/search/${query}`);
@@ -51,7 +54,7 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
             <article className={styles.root}>
                 <div className={styles.wrapper}>
                     <section className={styles.searchForm}>
-                        <SearchForm searchHandler={searchHandler} />
+                        <SearchForm searchHandler={searchHandler} searchField={searchField} />
                     </section> 
                     {renderProgressBar &&
                         <section className={styles.progressIndicator}>

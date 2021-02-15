@@ -2,17 +2,12 @@
 
 exports[`Button matches snapshot 1`] = `
 <div
-  className="root"
+  className="sc-bdfBwQ fpVjVQ"
 >
   <button
     disabled={false}
     id="test"
     onClick={[Function]}
-    style={
-      Object {
-        "background": "gray800",
-      }
-    }
     type="submit"
   >
     

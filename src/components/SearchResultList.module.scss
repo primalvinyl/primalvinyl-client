@@ -1,8 +1,8 @@
-@import '../styles/partials/breakpoints.scss';
-@import '../styles/partials/variables.scss';
+@import '../styles/partials/breakpoints.module';
+@import '../styles/partials/variables.module';
 
 .root {
-    header {
+    hgroup {
         h1 {
             font-size: 2em;
             font-weight: bold;

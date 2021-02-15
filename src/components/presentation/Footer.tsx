@@ -1,9 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+/*
 import { NavLink, Link } from 'react-router-dom';
 import { navList } from './types';
+*/
 import styles from './Footer.module.scss';
 
 const Footer = (): React.ReactElement => {
+    /*
     const NavList = navList.map(link => (
         <li key={link.path}>
             <NavLink exact to={link.path} key={link.path}>
@@ -11,6 +15,7 @@ const Footer = (): React.ReactElement => {
             </NavLink>
         </li>
     ));
+    */
 
     return (
         <footer className={styles.root}>
@@ -23,11 +28,13 @@ const Footer = (): React.ReactElement => {
                         {'© '}{new Date().getFullYear()}{ ' ' }Primal Vinyl
                     </div>
                 </div>
+                {/*
                 <div className={styles.navigation}>
                     <nav>
                         <ul>{NavList}</ul>
                     </nav>
                 </div>
+                */}
             </div>
         </footer>
     );
