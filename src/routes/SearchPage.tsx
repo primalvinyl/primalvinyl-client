@@ -7,7 +7,7 @@ import {
     clearSong
 } from '../store/actions';
 import { RootState } from '../store/reducers';
-import MasterTemplate from '../components/presentation/_MasterTemplate';
+import MasterTemplate from '../components/_MasterTemplate';
 import ProgressBar from '../components/presentation/ProgressBar';
 import BreadCrumbs from '../components/presentation/BreadCrumbs';
 import SearchForm from '../components/SearchForm';
@@ -19,7 +19,6 @@ import styles from './SearchPage.module.scss';
 const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => {
     const searchQueryParameter = match && match.params && match.params.query;
     const songIdParameter = match && match.params && match.params.id;
-    const searchField = searchQueryParameter;
 
     const dispatch = useDispatch();
     const searchQuery = useSelector((state: RootState) => state.query);
@@ -37,10 +36,14 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
         searchResults.request_status === 'pending';
 
     //get data on page load when appropriate
-    React.useEffect(() => { 
-        if (songIdParameter) dispatch(getSong({ query: songIdParameter }));
-        if (searchQueryParameter) dispatch(getSongSearch({ query: searchQueryParameter }));
-    }, [dispatch, songIdParameter, searchQueryParameter]);
+    React.useEffect(() => {
+        if (songIdParameter) {
+            dispatch(getSong({ query: songIdParameter }));
+        }
+        else if (searchQueryParameter && searchResults.results.length === 0) {
+            dispatch(getSongSearch({ query: searchQueryParameter }));
+        }
+    }, [dispatch, songIdParameter, searchQueryParameter, searchResults]);
 
     const searchHandler = (query: string) => {
         history.push(`/search/${query}`);
@@ -48,14 +51,15 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
         dispatch(clearSong());
         dispatch(getSongSearch({ query }));
     };
-
+ 
     return (
         <MasterTemplate>
             <article className={styles.root}>
                 <div className={styles.wrapper}>
+                    <h1>Lyrics Search</h1>
                     <section className={styles.searchForm}>
-                        <SearchForm searchHandler={searchHandler} searchField={searchField} />
-                    </section> 
+                        <SearchForm searchHandler={searchHandler} searchField={searchQueryParameter} />
+                    </section>
                     {renderProgressBar &&
                         <section className={styles.progressIndicator}>
                             <ProgressBar color="#adb5bd" />
@@ -63,7 +67,7 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
                     }
                     {renderSearchList &&
                         <section className={styles.searchList}>
-                            <SearchResultList list={searchResults.results} />
+                            <SearchResultList searchResults={searchResults} />
                         </section>
                     }
                     {renderSearchItem &&

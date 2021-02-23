@@ -5,17 +5,17 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import rootReducer from '../store/reducers';
+import { songSearchResultsDefault } from '../store/types'
 import SearchResultList from '../components/SearchResultList';
 
 describe('SearchResultList', () => {
     const store = createStore(rootReducer, {});
-    const searchList = [1, 2, 3];
 
     it('renders', () => {
         const myWrapper = shallow(
             <Provider store={store}>
                 <MemoryRouter>
-                    <SearchResultList list={searchList} />
+                    <SearchResultList searchResults={songSearchResultsDefault} />
                 </MemoryRouter>
             </Provider>
         );
@@ -26,7 +26,7 @@ describe('SearchResultList', () => {
         const component = Renderer.create(
             <Provider store={store}>
                 <MemoryRouter>
-                    <SearchResultList list={searchList} />
+                    <SearchResultList searchResults={songSearchResultsDefault} />
                 </MemoryRouter>
             </Provider>
         );

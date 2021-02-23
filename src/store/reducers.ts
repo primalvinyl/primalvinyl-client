@@ -3,7 +3,7 @@ import * as types from './types';
 
 
 
-/******************************** Reducers ***************************************/
+
 export const query = (
     state = '',
     action: any
@@ -17,6 +17,8 @@ export const query = (
             return state
     }
 };
+
+
 
 
 export const songSearchResults = (
@@ -37,6 +39,8 @@ export const songSearchResults = (
 }
 
 
+
+
 export const song = (
     state = types.songResultDefault,
     action: any
@@ -53,6 +57,8 @@ export const song = (
             return state
     }
 }
+
+
 
 
 export const artistSearchResults = (
@@ -73,6 +79,8 @@ export const artistSearchResults = (
 }
 
 
+
+
 export const artist = (
     state = types.artistResultDefault,
     action: any
@@ -89,6 +97,7 @@ export const artist = (
             return state
     }
 }
+
 
 
 

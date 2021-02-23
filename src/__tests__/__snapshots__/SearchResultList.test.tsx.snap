@@ -4,13 +4,15 @@ exports[`SearchResultList matches snapshot 1`] = `
 <div
   className="root"
 >
-  <hgroup>
+  <hgroup
+    className="resultHeader"
+  >
     <h1>
       Search Results
     </h1>
     <p>
       Your search returned 
-      3
+      0
        items
     </p>
   </hgroup>
@@ -31,89 +33,7 @@ exports[`SearchResultList matches snapshot 1`] = `
     </thead>
     <tbody
       role="rowgroup"
-    >
-      <tr
-        role="row"
-      >
-        <td
-          role="cell"
-        >
-          <a
-            className="itemRoot"
-            href="/songs/undefined"
-            onClick={[Function]}
-          >
-            <div
-              className="itemImage"
-            >
-              <img
-                alt=""
-              />
-            </div>
-            <div>
-              <h2 />
-              <p>
-                Performed by 
-              </p>
-            </div>
-          </a>
-        </td>
-      </tr>
-      <tr
-        role="row"
-      >
-        <td
-          role="cell"
-        >
-          <a
-            className="itemRoot"
-            href="/songs/undefined"
-            onClick={[Function]}
-          >
-            <div
-              className="itemImage"
-            >
-              <img
-                alt=""
-              />
-            </div>
-            <div>
-              <h2 />
-              <p>
-                Performed by 
-              </p>
-            </div>
-          </a>
-        </td>
-      </tr>
-      <tr
-        role="row"
-      >
-        <td
-          role="cell"
-        >
-          <a
-            className="itemRoot"
-            href="/songs/undefined"
-            onClick={[Function]}
-          >
-            <div
-              className="itemImage"
-            >
-              <img
-                alt=""
-              />
-            </div>
-            <div>
-              <h2 />
-              <p>
-                Performed by 
-              </p>
-            </div>
-          </a>
-        </td>
-      </tr>
-    </tbody>
+    />
   </table>
 </div>
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { BreakpointProvider } from './components/utility/BreakpointProvider';
+import { BreakpointProvider } from './components/presentation/BreakpointProvider';
 import Routes from './routes/Routes';
 
 const App = (): React.ReactElement => (

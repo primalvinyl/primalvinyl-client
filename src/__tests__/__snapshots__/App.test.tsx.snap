@@ -37,6 +37,9 @@ exports[`App matches snapshot 1`] = `
           <div
             className="wrapper"
           >
+            <h1>
+              Lyrics Search
+            </h1>
             <section
               className="searchForm"
             >
@@ -52,7 +55,7 @@ exports[`App matches snapshot 1`] = `
                     className="searchInput"
                   >
                     <div
-                      className="sc-dlfnbm hIJeFZ"
+                      className="sc-dlfnbm jDquNf"
                     >
                       <div
                         className="formControlWrapper"
@@ -73,7 +76,7 @@ exports[`App matches snapshot 1`] = `
                     className="searchSubmit"
                   >
                     <div
-                      className="sc-hKgILt esidUV"
+                      className="sc-hKgILt jbJTns"
                     >
                       <button
                         disabled={false}

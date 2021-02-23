@@ -8,7 +8,7 @@ exports[`Header matches snapshot 1`] = `
     className="lazyload-placeholder"
     style={
       Object {
-        "height": undefined,
+        "height": 100,
       }
     }
   />

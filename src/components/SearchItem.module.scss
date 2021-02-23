@@ -2,32 +2,40 @@
 @import '../styles/partials/variables.module';
 
 .root {
-    h2 {
-        font-size: 2em;
-        font-weight: bold;
-    }
-
     .contentHeader {
         display: flex;
         align-items: center;
-        margin: 0 0 2em 0;
+        margin: 0 0 2rem 0;
 
         img {
             width: 150px;
-            margin: 0 1.5em 0 0;
+            margin: 0 1.5rem 0 0;
         }
 
         h2 {
             font-size: 2em;
             font-weight: bold;
-            margin: -0.3em 0 0 0;
+            line-height: 2.3rem;
+            margin: -0.3rem 0 .4rem 0;
+        }
+    }
+
+    .contentMain {
+        p {
+            font-size: .8rem;
+            color: $gray-600;
+
+            strong {
+                font-size: 1rem;
+                color: $text-color;
+            }
         }
     }
 
     .contentLyrics {
         h3 {
-            margin-top: 1em;
-            font-size: 1.5em;
+            margin-top: 1rem;
+            font-size: 1.5rem;
         }
     }
 }
