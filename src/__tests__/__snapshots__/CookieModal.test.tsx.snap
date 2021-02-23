@@ -2,7 +2,7 @@
 
 exports[`CookieModal matches snapshot without props 1`] = `
 <div
-  className="root"
+  className="sc-bdfBwQ hVwrW"
 >
   <div
     className=""

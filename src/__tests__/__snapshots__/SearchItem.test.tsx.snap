@@ -4,8 +4,66 @@ exports[`SearchItem matches snapshot 1`] = `
 <div
   className="root"
 >
-  <h2>
-    Song data not found
-  </h2>
+  <div>
+    <div
+      className="contentHeader"
+    >
+      <div
+        className="contentImage"
+      >
+        <div
+          className="lazyload-wrapper"
+        >
+          <div
+            className="lazyload-placeholder"
+            style={
+              Object {
+                "height": 100,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="contentMain"
+      >
+        <h2>
+          
+        </h2>
+        <p>
+          Writters: 
+          <strong>
+            
+          </strong>
+        </p>
+        <p>
+          Artist: 
+          <strong>
+            
+          </strong>
+        </p>
+        <p>
+          Album: 
+          <strong>
+            
+          </strong>
+        </p>
+      </div>
+    </div>
+    <div
+      className="contentLyrics"
+    >
+      <h3>
+        Lyrics
+      </h3>
+      <p
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "",
+          }
+        }
+      />
+    </div>
+  </div>
 </div>
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Renderer from 'react-test-renderer';
-import { BreakpointProvider } from '../components/utility/BreakpointProvider';
+import { BreakpointProvider } from '../components/presentation/BreakpointProvider';
 
 describe('BreakpointProvider', () => {
     it('renders', () => {

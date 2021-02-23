@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTable } from 'react-table';
 import { Link } from 'react-router-dom';
+import { SongSearchResultsType } from '../store/types';
+import LazyLoadElement from './presentation/LazyLoadElement';
 import styles from './SearchResultList.module.scss';
 
 const Table = ({ columns, data }: any) => {
@@ -46,7 +48,7 @@ const Table = ({ columns, data }: any) => {
     )
 }
 
-const SearchResultList = ({ list }: SearchResultsProps): React.ReactElement => {
+const SearchResultList = ({ searchResults }: SearchResultsProps): React.ReactElement => {
     const columns = React.useMemo(() => [
         {
             Header: '',
@@ -54,7 +56,9 @@ const SearchResultList = ({ list }: SearchResultsProps): React.ReactElement => {
                 return (
                     <Link to={`/songs/${table.row.original.id}`} className={styles.itemRoot}>
                         <div className={styles.itemImage}>
-                            <img src={table.row.original.song_image_url} alt="" />
+                            <LazyLoadElement> 
+                                {() => <img src={table.row.original.song_image_url} alt="" />}
+                            </LazyLoadElement>
                         </div>
                         <div>
                             <h2>
@@ -71,21 +75,22 @@ const SearchResultList = ({ list }: SearchResultsProps): React.ReactElement => {
         } 
     ], []);
 
-    const resultCount = list.length;
+    const { results } = searchResults;
+    const resultCount = results.length;
 
     return (
         <div className={styles.root}>
-            <hgroup>
+            <hgroup className={styles.resultHeader}>
                 <h1>Search Results</h1>
                 <p>Your search returned {resultCount} items</p>
             </hgroup>
-            <Table columns={columns} data={list} />
+            <Table columns={columns} data={results} />
         </div>
     )
 };
 
 type SearchResultsProps = {
-    readonly list: any;
+    readonly searchResults: SongSearchResultsType;
 }
 
 export default SearchResultList;

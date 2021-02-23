@@ -3,6 +3,9 @@ import * as types from './types';
 
 
 
+/******************************************************************************/
+/*********************************** Query ************************************/
+/******************************************************************************/
 export const putQuery = (payload: string = ''): types.QueryActionTypes => {
     return {
         type: types.PUT_QUERY,
@@ -19,21 +22,20 @@ export const clearQuery = (): types.QueryActionTypes => {
 
 
 
-export const getSongSearch = (
-    payload: types.RequestType = types.getRequestDefault
-): types.GetSongSearchActionType => {
+/******************************************************************************/
+/**************************** Song Search Results *****************************/
+/******************************************************************************/
+export const getSongSearch = (payload: types.RequestType): types.GetSongSearchActionType => {
     return {
         type: types.GET_SONG_SEARCH,
         payload: { ...types.getRequestDefault, ...payload }
     };
 };
 
-export const putSongSearch = (
-    payload: types.SongSearchResultsType = types.songSearchResultsDefault
-): types.SongSearchActionTypes => {
+export const putSongSearch = (payload: types.SongSearchResultsType): types.SongSearchActionTypes => {
     return {
         type: types.PUT_SONG_SEARCH,
-        payload
+        payload: {...types.songSearchResultsDefault, ...payload}
     };
 };
 
@@ -46,21 +48,20 @@ export const clearSongSearch = (): types.SongSearchActionTypes => {
 
 
 
-export const getSong = (
-    payload: types.RequestType = types.getRequestDefault
-): types.GetSongActionType => {
+/******************************************************************************/
+/********************************** Song **************************************/
+/******************************************************************************/
+export const getSong = (payload: types.RequestType): types.GetSongActionType => {
     return {
         type: types.GET_SONG,
         payload: { ...types.getRequestDefault, ...payload }
     };
 };
 
-export const putSong = (
-    payload: types.SongResultType = types.songResultDefault
-): types.SongActionTypes => {
+export const putSong = (payload: types.SongResultType): types.SongActionTypes => {
     return {
         type: types.PUT_SONG,
-        payload
+        payload: {...types.songResultDefault, ...payload}
     };
 };
 
@@ -73,21 +74,21 @@ export const clearSong = (): types.SongActionTypes => {
 
 
 
-export const getArtistSearch = (
-    payload: types.RequestType = types.getRequestPaginationDefault
-): types.GetArtistSearchActionType => {
+/******************************************************************************/
+/************************* Artist Search Results ******************************/
+/******************************************************************************/
+export const getArtistSearch = (payload: types.RequestType): types.GetArtistSearchActionType => {
     return {
         type: types.GET_ARTIST_SEARCH,
         payload: { ...types.getRequestPaginationDefault, ...payload }
     };
 };
 
-export const putArtistSearch = (
-    payload: types.ArtistSearchResultsType = types.artistSearchResultsDefault
-): types.ArtistSearchActionTypes => {
+export const putArtistSearch = (payload: types.ArtistSearchResultsType): 
+types.ArtistSearchActionTypes => {
     return {
         type: types.PUT_ARTIST_SEARCH,
-        payload
+        payload: {...types.artistSearchResultsDefault, ...payload}
     };
 };
 
@@ -100,21 +101,20 @@ export const clearArtistSearch = (): types.ArtistSearchActionTypes => {
 
 
 
-export const getArtist = (
-    payload: types.RequestType = types.getRequestDefault
-): types.GetArtistActionType => {
+/******************************************************************************/
+/******************************** Artist **************************************/
+/******************************************************************************/
+export const getArtist = (payload: types.RequestType): types.GetArtistActionType => {
     return {
         type: types.GET_ARTIST,
         payload: { ...types.getRequestDefault, ...payload }
     };
 };
 
-export const putArtist = (
-    payload: types.ArtistResultType = types.artistResultDefault
-): types.ArtistActionTypes => {
+export const putArtist = (payload: types.ArtistResultType): types.ArtistActionTypes => {
     return {
         type: types.PUT_ARTIST,
-        payload
+        payload: { ...types.artistResultDefault, ...payload }
     };
 };
 
