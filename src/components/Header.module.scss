@@ -2,39 +2,31 @@
 @import '../styles/partials/variables.module';
 
 .root {
-    padding: 2em;
-    background: $gray-800;
-    color: $gray-500;
+    padding: 2em 0 0 0;
     
     .wrapper {
         margin: 0 auto;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
         width: 1200px;
+
+        img {
+            width: 200px;
+        }
 
         .logotype {
             text-decoration: none;
+            outline: none;
+            margin: 0 0 0 -40px;
 
-            hgroup {
-                display: flex;
-                align-items: center;
-
-                h1 {
-                    text-indent: -9999px;
-                    width: 75px;
-                    height: 75px;
-                    background-image: url(../images/logo.svg);
-                    background-position: center;
-                    background-size: cover;
-                    margin: 0 .5em 0 0;
-                }
-
-                h2 {
-                    color: $gray-500;
-                    font-weight: bold;
-                    font-size: 2em;
-                }
+            h1 {
+                text-indent: -9999px;
+                width: 400px;
+                height: 125px;
+                background-image: url(../images/logotypeSubhead.png);
+                background-position: left;
+                background-size: cover;
             }
         }
 
@@ -78,18 +70,11 @@
             }
 
             .logotype {
-                //margin: -1.3em 0 1.3em 0;
                 margin: .5em;
                 
-                hgroup {
-                    h1 {
-                        width: 55px;
-                        height: 55px;
-                    }
-
-                    h2 {
-                        font-size: 1.5em;
-                    }
+                h1 {
+                    width: 200px;
+                    height: 55px;
                 }
             }
 

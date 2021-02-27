@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
     getSongSearch,
     clearSongSearch,
@@ -56,7 +57,6 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
         <MasterTemplate>
             <article className={styles.root}>
                 <div className={styles.wrapper}>
-                    <h1>Lyrics Search</h1>
                     <section className={styles.searchForm}>
                         <SearchForm searchHandler={searchHandler} searchField={searchQueryParameter} />
                     </section>

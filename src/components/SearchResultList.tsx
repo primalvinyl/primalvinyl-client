@@ -76,14 +76,9 @@ const SearchResultList = ({ searchResults }: SearchResultsProps): React.ReactEle
     ], []);
 
     const { results } = searchResults;
-    const resultCount = results.length;
 
     return (
         <div className={styles.root}>
-            <hgroup className={styles.resultHeader}>
-                <h1>Search Results</h1>
-                <p>Your search returned {resultCount} items</p>
-            </hgroup>
             <Table columns={columns} data={results} />
         </div>
     )

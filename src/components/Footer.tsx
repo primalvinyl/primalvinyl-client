@@ -25,7 +25,7 @@ const Footer = (): React.ReactElement => {
                         <h2>Primal Vinyl</h2>
                     </Link>
                     <div className={styles.copyright}>
-                        {'© '}{new Date().getFullYear()}{ ' ' }Primal Vinyl
+                        {'© '}{new Date().getFullYear()}
                     </div>
                 </div>
                 {/*
