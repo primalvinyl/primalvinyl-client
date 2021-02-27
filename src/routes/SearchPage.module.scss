@@ -1,15 +1,10 @@
 @import "../styles/partials/_breakpoints.module.scss";
 @import "../styles/partials/_variables.module.scss";
 
-.root {
+.root {    
     .wrapper {
         margin: 0 auto;
         width: 1200px;
-
-        h1 {
-            font-size: 2rem;
-            margin: 0 0 .5rem 0;
-        }
 
         .searchForm {
             margin: 0 0 2rem 0;

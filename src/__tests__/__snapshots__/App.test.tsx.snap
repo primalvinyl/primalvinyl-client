@@ -14,19 +14,18 @@ exports[`App matches snapshot 1`] = `
         <div
           className="wrapper"
         >
+          <img
+            alt=""
+            src="monster.png"
+          />
           <a
             className="logotype"
             href="/"
             onClick={[Function]}
           >
-            <hgroup>
-              <h1>
-                Primal Vinyl
-              </h1>
-              <h2>
-                Primal Vinyl
-              </h2>
-            </hgroup>
+            <h1>
+              Primal Vinyl
+            </h1>
           </a>
         </div>
       </header>
@@ -37,9 +36,6 @@ exports[`App matches snapshot 1`] = `
           <div
             className="wrapper"
           >
-            <h1>
-              Lyrics Search
-            </h1>
             <section
               className="searchForm"
             >
@@ -117,8 +113,6 @@ exports[`App matches snapshot 1`] = `
           >
             © 
             2021
-             
-            Primal Vinyl
           </div>
         </div>
       </div>

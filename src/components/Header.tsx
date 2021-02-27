@@ -6,6 +6,7 @@ import { CSSTransition } from 'react-transition-group';
 import { navList } from './types';
 import { useBreakpoint } from '../utility/BreakpointProvider';
 */
+import monster from '../images/monster.png';
 import styles from './Header.module.scss';
 
 const Header = (): React.ReactElement => {
@@ -52,11 +53,9 @@ const Header = (): React.ReactElement => {
                         </svg>
                     </button>
                 */}
+                <img src={monster} alt="" />
                 <Link to="/" className={styles.logotype}>
-                    <hgroup>
-                        <h1>Primal Vinyl</h1>
-                        <h2>Primal Vinyl</h2>
-                    </hgroup>
+                    <h1>Primal Vinyl</h1>
                 </Link>
                 {/*
                     <CSSTransition

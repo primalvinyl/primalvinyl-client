@@ -7,19 +7,18 @@ exports[`Header matches snapshot 1`] = `
   <div
     className="wrapper"
   >
+    <img
+      alt=""
+      src="monster.png"
+    />
     <a
       className="logotype"
       href="/"
       onClick={[Function]}
     >
-      <hgroup>
-        <h1>
-          Primal Vinyl
-        </h1>
-        <h2>
-          Primal Vinyl
-        </h2>
-      </hgroup>
+      <h1>
+        Primal Vinyl
+      </h1>
     </a>
   </div>
 </header>
