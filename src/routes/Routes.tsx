@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import ErrorBoundary from '../components/utility/ErrorBoundary';
-import HomePage from './HomePage';
+import ErrorBoundary from '../components/ErrorBoundary';
+import SearchPage from './SearchPage';
 import AboutUs from './AboutUs';
 import ErrorPage from './ErrorPage';
 
@@ -11,11 +11,25 @@ const Routes = (): React.ReactElement => (
             <Route
                 exact
                 path={'/'}
-                component={HomePage}
+                component={SearchPage}
             />
             <Route
+                exact
                 path={'/about-us'}
                 component={AboutUs}
+            />
+            <Route
+                path={'/search/:query'}
+                component={SearchPage}
+            />
+            <Route
+                path={'/search'}
+                component={SearchPage}
+            />
+            <Route
+                exact
+                path={'/songs/:id'}
+                component={SearchPage}
             />
             <Route
                 component={ErrorPage}

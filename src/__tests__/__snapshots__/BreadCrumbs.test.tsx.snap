@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BreadCrumbs matches snapshot 1`] = `
+<nav
+  className="sc-bdfBwQ cXDVwv"
+>
+  <span>
+    <a
+      href="/test"
+      onClick={[Function]}
+    >
+      test
+    </a>
+    <span>
+        &gt;  
+    </span>
+  </span>
+  <span>
+    test
+  </span>
+</nav>
+`;

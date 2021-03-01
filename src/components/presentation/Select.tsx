@@ -1,5 +1,42 @@
 import React from 'react';
-import styles from './Select.module.scss';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    label {
+        display: inline-block;
+        margin-bottom: .3em;
+    }
+
+    .formFieldError {
+        margin-top: .2em;
+        color: #ed2024;
+        font-size: .9em;
+    }
+
+    select {
+        width: 100%;
+        padding: .5em;
+        border: 1px solid #adb5bd;
+        border-radius: 5px;
+        color: #212529;
+        background: white;
+        box-sizing: border-box;
+
+        &:focus {
+            border-color: #adb5bd;
+            background: white;
+        }
+
+        &[disabled] {
+            color: #6c757d;
+            background: #dee2e6;
+        }
+    }
+`;
 
 const Select = React.forwardRef<HTMLSelectElement, SelectType>(
     (props, ref): React.ReactElement => {
@@ -23,9 +60,9 @@ const Select = React.forwardRef<HTMLSelectElement, SelectType>(
     } = props;
 
     return (
-        <div className={styles.root}>
-            {label && (<label htmlFor={id} className={styles.formLabel}>{label}</label>)}
-            <div className={styles.formControlWrapper}>
+        <Wrapper>
+            {label && (<label htmlFor={id} className="formLabel">{label}</label>)}
+            <div className="formControlWrapper">
                 <select
                     className={className}
                     name={name}
@@ -51,12 +88,12 @@ const Select = React.forwardRef<HTMLSelectElement, SelectType>(
                     ))}
                 </select>
                 {(errors && touched) && (errors[id] && touched[id]) && (
-                    <div className={styles.formFieldError}>
+                    <div className="formFieldError">
                         {errors[id]}
                     </div>
                 )}
             </div>
-        </div>
+        </Wrapper>
     );
 });
 

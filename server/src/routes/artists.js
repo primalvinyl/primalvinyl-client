@@ -5,6 +5,7 @@ const getArtist = require('../remoteApi/discogsGetArtist');
 
 const router = express.Router();
 
+//return list of artists
 router.get('/search/:name', (req, res) => {
     const artistName = req.params.name;
     searchArtist(artistName)
@@ -12,6 +13,7 @@ router.get('/search/:name', (req, res) => {
         .catch(error => res.status(404).json(errorHandler('Artist not found', error)).end());
 });
 
+//return artist
 router.get('/:id', (req, res) => {
     const artistId = req.params.id;
     getArtist(artistId)
@@ -20,3 +22,4 @@ router.get('/:id', (req, res) => {
 });
 
 module.exports = router;
+

@@ -1,107 +1,125 @@
-import {
-    ReduxArtistType,
-    ReduxArtistsType,
-    artistDefault,
-    artistsDefault,
-    SagaGetRequest,
-    sagaGetRequestDefault
-} from '../__types__';
-
-
-
-/********************************* Action Types *************************************/
-export const actionTypes = {
-    GET_ARTIST: 'GET_ARTIST',
-    GET_ARTISTS: 'GET_ARTISTS',
-    PUT_QUERY: 'PUT_QUERY',
-    PUT_ARTIST: 'PUT_ARTIST',
-    PUT_ARTISTS: 'PUT_ARTISTS',
-    CLEAR_ARTIST: 'CLEAR_ARTIST',
-    CLEAR_ARTISTS: 'CLEAR_ARTISTS',
-};
+import * as types from './types';
 
 
 
 
-/******************************* Reducer Actions *************************************/
-export interface PutQueryActionType {
-    type: typeof actionTypes.PUT_QUERY;
-    payload: string
-}
-export const putQuery = (payload: string = ''): PutQueryActionType => {
+/******************************************************************************/
+/*********************************** Query ************************************/
+/******************************************************************************/
+export const putQuery = (payload: string = ''): types.QueryActionTypes => {
     return {
-        type: actionTypes.PUT_QUERY,
+        type: types.PUT_QUERY,
         payload
     }
 };
 
-
-export interface PutArtistActionType {
-    type: typeof actionTypes.PUT_ARTIST;
-    payload: ReduxArtistType;
-}
-export const putArtist = (payload: ReduxArtistType = artistDefault): PutArtistActionType => { 
+export const clearQuery = (): types.QueryActionTypes => {
     return {
-        type: actionTypes.PUT_ARTIST,
-        payload
-    };
-};
-
-
-export interface ClearArtistActionType {
-    type: typeof actionTypes.CLEAR_ARTIST;
-}
-export const clearArtist = (): ClearArtistActionType => { 
-    return {
-        type: actionTypes.CLEAR_ARTIST
-    };
-};
-
-
-export interface PutArtistsActionType {
-    type: typeof actionTypes.PUT_ARTISTS;
-    payload: ReduxArtistsType;
-}
-export const putArtists = (payload: ReduxArtistsType = artistsDefault): PutArtistsActionType => { 
-    return {
-        type: actionTypes.PUT_ARTISTS,
-        payload
-    };
-};
-
-
-export interface ClearArtistsActionType {
-    type: typeof actionTypes.CLEAR_ARTISTS;
-}
-export const clearArtists = (): ClearArtistsActionType => { 
-    return {
-        type: actionTypes.CLEAR_ARTISTS
+        type: types.CLEAR_QUERY
     };
 };
 
 
 
 
-/******************************** Saga Actions **************************************/
-export interface GetArtistActionType {
-    type: typeof actionTypes.GET_ARTIST;
-    payload: SagaGetRequest;
-}
-export const getArtist = (payload: SagaGetRequest = sagaGetRequestDefault): GetArtistActionType => {
+/******************************************************************************/
+/**************************** Song Search Results *****************************/
+/******************************************************************************/
+export const getSongSearch = (payload: types.RequestType): types.GetSongSearchActionType => {
     return {
-        type: actionTypes.GET_ARTIST,
-        payload: { ...sagaGetRequestDefault, ...payload }
+        type: types.GET_SONG_SEARCH,
+        payload: { ...types.getRequestDefault, ...payload }
+    };
+};
+
+export const putSongSearch = (payload: types.SongSearchResultsType): types.SongSearchActionTypes => {
+    return {
+        type: types.PUT_SONG_SEARCH,
+        payload: {...types.songSearchResultsDefault, ...payload}
+    };
+};
+
+export const clearSongSearch = (): types.SongSearchActionTypes => {
+    return {
+        type: types.CLEAR_SONG_SEARCH
     };
 };
 
 
-export interface GetArtistsActionType {
-    type: typeof actionTypes.GET_ARTISTS;
-    payload: SagaGetRequest;
-}
-export const getArtists = (payload: SagaGetRequest = sagaGetRequestDefault): GetArtistsActionType => {
+
+
+/******************************************************************************/
+/********************************** Song **************************************/
+/******************************************************************************/
+export const getSong = (payload: types.RequestType): types.GetSongActionType => {
     return {
-        type: actionTypes.GET_ARTISTS,
-        payload: { ...sagaGetRequestDefault, ...payload }
+        type: types.GET_SONG,
+        payload: { ...types.getRequestDefault, ...payload }
     };
-}; 
+};
+
+export const putSong = (payload: types.SongResultType): types.SongActionTypes => {
+    return {
+        type: types.PUT_SONG,
+        payload: {...types.songResultDefault, ...payload}
+    };
+};
+
+export const clearSong = (): types.SongActionTypes => {
+    return {
+        type: types.CLEAR_SONG
+    };
+};
+
+
+
+
+/******************************************************************************/
+/************************* Artist Search Results ******************************/
+/******************************************************************************/
+export const getArtistSearch = (payload: types.RequestType): types.GetArtistSearchActionType => {
+    return {
+        type: types.GET_ARTIST_SEARCH,
+        payload: { ...types.getRequestPaginationDefault, ...payload }
+    };
+};
+
+export const putArtistSearch = (payload: types.ArtistSearchResultsType): 
+types.ArtistSearchActionTypes => {
+    return {
+        type: types.PUT_ARTIST_SEARCH,
+        payload: {...types.artistSearchResultsDefault, ...payload}
+    };
+};
+
+export const clearArtistSearch = (): types.ArtistSearchActionTypes => {
+    return {
+        type: types.CLEAR_ARTIST_SEARCH
+    };
+};
+
+
+
+
+/******************************************************************************/
+/******************************** Artist **************************************/
+/******************************************************************************/
+export const getArtist = (payload: types.RequestType): types.GetArtistActionType => {
+    return {
+        type: types.GET_ARTIST,
+        payload: { ...types.getRequestDefault, ...payload }
+    };
+};
+
+export const putArtist = (payload: types.ArtistResultType): types.ArtistActionTypes => {
+    return {
+        type: types.PUT_ARTIST,
+        payload: { ...types.artistResultDefault, ...payload }
+    };
+};
+
+export const clearArtist = (): types.ArtistActionTypes => {
+    return {
+        type: types.CLEAR_ARTIST
+    };
+};

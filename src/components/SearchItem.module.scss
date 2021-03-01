@@ -1,0 +1,41 @@
+@import '../styles/partials/breakpoints.module';
+@import '../styles/partials/variables.module';
+
+.root {
+    .contentHeader {
+        display: flex;
+        align-items: center;
+        margin: 0 0 2rem 0;
+
+        img {
+            width: 150px;
+            margin: 0 1.5rem 0 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: bold;
+            line-height: 2.3rem;
+            margin: -0.3rem 0 .4rem 0;
+        }
+    }
+
+    .contentMain {
+        p {
+            font-size: .8rem;
+            color: $gray-600;
+
+            strong {
+                font-size: 1rem;
+                color: $text-color;
+            }
+        }
+    }
+
+    .contentLyrics {
+        h3 {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+        }
+    }
+}

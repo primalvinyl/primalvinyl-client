@@ -11,23 +11,19 @@ exports[`Routes matches snapshot 1`] = `
       <div
         className="wrapper"
       >
+        <img
+          alt=""
+          src="monster.png"
+        />
         <a
           className="logotype"
           href="/"
           onClick={[Function]}
         >
-          <hgroup>
-            <h1>
-              Primal Vinyl
-            </h1>
-            <h2>
-              Primal Vinyl
-            </h2>
-          </hgroup>
+          <h1>
+            Primal Vinyl
+          </h1>
         </a>
-        <nav
-          className="navigation"
-        />
       </div>
     </header>
     <main>
@@ -38,221 +34,56 @@ exports[`Routes matches snapshot 1`] = `
           className="wrapper"
         >
           <section
-            className="root"
+            className="searchForm"
           >
-            <form
-              action="#"
-              onReset={[Function]}
-              onSubmit={[Function]}
+            <section
+              className="root"
             >
-              <div
-                className="root"
+              <form
+                action="#"
+                onReset={[Function]}
+                onSubmit={[Function]}
               >
                 <div
-                  className="formControlWrapper"
-                >
-                  <input
-                    disabled={false}
-                    id="searchField"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    required={false}
-                    type="search"
-                    value=""
-                  />
-                </div>
-              </div>
-              <div
-                className="root"
-              >
-                <button
-                  disabled={false}
-                  id="searchButton"
-                  onClick={[Function]}
-                  style={
-                    Object {
-                      "background": "gray800",
-                    }
-                  }
-                  type="submit"
-                >
-                  Search
-                </button>
-              </div>
-            </form>
-          </section>
-          <div
-            className="root"
-          >
-            <table
-              role="table"
-            >
-              <thead>
-                <tr
-                  role="row"
-                >
-                  <th
-                    colSpan={1}
-                    role="columnheader"
-                  >
-                    
-                  </th>
-                  <th
-                    colSpan={1}
-                    role="columnheader"
-                  >
-                    Name
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                role="rowgroup"
-              />
-            </table>
-            <div
-              className="pagination"
-            >
-              <div
-                className="buttonGroup"
-              >
-                <div
-                  className="root"
-                >
-                  <button
-                    className="button"
-                    disabled={true}
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "background": "gray800",
-                      }
-                    }
-                    type="submit"
-                  >
-                    Start
-                  </button>
-                </div>
-                <div
-                  className="root"
-                >
-                  <button
-                    className="button"
-                    disabled={true}
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "background": "gray800",
-                      }
-                    }
-                    type="submit"
-                  >
-                    Previous
-                  </button>
-                </div>
-                <div
-                  className="root"
-                >
-                  <button
-                    className="button"
-                    disabled={true}
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "background": "gray800",
-                      }
-                    }
-                    type="submit"
-                  >
-                    Next
-                  </button>
-                </div>
-                <div
-                  className="root"
-                >
-                  <button
-                    className="button"
-                    disabled={true}
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "background": "gray800",
-                      }
-                    }
-                    type="submit"
-                  >
-                    End
-                  </button>
-                </div>
-              </div>
-              <div
-                className="gotoPage"
-              >
-                <div
-                  className="root"
+                  className="searchInput"
                 >
                   <div
-                    className="formControlWrapper"
+                    className="sc-dlfnbm jDquNf"
                   >
-                    <input
-                      defaultValue={1}
-                      disabled={false}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      required={false}
-                      type="number"
-                    />
-                  </div>
-                </div>
-                go to
-              </div>
-              <div
-                className="perPage"
-              >
-                <div
-                  className="root"
-                >
-                  <div
-                    className="formControlWrapper"
-                  >
-                    <select
-                      disabled={false}
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      required={false}
-                      value={15}
+                    <div
+                      className="formControlWrapper"
                     >
-                      <option
-                        value={15}
-                      >
-                        15
-                      </option>
-                      <option
-                        value={25}
-                      >
-                        25
-                      </option>
-                      <option
-                        value={50}
-                      >
-                        50
-                      </option>
-                    </select>
+                      <input
+                        disabled={false}
+                        id="searchField"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        required={false}
+                        type="search"
+                        value=""
+                      />
+                    </div>
                   </div>
                 </div>
-                per page
-              </div>
-              <div
-                className="currentPage"
-              >
-                Page 
-                <strong>
-                  1
-                   of 
-                  1
-                </strong>
-              </div>
-            </div>
-          </div>
+                <div
+                  className="searchSubmit"
+                >
+                  <div
+                    className="sc-hKgILt jbJTns"
+                  >
+                    <button
+                      disabled={false}
+                      id="searchButton"
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </section>
+          </section>
         </div>
       </article>
     </main>
@@ -278,83 +109,8 @@ exports[`Routes matches snapshot 1`] = `
           className="copyright"
         >
           © 
-          2020
-           
-          Primal Vinyl
+          2021
         </div>
-      </div>
-      <div
-        className="navigation"
-      >
-        <nav>
-          <ul>
-            <li>
-              <a
-                aria-current="page"
-                className="active"
-                href="/"
-                onClick={[Function]}
-                style={Object {}}
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/about-us"
-                onClick={[Function]}
-              >
-                About Us
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/ding"
-                onClick={[Function]}
-              >
-                Nav Item 1
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/dong"
-                onClick={[Function]}
-              >
-                Nav Item 2
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/dingle"
-                onClick={[Function]}
-              >
-                Nav Item 3
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/ring"
-                onClick={[Function]}
-              >
-                Nav Item 4
-              </a>
-            </li>
-            <li>
-              <a
-                aria-current={null}
-                href="/sing"
-                onClick={[Function]}
-              >
-                Nav Item 5
-              </a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </div>
   </footer>

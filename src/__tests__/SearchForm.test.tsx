@@ -12,7 +12,7 @@ describe('SearchForm', () => {
     it('renders', () => {
         const myWrapper = shallow(
             <Provider store={store}>
-                <SearchForm />
+                <SearchForm searchHandler={() => {}} />
             </Provider>
         );
         expect(myWrapper.exists());
@@ -20,7 +20,7 @@ describe('SearchForm', () => {
     it('matches snapshot', () => {
         const component = Renderer.create(
             <Provider store={store}>
-                <SearchForm />
+                <SearchForm searchHandler={() => {}} />
             </Provider>
         );
         expect(component.toJSON()).toMatchSnapshot();

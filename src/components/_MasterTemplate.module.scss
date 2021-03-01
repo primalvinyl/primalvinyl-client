@@ -1,5 +1,5 @@
-@import '../styles/partials/breakpoints.scss';
-@import '../styles/partials/variables.scss';
+@import '../styles/partials/breakpoints.module';
+@import '../styles/partials/variables.module';
 
 .root {
     min-height: 100vh;
@@ -8,12 +8,12 @@
     justify-content: space-between;
 
     main {
-        padding: 1em 0;
+        padding: 1.5rem 0 4rem 0;
     }
 
     @include breakpoint(lg-down) {
         main {
-            padding: 1em;
+            padding: 2em 1em;
         }
     }
 }

@@ -1,65 +1,124 @@
-import { actionTypes, putQuery, putArtist, putArtists, getArtist, getArtists } from '../store/actions';
-import { artistDefault, artistsDefault, sagaGetRequestDefault } from '../__types__';
+import * as actions from '../store/actions';
+import * as types from '../store/types';
+
+
+
 
 describe('putQuery', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actionTypes.PUT_QUERY,
+            type: types.PUT_QUERY,
             payload: 'test'
         };
-        const actualResult = putQuery('test');
+        const actualResult = actions.putQuery('test');
         expect(actualResult).toEqual(expectedResult);
     })
 })
 
-describe('putArtist', () => {
+
+
+
+describe('getSongSearch', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actionTypes.PUT_ARTIST,
-            payload: artistDefault
+            type: types.GET_SONG_SEARCH,
+            payload: {
+                query: '',
+            }
         };
-        const actualResult = putArtist(artistDefault);
+        const actualResult = actions.getSongSearch(types.getRequestDefault);
+        expect(actualResult).toEqual(expectedResult);
+    })
+})
+describe('putSongSearch', () => {
+    it('returns an action object', () => {
+        const expectedResult = {
+            type: types.PUT_SONG_SEARCH,
+            payload: types.songSearchResultsDefault
+        };
+        const actualResult = actions.putSongSearch(types.songSearchResultsDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })
 
-describe('putArtists', () => {
+
+
+
+describe('getSong', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actionTypes.PUT_ARTISTS,
-            payload: artistsDefault
+            type: types.GET_SONG,
+            payload: {
+                query: ''
+            }
         };
-        const actualResult = putArtists(artistsDefault);
+        const actualResult = actions.getSong(types.getRequestDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })
+describe('putSong', () => {
+    it('returns an action object', () => {
+        const expectedResult = {
+            type: types.PUT_SONG,
+            payload: types.songResultDefault
+        };
+        const actualResult = actions.putSong(types.songResultDefault);
+        expect(actualResult).toEqual(expectedResult);
+    })
+})
+
+
+
+
+describe('getArtistSearch', () => {
+    it('returns an action object', () => {
+        const expectedResult = {
+            type: types.GET_ARTIST_SEARCH,
+            payload: {
+                query: '',
+                page: 0,
+                per_page: 15
+            }
+        };
+        const actualResult = actions.getArtistSearch(types.getRequestPaginationDefault);
+        expect(actualResult).toEqual(expectedResult);
+    })
+})
+describe('putArtistSearch', () => {
+    it('returns an action object', () => {
+        const expectedResult = {
+            type: types.PUT_ARTIST_SEARCH,
+            payload: types.artistSearchResultsDefault
+        };
+        const actualResult = actions.putArtistSearch(types.artistSearchResultsDefault);
+        expect(actualResult).toEqual(expectedResult);
+    })
+})
+
+
+
 
 describe('getArtist', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actionTypes.GET_ARTIST,
+            type: types.GET_ARTIST,
             payload: {
                 query: '',
                 page: 0,
                 per_page: 15
             }
         };
-        const actualResult = getArtist(sagaGetRequestDefault);
+        const actualResult = actions.getArtist(types.getRequestPaginationDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })
-
-describe('getArtists', () => {
+describe('putArtist', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actionTypes.GET_ARTISTS,
-            payload: {
-                query: '',
-                page: 0,
-                per_page: 15
-            }
+            type: types.PUT_ARTIST,
+            payload: types.artistResultDefault
         };
-        const actualResult = getArtists(sagaGetRequestDefault);
+        const actualResult = actions.putArtist(types.artistResultDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })

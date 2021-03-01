@@ -1,5 +1,5 @@
-@import '../styles/partials/breakpoints';
-@import '../styles/partials/variables';
+@import '../styles/partials/breakpoints.module';
+@import '../styles/partials/variables.module';
 
 .root {
     color: $gray-500;
@@ -11,22 +11,19 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-top: 1px solid $gray-300;
         width: 1200px;
 
         .logotype {
             display: flex;
-            align-items: center;
-            margin: 0 .5em 0 0;
-            outline: none;
 
             h2 {
-                margin: 0 .3em 0 0;
+                margin: -.1rem .5rem 0 0;
                 text-indent: -9999px;
-                width: 30px;
-                height: 30px;
-                background-image: url(../images/logo.svg);
-                background-position: center;
+                width: 95px;
+                height: 21px;
+                outline: none;
+                background-image: url(../images/logotype.png);
+                background-position: left;
                 background-size: cover;
             }
 

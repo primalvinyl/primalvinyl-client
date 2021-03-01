@@ -1,5 +1,5 @@
 import React from 'react';
-import ErrorBoundary from './utility/ErrorBoundary';
+import ErrorBoundary from './ErrorBoundary';
 import Header from './Header';
 import Footer from './Footer';
 import styles from './_MasterTemplate.module.scss';

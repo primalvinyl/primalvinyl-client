@@ -1,44 +1,77 @@
 import React from 'react';
-import styles from './Button.module.scss';
+import styled from 'styled-components';
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
+//required syntax for styled component to work with typescript
+const WrapperComponent: React.FunctionComponent<WrapperComponentProps> = 
+({ className, children }) => (
+    <div className={className}>{children}</div>
+);
+interface WrapperComponentProps {
+    readonly className?: string;
+    readonly background?: string;
+    readonly foreground?: string;
+};
+const Wrapper = styled(WrapperComponent)`
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    button {
+        color: ${props => props.foreground};
+        background: ${props => props.background};
+        font-size: .9em;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 100%;
+        padding: .7em;
+        border: none;
+        border-radius: 5px;
+
+        &[disabled] {
+            color: #dee2e6;
+            background: #adb5bd;
+        }
+    }
+`;
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     (props, ref): React.ReactElement => {
 
-    const {
-        id,
-        className,
-        name,
-        value,
-        type,
-        disabled,
-        isSubmitting,
-        color,
-        url,
-        onClick
-    } = props;
+        const {
+            id,
+            className,
+            name,
+            value,
+            type,
+            disabled,
+            isSubmitting,
+            url,
+            onClick,
+            background,
+            foreground
+        } = props;
 
-    return (
-        <div className={styles.root}>
-            <button
-                className={className}
-                id={id} 
-                name={name}
-                type={type}
-                disabled={isSubmitting || disabled}
-                ref={ref}
-                style={{ background: color ? color : styles.gray800 }}
-                onClick={(event) => {
-                    url && window.open(url, 'article', 'noopener,noreferrer');
-                    onClick && onClick(event);
-                }}
-            >
-                {value}
-            </button>
-        </div>
-    );
-});
+        return (
+            <Wrapper background={background} foreground={foreground}> 
+                <button
+                    className={className}
+                    id={id}
+                    name={name}
+                    type={type}
+                    disabled={isSubmitting || disabled}
+                    ref={ref}
+                    onClick={(event) => {
+                        url && window.open(url, 'article', 'noopener,noreferrer');
+                        onClick && onClick(event);
+                    }}
+                >
+                    {value}
+                </button>
+            </Wrapper>
+        );
+    });
 
-type ButtonType = {
+type ButtonProps = {
     readonly id: string;
     readonly className?: string;
     readonly name?: string;
@@ -46,8 +79,9 @@ type ButtonType = {
     readonly type?: 'submit' | 'button' | 'reset';
     readonly disabled?: boolean;
     readonly isSubmitting?: boolean;
-    readonly color?: string;
     readonly url?: string;
+    readonly background?: string;
+    readonly foreground?: string;
     readonly onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
@@ -58,9 +92,10 @@ Button.defaultProps = {
     type: 'submit',
     disabled: false,
     isSubmitting: false,
-    color: '',
     url: undefined,
-    onClick: (): void => {}
+    background: '#495057',
+    foreground: '#f8f9fa',
+    onClick: () => {}
 }
 
 export default Button;

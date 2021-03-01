@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage matches snapshot 1`] = `
+<div
+  className="root"
+>
+  <div>
+    <header
+      className="root"
+    >
+      <div
+        className="wrapper"
+      >
+        <img
+          alt=""
+          src="monster.png"
+        />
+        <a
+          className="logotype"
+          href="/"
+          onClick={[Function]}
+        >
+          <h1>
+            Primal Vinyl
+          </h1>
+        </a>
+      </div>
+    </header>
+    <main>
+      <article
+        className="root"
+      >
+        <div
+          className="wrapper"
+        >
+          <section
+            className="searchForm"
+          >
+            <section
+              className="root"
+            >
+              <form
+                action="#"
+                onReset={[Function]}
+                onSubmit={[Function]}
+              >
+                <div
+                  className="searchInput"
+                >
+                  <div
+                    className="sc-dlfnbm jDquNf"
+                  >
+                    <div
+                      className="formControlWrapper"
+                    >
+                      <input
+                        disabled={false}
+                        id="searchField"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        required={false}
+                        type="search"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="searchSubmit"
+                >
+                  <div
+                    className="sc-hKgILt jbJTns"
+                  >
+                    <button
+                      disabled={false}
+                      id="searchButton"
+                      onClick={[Function]}
+                      type="submit"
+                    >
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </section>
+          </section>
+        </div>
+      </article>
+    </main>
+  </div>
+  <footer
+    className="root"
+  >
+    <div
+      className="wrapper"
+    >
+      <div
+        className="logotype"
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          <h2>
+            Primal Vinyl
+          </h2>
+        </a>
+        <div
+          className="copyright"
+        >
+          © 
+          2021
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;

@@ -5,12 +5,21 @@ if (process.env.node_env !== 'production') {
 
 
 
+// Genius API headers
+exports.geniusHeaders = {
+    'x-rapidapi-key': process.env.genius_api_key,
+    'x-rapidapi-host': process.env.genius_api_host,
+    'useQueryString': true
+};
 
-// Discogs Remote API headers
+
+
+
+// Discogs API headers
 exports.discogsHeaders = {
     'User-Agent': process.env.application_name,
-    'Accept': process.env.api_version,
-    'Authorization': `Discogs key=${process.env.api_consumer_key}, secret=${process.env.api_consumer_secret}`
+    'Accept': process.env.discogs_api_version,
+    'Authorization': `Discogs key=${process.env.discogs_api_consumer_key}, secret=${process.env.discogs_api_consumer_secret}`
 };
 
 

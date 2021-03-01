@@ -1,18 +1,45 @@
-/* ************************************** Mock REDUX Objects **************************************** */
-// mock redux artist object
-export const mockReduxArtistObject = {
-    name: "Jack White",
-    realname: "John Anthony Gillis",
-    image_url: "https://img.discogs.com",
-    profile: "American musician",
+/* ********************************** Mock REDUX Objects ************************************ */
+// mock redux song search object
+export const mockReduxSongSearch = {
+    results: [
+        {
+            "id": 162955,
+            "song_title": "Shape of My Heart",
+            "song_thumbnail_url": "https://images.genius.com",
+            "song_image_url": "https://images.genius.com",
+            "artist_name": "Sting",
+            "artist_image_url": "https://images.genius.com"
+        }
+    ],
     error: false,
-    error_message: '',
-    request_status: 'resolved',
+    error_message: "",
+    request_status: "resolved"
+}
+
+
+// mock redux song object
+export const mockReduxSong = {
+    "id": 162955,
+    "song_title": "Shape of My Heart",
+    "song_writers": [
+        "Dominic Miller",
+        "Sting"
+    ],
+    "song_thumbnail_url": "https://images.genius.com",
+    "song_image_url": "https://images.genius.com",
+    "artist_name": "Sting",
+    "artist_image_url": "https://images.genius.com",
+    "album_name": "Ten Summoner’s Tales",
+    "album_image_url": "https://images.genius.com",
+    "lyrics": "test",
+    "error": false,
+    "error_message": "",
+    "request_status": "resolved"
 };
 
 
-// mock redux artists object
-export const mockReduxArtistsObject = {
+// mock redux artist search object
+export const mockReduxArtistSearch = {
     pagination: {
         "page": 1,
         "pages": 26,
@@ -33,20 +60,59 @@ export const mockReduxArtistsObject = {
 }
 
 
-/* ************************************** Mock API Objects **************************************** */
-// mock artist api object
-export const mockApiArtistObject = {
+// mock redux artist object
+export const mockReduxArtist = {
     name: "Jack White",
     realname: "John Anthony Gillis",
     image_url: "https://img.discogs.com",
     profile: "American musician",
     error: false,
-    error_message: ''
+    error_message: '',
+    request_status: 'resolved',
 };
 
 
-// mock artists api object
-export const mockApiArtistsObject = {
+/* ********************************** Mock API Objects ************************************ */
+// mock artist search api object
+export const mockApiSongSearchResults = {
+    "results": [
+        {
+            "id": 2043228,
+            "type": "artist",
+            "master_id": null,
+            "master_url": null,
+            "uri": "/artist/302648",
+            "title": "Marty Stinger",
+            "thumb": "",
+            "cover_image": "https://img.discogs.com",
+            "resource_url": "https://api.discogs.com"
+        }
+    ],
+    error: false,
+    error_message: ''
+};
+
+// mock artist api object
+export const mockApiSongResults = {
+    "id": 162955,
+    "song_title": "Shape of My Heart",
+    "song_writers": [
+        "Dominic Miller",
+        "Sting"
+    ],
+    "song_thumbnail_url": "https://images.genius.com",
+    "song_image_url": "https://images.genius.com",
+    "artist_name": "Sting",
+    "artist_image_url": "https://images.genius.com",
+    "album_name": "Ten Summoner’s Tales",
+    "album_image_url": "https://images.genius.com",
+    "lyrics": "test",
+    "error": false,
+    "error_message": ""
+};
+
+// mock artist search api object
+export const mockApiArtistSearchResults = {
     "pagination": {
         "page": 1,
         "pages": 26,
@@ -70,6 +136,16 @@ export const mockApiArtistsObject = {
             "resource_url": "https://api.discogs.com"
         }
     ],
+    error: false,
+    error_message: ''
+};
+
+// mock artist api object
+export const mockApiArtistResults = {
+    name: "Jack White",
+    realname: "John Anthony Gillis",
+    image_url: "https://img.discogs.com",
+    profile: "American musician",
     error: false,
     error_message: ''
 };

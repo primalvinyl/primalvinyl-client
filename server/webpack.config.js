@@ -15,5 +15,8 @@ module.exports = {
                 use: 'babel-loader'
             }
         ]
+    },
+    node: {
+        __dirname: false
     }
 };

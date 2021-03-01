@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResultList matches snapshot 1`] = `
+<div
+  className="root"
+>
+  <table
+    role="table"
+  >
+    <thead>
+      <tr
+        role="row"
+      >
+        <th
+          colSpan={1}
+          role="columnheader"
+        >
+          
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      role="rowgroup"
+    />
+  </table>
+</div>
+`;

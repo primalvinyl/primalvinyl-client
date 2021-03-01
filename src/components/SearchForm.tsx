@@ -1,20 +1,17 @@
 import React from 'react';
 import { Formik, Form, FormikValues } from 'formik';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
-import { getArtists, clearArtists } from '../store/actions';
 import Input from './presentation/Input';
 import Button from './presentation/Button';
 import styles from './SearchForm.module.scss';
 
-const SearchForm = (): React.ReactElement => {
-    const dispatch = useDispatch();
-    const initialValues: searchFormValuesType = {
-        searchField: ''
+const SearchForm = ({ searchHandler, searchField }: SearchFormProps): React.ReactElement => {
+    const initialValues: SearchFormValues = {
+        searchField: searchField ? searchField : ''
     };
+
     const submitHandler = (values: FormikValues, actions: FormikValues) => {
-        dispatch(clearArtists());
-        dispatch(getArtists({ query: values.searchField }));
+        searchHandler(values.searchField);
         actions.setSubmitting(false);
     };
 
@@ -25,7 +22,7 @@ const SearchForm = (): React.ReactElement => {
                 onSubmit={submitHandler}
                 validateOnBlur={false}
                 validationSchema={yup.object().shape({
-                    searchField: yup.string().required('This field is required.')
+                    searchField: yup.string()
                 })}
             >
                 {({
@@ -37,19 +34,23 @@ const SearchForm = (): React.ReactElement => {
                     handleBlur
                 }: FormikValues) => (
                     <Form>
-                        <Input
-                            type="search"
-                            id="searchField"
-                            value={values.searchField}
-                            errors={errors}
-                            touched={touched}
-                            disabled={isSubmitting}
-                            handleChange={handleChange}
-                            handleBlur={handleBlur} />
-                        <Button
-                            id="searchButton"
-                            disabled={isSubmitting}
-                            value="Search" /> 
+                        <div className={styles.searchInput}>
+                            <Input
+                                type="search"
+                                id="searchField"
+                                value={values.searchField}
+                                errors={errors}
+                                touched={touched}
+                                disabled={isSubmitting}
+                                handleChange={handleChange}
+                                handleBlur={handleBlur} />
+                        </div>
+                        <div className={styles.searchSubmit}>
+                            <Button
+                                id="searchButton"
+                                disabled={isSubmitting}
+                                value="Search" />
+                        </div>
                     </Form>
                 )}
             </Formik>
@@ -57,8 +58,13 @@ const SearchForm = (): React.ReactElement => {
     );
 };
 
-interface searchFormValuesType {
+type SearchFormValues = {
     searchField: string;
+}
+
+type SearchFormProps = {
+    readonly searchHandler: (query: string) => void;
+    readonly searchField?: string;
 }
 
 export default SearchForm;

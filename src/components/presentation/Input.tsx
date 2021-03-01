@@ -1,5 +1,42 @@
 import React from 'react';
-import styles from './Input.module.scss';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    label {
+        display: inline-block;
+        margin-bottom: .3em;
+    }
+
+    .formFieldError {
+        margin-top: .2em;
+        color: #ed2024;
+        font-size: .9em;
+    }
+
+    input {
+        width: 100%;
+        padding: .5em;
+        border: 1px solid #adb5bd;
+        border-radius: 5px;
+        color: #212529;
+        background: white;
+        box-sizing: border-box;
+
+        &:focus {
+            border-color: #adb5bd;
+            background: white;
+        }
+
+        &[disabled] {
+            color: #6c757d;
+            background: #dee2e6;
+        }
+    }
+`;
 
 const Input = React.forwardRef<HTMLInputElement, InputType>(
     (props, ref) => {
@@ -24,11 +61,11 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
     } = props;
 
     return (
-        <div className={styles.root}>
+        <Wrapper>
             {(label) && (<label htmlFor={id}>
                 {label}
             </label>)}
-            <div className={styles.formControlWrapper}>
+            <div className="formControlWrapper">
                 <input
                     type={type}
                     className={className}
@@ -50,12 +87,12 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
                     }}
                 />
                 {(errors && touched) && (errors[id] && touched[id]) && (
-                    <div className={styles.formFieldError}>
+                    <div className="formFieldError">
                         {errors[id]}
                     </div>
                 )}
             </div>
-        </div>
+        </Wrapper>
     );
 });
 
