@@ -16,6 +16,26 @@ const Wrapper = styled(WrapperComponent)`
     margin: 0;
     width: 100%;
 
+    //resets begin
+    button {
+        font-size: 100%; /* 1 */
+        margin: 0; /* 2 */
+        vertical-align: baseline; /* 3 */
+        *vertical-align: middle; /* 3 */
+        line-height: normal;
+        text-transform: none;
+        -webkit-appearance: button; /* 2 */
+        cursor: pointer; /* 3 */
+        *overflow: visible;  /* 4 */
+        color: #222;
+    }
+
+    button::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+    //resets end
+
     button {
         color: ${props => props.foreground};
         background: ${props => props.background};
@@ -30,6 +50,7 @@ const Wrapper = styled(WrapperComponent)`
         &[disabled] {
             color: #dee2e6;
             background: #adb5bd;
+            cursor: default;
         }
     }
 `;

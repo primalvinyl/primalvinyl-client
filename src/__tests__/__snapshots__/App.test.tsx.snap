@@ -51,7 +51,7 @@ exports[`App matches snapshot 1`] = `
                     className="searchInput"
                   >
                     <div
-                      className="sc-dlfnbm jDquNf"
+                      className="sc-dlfnbm yEHJX"
                     >
                       <div
                         className="formControlWrapper"
@@ -72,7 +72,7 @@ exports[`App matches snapshot 1`] = `
                     className="searchSubmit"
                   >
                     <div
-                      className="sc-hKgILt jbJTns"
+                      className="sc-hKgILt qMbuh"
                     >
                       <button
                         disabled={false}
