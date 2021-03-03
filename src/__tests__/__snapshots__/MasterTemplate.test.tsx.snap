@@ -21,7 +21,7 @@ exports[`MasterTemplate matches snapshot 1`] = `
           onClick={[Function]}
         >
           <h1>
-            Primal Vinyl
+            Primal Vinyl - Song Lyrics Search
           </h1>
         </a>
       </div>
