@@ -6,6 +6,30 @@ const Wrapper = styled.div`
     margin: 0;
     width: 100%;
 
+    //resets begin
+    input {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        font-size: 100%; /* 1 */
+        margin: 0; /* 2 */
+        vertical-align: baseline; /* 3 */
+        *vertical-align: middle; /* 3 */
+        line-height: normal;
+        -webkit-appearance: none;
+    }
+
+    input[type=search] {
+        -webkit-appearance: none;
+    }
+
+    input[type=search]::-webkit-search-cancel-button,
+    input[type=search]::-webkit-search-decoration,
+    input[type=search]::-webkit-search-results-button,
+    input[type=search]::-webkit-search-results-decoration {
+        -webkit-appearance: none;
+    }
+    //resets end
+
     label {
         display: inline-block;
         margin-bottom: .3em;
@@ -24,7 +48,6 @@ const Wrapper = styled.div`
         border-radius: 5px;
         color: #212529;
         background: white;
-        box-sizing: border-box;
 
         &:focus {
             border-color: #adb5bd;
@@ -34,6 +57,7 @@ const Wrapper = styled.div`
         &[disabled] {
             color: #6c757d;
             background: #dee2e6;
+            cursor: default;
         }
     }
 `;

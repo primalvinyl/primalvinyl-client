@@ -2,7 +2,7 @@
 
 exports[`Button matches snapshot 1`] = `
 <div
-  className="sc-bdfBwQ UfnlR"
+  className="sc-bdfBwQ kVZuco"
 >
   <button
     disabled={false}
