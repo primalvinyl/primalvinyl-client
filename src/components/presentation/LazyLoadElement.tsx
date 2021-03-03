@@ -8,9 +8,7 @@ const LazyLoadElement = ({
     duration,
     children
 }: LazyLoadElementProps): React.ReactElement => {
-    //default value should be false
-    //but that causes a bug so for now it is true
-    const [hasLoaded, setHasLoaded] = React.useState(true);
+    const [hasLoaded, setHasLoaded] = React.useState(false);
 
     const containerStyle = {
         transition: `opacity ease-in-out ${duration}ms`,
