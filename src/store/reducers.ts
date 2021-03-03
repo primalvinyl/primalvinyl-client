@@ -12,7 +12,7 @@ export const query = (
         case types.PUT_QUERY:
             return action.payload
         case types.CLEAR_QUERY:
-            return state
+            return ''
         default:
             return state
     }
