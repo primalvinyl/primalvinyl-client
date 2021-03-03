@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import {
     getSongSearch,
     clearSongSearch,
@@ -38,9 +37,11 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
 
     //get data on page load when appropriate
     React.useEffect(() => {
+        //get song if song id parameter
         if (songIdParameter) {
             dispatch(getSong({ query: songIdParameter }));
         }
+        //get song search list if query parameter and no results already exist
         else if (searchQueryParameter && searchResults.results.length === 0) {
             dispatch(getSongSearch({ query: searchQueryParameter }));
         }

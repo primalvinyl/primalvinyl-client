@@ -55,7 +55,7 @@ const Header = (): React.ReactElement => {
                 */}
                 <img src={monster} alt="" />
                 <Link to="/" className={styles.logotype}>
-                    <h1>Primal Vinyl</h1>
+                    <h1>Primal Vinyl - Song Lyrics Search</h1>
                 </Link>
                 {/*
                     <CSSTransition
