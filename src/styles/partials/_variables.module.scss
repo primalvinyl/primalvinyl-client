@@ -1,7 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
-
-
-
 //colors
 $white:                   #ffffff !default;
 $gray-100:                #f8f9fa !default;
@@ -25,7 +21,7 @@ $ok:                      #69bd45 !default;
 
 
 //typography
-$font-family-sans-serif:  'Noto Sans', 'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !default;
+$font-family-sans-serif:  'Segoe UI', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace !default;
 $font-family-base:        $font-family-sans-serif !default;

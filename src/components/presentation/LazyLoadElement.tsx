@@ -1,54 +1,64 @@
-import React from 'react';
-import { Transition } from 'react-transition-group';
-import LazyLoad from 'react-lazyload';
+import React from "react";
+import LazyLoad from "react-lazyload";
+import { Transition } from "react-transition-group";
 
-const LazyLoadElement = ({
-    height,
-    offset,
-    duration,
-    children
-}: LazyLoadElementProps): React.ReactElement => {
-    const [hasLoaded, setHasLoaded] = React.useState(false);
+const getStyle = ({ duration, easing = 'ease-in-out' }: any) => ({
+    transition: `opacity ${duration}ms ${easing}`,
+    opacity: 0,
+    display: 'inline-block',
+    height: '100%'
+});
 
-    const containerStyle = {
-        transition: `opacity ease-in-out ${duration}ms`,
-        opacity: 0,
-        width: '100%',
-        height: '100%'
-    }
+const transitionStyles = {
+    entering: { opacity: 0 },
+    entered: { opacity: 1 },
+    exiting: { opacity: 0 },
+    exited: { opacity: 0 },
+    unmounted: { opacity: 0 }
+};
 
-    const transitionStyles = {
-        entering: { opacity: 0 },
-        entered: { opacity: 1 },
-        exiting: { opacity: 0 },
-        exited: { opacity: 0 },
-        unmounted: { opacity: 0 }
-    };
+const LazyLoadElement = (props: LazyLoadElementProps) => {
+    const [loaded, setLoaded] = React.useState(false);
+    const onLoad = () => setLoaded(true);
+
+    const {
+        height,
+        duration = 300,
+        easing,
+        children,
+        offset,
+        ...restProps } = props;
 
     return (
-        <LazyLoad height={height} offset={offset}>
-            <Transition in={hasLoaded} timeout={duration ? duration : 300}>
+        <LazyLoad
+            height={height}
+            style={{ height: '100%' }}
+            offset={typeof offset === "undefined" ? 150 : offset}
+            {...restProps}
+        >
+            <Transition in={loaded} timeout={duration}>
                 {state => (
-                    <div style={{ ...containerStyle, ...transitionStyles[state] }}>
-                        {children && children(setHasLoaded(true))}
+                    <div
+                        style={{
+                            ...getStyle({duration, easing}),
+                            ...transitionStyles[state]
+                        }}
+                    >
+                        {children && children(onLoad)}
                     </div>
                 )}
             </Transition>
         </LazyLoad>
     );
-};
+}
 
 type LazyLoadElementProps = {
     readonly height?: number;
     readonly offset?: number;
     readonly duration?: number;
+    readonly style?: string;
+    readonly easing?: string;
     readonly children: Function;
-};
-
-LazyLoadElement.defaultProps = {
-    height: 100,
-    offset: 150,
-    duration: 300
 };
 
 export default LazyLoadElement;

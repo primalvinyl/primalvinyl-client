@@ -57,7 +57,13 @@ const SearchResultList = ({ searchResults }: SearchResultsProps): React.ReactEle
                     <Link to={`/songs/${table.row.original.id}`} className={styles.itemRoot}>
                         <div className={styles.itemImage}>
                             <LazyLoadElement> 
-                                {() => <img src={table.row.original.song_image_url} alt="" />}
+                                {(onload: any) => 
+                                    <img
+                                        src={table.row.original.song_image_url}
+                                        alt="Song Art"
+                                        onLoad={onload}
+                                    />
+                                }
                             </LazyLoadElement>
                         </div>
                         <div>

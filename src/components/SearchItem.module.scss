@@ -7,16 +7,24 @@
         align-items: center;
         margin: 0 0 2rem 0;
 
-        img {
-            width: 150px;
-            margin: 0 1.5rem 0 0;
-        }
-
         h2 {
             font-size: 2em;
-            font-weight: bold;
+            font-weight: 600;
             line-height: 2.3rem;
             margin: -0.3rem 0 .4rem 0;
+        }
+    }
+
+    .contentImage {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        margin: 0 1.5rem 0 0;
+        border: 1px solid $gray-500;
+        background: $gray-300;
+
+        img {
+            width: 100%;
         }
     }
 
@@ -36,6 +44,12 @@
         h3 {
             margin-top: 1rem;
             font-size: 1.5rem;
+        }
+    }
+
+    @include breakpoint(lg-down) {
+        .contentImage {
+            height: 110px;
         }
     }
 }
