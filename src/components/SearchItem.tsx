@@ -14,7 +14,13 @@ const SearchItem = ({ item }: SearchItemProps): React.ReactElement => {
                     <div className={styles.contentHeader}>
                         <div className={styles.contentImage}>
                             <LazyLoadElement> 
-                                {() => <img src={item.song_image_url} alt="Song Art" />}
+                                {(onload: any) => 
+                                    <img
+                                        src={item.song_image_url}
+                                        alt="Song Art"
+                                        onLoad={onload}
+                                    />
+                                }
                             </LazyLoadElement>
                         </div> 
                         <div className={styles.contentMain}>
