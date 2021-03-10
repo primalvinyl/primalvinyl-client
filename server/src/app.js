@@ -12,7 +12,7 @@ if (process.env.node_env !== 'production') {
     require('dotenv').config();
 }
 
-// set-up cors
+// cors options
 const corsWhitelist = process.env.cors_origin ? process.env.cors_origin.split(',') : [];
 const corsOptions = {
     origin: (origin, callback) => {

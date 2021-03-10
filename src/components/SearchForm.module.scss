@@ -1,17 +1,41 @@
 
+@import "../styles/partials/_breakpoints.module.scss";
 @import '../styles/partials/variables.module';
 
 .root {
-    form {
-        display: flex;
+    .wrapper {
+        margin: 0 auto;
+        width: 1200px;
 
-        .searchInput {
-            margin: 0 .5em 0 0;
-            width: 75%;
+        form {
+            position: relative;
+            margin: 0 auto;
+            width: 48%;
+
+            .searchInput {
+                display: inline-block;
+                margin: 0 .5em 0 0;
+                width: 100%;
+            }
+
+            .searchButton {
+                display: inline-block;
+                width: 50px;
+                position: absolute;
+                right: 0;
+            }
         }
+    }
 
-        .searchSubmit {
-            width: 25%;
+    @include breakpoint(lg-down) {
+        margin: 0 1.5em;
+        
+        .wrapper {
+            width: 100%;
+
+            form {
+                width: 100%;
+            }
         }
     }
 }

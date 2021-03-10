@@ -1,12 +1,13 @@
-import React from "react";
-import LazyLoad from "react-lazyload";
-import { Transition } from "react-transition-group";
+import React from 'react';
+import LazyLoad from 'react-lazyload';
+import { Transition } from 'react-transition-group';
 
 const getStyle = ({ duration, easing = 'ease-in-out' }: any) => ({
     transition: `opacity ${duration}ms ${easing}`,
     opacity: 0,
     display: 'inline-block',
-    height: '100%'
+    height: '100%',
+    width: '100%'
 });
 
 const transitionStyles = {
@@ -32,8 +33,8 @@ const LazyLoadElement = (props: LazyLoadElementProps) => {
     return (
         <LazyLoad
             height={height}
-            style={{ height: '100%' }}
-            offset={typeof offset === "undefined" ? 150 : offset}
+            style={{ height: '100%', width: '100%' }}
+            offset={typeof offset === 'undefined' ? 150 : offset}
             {...restProps}
         >
             <Transition in={loaded} timeout={duration}>

@@ -72,19 +72,9 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
                         </section>
                     }
                     {renderSearchItem &&
-                        <div>
-                            <section className={styles.breadcrumb}>
-                                <BreadCrumbs
-                                    currentPage={songResult.song_title}
-                                    previousPages={[{
-                                        title: 'Search List',
-                                        link: `/search/${searchQuery}`
-                                    }]} />
-                            </section>
-                            <section className={styles.searchItem}>
-                                <SearchItem item={songResult} />
-                            </section>
-                        </div>
+                        <section className={styles.searchItem}>
+                            <SearchItem item={songResult} />
+                        </section>
                     }
                 </div>
             </article>

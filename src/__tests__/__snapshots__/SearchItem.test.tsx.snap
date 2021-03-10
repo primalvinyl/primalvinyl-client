@@ -6,63 +6,91 @@ exports[`SearchItem matches snapshot 1`] = `
 >
   <div>
     <div
-      className="contentHeader"
+      className="headerRoot"
     >
       <div
-        className="contentImage"
+        className="headerWrapper"
       >
         <div
-          className="lazyload-wrapper"
+          className="headerImage"
         >
           <div
-            className="lazyload-placeholder"
+            className="lazyload-wrapper"
             style={
               Object {
-                "height": 100,
+                "height": "100%",
+                "width": "100%",
               }
             }
-          />
+          >
+            <div
+              className="lazyload-placeholder"
+              style={
+                Object {
+                  "height": undefined,
+                }
+              }
+            />
+          </div>
         </div>
-      </div>
-      <div
-        className="contentMain"
-      >
         <h2>
           
         </h2>
-        <p>
-          Writters: 
-          <strong>
-            
-          </strong>
-        </p>
-        <p>
-          Artist: 
-          <strong>
-            
-          </strong>
-        </p>
-        <p>
-          Album: 
-          <strong>
-            
-          </strong>
-        </p>
+        <div
+          className="headerDetails"
+        >
+          <p>
+            <span>
+              Artist
+            </span>
+            <strong>
+              
+            </strong>
+          </p>
+          <p>
+            <span>
+              Written by
+            </span>
+            <strong>
+              
+            </strong>
+          </p>
+          <p>
+            <span>
+              Album
+            </span>
+            <strong>
+              
+            </strong>
+          </p>
+          <p>
+            <span>
+              Released
+            </span>
+            <strong>
+              
+            </strong>
+          </p>
+        </div>
       </div>
     </div>
     <div
-      className="contentLyrics"
+      className="contentRoot"
     >
-      <h3>
-        Lyrics
-      </h3>
-      <p
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "",
+      <div
+        className="contentWrapper"
+      >
+        <h3>
+          Lyrics
+        </h3>
+        <p
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "",
+            }
           }
-        }
-      />
+        />
+      </div>
     </div>
   </div>
 </div>
