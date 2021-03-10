@@ -129,6 +129,7 @@ export type SongActionTypes = PutSongActionType | ClearSongActionType;
 export interface SongResultType {
     id: number;
     song_title: string;
+    song_release_date: string;
     song_writers: string[];
     song_thumbnail_url: string;
     song_image_url: string;
@@ -137,6 +138,8 @@ export interface SongResultType {
     album_name: string;
     album_image_url: string;
     lyrics: string;
+    media_spotify: string;
+    media_soundcloud: string;
     error: boolean;
     error_message: string;
     request_status: string;
@@ -146,6 +149,7 @@ export interface SongResultType {
 export const songResultDefault: SongResultType = {
     id: 0,
     song_title: '',
+    song_release_date: '',
     song_writers: [],
     song_thumbnail_url: '',
     song_image_url: '',
@@ -154,6 +158,8 @@ export const songResultDefault: SongResultType = {
     album_name: '',
     album_image_url: '',
     lyrics: '',
+    media_spotify: '',
+    media_soundcloud: '',
     error: false,
     error_message: '',
     request_status: 'idle'

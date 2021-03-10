@@ -8,7 +8,7 @@
         margin: 0 auto;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         width: 1200px;
 
         img {
@@ -18,12 +18,12 @@
         .logotype {
             text-decoration: none;
             outline: none;
-            margin: 0 0 0 -40px;
+            margin: 0 0 0 -35px;
 
             h1 {
                 text-indent: -9999px;
-                width: 400px;
-                height: 125px;
+                width: 415px;
+                height: 142px;
                 background-image: url(../images/logotypeSubhead.png);
                 background-position: left;
                 background-size: cover;
@@ -77,8 +77,8 @@
                 margin: .5em 0 0 0;
                 
                 h1 {
-                    width: 200px;
-                    height: 65px;
+                    width: 220px;
+                    height: 75px;
                 }
             }
 

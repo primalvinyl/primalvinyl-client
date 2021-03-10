@@ -35,22 +35,33 @@ module.exports = async (id) => {
     const songResult = await getSongData(id);
     const { response: { song } } = songResult; 
     const { primary_artist, writer_artists, album } = song;
+    // get writers
     const song_writers = writer_artists.map(el => el.name);
-    const lyricsPath = song.path;
+    // get spotify link
+    const spotifyObject = song.media.find(el => el.provider === 'spotify');
+    let spotify = '';
+    if (spotifyObject) spotify = spotifyObject.url;
+    // get soundcloud link
+    const soundcloudObject = song.media.find(el => el.provider === 'soundcloud');
+    let soundcloud = '';
+    if (soundcloudObject) soundcloud = soundcloudObject.url;
     const transformedSongResult = {
         id: song.id,
         song_title: song.title,
         song_writers: song_writers,
+        song_release_date: song.release_date_for_display,
         song_thumbnail_url: song.song_art_image_thumbnail_url,
         song_image_url: song.song_art_image_url,
         artist_name: primary_artist.name,
         artist_image_url: primary_artist.image_url,
         album_name: album.name,
         album_image_url: album.cover_art_url,
+        media_spotify: spotify,
+        media_soundcloud: soundcloud
     };
 
     // get and transform song lyrics 
-    const lyricsResult = await getSongLyrics(lyricsPath);
+    const lyricsResult = await getSongLyrics(song.path);
     const $ = cheerio.load(lyricsResult, null, false);
     const lyrics = $('.lyrics')
         .html()

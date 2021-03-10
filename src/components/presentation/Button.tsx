@@ -9,7 +9,7 @@ const WrapperComponent: React.FunctionComponent<WrapperComponentProps> =
 interface WrapperComponentProps {
     readonly className?: string;
     readonly background?: string;
-    readonly foreground?: string;
+    readonly color?: string;
 };
 const Wrapper = styled(WrapperComponent)`
     padding: 0;
@@ -18,15 +18,15 @@ const Wrapper = styled(WrapperComponent)`
 
     //resets begin
     button {
-        font-size: 100%; /* 1 */
-        margin: 0; /* 2 */
-        vertical-align: baseline; /* 3 */
-        *vertical-align: middle; /* 3 */
+        font-size: 100%;
+        margin: 0;
+        vertical-align: baseline;
+        *vertical-align: middle;
         line-height: normal;
         text-transform: none;
-        -webkit-appearance: button; /* 2 */
-        cursor: pointer; /* 3 */
-        *overflow: visible;  /* 4 */
+        -webkit-appearance: button;
+        cursor: pointer;
+        *overflow: visible;
         color: #222;
     }
 
@@ -37,15 +37,15 @@ const Wrapper = styled(WrapperComponent)`
     //resets end
 
     button {
-        color: ${props => props.foreground};
+        color: ${props => props.color};
         background: ${props => props.background};
-        font-size: .9em;
+        font-size: 14px;
         font-weight: bold;
         text-transform: uppercase;
         width: 100%;
         padding: .7em;
         border: none;
-        border-radius: 5px;
+        border-radius: 5px; 
 
         &[disabled] {
             color: #dee2e6;
@@ -62,18 +62,18 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             id,
             className,
             name,
-            value,
+            children,
             type,
             disabled,
             isSubmitting,
             url,
             onClick,
             background,
-            foreground
+            color
         } = props;
 
         return (
-            <Wrapper background={background} foreground={foreground}> 
+            <Wrapper background={background} color={color}> 
                 <button
                     className={className}
                     id={id}
@@ -86,7 +86,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                         onClick && onClick(event);
                     }}
                 >
-                    {value}
+                    {children}
                 </button>
             </Wrapper>
         );
@@ -96,26 +96,25 @@ type ButtonProps = {
     readonly id: string;
     readonly className?: string;
     readonly name?: string;
-    readonly value?: string;
+    readonly children?: any;
     readonly type?: 'submit' | 'button' | 'reset';
     readonly disabled?: boolean;
     readonly isSubmitting?: boolean;
     readonly url?: string;
     readonly background?: string;
-    readonly foreground?: string;
+    readonly color?: string;
     readonly onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 Button.defaultProps = {
     className: undefined,
     name: undefined,
-    value: '',
     type: 'submit',
     disabled: false,
     isSubmitting: false,
     url: undefined,
     background: '#495057',
-    foreground: '#f8f9fa',
+    color: '#f8f9fa',
     onClick: () => {}
 }
 

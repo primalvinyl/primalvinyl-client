@@ -55,24 +55,26 @@ const SearchResultList = ({ searchResults }: SearchResultsProps): React.ReactEle
             Cell: (table: any) => {
                 return (
                     <Link to={`/songs/${table.row.original.id}`} className={styles.itemRoot}>
-                        <div className={styles.itemImage}>
-                            <LazyLoadElement> 
-                                {(onload: any) => 
-                                    <img
-                                        src={table.row.original.song_image_url}
-                                        alt="Song Art"
-                                        onLoad={onload}
-                                    />
-                                }
-                            </LazyLoadElement>
-                        </div>
-                        <div>
-                            <h2>
-                                {table.row.original.song_title }
-                            </h2>
-                            <p>
-                                Performed by {table.row.original.artist_name}
-                            </p>
+                        <div className={styles.itemWrapper}>
+                            <div className={styles.itemImage}>
+                                <LazyLoadElement> 
+                                    {(onload: any) => 
+                                        <img
+                                            src={table.row.original.song_image_url}
+                                            alt="Song Art"
+                                            onLoad={onload}
+                                        />
+                                    }
+                                </LazyLoadElement>
+                            </div>
+                            <div>
+                                <h2>
+                                    {table.row.original.song_title }
+                                </h2>
+                                <p>
+                                    Performed by {table.row.original.artist_name}
+                                </p>
+                            </div>
                         </div>
                     </Link>
                 );

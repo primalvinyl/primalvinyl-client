@@ -21,6 +21,7 @@ export const mockReduxSongSearch = {
 export const mockReduxSong = {
     "id": 162955,
     "song_title": "Shape of My Heart",
+    "song_release_date": "March 9, 1993",
     "song_writers": [
         "Dominic Miller",
         "Sting"
@@ -32,6 +33,8 @@ export const mockReduxSong = {
     "album_name": "Ten Summoner’s Tales",
     "album_image_url": "https://images.genius.com",
     "lyrics": "test",
+    "media_soundcloud": "https://soundcloud.com/musikconnections/sting-shape-of-my-heart",
+    "media_spotify": "https://open.spotify.com/track/5TrvGxuqaYKsF7C0NfrLrY",
     "error": false,
     "error_message": "",
     "request_status": "resolved"
