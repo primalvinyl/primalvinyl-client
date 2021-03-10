@@ -24,48 +24,56 @@
 
         th, td {
             margin: 0;
-            padding: 0 0 .5rem 0;
+            padding: 0;
         }
 
         .itemRoot {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
+            display: block;
             padding: 1rem;
-            background: $gray-100;
-            border-radius: 5px;
-            transition: all ease-in .1s;
+            margin: .5rem 0;
+            background: #fbf7e5;
+            transition: all ease-in .15s;
+            text-decoration: none;
 
-            &:hover {
-                background: $gray-400;
+            &:hover, &:active {
+                background: $yellow;
+
+                .itemWrapper h2, .itemWrapper p {
+                    color: $white;
+                }
             }
 
-            &:active {
-                background: $gray-600;
-            }
+            .itemWrapper {
+                width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
 
-            h2 {
-                font-size: 1.3rem;
-                font-weight: 600;
-                line-height: 1.7rem;
-                color: $gray-600;
-            }
+                h2 {
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    line-height: 1.7rem;
+                    color: $yellow;
+                    transition: all ease-in .15s;
+                }
 
-            p {
-                font-size: .8em;
-            }
+                p {
+                    font-size: .8em;
+                    color: $gray-600;
+                    transition: all ease-in .15s;
+                }
 
-            .itemImage {
-                width: 80px;
-                height: 80px;
-                overflow: hidden;
-                margin: 0 1rem 0 0;
-                border: 1px solid $gray-500;
-                background: $gray-300;
+                .itemImage {
+                    width: 80px;
+                    height: 80px;
+                    overflow: hidden;
+                    margin: 0 1rem 0 0;
+                    background: $white;
 
-                img {
-                    width: 100%;
-                    height: 100%;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
             }
         }
@@ -74,9 +82,13 @@
     @include breakpoint(lg-down) {
         table {
             .itemRoot {
-                .itemImage {
-                    height: 71px;
-                    width: 71px;
+                .itemWrapper {
+                    width: 100%;
+                    
+                    .itemImage {
+                        width: 70px;
+                        height: 70px;
+                    }
                 }
             }
         }

@@ -2,15 +2,13 @@
 
 exports[`Button matches snapshot 1`] = `
 <div
-  className="sc-bdfBwQ kVZuco"
+  className="sc-bdfBwQ inrJlM"
 >
   <button
     disabled={false}
     id="test"
     onClick={[Function]}
     type="submit"
-  >
-    
-  </button>
+  />
 </div>
 `;

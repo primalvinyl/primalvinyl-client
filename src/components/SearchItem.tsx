@@ -11,28 +11,43 @@ const SearchItem = ({ item }: SearchItemProps): React.ReactElement => {
         <div className={styles.root}>
             {renderItem &&
                 <div>
-                    <div className={styles.contentHeader}>
-                        <div className={styles.contentImage}>
-                            <LazyLoadElement> 
-                                {(onload: any) => 
-                                    <img
-                                        src={item.song_image_url}
-                                        alt="Song Art"
-                                        onLoad={onload}
-                                    />
-                                }
-                            </LazyLoadElement>
-                        </div> 
-                        <div className={styles.contentMain}>
+                    <div className={styles.headerRoot}>
+                        <div className={styles.headerWrapper}>
+                            <div className={styles.headerImage}>
+                                <LazyLoadElement> 
+                                    {(onload: any) => 
+                                        <img
+                                            src={item.song_image_url}
+                                            alt="Song Art"
+                                            onLoad={onload}
+                                        />
+                                    }
+                                </LazyLoadElement>
+                            </div>
                             <h2>{item.song_title}</h2>
-                            <p>Writters: <strong>{songWriters}</strong></p>
-                            <p>Artist: <strong>{item.artist_name}</strong></p>
-                            <p>Album: <strong>{item.album_name}</strong></p>
+                            <div className={styles.headerDetails}>
+                                <p>
+                                    <span>Artist</span>
+                                    <strong>{item.artist_name}</strong>
+                                </p>
+                                <p>
+                                    <span>Written by</span>
+                                    <strong>{songWriters}</strong>
+                                </p>
+                                <p>
+                                    <span>Album</span>
+                                    <strong>{item.album_name}</strong>
+                                </p>
+                                <p><span>Released</span>
+                                <strong>{item.song_release_date}</strong></p>
+                            </div>
                         </div>
                     </div>
-                    <div className={styles.contentLyrics}>
-                        <h3>Lyrics</h3>
-                        <p dangerouslySetInnerHTML={ {__html: item.lyrics} }></p>
+                    <div className={styles.contentRoot}>
+                        <div className={styles.contentWrapper}>
+                            <h3>Lyrics</h3>
+                            <p dangerouslySetInnerHTML={ {__html: item.lyrics} }></p>
+                        </div>
                     </div>
                 </div>
             }

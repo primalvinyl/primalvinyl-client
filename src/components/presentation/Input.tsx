@@ -18,10 +18,7 @@ const Wrapper = styled.div`
         -webkit-appearance: none;
     }
 
-    input[type=search] {
-        -webkit-appearance: none;
-    }
-
+    input[type=search],
     input[type=search]::-webkit-search-cancel-button,
     input[type=search]::-webkit-search-decoration,
     input[type=search]::-webkit-search-results-button,
@@ -33,12 +30,6 @@ const Wrapper = styled.div`
     label {
         display: inline-block;
         margin-bottom: .3em;
-    }
-
-    .formFieldError {
-        margin-top: .2em;
-        color: #ed2024;
-        font-size: .9em;
     }
 
     input {
@@ -59,6 +50,12 @@ const Wrapper = styled.div`
             background: #dee2e6;
             cursor: default;
         }
+    }
+    
+    .inputError {
+        margin-top: .2em;
+        color: #ed2024;
+        font-size: .9em;
     }
 `;
 
@@ -89,33 +86,31 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
             {(label) && (<label htmlFor={id}>
                 {label}
             </label>)}
-            <div className="formControlWrapper">
-                <input
-                    type={type}
-                    className={className}
-                    id={id}
-                    name={name}
-                    value={value}
-                    defaultValue={defaultValue}
-                    ref={ref}
-                    placeholder={placeholder}
-                    required={required}
-                    disabled={disabled}
-                    onChange={event => {
-                        handleChange && handleChange(event);
-                        onChange && onChange(event);
-                    }}
-                    onBlur={event => {
-                        handleBlur && handleBlur(event);
-                        onBlur && onBlur(event);
-                    }}
-                />
-                {(errors && touched) && (errors[id] && touched[id]) && (
-                    <div className="formFieldError">
-                        {errors[id]}
-                    </div>
-                )}
-            </div>
+            <input
+                type={type}
+                className={className}
+                id={id}
+                name={name}
+                value={value}
+                defaultValue={defaultValue}
+                ref={ref}
+                placeholder={placeholder}
+                required={required}
+                disabled={disabled}
+                onChange={event => {
+                    handleChange && handleChange(event);
+                    onChange && onChange(event);
+                }}
+                onBlur={event => {
+                    handleBlur && handleBlur(event);
+                    onBlur && onBlur(event);
+                }}
+            />
+            {(errors && touched) && (errors[id] && touched[id]) && (
+                <div className="inputError">
+                    {errors[id]}
+                </div>
+            )}
         </Wrapper>
     );
 });
