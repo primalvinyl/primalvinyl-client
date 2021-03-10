@@ -97,9 +97,12 @@ exports.mockSongObject = {
     "song_image_url": "https://images.genius.com/86bca22d668b42b5aff7c49499502935.600x600x1.jpg",
     "artist_name": "Sting",
     "artist_image_url": "https://images.genius.com/f9577feb5bb957d38ddc776274c3c743.336x425x1.jpg",
+    "song_release_date": "March 9, 1993",
     "album_name": "Ten Summoner’s Tales",
     "album_image_url": "https://images.genius.com/5655f98e7f192c59633d90180a4d8b5b.1000x1000x1.jpg",
     "lyrics": "test",
+    "media_soundcloud": "https://soundcloud.com/musikconnections/sting-shape-of-my-heart",
+    "media_spotify": "https://open.spotify.com/track/5TrvGxuqaYKsF7C0NfrLrY",
     "error": false,
     "error_message": ""
 };

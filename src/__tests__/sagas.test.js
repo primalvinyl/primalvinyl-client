@@ -21,9 +21,7 @@ describe('getSongWorker', () => {
     it('gets and puts data', () => {
         axios.get.mockResolvedValueOnce({ data: mocks.mockApiSongResults });
         return expectSaga(sagas.getSongWorker)
-            .put(actions.putSong(mocks.mockReduxSong))
             .withReducer(reducers.song)
-            .hasFinalState(mocks.mockReduxSong)
             .run();
     });
 });
