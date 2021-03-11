@@ -24,22 +24,24 @@ const SearchItem = ({ item }: SearchItemProps): React.ReactElement => {
                                     }
                                 </LazyLoadElement>
                             </div>
-                            <h2>{item.song_title}</h2>
-                            <div className={styles.headerDetails}>
-                                <p>
-                                    <span>Artist</span>
-                                    <strong>{item.artist_name}</strong>
-                                </p>
-                                <p>
-                                    <span>Written by</span>
-                                    <strong>{songWriters}</strong>
-                                </p>
-                                <p>
-                                    <span>Album</span>
-                                    <strong>{item.album_name}</strong>
-                                </p>
-                                <p><span>Released</span>
-                                <strong>{item.song_release_date}</strong></p>
+                            <div className={styles.headerMain}>
+                                <h2>{item.song_title}</h2>
+                                <div className={styles.headerDetails}>
+                                    <p>
+                                        <span>Artist</span>
+                                        <strong>{item.artist_name}</strong>
+                                    </p>
+                                    <p>
+                                        <span>Written by</span>
+                                        <strong>{songWriters}</strong>
+                                    </p>
+                                    <p>
+                                        <span>Album</span>
+                                        <strong>{item.album_name}</strong>
+                                    </p>
+                                    <p><span>Released</span>
+                                    <strong>{item.song_release_date}</strong></p>
+                                </div>
                             </div>
                         </div>
                     </div>
