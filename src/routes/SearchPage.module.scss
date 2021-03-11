@@ -4,10 +4,10 @@
 .root {    
     .wrapper {
         .searchForm {
-            margin: 0 0 2rem 0;
+            margin: 0 0 2.5rem 0;
         }
     }
 
-    @include breakpoint(lg-down) {
+    @include breakpoint(md-down) {
     }
 }
