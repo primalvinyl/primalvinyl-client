@@ -9,7 +9,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 1200px;
+        width: 900px;
 
         img {
             width: 200px;
@@ -55,7 +55,7 @@
         }
     }
 
-    @include breakpoint(lg-down) {
+    @include breakpoint(md-down) {
         padding: 2rem 0 0 0;
 
         .wrapper {

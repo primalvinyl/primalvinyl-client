@@ -9,19 +9,18 @@ import {
 import { RootState } from '../store/reducers';
 import MasterTemplate from '../components/_MasterTemplate';
 import ProgressBar from '../components/presentation/ProgressBar';
-import BreadCrumbs from '../components/presentation/BreadCrumbs';
 import SearchForm from '../components/SearchForm';
 import SearchResultList from '../components/SearchResultList';
 import SearchItem from '../components/SearchItem';
 import { match } from 'react-router';
 import styles from './SearchPage.module.scss';
+import FadeInElement from '../components/presentation/FadeInElement';
 
 const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => {
     const searchQueryParameter = match && match.params && match.params.query;
     const songIdParameter = match && match.params && match.params.id;
 
     const dispatch = useDispatch();
-    const searchQuery = useSelector((state: RootState) => state.query);
     const songResult = useSelector((state: RootState) => state.song);
     const searchResults = useSelector((state: RootState) => state.songSearchResults);
 

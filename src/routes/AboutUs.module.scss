@@ -4,7 +4,7 @@
 .root {
     .wrapper {
         margin: 0 auto;
-        width: 1200px;
+        width: 900px;
 
         h2 {
             font-size: 20px;
@@ -12,7 +12,7 @@
         }
     }
 
-    @include breakpoint(lg-down){
+    @include breakpoint(md-down){
         .wrapper {
             width: 100%;
         }

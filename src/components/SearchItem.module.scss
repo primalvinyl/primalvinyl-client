@@ -8,20 +8,20 @@
         margin: 0 0 2rem 0;
 
         .headerWrapper {
-            width: 1200px;
+            width: 900px;
             margin: 0 auto;
-            padding: 2.5rem 0 2rem 0;
+            padding: 3.5rem 0;
             display: flex;
-            flex-direction: column;
             align-items: center;
 
             .headerImage {
                 width: 200px;
+                min-width: 200px;
                 height: 200px;
                 background: $white;
                 -webkit-box-shadow: 5px 5px 15px -6px rgba(0,0,0,0.56);
                 box-shadow: 5px 5px 15px -6px rgba(0,0,0,0.56);
-                margin: 0 0 1.5rem 0;
+                margin: 0 2rem 0 0;
         
                 img {
                     width: 100%;
@@ -29,46 +29,52 @@
                 }
             }
 
-            h2 {
-                font-size: 2.5rem;
-                font-weight: 900;
-                text-align: center;
-                line-height: 3.3rem;
-                color: $white;
-                width: 100%;
-                margin: 0 0 1rem 0;
-                padding: 0 0 1rem 0;
-                border-bottom: 1px solid $white;
-            }
+            .headerMain {
+                flex-grow: 2;
 
-            .headerDetails {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-
-                p {
-                    font-size: .8rem;
-                    color: $gray-700;
+                h2 {
+                    font-size: 2.5rem;
+                    font-weight: 900;
+                    line-height: 3.3rem;
+                    color: $white;
+                    width: 100%;
                     margin: 0 0 1rem 0;
+                    padding: 0 0 1rem 0;
+                    border-bottom: 1px solid $white;
+                }
 
-                    span {
-                        display: block;
-                    }
-    
-                    strong {
-                        display: block;
-                        font-size: 1.1rem;
-                        color: $white;
+                .headerDetails {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    p {
+                        font-size: .8rem;
+                        color: $gray-700;
+                        margin: 0 1rem 1rem 0;
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+
+                        span {
+                            display: block;
+                        }
+        
+                        strong {
+                            display: block;
+                            font-size: 1.1rem;
+                            color: $white;
+                        }
                     }
                 }
             }
-
         }
     }
 
     .contentRoot {
         .contentWrapper {
-            width: 1200px;
+            width: 900px;
             margin: 0 auto;
 
             h3 {
@@ -79,16 +85,27 @@
         }
     }
 
-    @include breakpoint(lg-down) {
+    @include breakpoint(md-down) {
         .headerRoot {
             margin: 0 0 2rem 0;
             
             .headerWrapper {
                 width: 100%;
                 padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+                flex-direction: column;
 
-                .headerDetails {
-                    display: inline-block;
+                .headerImage {
+                    margin: 0 0 1.5rem 0;
+                }
+                
+                .headerMain {
+                    h2 {
+                        text-align: center;
+                    }
+
+                    .headerDetails {
+                        display: inline-block;
+                    }
                 }
             }
         }

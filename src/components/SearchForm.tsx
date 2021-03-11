@@ -44,7 +44,7 @@ const SearchForm = ({ searchHandler, searchField }: SearchFormProps): React.Reac
                                     touched={touched}
                                     disabled={isSubmitting}
                                     handleChange={handleChange}
-                                    placeholder="Enter song, album, or artist"
+                                    placeholder="Enter song title, album, or artist"
                                     handleBlur={handleBlur} />
                             </div>
                             <div className={styles.searchButton}>

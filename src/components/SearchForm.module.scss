@@ -5,12 +5,12 @@
 .root {
     .wrapper {
         margin: 0 auto;
-        width: 1200px;
+        width: 900;
 
         form {
             position: relative;
             margin: 0 auto;
-            width: 48%;
+            width: 600px;
 
             .searchInput {
                 display: inline-block;
@@ -28,7 +28,7 @@
         }
     }
 
-    @include breakpoint(lg-down) {
+    @include breakpoint(md-down) {
         margin: 0 1.5em;
         
         .wrapper {
