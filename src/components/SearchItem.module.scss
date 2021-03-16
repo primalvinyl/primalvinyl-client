@@ -4,7 +4,6 @@
 .root {
     .headerRoot {
         background: $yellow;
-        background: radial-gradient(circle, rgba(225,195,62,1) 0%, rgba(167,137,4,1) 100%);
         margin: 0 0 2rem 0;
 
         .headerWrapper {
@@ -51,7 +50,10 @@
                     p {
                         font-size: .8rem;
                         color: $gray-700;
-                        margin: 0 1rem 1rem 0;
+                        margin: 0 1.5rem 1rem 0;
+                        min-width: 5rem;
+                        max-width: 12rem;
+
 
                         &:last-child {
                             margin-right: 0;
@@ -85,6 +87,10 @@
         }
     }
 
+    .itemError {
+        text-align: center;
+    }
+
     @include breakpoint(md-down) {
         .headerRoot {
             margin: 0 0 2rem 0;
@@ -105,6 +111,10 @@
 
                     .headerDetails {
                         display: inline-block;
+
+                        p {
+                            max-width: 100%;
+                        }
                     }
                 }
             }

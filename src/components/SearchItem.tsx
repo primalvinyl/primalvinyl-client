@@ -53,7 +53,7 @@ const SearchItem = ({ item }: SearchItemProps): React.ReactElement => {
                     </div>
                 </div>
             }
-            {!renderItem && <h2>Song data not found</h2>}
+            {!renderItem && <h2 className={styles.itemError}>Song data not found</h2>}
         </div>
     );
 };
