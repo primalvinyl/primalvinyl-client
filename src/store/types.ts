@@ -138,8 +138,8 @@ export interface SongResultType {
     album_name: string;
     album_image_url: string;
     lyrics: string;
-    media_spotify: string;
-    media_soundcloud: string;
+    media_spotify_track_id: string;
+    media_soundcloud_track_id: string;
     error: boolean;
     error_message: string;
     request_status: string;
@@ -158,8 +158,8 @@ export const songResultDefault: SongResultType = {
     album_name: '',
     album_image_url: '',
     lyrics: '',
-    media_spotify: '',
-    media_soundcloud: '',
+    media_spotify_track_id: '',
+    media_soundcloud_track_id: '',
     error: false,
     error_message: '',
     request_status: 'idle'

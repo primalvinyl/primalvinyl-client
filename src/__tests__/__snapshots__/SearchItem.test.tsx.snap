@@ -84,16 +84,19 @@ exports[`SearchItem matches snapshot 1`] = `
       <div
         className="contentWrapper"
       >
-        <h3>
-          Lyrics
-        </h3>
-        <p
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "",
+        <div>
+          <h3>
+            Lyrics
+          </h3>
+          <p
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "",
+              }
             }
-          }
-        />
+          />
+        </div>
+        
       </div>
     </div>
   </div>

@@ -101,8 +101,8 @@ exports.mockSongObject = {
     "album_name": "Ten Summoner’s Tales",
     "album_image_url": "https://images.genius.com/5655f98e7f192c59633d90180a4d8b5b.1000x1000x1.jpg",
     "lyrics": "test",
-    "media_soundcloud": "https://soundcloud.com/musikconnections/sting-shape-of-my-heart",
-    "media_spotify": "https://open.spotify.com/track/5TrvGxuqaYKsF7C0NfrLrY",
+    "media_soundcloud_track_id": "test",
+    "media_spotify_track_id": "5TrvGxuqaYKsF7C0NfrLrY",
     "error": false,
     "error_message": ""
 };
@@ -1233,7 +1233,7 @@ exports.mockGeniusSongObject = {
                     "attribution": "musikconnections",
                     "provider": "soundcloud",
                     "type": "audio",
-                    "url": "https://soundcloud.com/musikconnections/sting-shape-of-my-heart"
+                    "url": "http://localhost:8080/test-soundcloud"
                 },
                 {
                     "provider": "youtube",

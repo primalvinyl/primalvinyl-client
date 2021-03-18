@@ -34,7 +34,7 @@ exports[`SearchForm matches snapshot 1`] = `
         className="searchButton"
       >
         <div
-          className="sc-gsTCUz gYSBev"
+          className="sc-gsTCUz kHUzoe"
         >
           <button
             disabled={false}

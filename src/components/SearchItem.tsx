@@ -6,6 +6,8 @@ import styles from './SearchItem.module.scss';
 const SearchItem = ({ item }: SearchItemProps): React.ReactElement => {
     const songWriters = item.song_writers.join(', ');
     const renderItem = !item.error;
+    const spotifyId = item.media_spotify_track_id;
+    const soundcloudId = item.media_soundcloud_track_id;
 
     return (
         <div className={styles.root}>
@@ -47,13 +49,32 @@ const SearchItem = ({ item }: SearchItemProps): React.ReactElement => {
                     </div>
                     <div className={styles.contentRoot}>
                         <div className={styles.contentWrapper}>
-                            <h3>Lyrics</h3>
-                            <p dangerouslySetInnerHTML={ {__html: item.lyrics} }></p>
+                            <div>
+                                <h3>Lyrics</h3>
+                                <p dangerouslySetInnerHTML={ {__html: item.lyrics} }></p>
+                            </div>
+                            {(soundcloudId || spotifyId) &&
+                                <div>
+                                    <h3>Listen</h3>
+                                    {soundcloudId &&
+                                        <div>
+                                            <h4 className={styles.soundcloud}>SoundCloud</h4>
+                                            <iframe title="soundcloud" src={`https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F${soundcloudId}&amp;auto_play=false&amp;show_artwork=true&amp;color=0066cc`} width="400" height="109" frameBorder="no" scrolling="no" allow="autoplay"></iframe>
+                                        </div>
+                                    }
+                                    {spotifyId &&
+                                        <div>
+                                            <h4 className={styles.spotify}>Spotify</h4>
+                                            <iframe title="spotify" src={`https://open.spotify.com/embed/track/${spotifyId}`} width="400" height="80" frameBorder="no" allowTransparency={true} allow="encrypted-media"></iframe>
+                                        </div>
+                                    }
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
             }
-            {!renderItem && <h2>Song data not found</h2>}
+            {!renderItem && <h2 className={styles.itemError}>Song data not found</h2>}
         </div>
     );
 };
