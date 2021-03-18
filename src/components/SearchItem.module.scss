@@ -4,12 +4,13 @@
 .root {
     .headerRoot {
         background: $yellow;
-        margin: 0 0 2rem 0;
+        color: $white;
+        margin-bottom: 2.5rem;
 
         .headerWrapper {
             width: 900px;
             margin: 0 auto;
-            padding: 3.5rem 0;
+            padding: 2.5rem 0;
             display: flex;
             align-items: center;
 
@@ -35,7 +36,6 @@
                     font-size: 2.5rem;
                     font-weight: 900;
                     line-height: 3.3rem;
-                    color: $white;
                     width: 100%;
                     margin: 0 0 1rem 0;
                     padding: 0 0 1rem 0;
@@ -78,11 +78,50 @@
         .contentWrapper {
             width: 900px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
 
-            h3 {
-                margin: 1rem 0 .5rem 0;
-                font-size: 1.5rem;
-                font-weight: 900;
+            div {
+                margin-bottom: 2.5rem;
+
+                h3 {
+                    margin: 0 0 1rem 0;
+                    padding: 0 0 .5rem 0;
+                    font-size: 1.5rem;
+                    font-weight: 900;
+                    border-bottom: 1px solid $gray-300;
+                }
+
+                div {
+                    margin: 0 0 2rem 0;
+                    min-width: 400px;
+
+                    h4 {
+                        background-repeat: no-repeat;
+                        background-size: 100%;
+                        overflow: hidden;
+                        text-indent: -9999px;
+                    }
+
+                    h4.soundcloud {
+                        width: 150px;
+                        height: 18px;
+                        background-image: url(../images/soundcloud.svg);
+                        margin-bottom: .8rem;
+                    }
+
+                    h4.spotify {
+                        width: 100px;
+                        height: 32px;
+                        background-image: url(../images/spotify.png);
+                        margin-bottom: .5rem;
+                    }
+
+                    iframe {
+                        border-radius: 5px;
+                        width: 400px;
+                    }
+                }
             }
         }
     }
@@ -93,7 +132,7 @@
 
     @include breakpoint(md-down) {
         .headerRoot {
-            margin: 0 0 2rem 0;
+            margin-bottom: 2rem;
             
             .headerWrapper {
                 width: 100%;
@@ -120,11 +159,31 @@
             }
         }
 
+        .mediaRoot {
+            .mediaWrapper {
+                width: 100%;
+                padding: 0 1.5rem;
+                display: block;
+            }
+        }
+
         .contentRoot {
             padding: 0 1.5rem;
 
             .contentWrapper {
                 width: 100%;
+                flex-direction: column;
+
+                div {
+                    div {
+                        min-width: 100%;
+                        width: 100%;
+
+                        iframe {
+                            width: 100%;
+                        }
+                    }
+                }
             }
         }
     }

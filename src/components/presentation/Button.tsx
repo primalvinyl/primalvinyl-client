@@ -48,9 +48,8 @@ const Wrapper = styled(WrapperComponent)`
         border-radius: 5px; 
 
         &[disabled] {
-            color: #dee2e6;
-            background: #adb5bd;
             cursor: default;
+            color: gray;
         }
     }
 `;
@@ -66,7 +65,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             type,
             disabled,
             isSubmitting,
-            url,
             onClick,
             background,
             color
@@ -81,10 +79,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                     type={type}
                     disabled={isSubmitting || disabled}
                     ref={ref}
-                    onClick={(event) => {
-                        url && window.open(url, 'article', 'noopener,noreferrer');
-                        onClick && onClick(event);
-                    }}
+                    onClick={(event) => onClick && onClick(event)}
                 >
                     {children}
                 </button>
@@ -93,28 +88,27 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     });
 
 type ButtonProps = {
-    readonly id: string;
+    readonly id?: string;
     readonly className?: string;
     readonly name?: string;
     readonly children?: any;
     readonly type?: 'submit' | 'button' | 'reset';
     readonly disabled?: boolean;
     readonly isSubmitting?: boolean;
-    readonly url?: string;
     readonly background?: string;
     readonly color?: string;
     readonly onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 Button.defaultProps = {
+    id: undefined,
     className: undefined,
     name: undefined,
     type: 'submit',
     disabled: false,
     isSubmitting: false,
-    url: undefined,
-    background: '#495057',
-    color: '#f8f9fa',
+    background: 'none',
+    color: '#222',
     onClick: () => {}
 }
 
