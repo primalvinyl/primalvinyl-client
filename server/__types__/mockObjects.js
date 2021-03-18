@@ -1233,7 +1233,7 @@ exports.mockGeniusSongObject = {
                     "attribution": "musikconnections",
                     "provider": "soundcloud",
                     "type": "audio",
-                    "url": "/test-soundcloud"
+                    "url": "http://localhost:8080/test-soundcloud"
                 },
                 {
                     "provider": "youtube",
