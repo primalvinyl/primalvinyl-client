@@ -69,7 +69,7 @@ exports[`HomePage matches snapshot 1`] = `
                     className="searchButton"
                   >
                     <div
-                      className="sc-dlfnbm hSozaM"
+                      className="sc-dlfnbm eTcNAx"
                     >
                       <button
                         disabled={false}

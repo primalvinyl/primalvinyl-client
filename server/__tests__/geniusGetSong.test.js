@@ -2,13 +2,14 @@ import fetch from 'node-fetch';
 import getSong from '../src/remoteApi/geniusGetSong.js';
 import { mockGeniusSongObject, mockSongObject } from '../__types__/mockObjects';
 
-describe('getArtist', () => {
+describe('getSong', () => {
     it('should get and transform data', async () => {
         fetch
             .mockResolvedValueOnce({ json: () => Promise.resolve(mockGeniusSongObject) })
-            .mockResolvedValueOnce({ text: () => Promise.resolve('<p class="lyrics">test<p>')});
+            .mockResolvedValueOnce({ text: () => Promise.resolve('<p class="lyrics">test<p>')})
+            .mockResolvedValueOnce({ text: () => Promise.resolve('<meta property="twitter:app:url:iphone" content="test">')});
         const response = await getSong('test');
-        expect(fetch).toHaveBeenCalledTimes(2);
+        expect(fetch).toHaveBeenCalledTimes(3);
         expect(response).toStrictEqual(mockSongObject);
     })
 

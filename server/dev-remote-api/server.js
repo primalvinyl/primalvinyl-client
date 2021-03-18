@@ -13,12 +13,17 @@ server.use(jsonServer.defaults({
 server.use(jsonServer.rewriter(routes));
 
 //slow down api to simulate production
-server.use((req, res, next) => setTimeout(next, 1500));
+server.use((req, res, next) => setTimeout(next, 100));
 
 //route calls to static assets
 server.get(
     '/test-lyrics',
     (req, res) => res.sendFile(path.join(__dirname, 'public', 'test-lyrics.html'))
+);
+
+server.get(
+    '/test-soundcloud',
+    (req, res) => res.sendFile(path.join(__dirname, 'public', 'test-soundcloud.html'))
 );
 
 //route api calls to json server

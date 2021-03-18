@@ -33,8 +33,8 @@ export const mockReduxSong = {
     "album_name": "Ten Summoner’s Tales",
     "album_image_url": "https://images.genius.com",
     "lyrics": "test",
-    "media_soundcloud": "https://soundcloud.com/musikconnections/sting-shape-of-my-heart",
-    "media_spotify": "https://open.spotify.com/track/5TrvGxuqaYKsF7C0NfrLrY",
+    "media_soundcloud_track_id": "1234",
+    "media_spotify_track_id": "1234",
     "error": false,
     "error_message": "",
     "request_status": "resolved"
@@ -110,6 +110,8 @@ export const mockApiSongResults = {
     "album_name": "Ten Summoner’s Tales",
     "album_image_url": "https://images.genius.com",
     "lyrics": "test",
+    "media_soundcloud_track_id": "1234",
+    "media_spotify_track_id": "1234",
     "error": false,
     "error_message": ""
 };

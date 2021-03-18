@@ -6,17 +6,19 @@ exports.defaultSongSearchObject = {
 
 exports.defaultSongObject = {
     id: null,
-    song_title: "",
+    song_title: '',
     song_writers: [],
-    song_thumbnail_url: "",
-    song_image_url: "",
-    artist_name: "",
-    artist_image_url: "",
-    album_name: "",
-    album_image_url: "",
-    lyrics: "",
+    song_thumbnail_url: '',
+    song_image_url: '',
+    artist_name: '',
+    artist_image_url: '',
+    album_name: '',
+    album_image_url: '',
+    lyrics: '',
+    media_spotify_track_id: '',
+    media_soundcloud_track_id: '',
     error: false,
-    error_message: ""
+    error_message: ''
 };
 
 exports.defaultArtistSearchObject = {
