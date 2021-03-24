@@ -14,7 +14,6 @@ import SearchResultList from '../components/SearchResultList';
 import SearchItem from '../components/SearchItem';
 import { match } from 'react-router';
 import styles from './SearchPage.module.scss';
-import FadeInElement from '../components/presentation/FadeInElement';
 
 const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => {
     const searchQueryParameter = match && match.params && match.params.query;
@@ -36,17 +35,17 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
 
     //get data on page load when appropriate
     React.useEffect(() => {
-        //get song if song id parameter
+        //get song data if song id parameter
         if (songIdParameter) {
             dispatch(getSong({ query: songIdParameter }));
         }
-        //get song search list if query parameter and no results already exist
+        //get song search list data if query parameter and no results already exist
         else if (searchQueryParameter && searchResults.results.length === 0) {
             dispatch(getSongSearch({ query: searchQueryParameter }));
         }
     }, [dispatch, songIdParameter, searchQueryParameter, searchResults]);
 
-    const searchHandler = (query: string) => {
+    const searchSubmitHandler = (query: string) => {
         history.push(`/search/${query}`);
         dispatch(clearSongSearch());
         dispatch(clearSong());
@@ -58,7 +57,7 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
             <article className={styles.root}>
                 <div className={styles.wrapper}>
                     <section className={styles.searchForm}>
-                        <SearchForm searchHandler={searchHandler} searchField={searchQueryParameter} />
+                        <SearchForm searchSubmitHandler={searchSubmitHandler} searchField={searchQueryParameter} />
                     </section>
                     {renderProgressBar &&
                         <section className={styles.progressIndicator}>
