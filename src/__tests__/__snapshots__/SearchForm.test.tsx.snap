@@ -13,33 +13,38 @@ exports[`SearchForm matches snapshot 1`] = `
       onSubmit={[Function]}
     >
       <div
-        className="searchInput"
+        className="searchInputWrapper"
       >
         <div
-          className="sc-bdfBwQ fEMqTd"
+          className="sc-bdfBwQ dEloNz"
         >
           <input
+            className="searchInput"
             disabled={false}
             id="searchField"
             onBlur={[Function]}
             onChange={[Function]}
             placeholder="Enter song title, album, or artist"
             required={false}
+            title="Search Query"
             type="search"
             value=""
           />
         </div>
       </div>
       <div
-        className="searchButton"
+        className="searchButtonWrapper"
       >
         <div
-          className="sc-gsTCUz kHUzoe"
+          className="sc-gsTCUz ckGKui"
         >
           <button
+            aria-label="Submit Search"
+            className="searchButton"
             disabled={false}
             id="searchButton"
             onClick={[Function]}
+            title="Submit Search"
             type="submit"
           >
             <svg
