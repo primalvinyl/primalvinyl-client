@@ -48,33 +48,38 @@ exports[`Routes matches snapshot 1`] = `
                   onSubmit={[Function]}
                 >
                   <div
-                    className="searchInput"
+                    className="searchInputWrapper"
                   >
                     <div
-                      className="sc-gsTCUz cMriDl"
+                      className="sc-gsTCUz LQgxH"
                     >
                       <input
+                        className="searchInput"
                         disabled={false}
                         id="searchField"
                         onBlur={[Function]}
                         onChange={[Function]}
                         placeholder="Enter song title, album, or artist"
                         required={false}
+                        title="Search Query"
                         type="search"
                         value=""
                       />
                     </div>
                   </div>
                   <div
-                    className="searchButton"
+                    className="searchButtonWrapper"
                   >
                     <div
-                      className="sc-dlfnbm eTcNAx"
+                      className="sc-dlfnbm fGpwVV"
                     >
                       <button
+                        aria-label="Submit Search"
+                        className="searchButton"
                         disabled={false}
                         id="searchButton"
                         onClick={[Function]}
+                        title="Submit Search"
                         type="submit"
                       >
                         <svg

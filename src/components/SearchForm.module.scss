@@ -12,18 +12,53 @@
             margin: 0 auto;
             width: 600px;
 
-            .searchInput {
+            .searchInputWrapper {
                 display: inline-block;
                 margin: 0 .5em 0 0;
                 width: 100%;
             }
 
-            .searchButton {
+            .searchButtonWrapper {
                 display: inline-block;
-                width: 50px;
+                width: 2.3rem;
+                position: absolute; 
+                right: .2rem;
+                top: .2rem;
+
+                .searchButton {
+                    width: 2.3rem;
+                    height: 2.3rem;
+                    border-radius: 50%;
+                    transition: all ease-in .1s;
+
+                    &:hover {
+                        background-color: $yellow-light;
+                    }
+
+                    &[disabled]:hover {
+                        background-color: initial;
+                    }
+                }
+            }
+
+            .deleteButtonWrapper {
+                display: inline-block;
+                width: 2.3rem;
                 position: absolute;
-                right: 0;
-                top: 0;
+                right: 3rem;
+                top: .2rem;
+
+                .deleteButton {
+                    width: 2.3rem;
+                    height: 2.3rem;
+                    border-radius: 50%;
+                    transition: all ease-in .1s;
+                    margin: 0;
+
+                    &:hover {
+                        background: $yellow-light;
+                    }
+                }
             }
         }
     }

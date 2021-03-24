@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-//required syntax for styled component to work with typescript
+//required syntax for styled component to work with typescript and props
 const WrapperComponent: React.FunctionComponent<WrapperComponentProps> = 
 ({ className, children }) => (
     <div className={className}>{children}</div>
 );
+
 interface WrapperComponentProps {
     readonly className?: string;
     readonly background?: string;
     readonly color?: string;
 };
+
 const Wrapper = styled(WrapperComponent)`
     padding: 0;
     margin: 0;
@@ -43,9 +45,10 @@ const Wrapper = styled(WrapperComponent)`
         font-weight: bold;
         text-transform: uppercase;
         width: 100%;
-        padding: .7em;
+        height: auto;
+        padding: .8em;
         border: none;
-        border-radius: 5px; 
+        border-radius: 5px;
 
         &[disabled] {
             cursor: default;
@@ -59,6 +62,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
         const {
             id,
+            title,
             className,
             name,
             children,
@@ -67,7 +71,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             isSubmitting,
             onClick,
             background,
-            color
+            color,
+            ...restProps
         } = props;
 
         return (
@@ -75,11 +80,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 <button
                     className={className}
                     id={id}
+                    title={title}
                     name={name}
                     type={type}
-                    disabled={isSubmitting || disabled}
+                    disabled={disabled}
                     ref={ref}
                     onClick={(event) => onClick && onClick(event)}
+                    {...restProps}
                 >
                     {children}
                 </button>
@@ -88,6 +95,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     });
 
 type ButtonProps = {
+    readonly title: string;
     readonly id?: string;
     readonly className?: string;
     readonly name?: string;
@@ -101,6 +109,7 @@ type ButtonProps = {
 };
 
 Button.defaultProps = {
+    title: undefined,
     id: undefined,
     className: undefined,
     name: undefined,
