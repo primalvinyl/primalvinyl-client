@@ -34,9 +34,8 @@ const Wrapper = styled.div`
 
     input {
         width: 100%;
-        padding: .7em;
+        padding: .7rem;
         border: 1px solid #adb5bd;
-        border-radius: 5px;
         color: #212529;
         background: white;
 
@@ -63,7 +62,6 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
     (props, ref) => {
     
     const {
-        title,
         id,
         value,
         defaultValue,
@@ -91,7 +89,6 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
                 type={type}
                 className={className}
                 id={id}
-                title={title}
                 name={name}
                 value={value}
                 defaultValue={defaultValue}
@@ -118,7 +115,6 @@ const Input = React.forwardRef<HTMLInputElement, InputType>(
 });
 
 type InputType = {
-    readonly title: string;
     readonly id: string;
     readonly value?: string;
     readonly defaultValue?: string;
@@ -138,7 +134,6 @@ type InputType = {
 };
 
 Input.defaultProps = {
-    title: undefined,
     id: undefined,
     value: undefined,
     defaultValue: undefined,
