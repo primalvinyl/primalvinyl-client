@@ -18,16 +18,18 @@ const SearchItem = ({ item: {
 
     const songWriters = song_writers.join(', ');
 
-    // get spotify widget endpoint
-    let spotifyEndpoint = process.env.REACT_APP_SPOTIFY_WIDGET_ENDPOINT;
-    if (media_spotify_track_id && spotifyEndpoint) {
-        spotifyEndpoint = spotifyEndpoint.replace('insertId', media_spotify_track_id);
+    // get soundcloud widget endpoint
+    let soundcloudEndpoint = '';
+    if (media_soundcloud_track_id) {
+        const endpoint = process.env.REACT_APP_SOUNDCLOUD_WIDGET_ENDPOINT || '';
+        soundcloudEndpoint = endpoint.replace('insertId', media_soundcloud_track_id);
     };
 
-    // get soundcloud widget endpoint
-    let soundcloudEndpoint = process.env.REACT_APP_SOUNDCLOUD_WIDGET_ENDPOINT;
-    if (media_soundcloud_track_id && soundcloudEndpoint) {
-        soundcloudEndpoint = soundcloudEndpoint.replace('insertId', media_soundcloud_track_id);
+    // get spotify widget endpoint
+    let spotifyEndpoint = '';
+    if (media_spotify_track_id) {
+        const endpoint = process.env.REACT_APP_SPOTIFY_WIDGET_ENDPOINT || '';
+        spotifyEndpoint = endpoint.replace('insertId', media_spotify_track_id);
     };
 
     return (
@@ -74,16 +76,16 @@ const SearchItem = ({ item: {
                                 <h3>Lyrics</h3>
                                 <p dangerouslySetInnerHTML={ {__html: lyrics} }></p>
                             </div>
-                            {(soundcloudEndpoint || spotifyEndpoint) &&
+                            {(media_soundcloud_track_id || media_spotify_track_id) &&
                                 <div>
                                     <h3>Listen</h3>
-                                    {soundcloudEndpoint &&
+                                    {media_soundcloud_track_id &&
                                         <div>
                                             <h4 className={styles.soundcloud}>SoundCloud</h4>
                                             <iframe title="soundcloud" src={soundcloudEndpoint} width="400" height="109" frameBorder="no" scrolling="no" allow="autoplay"></iframe>
                                         </div>
                                     }
-                                    {spotifyEndpoint &&
+                                    {media_spotify_track_id &&
                                         <div>
                                             <h4 className={styles.spotify}>Spotify</h4>
                                             <iframe title="spotify" src={spotifyEndpoint} width="400" height="80" frameBorder="no" allowTransparency={true} allow="encrypted-media"></iframe>
