@@ -3,15 +3,36 @@ import { SongResultType } from '../store/types';
 import LazyLoadElement from './presentation/LazyLoadElement';
 import styles from './SearchItem.module.scss';
 
-const SearchItem = ({ item }: SearchItemProps): React.ReactElement => {
-    const songWriters = item.song_writers.join(', ');
-    const renderItem = !item.error;
-    const spotifyId = item.media_spotify_track_id;
-    const soundcloudId = item.media_soundcloud_track_id;
+const SearchItem = ({ item: {
+    song_title,
+    artist_name,
+    song_writers,
+    song_release_date,
+    album_name,
+    song_image_url,
+    lyrics,
+    error,
+    media_spotify_track_id,
+    media_soundcloud_track_id
+} }: SearchItemProps): React.ReactElement => {
+
+    const songWriters = song_writers.join(', ');
+
+    // get spotify widget endpoint
+    let spotifyEndpoint = process.env.REACT_APP_SPOTIFY_WIDGET_ENDPOINT;
+    if (media_spotify_track_id && spotifyEndpoint) {
+        spotifyEndpoint = spotifyEndpoint.replace('insertId', media_spotify_track_id);
+    };
+
+    // get soundcloud widget endpoint
+    let soundcloudEndpoint = process.env.REACT_APP_SOUNDCLOUD_WIDGET_ENDPOINT;
+    if (media_soundcloud_track_id && soundcloudEndpoint) {
+        soundcloudEndpoint = soundcloudEndpoint.replace('insertId', media_soundcloud_track_id);
+    };
 
     return (
         <div className={styles.root}>
-            {renderItem &&
+            {!error &&
                 <div>
                     <div className={styles.headerRoot}>
                         <div className={styles.headerWrapper}>
@@ -19,7 +40,7 @@ const SearchItem = ({ item }: SearchItemProps): React.ReactElement => {
                                 <LazyLoadElement> 
                                     {(onload: any) => 
                                         <img
-                                            src={item.song_image_url}
+                                            src={song_image_url}
                                             alt="Song Art"
                                             onLoad={onload}
                                         />
@@ -27,11 +48,11 @@ const SearchItem = ({ item }: SearchItemProps): React.ReactElement => {
                                 </LazyLoadElement>
                             </div>
                             <div className={styles.headerMain}>
-                                <h2>{item.song_title}</h2>
+                                <h2>{song_title}</h2>
                                 <div className={styles.headerDetails}>
                                     <p>
                                         <span>Artist</span>
-                                        <strong>{item.artist_name}</strong>
+                                        <strong>{artist_name}</strong>
                                     </p>
                                     <p>
                                         <span>Written by</span>
@@ -39,10 +60,10 @@ const SearchItem = ({ item }: SearchItemProps): React.ReactElement => {
                                     </p>
                                     <p>
                                         <span>Album</span>
-                                        <strong>{item.album_name}</strong>
+                                        <strong>{album_name}</strong>
                                     </p>
                                     <p><span>Released</span>
-                                    <strong>{item.song_release_date}</strong></p>
+                                    <strong>{song_release_date}</strong></p>
                                 </div>
                             </div>
                         </div>
@@ -51,21 +72,21 @@ const SearchItem = ({ item }: SearchItemProps): React.ReactElement => {
                         <div className={styles.contentWrapper}>
                             <div>
                                 <h3>Lyrics</h3>
-                                <p dangerouslySetInnerHTML={ {__html: item.lyrics} }></p>
+                                <p dangerouslySetInnerHTML={ {__html: lyrics} }></p>
                             </div>
-                            {(soundcloudId || spotifyId) &&
+                            {(soundcloudEndpoint || spotifyEndpoint) &&
                                 <div>
                                     <h3>Listen</h3>
-                                    {soundcloudId &&
+                                    {soundcloudEndpoint &&
                                         <div>
                                             <h4 className={styles.soundcloud}>SoundCloud</h4>
-                                            <iframe title="soundcloud" src={`https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F${soundcloudId}&amp;auto_play=false&amp;show_artwork=true&amp;color=0066cc`} width="400" height="109" frameBorder="no" scrolling="no" allow="autoplay"></iframe>
+                                            <iframe title="soundcloud" src={soundcloudEndpoint} width="400" height="109" frameBorder="no" scrolling="no" allow="autoplay"></iframe>
                                         </div>
                                     }
-                                    {spotifyId &&
+                                    {spotifyEndpoint &&
                                         <div>
                                             <h4 className={styles.spotify}>Spotify</h4>
-                                            <iframe title="spotify" src={`https://open.spotify.com/embed/track/${spotifyId}`} width="400" height="80" frameBorder="no" allowTransparency={true} allow="encrypted-media"></iframe>
+                                            <iframe title="spotify" src={spotifyEndpoint} width="400" height="80" frameBorder="no" allowTransparency={true} allow="encrypted-media"></iframe>
                                         </div>
                                     }
                                 </div>
@@ -74,7 +95,7 @@ const SearchItem = ({ item }: SearchItemProps): React.ReactElement => {
                     </div>
                 </div>
             }
-            {!renderItem && <h2 className={styles.itemError}>Song data not found</h2>}
+            {error && <h2 className={styles.itemError}>Song data not found</h2>}
         </div>
     );
 };

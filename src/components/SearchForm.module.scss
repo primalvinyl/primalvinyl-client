@@ -14,8 +14,13 @@
 
             .searchInputWrapper {
                 display: inline-block;
-                margin: 0 .5em 0 0;
+                margin: 0 .5rem 0 0;
                 width: 100%;
+
+                .searchInput {
+                    border-radius: 5px;
+                    padding-right: 5.8rem;
+                }
             }
 
             .searchButtonWrapper {
