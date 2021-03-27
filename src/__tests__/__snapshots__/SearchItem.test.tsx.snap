@@ -42,38 +42,10 @@ exports[`SearchItem matches snapshot 1`] = `
           <div
             className="headerDetails"
           >
-            <p>
-              <span>
-                Artist
-              </span>
-              <strong>
-                
-              </strong>
-            </p>
-            <p>
-              <span>
-                Written by
-              </span>
-              <strong>
-                
-              </strong>
-            </p>
-            <p>
-              <span>
-                Album
-              </span>
-              <strong>
-                
-              </strong>
-            </p>
-            <p>
-              <span>
-                Released
-              </span>
-              <strong>
-                
-              </strong>
-            </p>
+            
+            
+            
+            
           </div>
         </div>
       </div>

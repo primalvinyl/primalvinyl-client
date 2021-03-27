@@ -16,7 +16,7 @@ const SearchItem = ({ item: {
     media_soundcloud_track_id
 } }: SearchItemProps): React.ReactElement => {
 
-    const songWriters = song_writers.join(', ');
+    const songWriters = song_writers.length > 0 ? song_writers.join(', ') : '';
 
     // get soundcloud widget endpoint
     let soundcloudEndpoint = '';
@@ -52,20 +52,30 @@ const SearchItem = ({ item: {
                             <div className={styles.headerMain}>
                                 <h2>{song_title}</h2>
                                 <div className={styles.headerDetails}>
-                                    <p>
-                                        <span>Artist</span>
-                                        <strong>{artist_name}</strong>
-                                    </p>
-                                    <p>
-                                        <span>Written by</span>
-                                        <strong>{songWriters}</strong>
-                                    </p>
-                                    <p>
-                                        <span>Album</span>
-                                        <strong>{album_name}</strong>
-                                    </p>
-                                    <p><span>Released</span>
-                                    <strong>{song_release_date}</strong></p>
+                                    {artist_name &&
+                                        <p>
+                                            <span>Artist</span>
+                                            <strong>{artist_name}</strong>
+                                        </p>
+                                    }
+                                    {songWriters &&
+                                        <p>
+                                            <span>Written by</span>
+                                            <strong>{songWriters}</strong>
+                                        </p>
+                                    }
+                                    {album_name &&
+                                        <p>
+                                            <span>Album</span>
+                                            <strong>{album_name}</strong>
+                                        </p>
+                                    }
+                                    {song_release_date &&
+                                        <p>
+                                            <span>Released</span>
+                                            <strong>{song_release_date}</strong>
+                                        </p>
+                                    }
                                 </div>
                             </div>
                         </div>
