@@ -54,7 +54,6 @@ const SearchForm = ({
                                     <Input
                                         type="search"
                                         id="searchField"
-                                        title="Search Query"
                                         aria-label="Search Query"
                                         className={styles.searchInput}
                                         value={values.searchField}
@@ -65,7 +64,7 @@ const SearchForm = ({
                                             handleChange(event);
                                             setShowDelete(event.target.value.length > 0);
                                         }}
-                                        placeholder="Enter song title, album, or artist"
+                                        placeholder="Enter song, album, or artist"
                                         handleBlur={handleBlur} />
                                 </div>
                                 {showDelete &&
@@ -74,7 +73,6 @@ const SearchForm = ({
                                             id="deleteButton"
                                             className={styles.deleteButton}
                                             type="button"
-                                            title="Clear Search Query"
                                             aria-label="Clear Search Query"
                                             background="none"
                                             color="#495057"
@@ -87,7 +85,6 @@ const SearchForm = ({
                                 <div className={styles.searchButtonWrapper}>
                                     <Button
                                         id="searchButton"
-                                        title="Submit Search"
                                         aria-label="Submit Search"
                                         className={styles.searchButton}
                                         disabled={isSubmitting || errors.searchField}

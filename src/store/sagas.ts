@@ -7,7 +7,7 @@ import * as types from './types';
 
 
 /******************************** Workers *************************************/
-export function* getSongSearchWorker(payload: types.RequestType = types.getRequestDefault) {
+export function* getSongSearchWorker(payload: types.RequestType = types.getRequestDefault): any {
     const { query } = payload;
     try {
         yield put(actions.putQuery(query));
@@ -27,7 +27,7 @@ export function* getSongSearchWorker(payload: types.RequestType = types.getReque
     }
 }
 
-export function* getSongWorker(payload: types.RequestType = types.getRequestDefault) {
+export function* getSongWorker(payload: types.RequestType = types.getRequestDefault): any {
     const { query } = payload;
     try {
         yield put(actions.putSong({ ...types.songResultDefault, request_status: 'pending' }));
@@ -48,7 +48,7 @@ export function* getSongWorker(payload: types.RequestType = types.getRequestDefa
 
 export function* getArtistSearchWorker(
     payload: types.RequestType = types.getRequestPaginationDefault
-) {
+): any {
     const { query, page, per_page } = payload;
     try {
         yield put(actions.putQuery(query));
@@ -68,7 +68,7 @@ export function* getArtistSearchWorker(
     }
 }
 
-export function* getArtistWorker(payload: types.RequestType = types.getRequestDefault) {
+export function* getArtistWorker(payload: types.RequestType = types.getRequestDefault): any {
     const { query } = payload;
     try {
         yield put(actions.putQuery(query));

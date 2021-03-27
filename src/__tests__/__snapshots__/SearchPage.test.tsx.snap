@@ -51,7 +51,7 @@ exports[`HomePage matches snapshot 1`] = `
                     className="searchInputWrapper"
                   >
                     <div
-                      className="sc-gsTCUz LQgxH"
+                      className="sc-gsTCUz dmdUVK"
                     >
                       <input
                         className="searchInput"
@@ -59,9 +59,8 @@ exports[`HomePage matches snapshot 1`] = `
                         id="searchField"
                         onBlur={[Function]}
                         onChange={[Function]}
-                        placeholder="Enter song title, album, or artist"
+                        placeholder="Enter song, album, or artist"
                         required={false}
-                        title="Search Query"
                         type="search"
                         value=""
                       />
@@ -71,7 +70,7 @@ exports[`HomePage matches snapshot 1`] = `
                     className="searchButtonWrapper"
                   >
                     <div
-                      className="sc-dlfnbm fGpwVV"
+                      className="sc-dlfnbm gTlhch"
                     >
                       <button
                         aria-label="Submit Search"
@@ -79,7 +78,6 @@ exports[`HomePage matches snapshot 1`] = `
                         disabled={false}
                         id="searchButton"
                         onClick={[Function]}
-                        title="Submit Search"
                         type="submit"
                       >
                         <svg

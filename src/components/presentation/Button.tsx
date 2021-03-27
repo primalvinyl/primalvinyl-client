@@ -41,14 +41,19 @@ const Wrapper = styled(WrapperComponent)`
     button {
         color: ${props => props.color};
         background: ${props => props.background};
-        font-size: 14px;
+        font-size: 1rem;
         font-weight: bold;
         text-transform: uppercase;
         width: 100%;
         height: auto;
-        padding: .8em;
+        padding: .7rem;
         border: none;
         border-radius: 5px;
+
+        &:focus {
+            color: #adb5bd;
+            background: white;
+        }
 
         &[disabled] {
             cursor: default;
@@ -62,7 +67,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
         const {
             id,
-            title,
             className,
             name,
             children,
@@ -80,7 +84,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 <button
                     className={className}
                     id={id}
-                    title={title}
                     name={name}
                     type={type}
                     disabled={disabled}
@@ -95,7 +98,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     });
 
 type ButtonProps = {
-    readonly title: string;
     readonly id?: string;
     readonly className?: string;
     readonly name?: string;
@@ -109,7 +111,6 @@ type ButtonProps = {
 };
 
 Button.defaultProps = {
-    title: undefined,
     id: undefined,
     className: undefined,
     name: undefined,
