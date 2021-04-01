@@ -11,19 +11,20 @@ exports[`MasterTemplate matches snapshot 1`] = `
       <div
         className="wrapper"
       >
-        <img
-          alt=""
-          src="monster.png"
-        />
-        <a
-          className="logotype"
-          href="/"
-          onClick={[Function]}
-        >
-          <h1>
+        <figure>
+          <img
+            alt="Logo"
+            src="monster.png"
+          />
+        </figure>
+        <h1>
+          <a
+            href="/"
+            onClick={[Function]}
+          >
             Primal Vinyl - Song Lyrics Search
-          </h1>
-        </a>
+          </a>
+        </h1>
       </div>
     </header>
     <main>
@@ -41,20 +42,20 @@ exports[`MasterTemplate matches snapshot 1`] = `
       <div
         className="logotype"
       >
-        <a
-          href="/"
-          onClick={[Function]}
-        >
-          <h2>
+        <h2>
+          <a
+            href="/"
+            onClick={[Function]}
+          >
             Primal Vinyl
-          </h2>
-        </a>
-        <div
+          </a>
+        </h2>
+        <small
           className="copyright"
         >
           © 
           2021
-        </div>
+        </small>
       </div>
     </div>
   </footer>

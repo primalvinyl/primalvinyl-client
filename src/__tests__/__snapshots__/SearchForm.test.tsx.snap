@@ -11,6 +11,7 @@ exports[`SearchForm matches snapshot 1`] = `
       action="#"
       onReset={[Function]}
       onSubmit={[Function]}
+      role="search"
     >
       <div
         className="searchInputWrapper"
@@ -35,7 +36,7 @@ exports[`SearchForm matches snapshot 1`] = `
         className="searchButtonWrapper"
       >
         <div
-          className="sc-gsTCUz impWMe"
+          className="sc-gsTCUz cSfRYF"
         >
           <button
             aria-label="Submit Search"

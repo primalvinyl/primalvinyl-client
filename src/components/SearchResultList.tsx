@@ -9,7 +9,6 @@ const Table = ({ columns, data }: any) => {
     const {
         getTableProps,
         getTableBodyProps,
-        headerGroups,
         prepareRow,
         rows
     } = useTable({
@@ -19,22 +18,11 @@ const Table = ({ columns, data }: any) => {
     
     return (
         <table {...getTableProps()}>
-            <thead>
-                {headerGroups.map(headerGroup => (
-                    <tr {...headerGroup.getHeaderGroupProps()}>
-                        {headerGroup.headers.map(column => (
-                            <th {...column.getHeaderProps()}>
-                                {column.render('Header')}
-                            </th>
-                        ))}
-                    </tr>
-                ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
+            <tbody {...getTableBodyProps()} role="list">
                 {rows.map(row => {
                     prepareRow(row)
                     return (
-                        <tr {...row.getRowProps()}>
+                        <tr {...row.getRowProps()} role="listitem">
                             {row.cells.map(cell => (
                                 <td {...cell.getCellProps()}>
                                     {cell.render('Cell')}
@@ -72,7 +60,7 @@ const SearchResultList = ({ searchResults }: SearchResultsProps): React.ReactEle
                                     {table.row.original.song_title }
                                 </h2>
                                 <p>
-                                    Performed by {table.row.original.artist_name}
+                                    {table.row.original.artist_name}
                                 </p>
                             </div>
                         </div>

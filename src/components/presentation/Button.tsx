@@ -50,8 +50,8 @@ const Wrapper = styled(WrapperComponent)`
         border: none;
         border-radius: 5px;
 
-        &:focus {
-            color: #adb5bd;
+        &:hover, &:focus {
+            color: ${props => props.color};
             background: white;
         }
 
