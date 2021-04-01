@@ -3,7 +3,7 @@
 
 .root {
     color: $gray-500;
-    font-size: .8em;
+    font-size: .8rem;
 
     .wrapper {
         margin: 0 auto;
@@ -16,15 +16,29 @@
         .logotype {
             display: flex;
 
+            small {
+                font-size: .8rem;
+            }
+
             h2 {
                 margin: -.1rem .5rem 0 0;
-                text-indent: -9999px;
-                width: 95px;
-                height: 21px;
-                outline: none;
-                background-image: url(../images/logotype.png);
-                background-position: left;
-                background-size: cover;
+
+                a {
+                    display: block;
+                    outline: none;
+                    text-indent: -9999px;
+                    width: 95px;
+                    height: 21px;
+                    background-image: url(../images/logotype.png);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 95px 21px;
+                    border: 1px dotted transparent;
+
+                    &:hover, &:focus {
+                        border-color: $gray-700;
+                    }
+                }
             }
 
         }

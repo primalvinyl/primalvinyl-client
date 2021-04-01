@@ -20,6 +20,13 @@
                 .searchInput {
                     border-radius: 5px;
                     padding-right: 5.8rem;
+
+                    &:hover, &:focus {
+                        border-color: $yellow;
+                        border-width: 2px;
+                        margin-left: -1px;
+                        margin-top: -1px;
+                    }
                 }
             }
 
@@ -40,20 +47,25 @@
                         background-color: $yellow-light;
                     }
 
+                    &:focus {
+                        background-color: $yellow;
+                        color: $white;
+                    }
+
                     &[disabled]:hover {
                         background-color: initial;
                     }
                 }
             }
 
-            .deleteButtonWrapper {
+            .clearButtonWrapper {
                 display: inline-block;
                 width: 2.3rem;
                 position: absolute;
                 right: 3rem;
                 top: .2rem;
 
-                .deleteButton {
+                .clearButton {
                     width: 2.3rem;
                     height: 2.3rem;
                     border-radius: 50%;
@@ -61,7 +73,12 @@
                     margin: 0;
 
                     &:hover {
-                        background: $yellow-light;
+                        background-color: $yellow-light;
+                    }
+
+                    &:focus {
+                        background-color: $yellow;
+                        color: $white;
                     }
                 }
             }

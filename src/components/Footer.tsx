@@ -21,12 +21,14 @@ const Footer = (): React.ReactElement => {
         <footer className={styles.root}>
             <div className={styles.wrapper}>
                 <div className={styles.logotype}>
-                    <Link to="/">
-                        <h2>Primal Vinyl</h2>
-                    </Link>
-                    <div className={styles.copyright}>
+                    <h2>
+                        <Link to="/">
+                            Primal Vinyl
+                        </Link>
+                    </h2>
+                    <small className={styles.copyright}>
                         {'© '}{new Date().getFullYear()}
-                    </div>
+                    </small>
                 </div>
                 {/*
                 <div className={styles.navigation}>
