@@ -38,10 +38,10 @@ const Wrapper = styled.div`
         border: 1px solid #adb5bd;
         color: #212529;
         background: white;
+        transition: all ease-in .2s;
 
-        &:focus {
-            border-color: #adb5bd;
-            background: white;
+        &:focus, &:hover {
+            border-color: #212529;
         }
 
         &[disabled] {
@@ -53,7 +53,7 @@ const Wrapper = styled.div`
     
     .inputError {
         margin-top: .2em;
-        color: #ed2024;
+        color: red;
         font-size: .9em;
     }
 `;
