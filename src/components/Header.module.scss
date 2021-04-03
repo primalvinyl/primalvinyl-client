@@ -79,12 +79,13 @@
                 margin: 0 0 .5em 0;
             }
 
-            .logotype {
+            h1 {
                 margin: .5em 0 0 0;
-                
-                h1 {
+
+                a {
                     width: 220px;
                     height: 75px;
+                    background-size: 220px 75px;
                 }
             }
 
