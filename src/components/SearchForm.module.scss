@@ -34,10 +34,15 @@
                     width: 2.3rem;
                     height: 2.3rem;
                     border-radius: 50%;
-                    transition: all ease-in .1s;
+                    transition: all ease-in .2s;
 
                     &:hover {
                         background-color: $yellow-light;
+                    }
+
+                    &:focus {
+                        background-color: $yellow;
+                        color: $white;
                     }
 
                     &[disabled]:hover {
@@ -46,14 +51,14 @@
                 }
             }
 
-            .deleteButtonWrapper {
+            .clearButtonWrapper {
                 display: inline-block;
                 width: 2.3rem;
                 position: absolute;
                 right: 3rem;
                 top: .2rem;
 
-                .deleteButton {
+                .clearButton {
                     width: 2.3rem;
                     height: 2.3rem;
                     border-radius: 50%;
@@ -61,7 +66,12 @@
                     margin: 0;
 
                     &:hover {
-                        background: $yellow-light;
+                        background-color: $yellow-light;
+                    }
+
+                    &:focus {
+                        background-color: $yellow;
+                        color: $white;
                     }
                 }
             }

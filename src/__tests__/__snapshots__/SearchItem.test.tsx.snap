@@ -4,8 +4,11 @@ exports[`SearchItem matches snapshot 1`] = `
 <div
   className="root"
 >
-  <div>
-    <div
+  <article
+    aria-labelledby="songTitle"
+  >
+    <section
+      aria-label="Song Information"
       className="headerRoot"
     >
       <div
@@ -36,56 +39,34 @@ exports[`SearchItem matches snapshot 1`] = `
         <div
           className="headerMain"
         >
-          <h2>
+          <h2
+            id="songTitle"
+          >
             
           </h2>
           <div
             className="headerDetails"
           >
-            <p>
-              <span>
-                Artist
-              </span>
-              <strong>
-                
-              </strong>
-            </p>
-            <p>
-              <span>
-                Written by
-              </span>
-              <strong>
-                
-              </strong>
-            </p>
-            <p>
-              <span>
-                Album
-              </span>
-              <strong>
-                
-              </strong>
-            </p>
-            <p>
-              <span>
-                Released
-              </span>
-              <strong>
-                
-              </strong>
-            </p>
+            
+            
+            
+            
           </div>
         </div>
       </div>
-    </div>
+    </section>
     <div
       className="contentRoot"
     >
       <div
         className="contentWrapper"
       >
-        <div>
-          <h3>
+        <section
+          aria-labelledby="lyrics"
+        >
+          <h3
+            id="lyrics"
+          >
             Lyrics
           </h3>
           <p
@@ -95,10 +76,10 @@ exports[`SearchItem matches snapshot 1`] = `
               }
             }
           />
-        </div>
+        </section>
         
       </div>
     </div>
-  </div>
+  </article>
 </div>
 `;

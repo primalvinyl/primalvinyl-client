@@ -35,7 +35,7 @@
             transition: all ease-in .15s;
             text-decoration: none;
 
-            &:hover, &:active {
+            &:hover, &:active, &:focus {
                 background: $yellow;
 
                 .itemWrapper h2, .itemWrapper p {
@@ -54,6 +54,7 @@
                     font-weight: 600;
                     line-height: 1.7rem;
                     color: $yellow;
+                    margin-bottom: .2rem;
                     transition: all ease-in .15s;
                 }
 

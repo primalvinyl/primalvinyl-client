@@ -53,10 +53,12 @@ const Header = (): React.ReactElement => {
                         </svg>
                     </button>
                 */}
-                <img src={monster} alt="" />
-                <Link to="/" className={styles.logotype}>
-                    <h1>Primal Vinyl - Song Lyrics Search</h1>
-                </Link>
+                <figure><img src={monster} alt="Logo" /></figure>
+                <h1>
+                    <Link to="/">
+                        Primal Vinyl - Song Lyrics Search
+                    </Link>
+                </h1>
                 {/*
                     <CSSTransition
                         in={toggleNav}

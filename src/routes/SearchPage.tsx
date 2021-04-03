@@ -54,28 +54,30 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
  
     return (
         <MasterTemplate>
-            <article className={styles.root}>
+            <div className={styles.root}>
                 <div className={styles.wrapper}>
-                    <section className={styles.searchForm}>
-                        <SearchForm searchSubmitHandler={searchSubmitHandler} searchField={searchQueryParameter} />
-                    </section>
+                    <div className={styles.searchForm} data-myData="bling">
+                        <SearchForm
+                            searchSubmitHandler={searchSubmitHandler}
+                            searchField={searchQueryParameter} />
+                    </div>
                     {renderProgressBar &&
-                        <section className={styles.progressIndicator}>
+                        <div className={styles.progressIndicator}>
                             <ProgressBar color="#adb5bd" />
-                        </section>
+                        </div>
                     }
                     {renderSearchList &&
-                        <section className={styles.searchList}>
+                        <div className={styles.searchList}>
                             <SearchResultList searchResults={searchResults} />
-                        </section>
+                        </div>
                     }
                     {renderSearchItem &&
-                        <section className={styles.searchItem}>
+                        <div className={styles.searchItem}>
                             <SearchItem item={songResult} />
-                        </section>
+                        </div>
                     }
                 </div>
-            </article>
+            </div>
         </MasterTemplate>
     );
 };

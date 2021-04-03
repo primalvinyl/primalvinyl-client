@@ -10,11 +10,17 @@ const SearchForm = ({
     searchClearHandler,
     searchField
 }: SearchFormProps): React.ReactElement => {
-    const [showDelete, setShowDelete] = React.useState(false);
+    const [showClearButton, setShowClearButton] = React.useState(false);
+    const searchRef = React.useRef<HTMLInputElement>(null);
 
     const initialValues: SearchFormValues = {
         searchField: searchField ? searchField : ''
     };
+
+    React.useEffect(() => {
+        searchRef.current && searchRef.current.focus();
+        setShowClearButton(!!searchField);
+    }, []);
 
     const submitHandler = (values: FormikValues, actions: FormikValues) => {
         searchSubmitHandler(values.searchField);
@@ -39,22 +45,25 @@ const SearchForm = ({
                         isSubmitting,
                         handleChange,
                         handleBlur,
-                        resetForm
+                        resetForm,
+                        setFieldValue
                     }: FormikValues) => {
 
                         const clearFieldHandler = () => {
                             searchClearHandler && searchClearHandler();
                             resetForm();
-                            setShowDelete(false);
+                            setFieldValue('searchField', '');
+                            setShowClearButton(false);
                         };
 
                         return (
-                            <Form>
+                            <Form role="search">
                                 <div className={styles.searchInputWrapper}>
                                     <Input
                                         type="search"
                                         id="searchField"
                                         aria-label="Search Query"
+                                        ref={searchRef}
                                         className={styles.searchInput}
                                         value={values.searchField}
                                         errors={errors}
@@ -62,16 +71,16 @@ const SearchForm = ({
                                         disabled={isSubmitting}
                                         handleChange={event => {
                                             handleChange(event);
-                                            setShowDelete(event.target.value.length > 0);
+                                            setShowClearButton(event.target.value.length > 0);
                                         }}
                                         placeholder="Enter song, album, or artist"
                                         handleBlur={handleBlur} />
                                 </div>
-                                {showDelete &&
-                                    <div className={styles.deleteButtonWrapper}>
+                                {showClearButton &&
+                                    <div className={styles.clearButtonWrapper}>
                                         <Button
-                                            id="deleteButton"
-                                            className={styles.deleteButton}
+                                            id="clearButton"
+                                            className={styles.clearButton}
                                             type="button"
                                             aria-label="Clear Search Query"
                                             background="none"

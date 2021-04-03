@@ -2,7 +2,7 @@
 
 exports[`Input matches snapshot 1`] = `
 <div
-  className="sc-bdfBwQ iFAwcq"
+  className="sc-bdfBwQ eMvgQO"
 >
   <input
     disabled={false}

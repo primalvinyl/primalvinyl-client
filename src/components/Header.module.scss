@@ -15,18 +15,24 @@
             width: 200px;
         }
 
-        .logotype {
-            text-decoration: none;
-            outline: none;
+        h1 {
             margin: 0 0 0 -35px;
-
-            h1 {
-                text-indent: -9999px;
-                width: 415px;
-                height: 142px;
+            
+            a {
+                display: block;
+                outline: none;
+                text-indent: -9999em;
+                width: 445px;
+                height: 172px;
                 background-image: url(../images/logotypeSubhead.png);
-                background-position: left;
-                background-size: cover;
+                background-repeat: no-repeat;
+                background-size: 415px 142px;
+                background-position: center;
+                border: 1px dotted transparent;
+
+                &:hover, &:focus {
+                    border-color: $gray-700;
+                }
             }
         }
 
@@ -73,12 +79,13 @@
                 margin: 0 0 .5em 0;
             }
 
-            .logotype {
+            h1 {
                 margin: .5em 0 0 0;
-                
-                h1 {
+
+                a {
                     width: 220px;
                     height: 75px;
+                    background-size: 220px 75px;
                 }
             }
 

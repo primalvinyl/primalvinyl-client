@@ -2,11 +2,12 @@
 
 exports[`ProgressBar matches snapshot 1`] = `
 <div
-  className="sc-bdfBwQ iCMMBG"
+  className="sc-bdfBwQ cAIpLZ"
   color="black"
 >
   <div
     className="ldsEllipsis"
+    role="progressbar"
   >
     <div />
     <div />

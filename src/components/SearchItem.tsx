@@ -16,7 +16,7 @@ const SearchItem = ({ item: {
     media_soundcloud_track_id
 } }: SearchItemProps): React.ReactElement => {
 
-    const songWriters = song_writers.join(', ');
+    const songWriters = song_writers.length > 0 ? song_writers.join(', ') : '';
 
     // get soundcloud widget endpoint
     let soundcloudEndpoint = '';
@@ -35,67 +35,81 @@ const SearchItem = ({ item: {
     return (
         <div className={styles.root}>
             {!error &&
-                <div>
-                    <div className={styles.headerRoot}>
+                <article aria-labelledby="songTitle">
+                    <section className={styles.headerRoot} aria-label="Song Information">
                         <div className={styles.headerWrapper}>
                             <div className={styles.headerImage}>
                                 <LazyLoadElement> 
                                     {(onload: any) => 
                                         <img
                                             src={song_image_url}
-                                            alt="Song Art"
+                                            alt="Song Album Art"
                                             onLoad={onload}
                                         />
                                     }
                                 </LazyLoadElement>
                             </div>
                             <div className={styles.headerMain}>
-                                <h2>{song_title}</h2>
+                                <h2 id="songTitle">{song_title}</h2>
                                 <div className={styles.headerDetails}>
-                                    <p>
-                                        <span>Artist</span>
-                                        <strong>{artist_name}</strong>
-                                    </p>
-                                    <p>
-                                        <span>Written by</span>
-                                        <strong>{songWriters}</strong>
-                                    </p>
-                                    <p>
-                                        <span>Album</span>
-                                        <strong>{album_name}</strong>
-                                    </p>
-                                    <p><span>Released</span>
-                                    <strong>{song_release_date}</strong></p>
+                                    {artist_name &&
+                                        <p>
+                                            <label htmlFor="artistName">Artist</label>
+                                            <strong id="artistName">{artist_name}</strong>
+                                        </p>
+                                    }
+                                    {songWriters &&
+                                        <p>
+                                            <label htmlFor="songWriters">Written by</label>
+                                            <strong id="songWriters">{songWriters}</strong>
+                                        </p>
+                                    }
+                                    {album_name &&
+                                        <p>
+                                            <label htmlFor="album">Album</label>
+                                            <strong id="album">{album_name}</strong>
+                                        </p>
+                                    }
+                                    {song_release_date &&
+                                        <p>
+                                            <label htmlFor="releaseDate">Released</label>
+                                            <strong id="releaseDate">{song_release_date}</strong>
+                                        </p>
+                                    }
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
                     <div className={styles.contentRoot}>
                         <div className={styles.contentWrapper}>
-                            <div>
-                                <h3>Lyrics</h3>
+                            <section aria-labelledby="lyrics">
+                                <h3 id="lyrics">Lyrics</h3>
                                 <p dangerouslySetInnerHTML={ {__html: lyrics} }></p>
-                            </div>
+                            </section>
                             {(media_soundcloud_track_id || media_spotify_track_id) &&
-                                <div>
-                                    <h3>Listen</h3>
+                                <section aria-labelledby="listen">
+                                    <h3 id="listen">Listen</h3>
                                     {media_soundcloud_track_id &&
-                                        <div>
-                                            <h4 className={styles.soundcloud}>SoundCloud</h4>
+                                        <figure>
+                                            <figcaption>
+                                                <h4 className={styles.soundcloud}>SoundCloud</h4>
+                                            </figcaption>
                                             <iframe title="soundcloud" src={soundcloudEndpoint} width="400" height="109" frameBorder="no" scrolling="no" allow="autoplay"></iframe>
-                                        </div>
+                                        </figure>
                                     }
                                     {media_spotify_track_id &&
-                                        <div>
-                                            <h4 className={styles.spotify}>Spotify</h4>
+                                        <figure>
+                                            <figcaption>
+                                                <h4 className={styles.spotify}>Spotify</h4>
+                                            </figcaption>
                                             <iframe title="spotify" src={spotifyEndpoint} width="400" height="80" frameBorder="no" allowTransparency={true} allow="encrypted-media"></iframe>
-                                        </div>
+                                        </figure>
                                     }
-                                </div>
+                                </section>
                             }
                         </div>
                     </div>
-                </div>
+                </article>
             }
             {error && <h2 className={styles.itemError}>Song data not found</h2>}
         </div>

@@ -11,30 +11,32 @@ exports[`HomePage matches snapshot 1`] = `
       <div
         className="wrapper"
       >
-        <img
-          alt=""
-          src="monster.png"
-        />
-        <a
-          className="logotype"
-          href="/"
-          onClick={[Function]}
-        >
-          <h1>
+        <figure>
+          <img
+            alt="Logo"
+            src="monster.png"
+          />
+        </figure>
+        <h1>
+          <a
+            href="/"
+            onClick={[Function]}
+          >
             Primal Vinyl - Song Lyrics Search
-          </h1>
-        </a>
+          </a>
+        </h1>
       </div>
     </header>
     <main>
-      <article
+      <div
         className="root"
       >
         <div
           className="wrapper"
         >
-          <section
+          <div
             className="searchForm"
+            data-myData="bling"
           >
             <div
               className="root"
@@ -46,12 +48,13 @@ exports[`HomePage matches snapshot 1`] = `
                   action="#"
                   onReset={[Function]}
                   onSubmit={[Function]}
+                  role="search"
                 >
                   <div
                     className="searchInputWrapper"
                   >
                     <div
-                      className="sc-gsTCUz dmdUVK"
+                      className="sc-gsTCUz jFXcIq"
                     >
                       <input
                         className="searchInput"
@@ -70,7 +73,7 @@ exports[`HomePage matches snapshot 1`] = `
                     className="searchButtonWrapper"
                   >
                     <div
-                      className="sc-dlfnbm gTlhch"
+                      className="sc-dlfnbm NWNli"
                     >
                       <button
                         aria-label="Submit Search"
@@ -97,9 +100,9 @@ exports[`HomePage matches snapshot 1`] = `
                 </form>
               </div>
             </div>
-          </section>
+          </div>
         </div>
-      </article>
+      </div>
     </main>
   </div>
   <footer
@@ -111,20 +114,20 @@ exports[`HomePage matches snapshot 1`] = `
       <div
         className="logotype"
       >
-        <a
-          href="/"
-          onClick={[Function]}
-        >
-          <h2>
+        <h2>
+          <a
+            href="/"
+            onClick={[Function]}
+          >
             Primal Vinyl
-          </h2>
-        </a>
-        <div
+          </a>
+        </h2>
+        <small
           className="copyright"
         >
           © 
           2021
-        </div>
+        </small>
       </div>
     </div>
   </footer>
