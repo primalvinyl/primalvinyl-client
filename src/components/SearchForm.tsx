@@ -1,6 +1,5 @@
 import React from 'react';
 import { Formik, Form, FormikValues } from 'formik';
-import * as yup from 'yup';
 import Input from './presentation/Input';
 import Button from './presentation/Button';
 import styles from './SearchForm.module.scss';
@@ -34,9 +33,6 @@ const SearchForm = ({
                     initialValues={initialValues}
                     onSubmit={submitHandler}
                     validateOnBlur={false}
-                    validationSchema={yup.object().shape({
-                        searchField: yup.string().required('Search query required')
-                    })}
                 >
                     {({
                         values,
@@ -96,7 +92,7 @@ const SearchForm = ({
                                         id="searchButton"
                                         aria-label="Submit Search"
                                         className={styles.searchButton}
-                                        disabled={isSubmitting || errors.searchField}
+                                        disabled={isSubmitting || !values.searchField}
                                         background="none"
                                         color="#495057"
                                     >
