@@ -81,7 +81,7 @@ exports[`App matches snapshot 1`] = `
                         <button
                           aria-label="Submit Search"
                           className="searchButton"
-                          disabled={false}
+                          disabled={true}
                           id="searchButton"
                           onClick={[Function]}
                           type="submit"

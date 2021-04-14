@@ -54,26 +54,26 @@ const SearchItem = ({ item: {
                                 <div className={styles.headerDetails}>
                                     {artist_name &&
                                         <p>
-                                            <label htmlFor="artistName">Artist</label>
-                                            <strong id="artistName">{artist_name}</strong>
+                                            <span id="artistName">Artist</span>
+                                            <strong aria-labelledby="artistName">{artist_name}</strong>
                                         </p>
                                     }
                                     {songWriters &&
                                         <p>
-                                            <label htmlFor="songWriters">Written by</label>
-                                            <strong id="songWriters">{songWriters}</strong>
+                                            <span id="songWriters">Written by</span>
+                                            <strong aria-labelledby="songWriters">{songWriters}</strong>
                                         </p>
                                     }
                                     {album_name &&
                                         <p>
-                                            <label htmlFor="album">Album</label>
-                                            <strong id="album">{album_name}</strong>
+                                            <span id="album">Album</span>
+                                            <strong aria-labelledby="album">{album_name}</strong>
                                         </p>
                                     }
                                     {song_release_date &&
                                         <p>
-                                            <label htmlFor="releaseDate">Released</label>
-                                            <strong id="releaseDate">{song_release_date}</strong>
+                                            <span id="releaseDate">Released</span>
+                                            <strong aria-labelledby="releaseDate">{song_release_date}</strong>
                                         </p>
                                     }
                                 </div>
