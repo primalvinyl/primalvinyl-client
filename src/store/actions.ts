@@ -1,125 +1,31 @@
+import { createAction } from '@reduxjs/toolkit'; 
 import * as types from './types';
 
 
-
-
-/******************************************************************************/
 /*********************************** Query ************************************/
-/******************************************************************************/
-export const putQuery = (payload: string = ''): types.QueryActionTypes => {
-    return {
-        type: types.PUT_QUERY,
-        payload
-    }
-};
-
-export const clearQuery = (): types.QueryActionTypes => {
-    return {
-        type: types.CLEAR_QUERY
-    };
-};
+export const putQuery = createAction<string | undefined>('PUT_QUERY');
+export const clearQuery = createAction('CLEAR_QUERY');
 
 
-
-
-/******************************************************************************/
 /**************************** Song Search Results *****************************/
-/******************************************************************************/
-export const getSongSearch = (payload: types.RequestType): types.GetSongSearchActionType => {
-    return {
-        type: types.GET_SONG_SEARCH,
-        payload: { ...types.getRequestDefault, ...payload }
-    };
-};
-
-export const putSongSearch = (payload: types.SongSearchResultsType): types.SongSearchActionTypes => {
-    return {
-        type: types.PUT_SONG_SEARCH,
-        payload: {...types.songSearchResultsDefault, ...payload}
-    };
-};
-
-export const clearSongSearch = (): types.SongSearchActionTypes => {
-    return {
-        type: types.CLEAR_SONG_SEARCH
-    };
-};
+export const getSongSearch = createAction<types.RequestType | undefined>('GET_SONG_SEARCH');
+export const putSongSearch = createAction<types.SongSearchResultsType | undefined>('PUT_SONG_SEARCH');
+export const clearSongSearch = createAction('CLEAR_SONG_SEARCH');
 
 
-
-
-/******************************************************************************/
 /********************************** Song **************************************/
-/******************************************************************************/
-export const getSong = (payload: types.RequestType): types.GetSongActionType => {
-    return {
-        type: types.GET_SONG,
-        payload: { ...types.getRequestDefault, ...payload }
-    };
-};
-
-export const putSong = (payload: types.SongResultType): types.SongActionTypes => {
-    return {
-        type: types.PUT_SONG,
-        payload: {...types.songResultDefault, ...payload}
-    };
-};
-
-export const clearSong = (): types.SongActionTypes => {
-    return {
-        type: types.CLEAR_SONG
-    };
-};
+export const getSong = createAction<types.RequestType | undefined>('GET_SONG');
+export const putSong = createAction<types.SongResultType | undefined>('PUT_SONG');
+export const clearSong = createAction('CLEAR_SONG');
 
 
-
-
-/******************************************************************************/
 /************************* Artist Search Results ******************************/
-/******************************************************************************/
-export const getArtistSearch = (payload: types.RequestType): types.GetArtistSearchActionType => {
-    return {
-        type: types.GET_ARTIST_SEARCH,
-        payload: { ...types.getRequestPaginationDefault, ...payload }
-    };
-};
-
-export const putArtistSearch = (payload: types.ArtistSearchResultsType): 
-types.ArtistSearchActionTypes => {
-    return {
-        type: types.PUT_ARTIST_SEARCH,
-        payload: {...types.artistSearchResultsDefault, ...payload}
-    };
-};
-
-export const clearArtistSearch = (): types.ArtistSearchActionTypes => {
-    return {
-        type: types.CLEAR_ARTIST_SEARCH
-    };
-};
+export const getArtistSearch = createAction<types.RequestType | undefined>('GET_ARTIST_SEARCH');
+export const putArtistSearch = createAction<types.ArtistSearchResultsType | undefined>('PUT_ARTIST_SEARCH');
+export const clearArtistSearch = createAction('CLEAR_ARTIST_SEARCH');
 
 
-
-
-/******************************************************************************/
 /******************************** Artist **************************************/
-/******************************************************************************/
-export const getArtist = (payload: types.RequestType): types.GetArtistActionType => {
-    return {
-        type: types.GET_ARTIST,
-        payload: { ...types.getRequestDefault, ...payload }
-    };
-};
-
-export const putArtist = (payload: types.ArtistResultType): types.ArtistActionTypes => {
-    return {
-        type: types.PUT_ARTIST,
-        payload: { ...types.artistResultDefault, ...payload }
-    };
-};
-
-export const clearArtist = (): types.ArtistActionTypes => {
-    return {
-        type: types.CLEAR_ARTIST
-    };
-};
+export const getArtist = createAction<types.RequestType | undefined>('GET_ARTIST');
+export const putArtist = createAction<types.ArtistResultType | undefined>('PUT_ARTIST');
+export const clearArtist = createAction('CLEAR_ARTIST');

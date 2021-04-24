@@ -94,28 +94,28 @@ export function* getArtistWorker(payload: types.RequestType = types.getRequestDe
 /******************************* Watchers *************************************/
 export function* getSongSearchWatcher() {
     while (true) {
-        const { payload } = yield take(types.GET_SONG_SEARCH);
+        const { payload } = yield take(actions.getSongSearch.toString());
         yield call(getSongSearchWorker, payload)
     }
 }
 
 export function* getSongWatcher() {
     while (true) {
-        const { payload } = yield take(types.GET_SONG);
+        const { payload } = yield take(actions.getSong.toString());
         yield call(getSongWorker, payload)
     }
 }
 
 export function* getArtistSearchWatcher() {
     while (true) {
-        const { payload } = yield take(types.GET_ARTIST_SEARCH);
+        const { payload } = yield take(actions.getArtistSearch.toString());
         yield call(getArtistSearchWorker, payload)
     }
 }
 
 export function* getArtistWatcher() {
     while (true) {
-        const { payload } = yield take(types.GET_ARTIST);
+        const { payload } = yield take(actions.getArtist.toString());
         yield call(getArtistWorker, payload)
     }
 }
