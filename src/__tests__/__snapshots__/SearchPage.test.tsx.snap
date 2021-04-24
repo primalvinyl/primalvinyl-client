@@ -36,7 +36,6 @@ exports[`HomePage matches snapshot 1`] = `
         >
           <div
             className="searchForm"
-            data-myData="bling"
           >
             <div
               className="root"
