@@ -7,7 +7,7 @@ import * as types from '../store/types';
 describe('putQuery', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: types.PUT_QUERY,
+            type: actions.putQuery.toString(),
             payload: 'test'
         };
         const actualResult = actions.putQuery('test');
@@ -16,12 +16,12 @@ describe('putQuery', () => {
 })
 
 
-
+ 
 
 describe('getSongSearch', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: types.GET_SONG_SEARCH,
+            type: actions.getSongSearch.toString(),
             payload: {
                 query: '',
             }
@@ -33,7 +33,7 @@ describe('getSongSearch', () => {
 describe('putSongSearch', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: types.PUT_SONG_SEARCH,
+            type: actions.putSongSearch.toString(),
             payload: types.songSearchResultsDefault
         };
         const actualResult = actions.putSongSearch(types.songSearchResultsDefault);
@@ -47,7 +47,7 @@ describe('putSongSearch', () => {
 describe('getSong', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: types.GET_SONG,
+            type: actions.getSong.toString(),
             payload: {
                 query: ''
             }
@@ -59,7 +59,7 @@ describe('getSong', () => {
 describe('putSong', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: types.PUT_SONG,
+            type: actions.putSong.toString(),
             payload: types.songResultDefault
         };
         const actualResult = actions.putSong(types.songResultDefault);
@@ -73,7 +73,7 @@ describe('putSong', () => {
 describe('getArtistSearch', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: types.GET_ARTIST_SEARCH,
+            type: actions.getArtistSearch.toString(),
             payload: {
                 query: '',
                 page: 0,
@@ -87,7 +87,7 @@ describe('getArtistSearch', () => {
 describe('putArtistSearch', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: types.PUT_ARTIST_SEARCH,
+            type: actions.putArtistSearch.toString(),
             payload: types.artistSearchResultsDefault
         };
         const actualResult = actions.putArtistSearch(types.artistSearchResultsDefault);
@@ -101,7 +101,7 @@ describe('putArtistSearch', () => {
 describe('getArtist', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: types.GET_ARTIST,
+            type: actions.getArtist.toString(),
             payload: {
                 query: '',
                 page: 0,
@@ -115,7 +115,7 @@ describe('getArtist', () => {
 describe('putArtist', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: types.PUT_ARTIST,
+            type: actions.putArtist.toString(),
             payload: types.artistResultDefault
         };
         const actualResult = actions.putArtist(types.artistResultDefault);

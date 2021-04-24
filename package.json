@@ -10,6 +10,7 @@
         "saga"
     ],
     "dependencies": {
+        "@reduxjs/toolkit": "^1.5.1",
         "@types/enzyme": "^3.10.8",
         "@types/jest": "^26.0.15",
         "@types/node": "^14.14.6",

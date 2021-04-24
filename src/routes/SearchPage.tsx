@@ -1,12 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import {
     getSongSearch,
     clearSongSearch,
     getSong,
     clearSong
 } from '../store/actions';
-import { RootState } from '../store/reducers';
 import MasterTemplate from '../components/_MasterTemplate';
 import ProgressBar from '../components/presentation/ProgressBar';
 import SearchForm from '../components/SearchForm';
@@ -20,8 +19,8 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
     const songIdParameter = match && match.params && match.params.id;
 
     const dispatch = useDispatch();
-    const songResult = useSelector((state: RootState) => state.song);
-    const searchResults = useSelector((state: RootState) => state.songSearchResults);
+    const songResult = useSelector((state: RootStateOrAny) => state.song);
+    const searchResults = useSelector((state: RootStateOrAny) => state.songSearchResults);
 
     const renderSearchList =
         searchQueryParameter &&
@@ -56,7 +55,7 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
         <MasterTemplate>
             <div className={styles.root}>
                 <div className={styles.wrapper}>
-                    <div className={styles.searchForm} data-myData="bling">
+                    <div className={styles.searchForm}>
                         <SearchForm
                             searchSubmitHandler={searchSubmitHandler}
                             searchField={searchQueryParameter} />
