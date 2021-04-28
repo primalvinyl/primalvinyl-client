@@ -2,10 +2,12 @@ import React from 'react';
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import {
     getSongSearch,
-    clearSongSearch,
-    getSong,
-    clearSong
+    getSong
 } from '../store/actions';
+import {
+    songSearch,
+    song
+} from '../store/reducers';
 import MasterTemplate from '../components/_MasterTemplate';
 import ProgressBar from '../components/presentation/ProgressBar';
 import SearchForm from '../components/SearchForm';
@@ -20,7 +22,7 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
 
     const dispatch = useDispatch();
     const songResult = useSelector((state: RootStateOrAny) => state.song);
-    const searchResults = useSelector((state: RootStateOrAny) => state.songSearchResults);
+    const searchResults = useSelector((state: RootStateOrAny) => state.songSearch);
 
     const renderSearchList =
         searchQueryParameter &&
@@ -46,8 +48,8 @@ const SearchPage = ({ match, history }: SearchPageProps): React.ReactElement => 
 
     const searchSubmitHandler = (query: string) => {
         history.push(`/search/${query}`);
-        dispatch(clearSongSearch());
-        dispatch(clearSong());
+        dispatch(songSearch.actions.clearSongs());
+        dispatch(song.actions.clearSong());
         dispatch(getSongSearch({ query }));
     };
  

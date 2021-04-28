@@ -2,6 +2,7 @@ import { take, put, call, fork, all } from 'redux-saga/effects';
 import { getRequest } from './services';
 import * as actions from './actions';
 import * as types from './types';
+import * as reducers from './reducers';
 
 
 
@@ -10,16 +11,24 @@ import * as types from './types';
 export function* getSongSearchWorker(payload: types.RequestType = types.getRequestDefault): any {
     const { query } = payload;
     try {
-        yield put(actions.putQuery(query));
-        yield put(actions.putSongSearch({ ...types.songSearchResultsDefault, request_status: 'pending' }));
+        yield put(reducers.query.actions.putQuery(query));
+        // start request
+        yield put(reducers.songSearch.actions.putSongs({
+            ...types.songSearchResultsDefault,
+            request_status: 'pending'
+        }));
         // make request
         const response = yield call(
             getRequest,
             `/songs/search/${query}`
         );
-        yield put(actions.putSongSearch({ ...response, request_status: 'resolved' }));
+        // resolve request
+        yield put(reducers.songSearch.actions.putSongs({
+            ...response,
+            request_status: 'resolved'
+        }));
     } catch (error) {
-        yield put(actions.putSongSearch({
+        yield put(reducers.songSearch.actions.putSongs({
             ...types.songSearchResultsDefault,
             request_status: 'resolved',
             error: true
@@ -30,15 +39,23 @@ export function* getSongSearchWorker(payload: types.RequestType = types.getReque
 export function* getSongWorker(payload: types.RequestType = types.getRequestDefault): any {
     const { query } = payload;
     try {
-        yield put(actions.putSong({ ...types.songResultDefault, request_status: 'pending' }));
+        // start request
+        yield put(reducers.song.actions.putSong({
+            ...types.songResultDefault,
+            request_status: 'pending'
+        }));
         // make request
         const response = yield call(
             getRequest,
             `/songs/${query}`
         );
-        yield put(actions.putSong({ ...response, request_status: 'resolved' }));
+        // resolve request
+        yield put(reducers.song.actions.putSong({
+            ...response,
+            request_status: 'resolved'
+        }));
     } catch (error) {
-        yield put(actions.putSong({
+        yield put(reducers.song.actions.putSong({
             ...types.songResultDefault,
             request_status: 'resolved',
             error: true
@@ -51,16 +68,24 @@ export function* getArtistSearchWorker(
 ): any {
     const { query, page, per_page } = payload;
     try {
-        yield put(actions.putQuery(query));
-        yield put(actions.putArtistSearch({ ...types.artistSearchResultsDefault, request_status: 'pending' }));
+        yield put(reducers.query.actions.putQuery(query));
+        // start request
+        yield put(reducers.artistSearch.actions.putArtists({
+            ...types.artistSearchResultsDefault,
+            request_status: 'pending'
+        }));
         // make request
         const response = yield call(
             getRequest, 
             `/artists/search/${query}?page=${page}&per_page=${per_page}`
         );
-        yield put(actions.putArtistSearch({ ...response, request_status: 'resolved' }));
+        // resolve request
+        yield put(reducers.artistSearch.actions.putArtists({
+            ...response,
+            request_status: 'resolved'
+        }));
     } catch (error) {
-        yield put(actions.putArtistSearch({
+        yield put(reducers.artistSearch.actions.putArtists({
             ...types.artistSearchResultsDefault,
             request_status: 'resolved',
             error: true
@@ -71,16 +96,24 @@ export function* getArtistSearchWorker(
 export function* getArtistWorker(payload: types.RequestType = types.getRequestDefault): any {
     const { query } = payload;
     try {
-        yield put(actions.putQuery(query));
-        yield put(actions.putArtist({ ...types.artistResultDefault, request_status: 'pending' }));
+        yield put(reducers.query.actions.putQuery(query));
+        // start request
+        yield put(reducers.artist.actions.putArtist({
+            ...types.artistResultDefault,
+            request_status: 'pending'
+        }));
         // make request
         const response = yield call(
             getRequest,
             `/artists/${query}`
         );
-        yield put(actions.putArtist({ ...response, request_status: 'resolved' }));
+        // resolve request
+        yield put(reducers.artist.actions.putArtist({
+            ...response,
+            request_status: 'resolved'
+        }));
     } catch (error) {
-        yield put(actions.putArtist({
+        yield put(reducers.artist.actions.putArtist({
             ...types.artistResultDefault,
             request_status: 'resolved',
             error: true
