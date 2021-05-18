@@ -1,4 +1,5 @@
 import * as actions from '../store/actions';
+import * as reducers from '../store/reducers';
 import * as types from '../store/types';
 
 
@@ -7,16 +8,14 @@ import * as types from '../store/types';
 describe('putQuery', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actions.putQuery.toString(),
+            type: reducers.query.actions.putQuery.toString(),
             payload: 'test'
         };
-        const actualResult = actions.putQuery('test');
+        const actualResult = reducers.query.actions.putQuery('test');
         expect(actualResult).toEqual(expectedResult);
     })
 })
 
-
- 
 
 describe('getSongSearch', () => {
     it('returns an action object', () => {
@@ -30,18 +29,20 @@ describe('getSongSearch', () => {
         expect(actualResult).toEqual(expectedResult);
     })
 })
-describe('putSongSearch', () => {
+
+
+describe('putSongs', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actions.putSongSearch.toString(),
+            type: reducers.songSearch.actions.putSongs.toString(),
             payload: types.songSearchResultsDefault
         };
-        const actualResult = actions.putSongSearch(types.songSearchResultsDefault);
+        const actualResult = reducers.songSearch.actions.putSongs(
+            types.songSearchResultsDefault
+        );
         expect(actualResult).toEqual(expectedResult);
     })
 })
-
-
 
 
 describe('getSong', () => {
@@ -56,18 +57,18 @@ describe('getSong', () => {
         expect(actualResult).toEqual(expectedResult);
     })
 })
+
+
 describe('putSong', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actions.putSong.toString(),
+            type: reducers.song.actions.putSong.toString(),
             payload: types.songResultDefault
         };
-        const actualResult = actions.putSong(types.songResultDefault);
+        const actualResult = reducers.song.actions.putSong(types.songResultDefault);
         expect(actualResult).toEqual(expectedResult);
     })
 })
-
-
 
 
 describe('getArtistSearch', () => {
@@ -84,18 +85,20 @@ describe('getArtistSearch', () => {
         expect(actualResult).toEqual(expectedResult);
     })
 })
-describe('putArtistSearch', () => {
+
+
+describe('putArtists', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actions.putArtistSearch.toString(),
+            type: reducers.artistSearch.actions.putArtists.toString(),
             payload: types.artistSearchResultsDefault
         };
-        const actualResult = actions.putArtistSearch(types.artistSearchResultsDefault);
+        const actualResult = reducers.artistSearch.actions.putArtists(
+            types.artistSearchResultsDefault
+        );
         expect(actualResult).toEqual(expectedResult);
     })
 })
-
-
 
 
 describe('getArtist', () => {
@@ -112,13 +115,17 @@ describe('getArtist', () => {
         expect(actualResult).toEqual(expectedResult);
     })
 })
+
+
 describe('putArtist', () => {
     it('returns an action object', () => {
         const expectedResult = {
-            type: actions.putArtist.toString(),
+            type: reducers.artist.actions.putArtist.toString(),
             payload: types.artistResultDefault
         };
-        const actualResult = actions.putArtist(types.artistResultDefault);
+        const actualResult = reducers.artist.actions.putArtist(
+            types.artistResultDefault
+        );
         expect(actualResult).toEqual(expectedResult);
     })
 })

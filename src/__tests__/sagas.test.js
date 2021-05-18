@@ -12,7 +12,7 @@ describe('getSongSearchWorker', () => {
     it('gets and puts data', () => {
         axios.get.mockResolvedValueOnce({ data: mocks.mockApiSongSearchResults });
         return expectSaga(sagas.getSongSearchWorker)
-            .withReducer(reducers.songSearchResults)
+            .withReducer(reducers.songSearch.reducer)
             .run();
     });
 });
@@ -21,7 +21,7 @@ describe('getSongWorker', () => {
     it('gets and puts data', () => {
         axios.get.mockResolvedValueOnce({ data: mocks.mockApiSongResults });
         return expectSaga(sagas.getSongWorker)
-            .withReducer(reducers.song)
+            .withReducer(reducers.song.reducer)
             .run();
     });
 });
@@ -30,7 +30,7 @@ describe('getArtistSearchWorker', () => {
     it('gets and puts data', () => {
         axios.get.mockResolvedValueOnce({ data: mocks.mockApiArtistSearchResults });
         return expectSaga(sagas.getArtistSearchWorker)
-            .withReducer(reducers.artistSearchResults)
+            .withReducer(reducers.artistSearch.reducer)
             .run();
     });
 });
@@ -39,8 +39,8 @@ describe('getArtistWorker', () => {
     it('gets and puts data', () => {
         axios.get.mockResolvedValueOnce({ data: mocks.mockApiArtistResults });
         return expectSaga(sagas.getArtistWorker)
-            .put(actions.putArtist(mocks.mockReduxArtist))
-            .withReducer(reducers.artist)
+            .put(reducers.artist.actions.putArtist(mocks.mockReduxArtist))
+            .withReducer(reducers.artist.reducer)
             .hasFinalState(mocks.mockReduxArtist)
             .run();
     });
