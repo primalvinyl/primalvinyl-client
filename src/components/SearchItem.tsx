@@ -82,10 +82,12 @@ const SearchItem = ({ item: {
                     </section>
                     <div className={styles.contentRoot}>
                         <div className={styles.contentWrapper}>
-                            <section aria-labelledby="lyrics">
-                                <h3 id="lyrics">Lyrics</h3>
-                                <p dangerouslySetInnerHTML={ {__html: lyrics} }></p>
-                            </section>
+                            {lyrics &&
+                                <section aria-labelledby="lyrics">
+                                    <h3 id="lyrics">Lyrics</h3>
+                                    <p dangerouslySetInnerHTML={ {__html: lyrics} }></p>
+                                </section>
+                            }
                             {(media_soundcloud_track_id || media_spotify_track_id) &&
                                 <section aria-labelledby="listen">
                                     <h3 id="listen">Listen</h3>
