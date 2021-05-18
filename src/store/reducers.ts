@@ -28,7 +28,7 @@ export const song = createSlice({
     name: 'song',
     initialState: types.songResultDefault,
     reducers: {
-        putSong: (state, action) => action.payload,
+        putSong: (state, action) => ({ ...types.songResultDefault, ...action.payload }),
         clearSong: () => types.songResultDefault
     }
 });

@@ -61,22 +61,7 @@ exports[`SearchItem matches snapshot 1`] = `
       <div
         className="contentWrapper"
       >
-        <section
-          aria-labelledby="lyrics"
-        >
-          <h3
-            id="lyrics"
-          >
-            Lyrics
-          </h3>
-          <p
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "",
-              }
-            }
-          />
-        </section>
+        
         
       </div>
     </div>

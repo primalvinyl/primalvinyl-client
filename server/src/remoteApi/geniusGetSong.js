@@ -24,7 +24,7 @@ const getWebPage = path => {
         .then(response => response);
         // let route handle error and server response
 };
-
+ 
 
 
 module.exports = async (id) => {
@@ -55,10 +55,13 @@ module.exports = async (id) => {
     // get song lyrics 
     const lyricsResult = await getWebPage(urljoin(process.env.genius_endpoint, song.path));
     const lyricsNode = cheerio.load(lyricsResult, null, false);
-    const songLyrics = lyricsNode('.lyrics')
-        .html()
-        .replace(/\n/g, ' ')
-        .replace(/(\t)|(<a\b[^>]*>)|(<\/a>)|(<!--\b[^>]*-->)|(<!--\/\b[^>]*-->)|(\[.*?\]<br>)/g, '');
+    let songLyrics = '';
+    try {
+        songLyrics = lyricsNode('.lyrics')
+            .html()
+            .replace(/\n/g, ' ')
+            .replace(/(\t)|(<a\b[^>]*>)|(<\/a>)|(<!--\b[^>]*-->)|(<!--\/\b[^>]*-->)|(\[.*?\]<br>)/g, '');
+    } catch {};
 
     // get spotify track id
     let spotify_id = '';
