@@ -18,7 +18,7 @@ server.use((req, res, next) => setTimeout(next, 100));
 //route calls to static assets
 server.get(
     '/test-lyrics',
-    (req, res) => res.sendFile(path.join(__dirname, 'public', 'test-lyrics.html'))
+    (req, res) => res.sendFile(path.join(__dirname, 'public', 'test-lyrics02.html'))
 );
 
 server.get(
