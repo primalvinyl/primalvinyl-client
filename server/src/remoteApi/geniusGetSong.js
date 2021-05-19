@@ -57,7 +57,7 @@ module.exports = async (id) => {
     const lyricsNode = cheerio.load(lyricsResult, null, false);
     let songLyrics = '';
     try {
-        songLyrics = lyricsNode('.lyrics')
+        songLyrics = lyricsNode('div[class^="Lyrics__Container"]')
             .html()
             .replace(/\n/g, ' ')
             .replace(/(\t)|(<a\b[^>]*>)|(<\/a>)|(<!--\b[^>]*-->)|(<!--\/\b[^>]*-->)|(\[.*?\]<br>)/g, '');

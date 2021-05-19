@@ -6,8 +6,12 @@ describe('getSong', () => {
     it('should get and transform data', async () => {
         fetch
             .mockResolvedValueOnce({ json: () => Promise.resolve(mockGeniusSongObject) })
-            .mockResolvedValueOnce({ text: () => Promise.resolve('<p class="lyrics">test<p>')})
-            .mockResolvedValueOnce({ text: () => Promise.resolve('<meta property="twitter:app:url:iphone" content="test">')});
+            .mockResolvedValueOnce({ text: () => Promise.resolve(
+                '<div class="Lyrics__Container">test</div>'
+            )})
+            .mockResolvedValueOnce({ text: () => Promise.resolve(
+                '<meta property="twitter:app:url:iphone" content="test">'
+            )});
         const response = await getSong('test');
         expect(fetch).toHaveBeenCalledTimes(3);
         expect(response).toStrictEqual(mockSongObject);
